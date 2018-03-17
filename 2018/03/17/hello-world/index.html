@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://meetmax.github.io">
-  <title>Redis应用场景浅析 | MeetMax</title>
+  <title>Hello World | MeetMax</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="String–字符串redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。">
+  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis应用场景浅析">
-<meta property="og:url" content="https://meetmax.github.io/2018/03/17/Redis应用场景浅析/index.html">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="https://meetmax.github.io/2018/03/17/hello-world/index.html">
 <meta property="og:site_name" content="MeetMax">
-<meta property="og:description" content="String–字符串redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。">
-<meta property="og:updated_time" content="2018-03-17T13:44:35.304Z">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:updated_time" content="2018-03-17T09:23:38.109Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis应用场景浅析">
-<meta name="twitter:description" content="String–字符串redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。">
+<meta name="twitter:title" content="Hello World">
+<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
   
     <link rel="alternative" href="/atom.xml" title="MeetMax" type="application/atom+xml">
   
@@ -151,49 +151,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Redis应用场景浅析" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Redis应用场景浅析
+      Hello World
     </h1>
   
 
         
-        <a href="/2018/03/17/Redis应用场景浅析/" class="archive-article-date">
-  	<time datetime="2018-03-17T13:00:09.478Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-17</time>
+        <a href="/2018/03/17/hello-world/" class="archive-article-date">
+  	<time datetime="2018-03-17T09:23:38.109Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="String–字符串"><a href="#String–字符串" class="headerlink" title="String–字符串"></a>String–字符串</h3><p>redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。</p>
-<h3 id="Hash–哈希"><a href="#Hash–哈希" class="headerlink" title="Hash–哈希"></a>Hash–哈希</h3><p>哈希表是redis中很有用的数据结构，有时候我们需要存储结构话的数据，例如用户的登录信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">uid:1 // 用户uid</span><br><span class="line">username:xxx // 用户名</span><br><span class="line">age:18 // 年龄</span><br><span class="line">head:xxx //头像</span><br></pre></td></tr></table></figure></p>
-<h4 id="String模式"><a href="#String模式" class="headerlink" title="String模式"></a>String模式</h4><p>按照普通缓存的模式，存储这个结构需要先将其序列化，转换成json字符串，以<code>user-uid</code>为键名，这样做有个问题，假如说现在需要修改<code>head</code>字段，我需要经历如下步骤：</p>
-<ol>
-<li>根据键名<code>user-1</code>获取到<code>json</code>字符串</li>
-<li>解析<code>json</code></li>
-<li>修改结构体中的<code>head</code>字段</li>
-<li>再次序列化成<code>json</code></li>
-<li><code>set key</code> 存储</li>
-</ol>
-<h4 id="Hash模式"><a href="#Hash模式" class="headerlink" title="Hash模式"></a>Hash模式</h4><p>接下来使用<code>Hash</code>来存储，使用<code>HMSET</code>命令存储所有字段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HMSET user-1 uid 1 username xxx age 18 head:xxx</span><br></pre></td></tr></table></figure></p>
-<p>这时候需要修改字段<code>head</code>仅需一条命令即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HSET user-1 head zzz</span><br></pre></td></tr></table></figure></p>
-<p>相比之下是不是简单了很多，<code>Hash模式</code>不仅操作大大简化，而且节省了<code>String模式</code>中大量的序列化和反序列化的性能消耗。</p>
-<h3 id="List-–-列表"><a href="#List-–-列表" class="headerlink" title="List – 列表"></a>List – 列表</h3><p><code>List</code>在<code>redis</code>中的应用也比较广泛，最典型的就是消息队列，在某些高并发场景下，由于<code>mysql</code>存储介质为磁盘，在写入性能上由于磁盘的读写速度限制，它的写入速度可能达不到要求。但是<code>redis</code>不一样，redis是完全基于内存数据库<code>nosql</code>，没有<code>I/O</code>瓶颈，写入和读取速度都非常快，这也是<code>redis</code>流行的原因。假设现在要做一个商城的秒杀活动，在同一时刻必然会有大量的订单提交操作，mysql可能来不及写入，会导致其它用户阻塞，糟糕的情况下甚至系统奔溃，影响用户体验。在这种场景下就可以通过消息队列来处理，即：</p>
-<ol>
-<li>先把提交的订单信息写入消息队列，可通过<code>LPUSH</code>和<code>RPOP</code>命令实现<code>入队</code>和<code>出队</code>的操作。</li>
-<li>通过异步程序将订单存储到<code>mysql</code></li>
-</ol>
-<p>另一种场景是可作为<code>IM</code>聊天系统的<code>timeline</code>模型，即每个用户对应一个<code>timeline</code>模型，根据时间顺序排列，每个用户通过<code>timeline</code>获取消息</p>
-<h3 id="Set-–-集合"><a href="#Set-–-集合" class="headerlink" title="Set – 集合"></a>Set – 集合</h3><p>集合和<code>List</code>的类似，区别是集合是可以自动排重的，且集合是无序的。例如：存储某个用户的所有粉丝和所有的好友等。</p>
-<h3 id="Sorted-Set-有序集合"><a href="#Sorted-Set-有序集合" class="headerlink" title="Sorted Set 有序集合"></a>Sorted Set 有序集合</h3><p>有序集合根据<code>score</code>字段来排序，通过<code>ZADD</code>可添加一个有序集合，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZADD page_rank 10 google.com</span><br></pre></td></tr></table></figure></p>
-<p>上面命令的意思是在<code>page_rank</code>集合中添加字符串<code>google.com</code>，<code>score</code>为<code>10</code>。<br>有序集合可用来数据分页，例如我们查询用户积分前100名的用户，每页20条展示，通过<br><code>ZRANGE key start stop [WITHSCORES]</code>命令可实现分页，时间复杂度为<code>O(log(N)+M)</code>，<br>在数据量大，查询比较耗时，可大大提高web的性能。</p>
-<h3 id="Pub-Sub-–-发布-订阅"><a href="#Pub-Sub-–-发布-订阅" class="headerlink" title="Pub/Sub – 发布 / 订阅"></a>Pub/Sub – 发布 / 订阅</h3><p>发布订阅模式通过发布和订阅发送和接收消息，例如A和B订阅(<code>subscribe</code>)了频道<code>news.it</code>，这时候C向改频道发送(<code>publish</code>)一条信息<code>hello</code>，这时候A和B会收到这条消息，这就是最简单的发布订阅模式，A和B也可以订阅别的频道，可以接受来自不同频道的信息，注意这里的A和B是长连接，<code>PUBSUB CHANNELS</code>命令可查看当前活跃的频道。这个功能最典型应用就是<code>IM</code>系统，广播等场景，但是<code>redis</code>发布和订阅没有确认的过程，消息发出就没了，不管有没有收到，在实际场景中可能会选择别的方案。</p>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
       
 
@@ -273,7 +259,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://meetmax.github.io/2018/03/17/Redis应用场景浅析/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://meetmax.github.io/2018/03/17/hello-world/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,9 +273,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/03/17/Redis应用场景浅析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Redis应用场景浅析
+        
+      </div>
+    </a>
   
-    <a href="/2018/03/17/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+  
+    <a href="/2018/02/01/进程间通信/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -317,7 +312,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Redis应用场景浅析" data-title="Redis应用场景浅析" data-url="https://meetmax.github.io/2018/03/17/Redis应用场景浅析/"></div>
+	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="https://meetmax.github.io/2018/03/17/hello-world/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
