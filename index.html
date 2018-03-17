@@ -156,22 +156,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/17/Redis应用场景浅析/">Redis应用场景浅析</a>
+      <a class="article-title" href="/2018/03/16/Redis应用场景浅析/">Redis应用场景浅析</a>
     </h1>
   
 
         
-        <a href="/2018/03/17/Redis应用场景浅析/" class="archive-article-date">
-  	<time datetime="2018-03-17T13:00:09.478Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-17</time>
+        <a href="/2018/03/16/Redis应用场景浅析/" class="archive-article-date">
+  	<time datetime="2018-03-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="String–字符串"><a href="#String–字符串" class="headerlink" title="String–字符串"></a>String–字符串</h3><p>redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。<br>
-        
-          <a class="article-more-a" href="/2018/03/17/Redis应用场景浅析/#more">more >></a>
+        <h3 id="String–字符串"><a href="#String–字符串" class="headerlink" title="String–字符串"></a>String–字符串</h3><p>redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。</p>
+<h3 id="Hash–哈希"><a href="#Hash–哈希" class="headerlink" title="Hash–哈希"></a>Hash–哈希</h3><p>哈希表是redis中很有用的数据结构，有时候我们需要存储结构话的数据，例如用户的登录信息<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">uid:1 // 用户uid</span><br><span class="line">username:xxx // 用户名</span><br><span class="line">age:18 // 年龄</span><br><span class="line">head:xxx //头像</span><br></pre></td></tr></table></figure></p>
         
       
 
@@ -180,82 +179,26 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nosql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/17/Redis应用场景浅析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/17/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/17/hello-world/" class="archive-article-date">
-  	<time datetime="2018-03-17T09:23:38.109Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/17/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/16/Redis应用场景浅析/">展开全文 >></a>
         </p>
       
 
@@ -288,9 +231,24 @@
     <article id="post-进程间通信" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/20/进程间通信/">Unix进程间通信(IPC)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/20/进程间通信/" class="archive-article-date">
+  	<time datetime="2018-02-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-20</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unix进程间通信-IPC"><a href="#Unix进程间通信-IPC" class="headerlink" title="Unix进程间通信(IPC)"></a>Unix进程间通信(IPC)</h1><h3 id="IPC概念"><a href="#IPC概念" class="headerlink" title="IPC概念:"></a>IPC概念:</h3><blockquote>
+        <h3 id="IPC概念"><a href="#IPC概念" class="headerlink" title="IPC概念:"></a>IPC概念:</h3><blockquote>
 <p><strong>进程间通信</strong>（<strong>IPC</strong>，<em>Inter-Process Communication</em>），指至少两个<a href="https://zh.wikipedia.org/wiki/%E8%BF%9B%E7%A8%8B" target="_blank" rel="noopener">进程</a>或<a href="https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B" target="_blank" rel="noopener">线程</a>间传送数据或信号的一些技术或方法。进程是<a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">计算机系统</a>分配资源的最小单位(严格说来是线程)。每个进程都有自己的一部分独立的系统资源，彼此是隔离的。为了能使不同的进程互相访问资源并进行协调工作，才有了进程间通信。举一个典型的例子，使用进程间通信的两个应用可以被分类为客户端和服务器（见<strong>主从式架构</strong>），客户端进程请求数据，服务端回复客户端的数据请求。有一些应用本身既是服务器又是客户端，这在<strong>分布式计算</strong>中，时常可以见到。这些<a href="https://zh.wikipedia.org/wiki/%E8%BF%9B%E7%A8%8B" target="_blank" rel="noopener">进程</a>可以运行在同一计算机上或网络连接的不同计算机上。</p>
 <p>进程间通信技术包括消息传递、同步、共享内存和<a href="https://zh.wikipedia.org/wiki/%E8%BF%9C%E7%A8%8B%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8" target="_blank" rel="noopener">远程过程调用</a>。IPC是一种标准的<a href="https://zh.wikipedia.org/wiki/Unix" target="_blank" rel="noopener">Unix</a>通信机制。</p>
 <p>使用IPC 的理由：</p>
@@ -303,147 +261,8 @@
 <p>与直接共享内存地址空间的<a href="https://zh.wikipedia.org/wiki/%E5%A4%9A%E7%BA%BF%E7%A8%8B" target="_blank" rel="noopener">多线程编程</a>相比，IPC的缺点：<a href="https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B%E9%96%93%E9%80%9A%E8%A8%8A#cite_note-1" target="_blank" rel="noopener">[1]</a></p>
 <ul>
 <li>采用了某种形式的内核开销，降低了性能;</li>
-<li>几乎大部分IPC都不是程序设计的自然扩展，往往会大大地增加程序的复杂度。</li>
-</ul>
-</blockquote>
-<h2 id="一、管道"><a href="#一、管道" class="headerlink" title="一、管道"></a>一、管道</h2><h4 id="1、特点："><a href="#1、特点：" class="headerlink" title="1、特点："></a>1、特点：</h4><ol>
-<li><p>管道是一种半双工的通信方式(即数据只能单向流动)，也有部分系统上实现了全双工的管道，出于程序可移植性考虑，建议使用半双工管道，全双工的通信可由其它方式实现，例如：消息队列，Unix域套接字。</p>
-</li>
-<li><p>管道分为两种，无名管道和有名管道。</p>
-<ul>
-<li><strong>无名管道：</strong></li>
-</ul>
-<p>最早出现的管道是没有名字的，因此只能用于父子进程间通信，父进程通过<code>fork()</code>系统调用创建一个子进程，然后通过管道通信。</p>
-<ul>
-<li><strong>有名管道(FIFO):</strong></li>
-</ul>
-<p>有名管道也叫<strong>FIFO</strong>，由于磁盘中存在实际的管道文件，前者没有，所以叫有名管道。<code>FIFO</code>的意思是(first in ,first out)，先进先出。FIFO是一个(单向的)半双工数据流，不同于普通管道的是，每个FIFO都有一个对应文件的路径名与之关联，因此它能完成多个无亲缘关系进程之间的通信。</p>
-</li>
-<li><p>FIFO和无名管道的数据都存在内核的内存缓冲区中，大小一般为一页(4K)。不同的是，FIFO将内核缓冲区的数据映射到了实际的文件节点，可以在磁盘中看到对应的文件，所以叫<strong>有名管道</strong>，而无名管道在磁盘中没有对应文件，因此称<strong>无名管道</strong>。</p>
-</li>
-<li><p>无名管道通过<code>&lt;unistd.h&gt;</code>头文件中的<code>pipe()</code>创建，有名管道(FIFO)通过<code>&lt;sys/stat.h&gt;</code>中的<code>mkfifo()</code>创建。</p>
-</li>
-<li><p>管道通过<code>read()</code>和<code>write()</code>进行读写操作，管道内核缓冲区中的数据一旦被取走，管道中将不存在。当内核缓冲区满的时候，<code>write()</code>写操作将被阻塞，直到缓冲区有空闲再继续。同理，当缓冲区数据为空时，<code>read()</code>操作将阻塞，直到有新数据时再返回。</p>
-</li>
-<li><p>当进程终止时，管道就完全被删除了。</p>
-</li>
-</ol>
-<ul>
-<li>###无名管道</li>
-</ul>
-<h4 id="1、过程"><a href="#1、过程" class="headerlink" title="1、过程"></a>1、过程</h4><ol>
-<li><p>创建管道</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line">pipe(<span class="keyword">int</span> fd[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过<code>fork()</code>创建子进程</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回值 &gt;=0:成功 &lt;0:错误</span></span><br><span class="line"><span class="comment">// 如果是父进程则返回子进程 id,子进程则返回 0</span></span><br><span class="line">fork()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>read()</code>和<code>write()</code>读写缓冲区的数据</p>
-</li>
-</ol>
-<h4 id="2、例子"><a href="#2、例子" class="headerlink" title="2、例子"></a>2、例子</h4><ul>
-<li><em>pipe.c</em></li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd[<span class="number">2</span>];	<span class="comment">// 管道描述符</span></span><br><span class="line">    <span class="keyword">pid_t</span> pid;	<span class="comment">// 进程id</span></span><br><span class="line">    <span class="keyword">char</span> buff[<span class="number">20</span>];	<span class="comment">// 缓冲区长度</span></span><br><span class="line">    <span class="keyword">if</span>(pipe(fd) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"创建管道失败\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pid = fork();	<span class="comment">// 创建子进程</span></span><br><span class="line">    <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"fork()失败\n"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (pid &gt; <span class="number">0</span>)&#123;	<span class="comment">// 大于0为主进程</span></span><br><span class="line">        close(fd[<span class="number">0</span>]);	<span class="comment">// 关闭主进程读端</span></span><br><span class="line">        write(fd[<span class="number">1</span>],<span class="string">"hello world\n"</span>,<span class="number">12</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123; 	<span class="comment">// 小于0为子进程</span></span><br><span class="line">        close(fd[<span class="number">1</span>]); 	<span class="comment">// 关闭子进程写端</span></span><br><span class="line">        sleep(<span class="number">2</span>);</span><br><span class="line">		read(fd[<span class="number">0</span>], buff, <span class="number">20</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"读到的数据：%s\n"</span>, buff);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="有名管道FIFO"><a href="#有名管道FIFO" class="headerlink" title="有名管道FIFO"></a>有名管道FIFO</h3></li>
-</ul>
-<h4 id="1、过程-1"><a href="#1、过程-1" class="headerlink" title="1、过程"></a>1、过程</h4><ol>
-<li>按以下示例，先运行<code>read_fifo.c</code>，创建管道文件(<strong>注意:</strong> 此时管道文件必须不存在，否则会出错)。</li>
-<li>因为此时管道中还没有数据，<code>read()</code>处于阻塞状态，等待数据。</li>
-<li>再运行<code>write_fifo.c</code>，向管道中写入数据，此时<code>read()</code>打印<code>write_fifo.c</code>写入的数据。</li>
-</ol>
-<h4 id="2、例子-1"><a href="#2、例子-1" class="headerlink" title="2、例子"></a>2、例子</h4><ul>
-<li><em>read_fifo.c</em></li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd,len;</span><br><span class="line">    <span class="keyword">char</span> buff[<span class="number">1024</span>];	<span class="comment">//管道缓冲区大小</span></span><br><span class="line">  <span class="keyword">if</span>(mkfifo(<span class="string">"/Users/meetmax/CWork/fifo1"</span>, <span class="number">0666</span>) &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;		<span class="comment">// 创建FIFO管道,此时`fif01`文件必须不存在，否则报错</span></span><br><span class="line">    	perror(<span class="string">"Create FIFO Failed"</span>);</span><br><span class="line">    	<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125; </span><br><span class="line">  </span><br><span class="line">	<span class="keyword">if</span>((fd = open(<span class="string">"/Users/meetmax/CWork/fifo1"</span>, O_RDONLY)) &lt; <span class="number">0</span>) </span><br><span class="line">	&#123; 	<span class="comment">// 以只读模式打开FIFO，和打开普通文件一样</span></span><br><span class="line">		perror(<span class="string">"Open FIFO Failed"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	 <span class="comment">// 如果管道中有数据，读取FIFO管道</span></span><br><span class="line">	<span class="keyword">while</span>((len = read(fd, buff, <span class="number">1024</span>)) &gt; <span class="number">0</span>)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Read message: %s"</span>, buff);</span><br><span class="line"></span><br><span class="line">	close(fd);  <span class="comment">// 关闭FIFO文件</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><em>write_fifo.c</em></li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;   // exit</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fcntl.h&gt;    // O_WRONLY</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;     // time</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> fd;</span><br><span class="line">	<span class="keyword">int</span> n, i;</span><br><span class="line">	<span class="keyword">char</span> buf[<span class="number">1024</span>];</span><br><span class="line">	<span class="keyword">time_t</span> tp;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"I am %d process.\n"</span>, getpid()); <span class="comment">// 说明进程ID</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>((fd = open(<span class="string">"/Users/meetmax/CWork/fifo1"</span>, O_WRONLY)) &lt; <span class="number">0</span>) </span><br><span class="line">      <span class="comment">// 以写打开一个FIFO </span></span><br><span class="line">	&#123;</span><br><span class="line">		perror(<span class="string">"Open FIFO Failed"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">10</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		time(&amp;tp);  <span class="comment">// 取系统当前时间</span></span><br><span class="line">		n=<span class="built_in">sprintf</span>(buf,<span class="string">"Process %d's time is %s"</span>,getpid(),ctime(&amp;tp));</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Send message: %s"</span>, buf); <span class="comment">//	打印</span></span><br><span class="line">		<span class="keyword">if</span>(write(fd, buf, n+<span class="number">1</span>) &lt; <span class="number">0</span>)  <span class="comment">// 写入到FIFO中</span></span><br><span class="line">		&#123;</span><br><span class="line">			perror(<span class="string">"Write FIFO Failed"</span>);</span><br><span class="line">			close(fd);</span><br><span class="line">			<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		sleep(<span class="number">1</span>);  <span class="comment">// 休眠1秒</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	close(fd);  <span class="comment">// 关闭FIFO文件</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="XIS-IPC-基于System-V-的IPC函数"><a href="#XIS-IPC-基于System-V-的IPC函数" class="headerlink" title="XIS IPC(基于System V 的IPC函数)"></a>XIS IPC(基于System V 的IPC函数)</h2><p>除管道外，还有3种IPC的进程间的通信，分别为：消息队列、信号量和共享内存。这3个IPC有两种实现方式，分别为基于<strong>System V</strong>和<strong>POSIX</strong>的进程间通信。</p>
-<ul>
-<li><em>维基百科</em></li>
-</ul>
-<p><strong>System V</strong></p>
-<blockquote>
-<p><strong>UNIX系统五</strong><a href="https://zh.wikipedia.org/wiki/Wikipedia:%E5%88%97%E6%98%8E%E6%9D%A5%E6%BA%90" target="_blank" rel="noopener">[来源请求]</a>（英语：UNIX System V），是<a href="https://zh.wikipedia.org/wiki/Unix" target="_blank" rel="noopener">Unix</a><a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">操作系统</a>众多版本中的一支。它最初由<a href="https://zh.wikipedia.org/wiki/AT%26T" target="_blank" rel="noopener">AT&amp;T</a>开发，在1983年第一次发布，因此也被称为<strong>AT&amp;T System V</strong>。</p>
-</blockquote>
-<p><strong>POSIX</strong></p>
-<blockquote>
-<p><strong>可移植操作系统接口</strong>（英语：Portable Operating System Interface，缩写为<strong>POSIX</strong>），是<a href="https://zh.wikipedia.org/wiki/IEEE" target="_blank" rel="noopener">IEEE</a>为要在各种<a href="https://zh.wikipedia.org/wiki/UNIX" target="_blank" rel="noopener">UNIX</a><a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">操作系统</a>上运行软件，而定义<a href="https://zh.wikipedia.org/wiki/API" target="_blank" rel="noopener">API</a>的一系列互相关联的标准的总称，其正式称呼为IEEE Std 1003，而国际标准名称为<a href="https://zh.wikipedia.org/wiki/ISO" target="_blank" rel="noopener">ISO</a>/<a href="https://zh.wikipedia.org/wiki/IEC" target="_blank" rel="noopener">IEC</a> 9945。</p>
-</blockquote>
-<p>System V 出现比 POSIX 要早，可以说POSIX是对System V的改进，POSIX API使用比前者更加简单高效，但是为什么两者仍然同时存在呢？还是一个移植性的问题，虽然现在新的程序都基于POSIX标准，但是仍然有很多旧的程序使用了基于System V的IPC，因此两者都保留了。本文的IPC基于System V的IPC函数。</p>
-<h2 id="二、消息队列"><a href="#二、消息队列" class="headerlink" title="二、消息队列"></a>二、消息队列</h2><h3 id="1、特点"><a href="#1、特点" class="headerlink" title="1、特点"></a>1、特点</h3><ol>
-<li>消息队列是消息的链表，存储在内核中，由消息队列标识符标识。</li>
-<li>消息队列是随内核持续的，进程终止时，消息队列及其内容不会被删除，除非内核重启或者调用<code>msgctl()</code>显式的删除消息队列。</li>
-<li>消息队列没有维护引用计数器(打开文件有这种计数器)，所以队列被删除后，仍在使用该队列的进程会出错返回。</li>
-</ol>
-<h3 id="2、过程"><a href="#2、过程" class="headerlink" title="2、过程"></a>2、过程</h3><ol>
-<li>先定义消息队列结构<code>struct msg_form</code>，每条消息都包含：<ul>
-<li>消息队列类型：<code>long</code>类型的<code>mtype</code></li>
-<li>消息数据：<code>char *</code>类型的字符串</li>
-</ul>
-</li>
-<li>通过文件的路径名和项目ID(0~255之间)，调用<code>ftok()</code>获取IPC，获取key值。创建<code>XSI IPC</code>结构都应指定一个键，这个键的数据类型是系统数据类型key_t，通常在头文件<code>&lt;sys/types.h&gt;</code>中定义。</li>
-<li>接着调用<code>msgget()</code>函数，使用key作为其中一个参数，由内核将<code>key</code>变成IPC的标识符，在这里就是消息队列ID。</li>
-<li>拿到IPC标识符后，通过<code>msgsnd()</code>和<code>msgrcv()</code>分别发送和接收消息。</li>
-</ol>
-<h3 id="3、示例"><a href="#3、示例" class="headerlink" title="3、示例"></a>3、示例</h3><ul>
-<li><em>msg_client.c</em></li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MSG_FILE <span class="meta-string">"/Users/meetmax/CWork/msg_file"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 消息结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">msg_form</span> &#123;</span></span><br><span class="line">    <span class="keyword">long</span> mtype;    </span><br><span class="line">	<span class="keyword">char</span> mtext[<span class="number">256</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> msqid;	<span class="comment">// 消息队列id</span></span><br><span class="line">    <span class="keyword">key_t</span> key;	<span class="comment">// 键值</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">msg_form</span> <span class="title">msg</span>;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取key值</span></span><br><span class="line">    <span class="keyword">if</span>((key = ftok(MSG_FILE,<span class="number">100</span>)) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        perror(<span class="string">"获取key值失败\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"key 值为： %d"</span>,key);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>((msqid = msgget(key,IPC_CREAT|<span class="number">0777</span>)) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        perror(<span class="string">"获取消息队列失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"消息队列id: %d \n"</span>,msqid);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"进程id: %d \n"</span>,getpid());</span><br><span class="line"></span><br><span class="line">    msg.mtype = <span class="number">888</span>;	<span class="comment">// 设置消息类型</span></span><br><span class="line">    <span class="built_in">sprintf</span>(msg.mtext,<span class="string">"hello,I'm client %d\n"</span>,getpid());</span><br><span class="line">    msgsnd(msqid,&amp;msg,<span class="keyword">sizeof</span>(msg.mtext),<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取777类型的消息</span></span><br><span class="line">	msgrcv(msqid, &amp;msg, <span class="number">256</span>, <span class="number">999</span>, <span class="number">0</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Client: receive msg.mtext is: %s.\n"</span>, msg.mtext);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Client: receive msg.mtype is: %ld.\n"</span>, msg.mtype);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><em>msg_server.c</em></li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MSG_FILE <span class="meta-string">"/Users/meetmax/CWork/msg_file"</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">msg_form</span>&#123;</span></span><br><span class="line">    <span class="keyword">long</span> mtype;</span><br><span class="line">    <span class="keyword">char</span> mtext[<span class="number">256</span>];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> msqid;</span><br><span class="line">    <span class="keyword">key_t</span> key;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">msg_form</span> <span class="title">msg</span>;</span></span><br><span class="line">    <span class="comment">//获取key值</span></span><br><span class="line">    <span class="keyword">if</span>((key = ftok(MSG_FILE,<span class="number">100</span>)) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        perror(<span class="string">"获取key失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//打印key值</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"key的值为 %d \n"</span>,key);</span><br><span class="line">    <span class="comment">//根据key值创建消息队列</span></span><br><span class="line">    <span class="keyword">if</span>((msqid = msgget(key,IPC_CREAT|<span class="number">0777</span>)) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        perror(<span class="string">"创建消息队列失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"消息队列id为 : %d \n"</span>,msqid);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"进程id为 : %d \n"</span>,getpid());</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//接受888类型的消息        </span></span><br><span class="line">        msgrcv(msqid,&amp;msg,<span class="number">256</span>,<span class="number">888</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Server:receive msg.mtext: %s \n"</span>,msg.mtext);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Server:receive msg.xxx: %ld \n"</span>,msg.mtype);</span><br><span class="line">        msg.mtype = <span class="number">999</span>;</span><br><span class="line">        <span class="built_in">sprintf</span>(msg.mtext,<span class="string">"hello I'm server: %d \n"</span>,getpid());</span><br><span class="line">        <span class="comment">//发送消息</span></span><br><span class="line">        msgsnd(msqid,&amp;msg,<span class="keyword">sizeof</span>(msg.mtext),<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="三、信号量"><a href="#三、信号量" class="headerlink" title="三、信号量"></a>三、信号量</h2><h3 id="1、特点-1"><a href="#1、特点-1" class="headerlink" title="1、特点"></a>1、特点</h3><ol>
-<li><p>信号量类似锁机制，能够使临界区内的资源在某一时刻只能被一个进程访问。临界区是指多个进程或线程共享的内存空间，在访问临界区的时候，多个进程操作同一个资源，此时就存在竞态条件，通常在两个进程对同一个资源写操作时，会产生结果不一致的问题，因为我们不知道系统进程何时切换，这种情况也很难复现和调试。必须有一种机制来保证在同一时刻只能有一个进程访问临界区，信号量就提供了这种机制。</p>
-</li>
-<li><p>信号量是一种特殊的变量，程序对它的访问都是<strong>原子操作</strong>，所谓原子操作，即是指不可被中断的操作，要实现原子操作单纯软件是不够的。虽然也能实现，但是效率很低，信号量是一种和硬件紧密结合的机制，它不会被系统进程切换和中断操作打断。本文以<strong>二值信号量</strong>为例子，二值信号量能实现互斥锁的功能，保证同一时间只能一个进程访问资源。</p>
-</li>
-<li><p>信号量的P,V操作</p>
-<p><em>来自维基百科</em></p>
-</li>
-</ol>
-<blockquote>
-<p>计数信号量具备两种操作动作，之前称为 V（又称signal()）与 P（wait()）。 V操作会增加信号量 S的数值，P操作会减少它。</p>
-<p>运作方式：</p>
-<ol>
-<li>初始化，给与它一个非负数的整数值。</li>
-<li>运行 P（wait()），信号量S的值将被减少。企图进入<a href="https://zh.wikipedia.org/wiki/%E8%87%A8%E7%95%8C%E5%8D%80%E6%AE%B5" target="_blank" rel="noopener">临界区块</a>的进程，需要先运行 P（wait()）。当信号量S减为负值时，进程会被挡住，不能继续；当信号量S不为负值时，进程可以获准进入临界区块。</li>
-<li>运行 V（又称signal()），信号量S的值会被增加。结束离开<a href="https://zh.wikipedia.org/wiki/%E8%87%A8%E7%95%8C%E5%8D%80%E6%AE%B5" target="_blank" rel="noopener">临界区块</a>的进程，将会运行 V（又称signal()）。当信号量S不为负值时，先前被挡住的其他进程，将可获准进入<a href="https://zh.wikipedia.org/wiki/%E8%87%A8%E7%95%8C%E5%8D%80%E6%AE%B5" target="_blank" rel="noopener">临界区块</a>。</li>
-</ol>
-</blockquote>
-<h3 id="2、过程-1"><a href="#2、过程-1" class="headerlink" title="2、过程"></a>2、过程</h3><ol>
-<li>获取<code>key</code>值(同消息队列)</li>
-<li>获取信号量ID(同消息队列)</li>
-<li><code>semctl()</code>函数初始化信号量</li>
-<li><code>fork()</code>子进程</li>
-<li>执行P,V操作</li>
-</ol>
-<h3 id="3、例子"><a href="#3、例子" class="headerlink" title="3、例子"></a>3、例子</h3><p><em>sem.c 二值信号量</em></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/sem.h&gt; // 信号量函数库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SEM_FILE <span class="meta-string">"/Users/meetmax/CWork/sem_file"</span> <span class="comment">// 信号量文件</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">union</span> sem_union <span class="comment">//信号量联合</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">semid_ds</span> *<span class="title">buf</span>;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">short</span> *<span class="built_in">array</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化信号量</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">init_sem</span><span class="params">(<span class="keyword">int</span> sem_id,<span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">union</span> sem_union tmp;</span><br><span class="line">    tmp.val = val;</span><br><span class="line">    <span class="keyword">if</span>((semctl(sem_id,<span class="number">0</span>,SETVAL,tmp)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"初始化信号量失败"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * P操作</span></span><br><span class="line"><span class="comment"> * 信号量大于0时执行 -1 操作，获取资源</span></span><br><span class="line"><span class="comment"> * 若信号量 &lt;= 0 则挂起等待</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sem_p</span><span class="params">(<span class="keyword">int</span> sem_id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sembuf</span> <span class="title">sbuf</span>;</span></span><br><span class="line">    sbuf.sem_num = <span class="number">0</span>;</span><br><span class="line">    sbuf.sem_op = <span class="number">-1</span>;</span><br><span class="line">    sbuf.sem_flg = SEM_UNDO;</span><br><span class="line">    <span class="keyword">if</span>(semop(sem_id,&amp;sbuf,<span class="number">1</span>) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"p操作失败"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * V操作</span></span><br><span class="line"><span class="comment"> * 信号量 &lt;= 0时执行，+1操作，释放资源</span></span><br><span class="line"><span class="comment"> * 若信号量 &gt; 0 时挂起等待</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sem_v</span><span class="params">(<span class="keyword">int</span> sem_id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sembuf</span> <span class="title">sbuf</span>;</span></span><br><span class="line">    sbuf.sem_num = <span class="number">0</span>;</span><br><span class="line">    sbuf.sem_op = <span class="number">1</span>;</span><br><span class="line">    sbuf.sem_flg = SEM_UNDO;</span><br><span class="line">    <span class="keyword">if</span>(semop(sem_id,&amp;sbuf,<span class="number">1</span>) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"V操作失败"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除信号量</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sem_del</span><span class="params">(<span class="keyword">int</span> sem_id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">union</span> sem_union tmp;</span><br><span class="line">    <span class="keyword">if</span>(semctl(sem_id,<span class="number">0</span>,IPC_RMID,tmp) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"删除信号量失败"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sem_id;</span><br><span class="line">    <span class="keyword">key_t</span> key;</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取key值</span></span><br><span class="line">    <span class="keyword">if</span>((key = ftok(SEM_FILE,<span class="number">100</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"获取key值失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取信号量id</span></span><br><span class="line">    <span class="keyword">if</span>((sem_id = semget(key,<span class="number">1</span>,IPC_CREAT|<span class="number">0666</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"信号量id获取失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//初始化信号量</span></span><br><span class="line">    init_sem(sem_id,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//fork进程</span></span><br><span class="line">    <span class="keyword">if</span>((pid = fork()) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"进程fork失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(pid == <span class="number">0</span>)&#123; <span class="comment">//子进程</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"我是子进程：%d \n"</span>,getpid());</span><br><span class="line">        sleep(<span class="number">2</span>);</span><br><span class="line">        sem_v(sem_id);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(pid &gt; <span class="number">0</span>)&#123; <span class="comment">//父进程</span></span><br><span class="line">        sem_p(sem_id);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"我是父进程：%d \n"</span>,getpid());</span><br><span class="line">        sem_v(sem_id);</span><br><span class="line">        sem_del(sem_id);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="四、共享内存"><a href="#四、共享内存" class="headerlink" title="四、共享内存"></a>四、共享内存</h2><h3 id="1、特点-2"><a href="#1、特点-2" class="headerlink" title="1、特点"></a>1、特点</h3><p><em>概念</em></p>
-<blockquote>
-<p>顾名思义，共享内存就是允许两个不相关的进程访问同一个逻辑内存。共享内存是在两个正在运行的进程之间共享和传递数据的一种非常有效的方式。不同进程之间共享的内存通常安排为同一段物理内存。进程可以将同一段共享内存连接到它们自己的地址空间中，所有进程都可以访问共享内存中的地址，就好像它们是由用C语言函数malloc分配的内存一样。而如果某个进程向共享内存写入数据，所做的改动将立即影响到可以访问同一段共享内存的任何其他进程。</p>
-</blockquote>
-<h3 id="2、过程-2"><a href="#2、过程-2" class="headerlink" title="2、过程"></a>2、过程</h3><ol>
-<li><code>ftko()</code>获取key值(同消息队列)</li>
-<li>用<code>shmget()</code>函数获取共享内存ID</li>
-<li>进程通过<code>shmat()</code>函数连接共享内存</li>
-<li>访问共享内存</li>
-</ol>
-<h3 id="3、示例-1"><a href="#3、示例-1" class="headerlink" title="3、示例"></a>3、示例</h3><p><em>shm_server.c 读数据</em></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SHM_FILE <span class="meta-string">"/Users/meetmax/CWork/shm_file"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> shm_id;</span><br><span class="line">    <span class="keyword">key_t</span> key;</span><br><span class="line">    <span class="keyword">char</span> * shm;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">shmid_ds</span> <span class="title">buf</span>;</span></span><br><span class="line">	<span class="comment">// 获取key</span></span><br><span class="line">    <span class="keyword">if</span>((key = ftok(SHM_FILE,<span class="number">100</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"获取key失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 获取共享内存描述符ID</span></span><br><span class="line">    <span class="keyword">if</span>((shm_id = shmget(key,<span class="number">512</span>,IPC_CREAT|<span class="number">0666</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"获取共享内存id失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 连接共享内存</span></span><br><span class="line">    <span class="keyword">if</span>((<span class="keyword">int</span>)(shm = (<span class="keyword">char</span> *)shmat(shm_id,<span class="number">0</span>,<span class="number">0</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"连接共享内存失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"开始接收数据\n"</span>);</span><br><span class="line">  </span><br><span class="line">    <span class="comment">// 开始忙等，接收数据</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strlen</span>(shm) &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"收到数据：%s \n"</span>,shm);</span><br><span class="line">            <span class="built_in">sprintf</span>(shm,<span class="string">""</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strcmp</span>(shm,<span class="string">"r"</span>) == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"已退出\n"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 删除共享内存</span></span><br><span class="line">    shmctl(shm_id,IPC_RMID,&amp;buf);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><em>sem_client.c 写入数据</em> </p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SHM_FILE <span class="meta-string">"/Users/meetmax/CWork/shm_file"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> shm_id;</span><br><span class="line">    <span class="keyword">key_t</span> key;</span><br><span class="line">    <span class="keyword">char</span> * shm;</span><br><span class="line">   </span><br><span class="line">	<span class="comment">// 获取key</span></span><br><span class="line">    <span class="keyword">if</span>((key = ftok(SHM_FILE,<span class="number">100</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"获取key失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 获取共享内存id</span></span><br><span class="line">    <span class="keyword">if</span>((shm_id = shmget(key,<span class="number">512</span>,IPC_CREAT|<span class="number">0666</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"获取共享内存id失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 连接共享内存，若不存在则创建</span></span><br><span class="line">    <span class="keyword">if</span>((<span class="keyword">int</span>)(shm = (<span class="keyword">char</span> *)shmat(shm_id,<span class="number">0</span>,<span class="number">0</span>)) == <span class="number">-1</span>)   </span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"连接共享内存失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入："</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,shm); <span class="comment">// 写入数据到共享内存</span></span><br><span class="line">    shmdt(shm); <span class="comment">// 断开连接</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><em>《UNIX环境高级编程》</em></li>
-<li><em>《UNIX网络编程：卷2》</em></li>
-<li>部分来自互联网</li>
-</ul>
-
+<li>几乎大部分IPC都不是程序设计的自然扩展，往往会大大地增加程序的复杂度。
+        
       
 
       
@@ -451,11 +270,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">unix</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/01/进程间通信/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/20/进程间通信/">展开全文 >></a>
         </p>
       
 
@@ -488,255 +318,28 @@
     <article id="post-Mysql之Explain浅析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/20/Mysql之Explain浅析/">Mysql之Explain浅析</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/20/Mysql之Explain浅析/" class="archive-article-date">
+  	<time datetime="2018-01-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​    在工作中，经常会碰到一些慢查询，Explain 语句可以帮我们更详细的了解MySQL查询的执行计划，用法也很简单<code>Explain</code> 后面跟上<code>SELECT</code>语句即可。执行完之后，会显示一行有多个列的记录，可能很多人和我一样，对<code>EXPLAIN</code>里面字段的含义，并没有深入的去了解过，处于一知半解的状态，只知道一些最常见的。</p>
+        <p>​<br>​    在工作中，经常会碰到一些慢查询，Explain 语句可以帮我们更详细的了解MySQL查询的执行计划，用法也很简单<code>Explain</code> 后面跟上<code>SELECT</code>语句即可。执行完之后，会显示一行有多个列的记录，可能很多人和我一样，对<code>EXPLAIN</code>里面字段的含义，并没有深入的去了解过，处于一知半解的状态，只知道一些最常见的。</p>
 <p>​    下面我根据<a href="https://dev.mysql.com/doc/relnotes/mysql/5.7/en/" target="_blank" rel="noopener">MySQL官方文档</a>，查阅了很多资料，再结合我自己的理解，对<code>EXPLAIN</code>的字段和值做了详细的描述，在总结过程中，也发现了自己的很多知识漏洞，很多时候，我总是会想当然的认为，这个就是对的，并没有严密逻辑验证，主要是懒的思考，正所谓好记性不如烂笔头，写的过程也是对自己知识点掌握程度的批判和考验。</p>
 <h2 id="关于EXPLAIN"><a href="#关于EXPLAIN" class="headerlink" title="关于EXPLAIN"></a>关于EXPLAIN</h2><p>​    EXPLAIN返回一行记录，通过Explain可以获取到很多信息，如：不同表的查询顺序，查询用了哪些表，能使用哪些索引以及真正用到了哪些索引，用了哪种连接类型，是否有临时表和文件排序等。这些因素对查询的效率有直接的相关，想要使查询更高效，需要对这些条件做一个好的优化。</p>
-<p>​    EXPLAIN有12个字段，每个字段对查询优化的权重比不一样，也就是说并不是所有字段都很重要。<code>type</code>,<code>key</code>,<code>Extra</code>字段相对其它字段来说，对查询效率的影响更大，优化查询的时候，先把注意力放到这些字段会比其它字段来得更加直接有效，下面开始具体内容。</p>
-<h2 id="EXPLAIN语法"><a href="#EXPLAIN语法" class="headerlink" title="EXPLAIN语法"></a>EXPLAIN语法</h2><p>以<code>user_info</code>表为例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain select * from `user_info` where uid = 5</span><br></pre></td></tr></table></figure>
-<p>结果：</p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>select_type</th>
-<th>table</th>
-<th>partitions</th>
-<th>type</th>
-<th>possible_keys</th>
-<th>key</th>
-<th>key_len</th>
-<th>ref</th>
-<th>rows</th>
-<th>filtered</th>
-<th>Extra</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>SIMPLE</td>
-<td>user_info</td>
-<td>NULL</td>
-<td>const</td>
-<td>PRIMARY</td>
-<td>PRIMARY</td>
-<td>8</td>
-<td>const</td>
-<td>1</td>
-<td>100.00</td>
-<td>NULL</td>
-</tr>
-</tbody>
-</table>
-<h2 id="EXPLAIN字段说明"><a href="#EXPLAIN字段说明" class="headerlink" title="EXPLAIN字段说明"></a>EXPLAIN字段说明</h2><p><strong>注</strong>： <em>标注星号的字段为重点</em></p>
-<h4 id="id："><a href="#id：" class="headerlink" title="id："></a>id：</h4><p><code>SELECT</code>语句的标识符，代表<code>SELECT</code>查询在整个查询中的序号。这个值也可能为<code>NULL</code>，如果这一行是<code>UNION</code>的结果。</p>
-<h4 id="select-type"><a href="#select-type" class="headerlink" title="select_type:"></a>select_type:</h4><p><code>SELECT</code>查询的类型，该类型的值有11种类型。例如，示例中的值为<code>SIMPLE</code>，表示该查询是一个简单的查询（即：没有子查询和<code>UNION</code>）。</p>
-<p>####table:</p>
-<p>大多数情况下表示输出行所引用的表名，它也可能是下列值之一：</p>
-<h4 id="partitions"><a href="#partitions" class="headerlink" title="partitions:"></a>partitions:</h4><p>只对分区表有意义。意思是查询所匹配到的分区，如果该表为非分区表，则它的值为<code>NULL</code>。</p>
-<h4 id="type"><a href="#type" class="headerlink" title="*type:"></a>*type:</h4><p>查询的<code>join</code>类型，<strong>注意</strong>单表查询也被当做<code>join</code>的特例，并不一定要两张表。连接类型详情下面会详细介绍。</p>
-<h4 id="possible-key"><a href="#possible-key" class="headerlink" title="possible_key:"></a>possible_key:</h4><p><code>possible_key</code>列是指，在查询中能够被MySQL用到的索引，但在实际情况中，不一定会被全部用到，这取决于MySQL优化器的选择，假设<code>possible_key</code>有<code>A,B,C</code>,3个索引，优化器经过分析认为<code>A</code>索引不需要用，那么实际执行的时候只会用到<code>B,C</code>索引。实际应用中，该列经常帮我们对<code>SQL</code>查询进行优化，如果它的值为<code>NULL</code>，说明没有能被用到的索引，这种情况下，需要调整<code>SQL</code>语句和优化表的索引。</p>
-<h4 id="key"><a href="#key" class="headerlink" title="*key:"></a>*key:</h4><p>查询中实际用到的索引，要注意，该列的值可能包含<code>possible_key</code>列中没有出现的索引，当查询满足<code>覆盖索引</code>的条件时，<code>possible_keys</code>列为<code>NULL</code>，索引仅在<code>key</code>列显示，MySQL只需要扫描索引树，不用到实际的数据行检索即可得到结果，查询会更高效，<code>Extra</code>列显示<code>USING INDEX</code>，则证明使用了覆盖索引。    也可以通过<code>FORCE INDEX</code>,<code>USE INDEX</code>或<code>IGNORE INDEX</code>来强制使用或忽略<code>possible_key</code>列中的索引。</p>
-<p><strong>覆盖索引概念</strong>：</p>
-<p>如果索引包含所有满足查询需要的数据的索引成为覆盖索引(Covering Index)。</p>
-<p>假设有一个<code>user</code>表，假设索引<code>A</code>包含了<code>col1</code>,<code>col2</code>,<code>col3</code>三个字段，<code>criteria</code>为标准条件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Query 1:</span><br><span class="line">select * from user where criteria</span><br></pre></td></tr></table></figure>
-<p><code>Query 1</code>使用了索引查询，获取到数据行的主键，但是仍然需要根据主键值扫描实际的数据行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Query 2:</span><br><span class="line">select `col1`,`col2` where criteria</span><br></pre></td></tr></table></figure>
-<p><code>Query 2</code>中，索引<code>A</code>已经包含了它需的字段，也就是说<code>Query 2</code>不用再去实际的数据行获取数据了，只要扫描完索引树就行了，这样就省了一个步骤，索引树往往比实际的数据表小，所以效率很高，这就是<strong>覆盖索引</strong>。</p>
-<h4 id="key-len"><a href="#key-len" class="headerlink" title="key_len:"></a>key_len:</h4><p>实际用到的索引字段长度，越短越好。</p>
-<h4 id="ref"><a href="#ref" class="headerlink" title="ref:"></a>ref:</h4><p><code>ref</code>列显示哪个列或者常数和索引比较筛选出结果。</p>
-<h4 id="rows"><a href="#rows" class="headerlink" title="rows:"></a>rows:</h4><p><code>rows</code>列表示MySQL认为执行查询必须检查的行数，对<code>Innodb</code>表来说，这是一个预估值，可能并不是确切的值。</p>
-<h4 id="filtered"><a href="#filtered" class="headerlink" title="filtered:"></a>filtered:</h4><p>​    <code>filtered</code>的意思是，首先MySQL利用索引，例如，用<code>range</code>范围扫描出符合的行，如果扫描符合条件的估计值是100行，<code>rows</code>显示估计的值就是100，这一步是存储引擎根据索引筛选后的值，然后在Server层根据其余的<code>WHERE</code>条件过滤。</p>
-<p>​    被过滤器过之后，符合条件的还剩下20行，也就是剩下20%，20%就是<code>filtered</code>中的值。很显然，直接在存储引擎层筛选出20行比先筛选出100行再过滤要更好，通常情况下，<code>filtered</code>的值越大可能意味着索引越好。</p>
-<p>​    另一方面看，你也可以完全忽略<code>filtered</code>，因为这个值在大多数情况下只是一个不准确的估计，应该把注意力放到优化其它更有用的字段上，尤其是<code>type</code>,<code>key</code>,<code>Extra</code>。例如：尽量避免<code>filesort</code>排序，使用索引排序。或者有一个更好的<code>type</code>值，对性能的提升是非常巨大的，这种情况，即使<code>filtered</code>的值低也没关系。假设一个查询<code>A</code>， <code>type=all</code>,<code>filtered=0.1%</code>。那么首要先关注<code>type</code>字段，可通过添加索引来优化，可以先不管<code>filtered</code>。</p>
-<p>​    所以对这个值不需要太认真，即使100%也不意味着索引一定好，反过来也不一定说明索引差，<code>type</code>比它更能说明索引的好坏。</p>
-<h4 id="Extra"><a href="#Extra" class="headerlink" title="*Extra:"></a>*Extra:</h4><p>这个列包含Mysql解决查询的详细信息，详情见下方。</p>
-<h2 id="EXPLAIN字段值说明："><a href="#EXPLAIN字段值说明：" class="headerlink" title="EXPLAIN字段值说明："></a>EXPLAIN字段值说明：</h2><h4 id="select-type-1"><a href="#select-type-1" class="headerlink" title="select_type:"></a>select_type:</h4><table>
-<thead>
-<tr>
-<th>select_type 值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SIMPLE</td>
-<td>简单的<code>SELECT</code>查询（没有<code>UNION</code>和子查询）</td>
-</tr>
-<tr>
-<td>PRIMARY</td>
-<td>一个需要union操作或者含有子查询的select，位于最外层的单位查询的select_type即为primary。且只有一个</td>
-</tr>
-<tr>
-<td>UNION</td>
-<td><code>UNION</code>连接的<code>select</code>查询，除了第一个表外，第二个及以后的表select_type都是<code>union</code></td>
-</tr>
-<tr>
-<td>DEPENDENT UNION</td>
-<td>与<code>union</code>一样，出现在<code>union</code> 或<code>union all</code>语句中，但是这个查询要受到外部查询的影响</td>
-</tr>
-<tr>
-<td>UNION RESULT</td>
-<td><code>UNION</code>之后的结果集</td>
-</tr>
-<tr>
-<td>SUBQUERY</td>
-<td>除了from字句中包含的子查询外，其他地方出现的子查询都可能是subquery</td>
-</tr>
-<tr>
-<td>DEPENDENT SUBQUERY</td>
-<td>与dependent union类似，表示这个subquery的查询要受到外部表查询的影响</td>
-</tr>
-<tr>
-<td>DERIVED</td>
-<td><code>FROM</code>字句中出现的子查询。语法：<code>SELECT ... FROM (subquery) [AS] tbl_name ...</code></td>
-</tr>
-<tr>
-<td>MATERIALIZED</td>
-<td>被物化的子查询</td>
-</tr>
-<tr>
-<td>UNCACHEABLE SUBQUERY</td>
-<td>对于外层的主表，子查询不可被物化，每次都需要计算（耗时操作）</td>
-</tr>
-<tr>
-<td>UNCACHEABLE UNION</td>
-<td>UNION操作中，内层的不可被物化的子查询（类似于UNCACHEABLE SUBQUERY）</td>
-</tr>
-</tbody>
-</table>
-<p>通过 <strong>物化 </strong> 优化子查询的原理：</p>
-<p>​    优化器使用物化的方式能让子查询更高效的执行，类似缓存技术，把第一次查询的结果存起来，避免多次的耗时操作，同时也有它自身的限制，不是所有子查询都能被物化的。物化技术把子查询产生的结果放在一个临时表中，如果数据量小的话，通常是在内存中完成，数据大的时候就降级到磁盘进行，速度也会慢很多。首先，MySQL得到子查询的结果，然后把结果放到临时表中，在随后的任何时间，当需要这个结果时，MySQ就再次引用这个临时表，不需要再执行计算了。优化器可能会使用哈希索引（<strong>复杂度为O(1)，很快</strong>）来快速且低成本的查找表，这个索引是唯一的，避免了重复，能使表更小。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM t1</span><br><span class="line">WHERE t1.a IN (SELECT t2.b FROM t2 WHERE where_condition);</span><br></pre></td></tr></table></figure>
-<h4 id="type（连接类型）："><a href="#type（连接类型）：" class="headerlink" title="type（连接类型）："></a>type（连接类型）：</h4><ul>
-<li><p><code>system</code></p>
-<p>当表只有一行数据的时候，这是<code>const</code>连接类型的特例。</p>
-</li>
-<li><p><code>const</code></p>
-<p>表中最多只有一行匹配，在查询开始时被读取。因为只有一行，该行中列的值可以被优化器的其余部分视为常量。<code>const</code>表非常快，因为他们仅被读取一次。将<code>PRIMARY KEY</code> 或 <code>UNIQUE INDEX</code>索引和常量值比较时,会使用<code>const</code>。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM tbl_name WHERE primary_key=1;</span><br><span class="line"></span><br><span class="line">SELECT * FROM tbl_name</span><br><span class="line">WHERE primary_key_part1=1 AND primary_key_part2=2;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>eq_ref</code></p>
-<p>假设<code>A JOIN B</code>，<code>B</code>表读取<code>A</code>表的各个行组合的一行时，通过<code>B</code>表的<code>PRIMARY KEY</code>或<code>UNIQUE NOT NULL</code>索引列连接时，优化器会使用<code>eq_ref</code>类型，这是除了<code>system</code>和<code>const</code>之外最快的<code>JOIN</code>类型。</p>
-<p>举例说明：</p>
-<p>表<code>tableA</code>,有（id,text）字段，id为<code>PRIMARY KEY</code>,A表数据为：</p>
-<p>| id   | text  |<br>| —- | —– |<br>| 1    | HELLO |<br>| 2    | THANK |</p>
-<p>表<code>tableB</code>有（id,text）字段，id为<code>PRIMARY KEY</code>,B表数据为：</p>
-<p>| id   | text  |<br>| —- | —– |<br>| 1    | WORLD |<br>| 2    | YOU   |</p>
-<p>现在通过<code>JOIN</code>将两个表关联起来</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.text,B.text </span><br><span class="line">FROM tableA AS A,tableB as B </span><br><span class="line">WHERE A.id=B.id</span><br></pre></td></tr></table></figure>
-<p>这个连表查询是非常快的，因为在<strong>A表中扫描的每一行，在B表中也仅一行满足条件</strong>。</p>
-</li>
-<li><p><code>ref</code></p>
-<p>​    <code>A JOIN C</code>时，A表中的每一行不是唯一的，对单表查询也一样，有多个满足条件的行，查询的<code>KEY</code>是单个索引或复合索引的最左前缀(<strong>不是唯一索引和主键</strong>)，也就是说C表的<code>id</code>是一个非唯一索引。这种情况下，优化器会使用<code>ref</code>优化，如果只有少部分行(<strong>rows</strong>)满足条件，这个连接类型(<code>join type</code>)是很好的。<code>ref</code>用于索引的比较操作，<strong>注意</strong>：仅对于<code>=</code>,<code>&lt;=&gt;</code> 操作有效，对于<code>&gt;</code>,<code>&lt;</code>,<code>BETWEEN</code>,<code>IN</code>的范围操作优化器可能会使用<code>range</code>类型(<strong>见下方</strong>),也可能是<code>ALL</code>全表扫描。</p>
-<p>举例说明：</p>
-<p>现在有<code>tableC</code>，<code>id</code>为索引，不唯一。数据为：</p>
-<p>| id (非唯一索引) | text     |<br>| ———- | ——– |<br>| 1          | HANGZHOU |<br>| 1          | SHANGHAI |</p>
-<p>现在通过<code>LEFT JOIN</code>将<code>A</code>和<code>C</code>关联起来:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.text,C.text </span><br><span class="line">FROM `tableA` AS A </span><br><span class="line">LEFT JOIN `tableC` AS C ON A.id=C.id</span><br></pre></td></tr></table></figure>
-<p>这个<code>JOIN</code>不像之前的那么快，因为在表A中扫描的每一行，在表C中可能有很多行满足条件，C的id不是唯一索引。</p>
-</li>
-<li><p><code>fulltext</code></p>
-<p>使用了全文索引，<code>Innodb</code>不支持全文索引。</p>
-</li>
-<li><p><code>ref_or_null</code></p>
-<p>如果一个查询的<code>WHERE</code>子句中包含<code>colA IS NULL</code>的条件，但是<code>colA</code>已经被声明为<code>NOT NULL</code>，此时优化器会使用<code>ref_or_null</code>类型。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM ref_table</span><br><span class="line">WHERE key_column=expr OR key_column IS NULL;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>index_merge</code></p>
-<p>​    在MYSQL5.0之前是没有索引合并功能的，假设<code>A</code>表有3个单独的索引<code>col1</code> ,<code>col2</code>,<code>col3</code>，然后执行如下<code>SQL</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM A WHERE col1=1 AND col2=2 AND col3=3</span><br></pre></td></tr></table></figure>
-<p>实际查询中只有一个索引能被用到，这种情况，只能通过建立复合索引<code>(col1,col2,col3)</code>才能在索引中用到所有字段。</p>
-<p>​    5.0之后有了索引合并，当检索数据行时出现多个范围扫描条件时，在满足索引合并前提条件时(单个索引覆盖<code>WHERE</code>条件的字段)，MySQL优化器可能会使用索引合并(不一定)，首先分别对多个索引进行扫描，然后合并来自单个表的扫描结果，它不能合并多个表的扫描结果，合并的方式有3种：</p>
-<ul>
-<li><code>unions</code>：索引取并集</li>
-<li><code>intersections</code>：索引取交集</li>
-<li><code>Sort-Union</code>:先对取出的数据按主键排序，再取并集</li>
-</ul>
-<p><strong>索引合并条件</strong>：</p>
-<ol>
-<li><p><code>WHERE</code>子句中的范围条件，<code>WHERE</code>中出现字段必须被索引覆盖，如果<code>colA</code>没添加索引，则只会对<code>colB</code>和<code>colC</code>进行索引合并，<code>Extra</code>字段显示<code>Using intersect(colB,colC);</code>，<code>type</code>为<code>index_merge</code>，则说明用到了索引合并。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WHERE colA = const1 AND colB = const2 AND colC = const3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>Innodb</code>表中的主键的任何范围条件，<code>&gt;</code>,<code>&lt;</code>,<code>&lt;&gt;</code>等。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM innodb_table</span><br><span class="line">  WHERE primary_key &lt; 10 AND key_col1 = 20;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>​        满足了条件，MYSQL会选择索引行数最少的字段对索引结果进行合并，最终使用哪个索引字段来合并也不一定，也可能不使用合并，这取决于优化器，如果优化器认为没必要使用索引合并优化，就会使用其它优化，也许会选择<code>type</code> 为<code>range</code>或更高效的<code>ref</code>的优化。</p>
-<p>​    当优化器决定使用索引合并优化，如果<code>WHERE</code>条件用<code>AND</code>连接，优化器会使用<code>INTERSECTIONS</code>合并算法，对多个索引扫描的结果取交集。如果用<code>OR</code>连接，优化器会选择<code>UNIONS</code>或<code>SORT-UNIONS</code>合并算法，对多个索引扫描的结果取合集，<code>SORT-UNIONS</code>和<code>UNIONS</code>的主要区别是，前者在扫描完数据时，需要先对数据按主键排序，再取它们的合集。</p>
-<p>​     在<code>WHERE</code>子句中使用<code>AND</code>时，使用复合索引比索引合并更高效，因为复合索引只用一个索引筛选，没有匹配合并的过程，这个过程节省了很多时间。</p>
-<p>​    在使用<code>OR</code>时，复合索引是不起作用的，这种情况下，使用<code>UNIONS</code>索引合并效果更好。如果不想使用某种索引合并，也可以选择关闭。可通过<code>optimzer_switch</code>系统变量查看各个索引合并的开启状况。如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT @@optimizer_switch</span><br></pre></td></tr></table></figure>
-<p>索引合并算法的默认都是开启的，可以通过关闭某个合并算法。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET optimizer_switch = &apos;index_merge_intersection=off&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>unique_subquery</code></p>
-<p>这种类型是<code>eq_ref</code>类型在子查询中的替代类型。例如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM A WHERE</span><br><span class="line">value IN (SELECT id FROM B WHERE some_expr)</span><br></pre></td></tr></table></figure>
-<p><code>B</code>表中的<code>id</code>在A表中有唯一对应的记录。</p>
-</li>
-<li><p><code>range</code></p>
-<p>​    在<code>WHERE</code>子句中，执行<code>&gt;</code>,<code>&lt;</code>,<code>&lt;&gt;</code>,<code>=</code>,<code>BETWEEN</code>,<code>IN()</code> 等操作时，MySQL可能会(<strong>不一定</strong>)使用<code>range</code>类型，<code>Explain</code>中<code>key</code>列的值就是实际用到的索引，<code>key_len</code>是它们中最长的索引的长度。如果优化器认为使用索引筛选没有全表扫描来得及，例如：条件筛选后的行占全表的50%以上，即使有索引可用，优化器也会选择全表扫描，即<code>type=ALL</code>。</p>
-<p>​    为什么呢？解释这个问题之前，需要先了解几个概念。对<code>Innodb</code>表来说，每个表都有一个<strong>聚簇索引</strong>，InnoDB的<strong>聚簇索引</strong>实际上在同一个结构中保存了B-Tree索引和数据行信息。因为无法把数据行存放在两个不同的地方，所以一个表只能有一个<strong>聚簇索引</strong>。<strong>二级索引</strong>存储的是记录的主键，而不是数据存储的地址，索引数据和存储数据是分离的，唯一索引、普通索引、前缀索引等都是二级索引。实际上，InnoDB在查询任何数据时，最后都是通过主键来查询的。首先我们根据索引条件在索引树上扫描出对应的主键值。然后根据这个值去聚簇索引总超找到对应的行(<strong>如果是覆盖索引则省略这一步</strong>)。</p>
-<p>​    在某些情况下，索引条件扫描出的数据行非常大，可能占了全表的50%，此时再根据主键找到对应的数据块是不划算。主键的BTree查找属于文件的随机搜索，但是如果随机搜索文件数据的目的是为了查找一半的数据，这并不是最优化的，只要对数据文件进行大量的顺序读写要更快，这种情况下，索引会被忽略。</p>
-</li>
-<li><p><code>index</code></p>
-<p>​    <code>index</code>类型和<code>ALL</code>类型几乎相同。有两种情况：</p>
-<ol>
-<li>若<code>SELECT</code>中列全部被索引覆盖，所需要的数据可以直接在索引中读取，MySQL只需对索引树进行扫描，这通常比扫描实际数据行要快，因为索引树通常比数据表更小，这种情况下，<code>Extran</code>的值会显示<code>USING INDEX</code>。</li>
-<li>使用索引中读取的主键值，按索引顺序对全表进行扫描，此时<code>Extra</code>中没有<code>USING INDEX</code>。</li>
-</ol>
-</li>
-<li><p><code>ALL</code></p>
-<p>对表的每一行进行扫描，这是最糟糕的情况。一般，你可以通过添加索引来避免这种情况发生。</p>
-</li>
-</ul>
-<h4 id="Extra列值的含义"><a href="#Extra列值的含义" class="headerlink" title="Extra列值的含义:"></a>Extra列值的含义:</h4><p>​    <code>Extra</code>列包含了MySQL处理查询的一些额外信息，下面的列出了Extra中可能出现的值，如果你想让查询尽可能的快，应该注意下<code>Extra</code>字段中是否出现了<code>using filesort</code> 和<code>using temporary</code>。下面只列除了在实际应用中经常会出现，相对比较重要的一部分，若描述的不够详细，可查看MySQL官方文档。</p>
-<ul>
-<li><p><code>const row not found</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM A</span><br></pre></td></tr></table></figure>
-<p>如果A表为空，则会出现改值。</p>
-</li>
-<li><p><code>DISTINCT</code></p>
-<p>mysql在寻找不同的值，当它找到第一个匹配的行之后，就停止搜索更多的行了。例子：</p>
-</li>
-<li><p><code>no matching row in const table</code></p>
-<p>用唯一索引或者主键查询时，没有匹配到的数据。</p>
-</li>
-<li><p><code>Not exists</code></p>
-<p>MySQL优化了<code>LEFT JOIN</code>，一旦它找到了匹配<code>LEFT JOIN</code>标准的行，就不再搜索了，。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM t1 LEFT JOIN t2 ON t1.id=t2.id</span><br><span class="line"> WHERE t2.id IS NULL;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>Using filesort</code> </p>
-<p>​    这个值表示，MySQL必须对检索到的结果进行额外的排序。排序是按照连接类型遍历所有行并存储排序键和指向行的指针，以匹配满足where子句条件的所有行，然后对键进行排序，并按排序顺序检索行。根据不同情况，MySQL会选择不同的排序算法，在数据比较小的时候，MySQL会利用排序缓冲区作为优先级队列将结果在内存中排序，否则只能通过合并文件的方式合并，那会慢很多，排序缓冲区的大小取决于<code>sort_buffer_size</code>变量的大小。</p>
-<p>​    总之，当看到<code>filesort</code>的时候就应该引起重视，通过优化索引来避免额外的文件排序，这对性能影响是很大的。</p>
-</li>
-<li><p><code>Using index</code></p>
-<p>单个索引覆盖了<code>SELECT</code>的所有列（即：覆盖索引），不需要对实际的数据行进行扫描。</p>
-</li>
-<li><p><code>Using index condition</code></p>
-<p>​    Index Condition Pushdown (ICP)是MySQL 5.6 版本中的新特性,是一种在存储引擎层使用索引过滤数据的一种优化方式。当关闭ICP时,index 仅仅是data access 的一种访问方式，存储引擎通过索引回表获取的数据会传递到MySQL Server 层进行where条件过滤。</p>
-<p>​    当打开ICP时,如果部分where条件能使用索引中的字段,MySQL Server 会把这部分下推到引擎层,可以利用index过滤的where条件在存储引擎层进行数据过滤,而非将所有通过index access的结果传递到MySQL server层进行where过滤.<br>优化效果:ICP能减少引擎层访问基表的次数和MySQL Server 访问存储引擎的次数,减少io次数，提高查询语句性能。</p>
-</li>
-<li><p><code>Using index for group-by</code></p>
-<p>和<code>USING INDEX</code>很相似，区别是，当查询语句中含有<code>DISTINCT</code>和<code>GROUP BY</code>操作时，仅需访问索引树，不需要访问实际的表时，使用该优化。</p>
-</li>
-<li><p><code></code>Using sort_union(…)<code>,</code>Using union(…)<code>,</code>Using intersect(…)`</p>
-<p>当查询产生索引合并时会显示该值，<code>type</code>为<code>index_merge</code>。</p>
-</li>
-<li><p><code>Using temporary</code></p>
-<p>为了处理查询，MySQL必须建立一个临时表才能产生结果。典型的情况是，在使用<code>GROUP BY</code>和<code>ORDER BY</code>子句时，两者使用了不同的列会导致产生临时表。</p>
-</li>
-<li><p><code>Using where</code></p>
-<p><code>using where</code> 是指使用<code>WHERE</code>或<code>ON</code>子句，MySQL <code>Server</code>层收到存储引擎返回的结果时，需要对结果再次过滤，不需要返回所有结果，注意<code>LIMIT</code>不算限制条款。如果没有用到索引<code>using where</code>只是说明，使用了顾虑条件过滤。</p>
-</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://dev.mysql.com/doc/refman/5.7/en" target="_blank" rel="noopener">MySQL官方文档</a></p>
-
+<p>​    EXPLAIN有12个字段，每个字段对查询优化的权重比不一样，也就是说并不是所有字段都很重要。<code>type</code>,<code>key</code>,<code>Extra</code>字段相对其它字段来说，对查询效率的影响更大，优化查询的时候，先把注意力放到这些字段会比其它字段来得更加直接有效，下面开始具体内容。<br>​
+        
       
 
       
@@ -744,6 +347,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -869,6 +487,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nosql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">unix</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

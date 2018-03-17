@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://meetmax.github.io">
-  <title>Archives: 2018/3 | MeetMax</title>
+  <title>Unix进程间通信(IPC) | MeetMax</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MeetMax">
-<meta property="og:url" content="https://meetmax.github.io/archives/2018/03/index.html">
+  <meta name="description" content="IPC概念: 进程间通信（IPC，Inter-Process Communication），指至少两个进程或线程间传送数据或信号的一些技术或方法。进程是计算机系统分配资源的最小单位(严格说来是线程)。每个进程都有自己的一部分独立的系统资源，彼此是隔离的。为了能使不同的进程互相访问资源并进行协调工作，才有了进程间通信。举一个典型的例子，使用进程间通信的两个应用可以被分类为客户端和服务器（见主从式架构">
+<meta name="keywords" content="unix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unix进程间通信(IPC)">
+<meta property="og:url" content="https://meetmax.github.io/2018/02/20/进程间通信/index.html">
 <meta property="og:site_name" content="MeetMax">
+<meta property="og:description" content="IPC概念: 进程间通信（IPC，Inter-Process Communication），指至少两个进程或线程间传送数据或信号的一些技术或方法。进程是计算机系统分配资源的最小单位(严格说来是线程)。每个进程都有自己的一部分独立的系统资源，彼此是隔离的。为了能使不同的进程互相访问资源并进行协调工作，才有了进程间通信。举一个典型的例子，使用进程间通信的两个应用可以被分类为客户端和服务器（见主从式架构">
+<meta property="og:updated_time" content="2018-03-17T14:03:44.209Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MeetMax">
+<meta name="twitter:title" content="Unix进程间通信(IPC)">
+<meta name="twitter:description" content="IPC概念: 进程间通信（IPC，Inter-Process Communication），指至少两个进程或线程间传送数据或信号的一些技术或方法。进程是计算机系统分配资源的最小单位(严格说来是线程)。每个进程都有自己的一部分独立的系统资源，彼此是隔离的。为了能使不同的进程互相访问资源并进行协调工作，才有了进程间通信。举一个典型的例子，使用进程间通信的两个应用可以被分类为客户端和服务器（见主从式架构">
   
     <link rel="alternative" href="/atom.xml" title="MeetMax" type="application/atom+xml">
   
@@ -147,64 +152,349 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-进程间通信" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/16/Redis应用场景浅析/" class="archive-article-date">
-  	<time datetime="2018-03-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-16</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/16/Redis应用场景浅析/">Redis应用场景浅析</a>
+    <h1 class="article-title" itemprop="name">
+      Unix进程间通信(IPC)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/02/20/进程间通信/" class="archive-article-date">
+  	<time datetime="2018-02-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="IPC概念"><a href="#IPC概念" class="headerlink" title="IPC概念:"></a>IPC概念:</h3><blockquote>
+<p><strong>进程间通信</strong>（<strong>IPC</strong>，<em>Inter-Process Communication</em>），指至少两个<a href="https://zh.wikipedia.org/wiki/%E8%BF%9B%E7%A8%8B" target="_blank" rel="noopener">进程</a>或<a href="https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B" target="_blank" rel="noopener">线程</a>间传送数据或信号的一些技术或方法。进程是<a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">计算机系统</a>分配资源的最小单位(严格说来是线程)。每个进程都有自己的一部分独立的系统资源，彼此是隔离的。为了能使不同的进程互相访问资源并进行协调工作，才有了进程间通信。举一个典型的例子，使用进程间通信的两个应用可以被分类为客户端和服务器（见<strong>主从式架构</strong>），客户端进程请求数据，服务端回复客户端的数据请求。有一些应用本身既是服务器又是客户端，这在<strong>分布式计算</strong>中，时常可以见到。这些<a href="https://zh.wikipedia.org/wiki/%E8%BF%9B%E7%A8%8B" target="_blank" rel="noopener">进程</a>可以运行在同一计算机上或网络连接的不同计算机上。</p>
+<p>进程间通信技术包括消息传递、同步、共享内存和<a href="https://zh.wikipedia.org/wiki/%E8%BF%9C%E7%A8%8B%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8" target="_blank" rel="noopener">远程过程调用</a>。IPC是一种标准的<a href="https://zh.wikipedia.org/wiki/Unix" target="_blank" rel="noopener">Unix</a>通信机制。</p>
+<p>使用IPC 的理由：</p>
+<ul>
+<li>信息共享：<strong>Web服务器</strong>，通过<strong>网页浏览器</strong>使用进程间通信来共享web文件（网页等）和多媒体；</li>
+<li>加速：维基百科使用通过进程间通信进行交流的多服务器来满足用户的请求；</li>
+<li>模块化;</li>
+<li>私有权分离.</li>
+</ul>
+<p>与直接共享内存地址空间的<a href="https://zh.wikipedia.org/wiki/%E5%A4%9A%E7%BA%BF%E7%A8%8B" target="_blank" rel="noopener">多线程编程</a>相比，IPC的缺点：<a href="https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B%E9%96%93%E9%80%9A%E8%A8%8A#cite_note-1" target="_blank" rel="noopener">[1]</a></p>
+<ul>
+<li>采用了某种形式的内核开销，降低了性能;</li>
+<li>几乎大部分IPC都不是程序设计的自然扩展，往往会大大地增加程序的复杂度。<a id="more"></a>
+</li>
+</ul>
+</blockquote>
+<h2 id="一、管道"><a href="#一、管道" class="headerlink" title="一、管道"></a>一、管道</h2><h4 id="1、特点："><a href="#1、特点：" class="headerlink" title="1、特点："></a>1、特点：</h4><ol>
+<li><p>管道是一种半双工的通信方式(即数据只能单向流动)，也有部分系统上实现了全双工的管道，出于程序可移植性考虑，建议使用半双工管道，全双工的通信可由其它方式实现，例如：消息队列，Unix域套接字。</p>
+</li>
+<li><p>管道分为两种，无名管道和有名管道。</p>
+<ul>
+<li><strong>无名管道：</strong></li>
+</ul>
+<p>最早出现的管道是没有名字的，因此只能用于父子进程间通信，父进程通过<code>fork()</code>系统调用创建一个子进程，然后通过管道通信。</p>
+<ul>
+<li><strong>有名管道(FIFO):</strong></li>
+</ul>
+<p>有名管道也叫<strong>FIFO</strong>，由于磁盘中存在实际的管道文件，前者没有，所以叫有名管道。<code>FIFO</code>的意思是(first in ,first out)，先进先出。FIFO是一个(单向的)半双工数据流，不同于普通管道的是，每个FIFO都有一个对应文件的路径名与之关联，因此它能完成多个无亲缘关系进程之间的通信。</p>
+</li>
+<li><p>FIFO和无名管道的数据都存在内核的内存缓冲区中，大小一般为一页(4K)。不同的是，FIFO将内核缓冲区的数据映射到了实际的文件节点，可以在磁盘中看到对应的文件，所以叫<strong>有名管道</strong>，而无名管道在磁盘中没有对应文件，因此称<strong>无名管道</strong>。</p>
+</li>
+<li><p>无名管道通过<code>&lt;unistd.h&gt;</code>头文件中的<code>pipe()</code>创建，有名管道(FIFO)通过<code>&lt;sys/stat.h&gt;</code>中的<code>mkfifo()</code>创建。</p>
+</li>
+<li><p>管道通过<code>read()</code>和<code>write()</code>进行读写操作，管道内核缓冲区中的数据一旦被取走，管道中将不存在。当内核缓冲区满的时候，<code>write()</code>写操作将被阻塞，直到缓冲区有空闲再继续。同理，当缓冲区数据为空时，<code>read()</code>操作将阻塞，直到有新数据时再返回。</p>
+</li>
+<li><p>当进程终止时，管道就完全被删除了。</p>
+</li>
+</ol>
+<ul>
+<li>###无名管道</li>
+</ul>
+<h4 id="1、过程"><a href="#1、过程" class="headerlink" title="1、过程"></a>1、过程</h4><ol>
+<li><p>创建管道</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line">pipe(<span class="keyword">int</span> fd[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过<code>fork()</code>创建子进程</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回值 &gt;=0:成功 &lt;0:错误</span></span><br><span class="line"><span class="comment">// 如果是父进程则返回子进程 id,子进程则返回 0</span></span><br><span class="line">fork()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>read()</code>和<code>write()</code>读写缓冲区的数据</p>
+</li>
+</ol>
+<h4 id="2、例子"><a href="#2、例子" class="headerlink" title="2、例子"></a>2、例子</h4><ul>
+<li><em>pipe.c</em></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd[<span class="number">2</span>];	<span class="comment">// 管道描述符</span></span><br><span class="line">    <span class="keyword">pid_t</span> pid;	<span class="comment">// 进程id</span></span><br><span class="line">    <span class="keyword">char</span> buff[<span class="number">20</span>];	<span class="comment">// 缓冲区长度</span></span><br><span class="line">    <span class="keyword">if</span>(pipe(fd) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"创建管道失败\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pid = fork();	<span class="comment">// 创建子进程</span></span><br><span class="line">    <span class="keyword">if</span>(pid &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"fork()失败\n"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (pid &gt; <span class="number">0</span>)&#123;	<span class="comment">// 大于0为主进程</span></span><br><span class="line">        close(fd[<span class="number">0</span>]);	<span class="comment">// 关闭主进程读端</span></span><br><span class="line">        write(fd[<span class="number">1</span>],<span class="string">"hello world\n"</span>,<span class="number">12</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123; 	<span class="comment">// 小于0为子进程</span></span><br><span class="line">        close(fd[<span class="number">1</span>]); 	<span class="comment">// 关闭子进程写端</span></span><br><span class="line">        sleep(<span class="number">2</span>);</span><br><span class="line">		read(fd[<span class="number">0</span>], buff, <span class="number">20</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"读到的数据：%s\n"</span>, buff);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="有名管道FIFO"><a href="#有名管道FIFO" class="headerlink" title="有名管道FIFO"></a>有名管道FIFO</h3></li>
+</ul>
+<h4 id="1、过程-1"><a href="#1、过程-1" class="headerlink" title="1、过程"></a>1、过程</h4><ol>
+<li>按以下示例，先运行<code>read_fifo.c</code>，创建管道文件(<strong>注意:</strong> 此时管道文件必须不存在，否则会出错)。</li>
+<li>因为此时管道中还没有数据，<code>read()</code>处于阻塞状态，等待数据。</li>
+<li>再运行<code>write_fifo.c</code>，向管道中写入数据，此时<code>read()</code>打印<code>write_fifo.c</code>写入的数据。</li>
+</ol>
+<h4 id="2、例子-1"><a href="#2、例子-1" class="headerlink" title="2、例子"></a>2、例子</h4><ul>
+<li><em>read_fifo.c</em></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fd,len;</span><br><span class="line">    <span class="keyword">char</span> buff[<span class="number">1024</span>];	<span class="comment">//管道缓冲区大小</span></span><br><span class="line">  <span class="keyword">if</span>(mkfifo(<span class="string">"/Users/meetmax/CWork/fifo1"</span>, <span class="number">0666</span>) &lt; <span class="number">0</span>)</span><br><span class="line">  &#123;		<span class="comment">// 创建FIFO管道,此时`fif01`文件必须不存在，否则报错</span></span><br><span class="line">    	perror(<span class="string">"Create FIFO Failed"</span>);</span><br><span class="line">    	<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125; </span><br><span class="line">  </span><br><span class="line">	<span class="keyword">if</span>((fd = open(<span class="string">"/Users/meetmax/CWork/fifo1"</span>, O_RDONLY)) &lt; <span class="number">0</span>) </span><br><span class="line">	&#123; 	<span class="comment">// 以只读模式打开FIFO，和打开普通文件一样</span></span><br><span class="line">		perror(<span class="string">"Open FIFO Failed"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	 <span class="comment">// 如果管道中有数据，读取FIFO管道</span></span><br><span class="line">	<span class="keyword">while</span>((len = read(fd, buff, <span class="number">1024</span>)) &gt; <span class="number">0</span>)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Read message: %s"</span>, buff);</span><br><span class="line"></span><br><span class="line">	close(fd);  <span class="comment">// 关闭FIFO文件</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><em>write_fifo.c</em></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;   // exit</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fcntl.h&gt;    // O_WRONLY</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;     // time</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> fd;</span><br><span class="line">	<span class="keyword">int</span> n, i;</span><br><span class="line">	<span class="keyword">char</span> buf[<span class="number">1024</span>];</span><br><span class="line">	<span class="keyword">time_t</span> tp;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"I am %d process.\n"</span>, getpid()); <span class="comment">// 说明进程ID</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>((fd = open(<span class="string">"/Users/meetmax/CWork/fifo1"</span>, O_WRONLY)) &lt; <span class="number">0</span>) </span><br><span class="line">      <span class="comment">// 以写打开一个FIFO </span></span><br><span class="line">	&#123;</span><br><span class="line">		perror(<span class="string">"Open FIFO Failed"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">10</span>; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		time(&amp;tp);  <span class="comment">// 取系统当前时间</span></span><br><span class="line">		n=<span class="built_in">sprintf</span>(buf,<span class="string">"Process %d's time is %s"</span>,getpid(),ctime(&amp;tp));</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Send message: %s"</span>, buf); <span class="comment">//	打印</span></span><br><span class="line">		<span class="keyword">if</span>(write(fd, buf, n+<span class="number">1</span>) &lt; <span class="number">0</span>)  <span class="comment">// 写入到FIFO中</span></span><br><span class="line">		&#123;</span><br><span class="line">			perror(<span class="string">"Write FIFO Failed"</span>);</span><br><span class="line">			close(fd);</span><br><span class="line">			<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		sleep(<span class="number">1</span>);  <span class="comment">// 休眠1秒</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	close(fd);  <span class="comment">// 关闭FIFO文件</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="XIS-IPC-基于System-V-的IPC函数"><a href="#XIS-IPC-基于System-V-的IPC函数" class="headerlink" title="XIS IPC(基于System V 的IPC函数)"></a>XIS IPC(基于System V 的IPC函数)</h2><p>除管道外，还有3种IPC的进程间的通信，分别为：消息队列、信号量和共享内存。这3个IPC有两种实现方式，分别为基于<strong>System V</strong>和<strong>POSIX</strong>的进程间通信。</p>
+<ul>
+<li><em>维基百科</em></li>
+</ul>
+<p><strong>System V</strong></p>
+<blockquote>
+<p><strong>UNIX系统五</strong><a href="https://zh.wikipedia.org/wiki/Wikipedia:%E5%88%97%E6%98%8E%E6%9D%A5%E6%BA%90" target="_blank" rel="noopener">[来源请求]</a>（英语：UNIX System V），是<a href="https://zh.wikipedia.org/wiki/Unix" target="_blank" rel="noopener">Unix</a><a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">操作系统</a>众多版本中的一支。它最初由<a href="https://zh.wikipedia.org/wiki/AT%26T" target="_blank" rel="noopener">AT&amp;T</a>开发，在1983年第一次发布，因此也被称为<strong>AT&amp;T System V</strong>。</p>
+</blockquote>
+<p><strong>POSIX</strong></p>
+<blockquote>
+<p><strong>可移植操作系统接口</strong>（英语：Portable Operating System Interface，缩写为<strong>POSIX</strong>），是<a href="https://zh.wikipedia.org/wiki/IEEE" target="_blank" rel="noopener">IEEE</a>为要在各种<a href="https://zh.wikipedia.org/wiki/UNIX" target="_blank" rel="noopener">UNIX</a><a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">操作系统</a>上运行软件，而定义<a href="https://zh.wikipedia.org/wiki/API" target="_blank" rel="noopener">API</a>的一系列互相关联的标准的总称，其正式称呼为IEEE Std 1003，而国际标准名称为<a href="https://zh.wikipedia.org/wiki/ISO" target="_blank" rel="noopener">ISO</a>/<a href="https://zh.wikipedia.org/wiki/IEC" target="_blank" rel="noopener">IEC</a> 9945。</p>
+</blockquote>
+<p>System V 出现比 POSIX 要早，可以说POSIX是对System V的改进，POSIX API使用比前者更加简单高效，但是为什么两者仍然同时存在呢？还是一个移植性的问题，虽然现在新的程序都基于POSIX标准，但是仍然有很多旧的程序使用了基于System V的IPC，因此两者都保留了。本文的IPC基于System V的IPC函数。</p>
+<h2 id="二、消息队列"><a href="#二、消息队列" class="headerlink" title="二、消息队列"></a>二、消息队列</h2><h3 id="1、特点"><a href="#1、特点" class="headerlink" title="1、特点"></a>1、特点</h3><ol>
+<li>消息队列是消息的链表，存储在内核中，由消息队列标识符标识。</li>
+<li>消息队列是随内核持续的，进程终止时，消息队列及其内容不会被删除，除非内核重启或者调用<code>msgctl()</code>显式的删除消息队列。</li>
+<li>消息队列没有维护引用计数器(打开文件有这种计数器)，所以队列被删除后，仍在使用该队列的进程会出错返回。</li>
+</ol>
+<h3 id="2、过程"><a href="#2、过程" class="headerlink" title="2、过程"></a>2、过程</h3><ol>
+<li>先定义消息队列结构<code>struct msg_form</code>，每条消息都包含：<ul>
+<li>消息队列类型：<code>long</code>类型的<code>mtype</code></li>
+<li>消息数据：<code>char *</code>类型的字符串</li>
+</ul>
+</li>
+<li>通过文件的路径名和项目ID(0~255之间)，调用<code>ftok()</code>获取IPC，获取key值。创建<code>XSI IPC</code>结构都应指定一个键，这个键的数据类型是系统数据类型key_t，通常在头文件<code>&lt;sys/types.h&gt;</code>中定义。</li>
+<li>接着调用<code>msgget()</code>函数，使用key作为其中一个参数，由内核将<code>key</code>变成IPC的标识符，在这里就是消息队列ID。</li>
+<li>拿到IPC标识符后，通过<code>msgsnd()</code>和<code>msgrcv()</code>分别发送和接收消息。</li>
+</ol>
+<h3 id="3、示例"><a href="#3、示例" class="headerlink" title="3、示例"></a>3、示例</h3><ul>
+<li><em>msg_client.c</em></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MSG_FILE <span class="meta-string">"/Users/meetmax/CWork/msg_file"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 消息结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">msg_form</span> &#123;</span></span><br><span class="line">    <span class="keyword">long</span> mtype;    </span><br><span class="line">	<span class="keyword">char</span> mtext[<span class="number">256</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> msqid;	<span class="comment">// 消息队列id</span></span><br><span class="line">    <span class="keyword">key_t</span> key;	<span class="comment">// 键值</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">msg_form</span> <span class="title">msg</span>;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取key值</span></span><br><span class="line">    <span class="keyword">if</span>((key = ftok(MSG_FILE,<span class="number">100</span>)) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        perror(<span class="string">"获取key值失败\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"key 值为： %d"</span>,key);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>((msqid = msgget(key,IPC_CREAT|<span class="number">0777</span>)) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        perror(<span class="string">"获取消息队列失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"消息队列id: %d \n"</span>,msqid);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"进程id: %d \n"</span>,getpid());</span><br><span class="line"></span><br><span class="line">    msg.mtype = <span class="number">888</span>;	<span class="comment">// 设置消息类型</span></span><br><span class="line">    <span class="built_in">sprintf</span>(msg.mtext,<span class="string">"hello,I'm client %d\n"</span>,getpid());</span><br><span class="line">    msgsnd(msqid,&amp;msg,<span class="keyword">sizeof</span>(msg.mtext),<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取777类型的消息</span></span><br><span class="line">	msgrcv(msqid, &amp;msg, <span class="number">256</span>, <span class="number">999</span>, <span class="number">0</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Client: receive msg.mtext is: %s.\n"</span>, msg.mtext);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Client: receive msg.mtype is: %ld.\n"</span>, msg.mtype);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><em>msg_server.c</em></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MSG_FILE <span class="meta-string">"/Users/meetmax/CWork/msg_file"</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">msg_form</span>&#123;</span></span><br><span class="line">    <span class="keyword">long</span> mtype;</span><br><span class="line">    <span class="keyword">char</span> mtext[<span class="number">256</span>];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> msqid;</span><br><span class="line">    <span class="keyword">key_t</span> key;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">msg_form</span> <span class="title">msg</span>;</span></span><br><span class="line">    <span class="comment">//获取key值</span></span><br><span class="line">    <span class="keyword">if</span>((key = ftok(MSG_FILE,<span class="number">100</span>)) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        perror(<span class="string">"获取key失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//打印key值</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"key的值为 %d \n"</span>,key);</span><br><span class="line">    <span class="comment">//根据key值创建消息队列</span></span><br><span class="line">    <span class="keyword">if</span>((msqid = msgget(key,IPC_CREAT|<span class="number">0777</span>)) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        perror(<span class="string">"创建消息队列失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"消息队列id为 : %d \n"</span>,msqid);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"进程id为 : %d \n"</span>,getpid());</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//接受888类型的消息        </span></span><br><span class="line">        msgrcv(msqid,&amp;msg,<span class="number">256</span>,<span class="number">888</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Server:receive msg.mtext: %s \n"</span>,msg.mtext);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Server:receive msg.xxx: %ld \n"</span>,msg.mtype);</span><br><span class="line">        msg.mtype = <span class="number">999</span>;</span><br><span class="line">        <span class="built_in">sprintf</span>(msg.mtext,<span class="string">"hello I'm server: %d \n"</span>,getpid());</span><br><span class="line">        <span class="comment">//发送消息</span></span><br><span class="line">        msgsnd(msqid,&amp;msg,<span class="keyword">sizeof</span>(msg.mtext),<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、信号量"><a href="#三、信号量" class="headerlink" title="三、信号量"></a>三、信号量</h2><h3 id="1、特点-1"><a href="#1、特点-1" class="headerlink" title="1、特点"></a>1、特点</h3><ol>
+<li><p>信号量类似锁机制，能够使临界区内的资源在某一时刻只能被一个进程访问。临界区是指多个进程或线程共享的内存空间，在访问临界区的时候，多个进程操作同一个资源，此时就存在竞态条件，通常在两个进程对同一个资源写操作时，会产生结果不一致的问题，因为我们不知道系统进程何时切换，这种情况也很难复现和调试。必须有一种机制来保证在同一时刻只能有一个进程访问临界区，信号量就提供了这种机制。</p>
+</li>
+<li><p>信号量是一种特殊的变量，程序对它的访问都是<strong>原子操作</strong>，所谓原子操作，即是指不可被中断的操作，要实现原子操作单纯软件是不够的。虽然也能实现，但是效率很低，信号量是一种和硬件紧密结合的机制，它不会被系统进程切换和中断操作打断。本文以<strong>二值信号量</strong>为例子，二值信号量能实现互斥锁的功能，保证同一时间只能一个进程访问资源。</p>
+</li>
+<li><p>信号量的P,V操作</p>
+<p><em>来自维基百科</em></p>
+</li>
+</ol>
+<blockquote>
+<p>计数信号量具备两种操作动作，之前称为 V（又称signal()）与 P（wait()）。 V操作会增加信号量 S的数值，P操作会减少它。</p>
+<p>运作方式：</p>
+<ol>
+<li>初始化，给与它一个非负数的整数值。</li>
+<li>运行 P（wait()），信号量S的值将被减少。企图进入<a href="https://zh.wikipedia.org/wiki/%E8%87%A8%E7%95%8C%E5%8D%80%E6%AE%B5" target="_blank" rel="noopener">临界区块</a>的进程，需要先运行 P（wait()）。当信号量S减为负值时，进程会被挡住，不能继续；当信号量S不为负值时，进程可以获准进入临界区块。</li>
+<li>运行 V（又称signal()），信号量S的值会被增加。结束离开<a href="https://zh.wikipedia.org/wiki/%E8%87%A8%E7%95%8C%E5%8D%80%E6%AE%B5" target="_blank" rel="noopener">临界区块</a>的进程，将会运行 V（又称signal()）。当信号量S不为负值时，先前被挡住的其他进程，将可获准进入<a href="https://zh.wikipedia.org/wiki/%E8%87%A8%E7%95%8C%E5%8D%80%E6%AE%B5" target="_blank" rel="noopener">临界区块</a>。</li>
+</ol>
+</blockquote>
+<h3 id="2、过程-1"><a href="#2、过程-1" class="headerlink" title="2、过程"></a>2、过程</h3><ol>
+<li>获取<code>key</code>值(同消息队列)</li>
+<li>获取信号量ID(同消息队列)</li>
+<li><code>semctl()</code>函数初始化信号量</li>
+<li><code>fork()</code>子进程</li>
+<li>执行P,V操作</li>
+</ol>
+<h3 id="3、例子"><a href="#3、例子" class="headerlink" title="3、例子"></a>3、例子</h3><p><em>sem.c 二值信号量</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/sem.h&gt; // 信号量函数库</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SEM_FILE <span class="meta-string">"/Users/meetmax/CWork/sem_file"</span> <span class="comment">// 信号量文件</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">union</span> sem_union <span class="comment">//信号量联合</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">semid_ds</span> *<span class="title">buf</span>;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">short</span> *<span class="built_in">array</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化信号量</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">init_sem</span><span class="params">(<span class="keyword">int</span> sem_id,<span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">union</span> sem_union tmp;</span><br><span class="line">    tmp.val = val;</span><br><span class="line">    <span class="keyword">if</span>((semctl(sem_id,<span class="number">0</span>,SETVAL,tmp)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"初始化信号量失败"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * P操作</span></span><br><span class="line"><span class="comment"> * 信号量大于0时执行 -1 操作，获取资源</span></span><br><span class="line"><span class="comment"> * 若信号量 &lt;= 0 则挂起等待</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sem_p</span><span class="params">(<span class="keyword">int</span> sem_id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sembuf</span> <span class="title">sbuf</span>;</span></span><br><span class="line">    sbuf.sem_num = <span class="number">0</span>;</span><br><span class="line">    sbuf.sem_op = <span class="number">-1</span>;</span><br><span class="line">    sbuf.sem_flg = SEM_UNDO;</span><br><span class="line">    <span class="keyword">if</span>(semop(sem_id,&amp;sbuf,<span class="number">1</span>) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"p操作失败"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * V操作</span></span><br><span class="line"><span class="comment"> * 信号量 &lt;= 0时执行，+1操作，释放资源</span></span><br><span class="line"><span class="comment"> * 若信号量 &gt; 0 时挂起等待</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sem_v</span><span class="params">(<span class="keyword">int</span> sem_id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sembuf</span> <span class="title">sbuf</span>;</span></span><br><span class="line">    sbuf.sem_num = <span class="number">0</span>;</span><br><span class="line">    sbuf.sem_op = <span class="number">1</span>;</span><br><span class="line">    sbuf.sem_flg = SEM_UNDO;</span><br><span class="line">    <span class="keyword">if</span>(semop(sem_id,&amp;sbuf,<span class="number">1</span>) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"V操作失败"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除信号量</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sem_del</span><span class="params">(<span class="keyword">int</span> sem_id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">union</span> sem_union tmp;</span><br><span class="line">    <span class="keyword">if</span>(semctl(sem_id,<span class="number">0</span>,IPC_RMID,tmp) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"删除信号量失败"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sem_id;</span><br><span class="line">    <span class="keyword">key_t</span> key;</span><br><span class="line">    <span class="keyword">pid_t</span> pid;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取key值</span></span><br><span class="line">    <span class="keyword">if</span>((key = ftok(SEM_FILE,<span class="number">100</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"获取key值失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取信号量id</span></span><br><span class="line">    <span class="keyword">if</span>((sem_id = semget(key,<span class="number">1</span>,IPC_CREAT|<span class="number">0666</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"信号量id获取失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//初始化信号量</span></span><br><span class="line">    init_sem(sem_id,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//fork进程</span></span><br><span class="line">    <span class="keyword">if</span>((pid = fork()) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"进程fork失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(pid == <span class="number">0</span>)&#123; <span class="comment">//子进程</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"我是子进程：%d \n"</span>,getpid());</span><br><span class="line">        sleep(<span class="number">2</span>);</span><br><span class="line">        sem_v(sem_id);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(pid &gt; <span class="number">0</span>)&#123; <span class="comment">//父进程</span></span><br><span class="line">        sem_p(sem_id);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"我是父进程：%d \n"</span>,getpid());</span><br><span class="line">        sem_v(sem_id);</span><br><span class="line">        sem_del(sem_id);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、共享内存"><a href="#四、共享内存" class="headerlink" title="四、共享内存"></a>四、共享内存</h2><h3 id="1、特点-2"><a href="#1、特点-2" class="headerlink" title="1、特点"></a>1、特点</h3><p><em>概念</em></p>
+<blockquote>
+<p>顾名思义，共享内存就是允许两个不相关的进程访问同一个逻辑内存。共享内存是在两个正在运行的进程之间共享和传递数据的一种非常有效的方式。不同进程之间共享的内存通常安排为同一段物理内存。进程可以将同一段共享内存连接到它们自己的地址空间中，所有进程都可以访问共享内存中的地址，就好像它们是由用C语言函数malloc分配的内存一样。而如果某个进程向共享内存写入数据，所做的改动将立即影响到可以访问同一段共享内存的任何其他进程。</p>
+</blockquote>
+<h3 id="2、过程-2"><a href="#2、过程-2" class="headerlink" title="2、过程"></a>2、过程</h3><ol>
+<li><code>ftko()</code>获取key值(同消息队列)</li>
+<li>用<code>shmget()</code>函数获取共享内存ID</li>
+<li>进程通过<code>shmat()</code>函数连接共享内存</li>
+<li>访问共享内存</li>
+</ol>
+<h3 id="3、示例-1"><a href="#3、示例-1" class="headerlink" title="3、示例"></a>3、示例</h3><p><em>shm_server.c 读数据</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SHM_FILE <span class="meta-string">"/Users/meetmax/CWork/shm_file"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> shm_id;</span><br><span class="line">    <span class="keyword">key_t</span> key;</span><br><span class="line">    <span class="keyword">char</span> * shm;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">shmid_ds</span> <span class="title">buf</span>;</span></span><br><span class="line">	<span class="comment">// 获取key</span></span><br><span class="line">    <span class="keyword">if</span>((key = ftok(SHM_FILE,<span class="number">100</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"获取key失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 获取共享内存描述符ID</span></span><br><span class="line">    <span class="keyword">if</span>((shm_id = shmget(key,<span class="number">512</span>,IPC_CREAT|<span class="number">0666</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"获取共享内存id失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 连接共享内存</span></span><br><span class="line">    <span class="keyword">if</span>((<span class="keyword">int</span>)(shm = (<span class="keyword">char</span> *)shmat(shm_id,<span class="number">0</span>,<span class="number">0</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"连接共享内存失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"开始接收数据\n"</span>);</span><br><span class="line">  </span><br><span class="line">    <span class="comment">// 开始忙等，接收数据</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strlen</span>(shm) &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"收到数据：%s \n"</span>,shm);</span><br><span class="line">            <span class="built_in">sprintf</span>(shm,<span class="string">""</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strcmp</span>(shm,<span class="string">"r"</span>) == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"已退出\n"</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 删除共享内存</span></span><br><span class="line">    shmctl(shm_id,IPC_RMID,&amp;buf);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>sem_client.c 写入数据</em> </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SHM_FILE <span class="meta-string">"/Users/meetmax/CWork/shm_file"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> shm_id;</span><br><span class="line">    <span class="keyword">key_t</span> key;</span><br><span class="line">    <span class="keyword">char</span> * shm;</span><br><span class="line">   </span><br><span class="line">	<span class="comment">// 获取key</span></span><br><span class="line">    <span class="keyword">if</span>((key = ftok(SHM_FILE,<span class="number">100</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"获取key失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 获取共享内存id</span></span><br><span class="line">    <span class="keyword">if</span>((shm_id = shmget(key,<span class="number">512</span>,IPC_CREAT|<span class="number">0666</span>)) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"获取共享内存id失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 连接共享内存，若不存在则创建</span></span><br><span class="line">    <span class="keyword">if</span>((<span class="keyword">int</span>)(shm = (<span class="keyword">char</span> *)shmat(shm_id,<span class="number">0</span>,<span class="number">0</span>)) == <span class="number">-1</span>)   </span><br><span class="line">    &#123;</span><br><span class="line">        perror(<span class="string">"连接共享内存失败"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入："</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,shm); <span class="comment">// 写入数据到共享内存</span></span><br><span class="line">    shmdt(shm); <span class="comment">// 断开连接</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><em>《UNIX环境高级编程》</em></li>
+<li><em>《UNIX网络编程：卷2》</em></li>
+<li>部分来自互联网</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nosql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">unix</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://meetmax.github.io/2018/02/20/进程间通信/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/03/16/Redis应用场景浅析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Redis应用场景浅析
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/01/20/Mysql之Explain浅析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mysql之Explain浅析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="进程间通信" data-title="Unix进程间通信(IPC)" data-url="https://meetmax.github.io/2018/02/20/进程间通信/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -227,8 +517,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
