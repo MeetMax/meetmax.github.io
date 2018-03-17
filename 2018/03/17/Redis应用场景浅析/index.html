@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://meetmax.github.io/2018/03/17/Redis应用场景浅析/index.html">
 <meta property="og:site_name" content="MeetMax">
 <meta property="og:description" content="String–字符串redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。">
-<meta property="og:updated_time" content="2018-03-17T13:44:35.304Z">
+<meta property="og:updated_time" content="2018-03-17T13:53:04.783Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis应用场景浅析">
 <meta name="twitter:description" content="String–字符串redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。">
@@ -171,7 +171,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="String–字符串"><a href="#String–字符串" class="headerlink" title="String–字符串"></a>String–字符串</h3><p>redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。</p>
+        <h3 id="String–字符串"><a href="#String–字符串" class="headerlink" title="String–字符串"></a>String–字符串</h3><p>redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。<br><a id="more"></a></p>
 <h3 id="Hash–哈希"><a href="#Hash–哈希" class="headerlink" title="Hash–哈希"></a>Hash–哈希</h3><p>哈希表是redis中很有用的数据结构，有时候我们需要存储结构话的数据，例如用户的登录信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">uid:1 // 用户uid</span><br><span class="line">username:xxx // 用户名</span><br><span class="line">age:18 // 年龄</span><br><span class="line">head:xxx //头像</span><br></pre></td></tr></table></figure></p>
 <h4 id="String模式"><a href="#String模式" class="headerlink" title="String模式"></a>String模式</h4><p>按照普通缓存的模式，存储这个结构需要先将其序列化，转换成json字符串，以<code>user-uid</code>为键名，这样做有个问题，假如说现在需要修改<code>head</code>字段，我需要经历如下步骤：</p>
 <ol>
