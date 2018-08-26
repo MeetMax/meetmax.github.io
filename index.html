@@ -147,6 +147,164 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java学习笔记-变量(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/26/Java学习笔记-变量(一)/">Java学习笔记-变量(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/26/Java学习笔记-变量(一)/" class="archive-article-date">
+  	<time datetime="2018-08-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>Java语言定义了4中类型的变量</p>
+<ul>
+<li><strong>实例变量</strong><br>实例变量本质上是 <strong>一个类的非晶态的全局变量</strong>，注意关键词，<strong>非晶态</strong>和<strong>全局</strong>。为什么叫实例变量呢？因为它的值在类的每个实例都是唯一的，实例就是指对象。下面的例子中，有一个<code>Box</code>类，定义了一个全局变量<code>numbers=1</code>，在这里<code>box1</code>是类<code>Box</code>的第1个实例，<code>box2</code>是第2个实例，<code>numbers</code>变量在这2个实例中是独立的，修改了实例<code>box1</code>中的变量<code>numbers</code>不会对<code>box2</code>实例中的<code>numbers</code>造成影响。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> numbers = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Box box1 = <span class="keyword">new</span> Box();</span><br><span class="line">box1.numbers = <span class="number">2</span>;</span><br><span class="line">Box box2 = <span class="keyword">new</span> Box(); <span class="comment">// box2的numbers属性依然是1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/26/Java学习笔记-变量(一)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-IO模型浅析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/26/IO模型浅析/">IO模型浅析</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/26/IO模型浅析/" class="archive-article-date">
+  	<time datetime="2018-07-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="同步阻塞IO"><a href="#同步阻塞IO" class="headerlink" title="同步阻塞IO"></a>同步阻塞IO</h2><p>系统的输入分为两个步骤：</p>
+<ol>
+<li>等待数据报的到来</li>
+<li>将数据报从内核缓冲区复制到用户应用程序缓冲区</li>
+</ol>
+<p>同步阻塞IO在以上两个步骤上都是阻塞状态，这时候CPU处于空闲状态，不会分配时间片给用户线程。在实际场景下，同一时刻往往会有多个IO操作，同步阻塞IO不能同时处理多个IO，只能一个一个来，导致CPU资源被浪费。</p>
+<h2 id="同步非阻塞IO"><a href="#同步非阻塞IO" class="headerlink" title="同步非阻塞IO"></a>同步非阻塞IO</h2><p>同步非阻塞IO比同步阻塞稍微好点，两者的区别是，在第一步调用<code>recvfrom</code>系统调用的时候，如果数据报还没有准备好会立即返回错误码<code>EAGAIN</code>或<code>EWOULDBLOCK</code>，并且一直轮询调用，直到数据报准备好时，执行第2步，第2步仍然是阻塞执行的，它的问题是会产生大量的系统调用，是很大的开销。<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">unix</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/26/IO模型浅析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-浅入浅出MySQL事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -739,10 +897,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nosql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">教程</a>
               </li>
              
@@ -752,6 +906,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">unix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nosql</a>
               </li>
             
             <div class="clearfix"></div>
