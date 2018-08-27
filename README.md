@@ -1,136 +1,103 @@
+## Jasper
 
-# Hexo + Github Pages 搭建个人博客
+[![Build Status](https://travis-ci.org/jekyller/jasper.svg?branch=master)](https://travis-ci.org/jekyller/jasper)
+[![Ruby](https://img.shields.io/badge/ruby-2.5.2-blue.svg?style=flat)](http://travis-ci.org/jekyller/jasper)
+[![Jekyll](https://img.shields.io/badge/jekyll-3.6.2-blue.svg?style=flat)](http://travis-ci.org/jekyller/jasper)
 
-### 一、什么是Hexo?
-Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 [Markdown](https://zh.wikipedia.org/wiki/Markdown)（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
-### 二、准备工作
-你需要：
-1、`NodeJS`环境，请参考 [NodeJs官网](https://nodejs.org/en/download/)
-2、`Git`，请参考 [廖雪峰的Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
-3、一个[Github](https://github.com)账号
+This is a port of Ghost's default theme [Casper](https://github.com/tryghost/casper) for Jekyll inspired by [Kasper](https://github.com/rosario/kasper).
 
-### 三、安装Hexo
-检验NodeJs安装：
-```bash
-$ node -v
-```
-若安装成功会显示`NodeJs`版本号，例如：
-```bash
-$ v9.6.1
-```
-接着，在命令行中输入：
-```bash
-$ npm install -g hexo-cli
-```
-由于国外网络延迟的关系，下载速度太慢或者某些依赖安装失败，请安装`淘宝NPM镜像`，设置镜像的方法和使用规则详见：[https://npm.taobao.org](https://npm.taobao.org/)。
-至此，若无意外情况，Hexo安装完毕，若有疑问请参考 [Hexo官方手册](https://hexo.io/zh-cn/docs/index.html)
+You might well ask at this point why bother making a new Casper's clone?
+Although this is inspired by Kasper, there are several **additional** features which make this port closer
+to the original theme. This port is based on the last Casper v1.3.7 (same as v1.4.0 that runs in Ghost 1.0).
 
-### 四、Github Pages使用
-1. 登录`Github`，在右上角选择`New repository`，新建一个`repository`，并且命名为`username.github.io`，注意把`username`替换成你申请账号的用户名，其余不要变。
-2. 使用 `git clone https://github.com/MeetMax/meetmax.github.io.git` 命令将项目克隆到本地，这里以我自己的项目为例。
-3. 进入文件夹 `cd meetmax.github.io` 
-4. 新建 `index.html` 文件，在里面输入
+**New:** Check out **[Jasper2](https://github.com/jekyller/jasper2)**, a new port of Casper version 2!
 
-```htmlbars
-<!DOCTYPE html>
-<html>
-<head>
-	<title>hello world</title>
-</head>
-<body>
-hello world
-</body>
-</html>
-```
-5. 将文件提交到 `Github` 仓库，在`meetmax.github.io`文件夹运行命令：
-```bash
-$ git add .
-$ git commit -m "hello"
-$ git push origin master
-```
-6.在浏览器打开 `https://meetmax.github.io/`，若显示`hello world`则说明配置成功，注意将`meetmax`替换成自己的账号。
+## Live demo
 
-### 五、搭建Hexo博客
-#### 1. 初始化博客目录
-```bash
-$ hexo init meetmax.github.io
-$ cd meetmax.github.io
-$ npm install
-```
-#### 2. 生成静态页面
-```bash
-$ hexo clean // 清空代码，初始化
-$ hexo g // g表示generate，生成静态页面
-```
-#### 3.  运行项目
-```bash
-$ hexo s // s 表示 server
-```
-然后打开浏览器输入：`http://localhost:4000/`查看
-#### 4. 发布文章
-```bash
-$ hexo new test
-```
-这时候会在`source/_post`文件夹生成`test.md`文件，或者直接手动在`source/_post`文件夹下新建`test.md`文件。再次运行命令：
-```bash
-$ hexo clean
-$ hexo g 
-$ hexo s
-```
-#### 5.  配置
-网站的配置大部分都在**_config.yml**文件中：
-- title -> 网站标题
-- subtitle -> 网站副标题
-- description -> 网站描述
-- author -> 作者名字
-- language -> 网站使用语言
-#### 6. 需要注意的坑
-_配置文件名字冒号后面必须加空格，例如 `title: meetmax`_，否则配置不生效。
+[Jasper Live Demo](https://jekyller.github.io/jasper)
 
-#### 7. 更换主题
-我用的是`Yilia`主题，这里就以该主题为例
-1. 克隆主题到 `theme` 文件夹
-```bash
-$ cd themes
-$ git clone https://github.com/litten/hexo-theme-yilia.git
-```
-2. 配置主题
-修改项目文件夹下的`_config.yml`文件，配置如下：  `注意加空格，否则无效`
-```
-theme: hexo-theme-yilia
-```
-### 六、部署到Github
-#### 1. 安装 hexo-deployer-git
-```bash
-$ npm install hexo-deployer-git --save
-```
-若出现下面的错误，请设置`public key`，若不懂请使用搜索引擎
-```bash
-Permission denied (publickey).
-fatal: Could not read from remote repository.
-Please make sure you have the correct access rights
-and the repository exists.
-```
-#### 2. 在`_config.yml`中配置 Git，以我自己的为例：
-这里要注意 `repo`是 `ssh`地址，非 `https`
-```
-deploy:
-  type: git
-  repo: git@github.com:MeetMax/meetmax.github.io.git
-  branch: master
-```
-#### 3. 部署到Github
-```bash
-$ hexo d // d表示deloy
-```
-#### 4.访问
-打开浏览器访问：https://meetmax.github.io/
-
-### 参考
-[手把手教你使用Hexo + Github Pages搭建个人独立博客](https://linghucong.js.org/2016/04/15/2016-04-15-hexo-github-pages-blog/)
-[Hexo 博客搭建指南](https://github.com/limedroid/HexoLearning)
+[Casper's Original Here](https://demo.ghost.io)
 
 
+## Screenshots
+
+**Home page**
+![home page](https://raw.githubusercontent.com/jekyller/jasper/master/assets/images/jasper_screen1.png)
+
+**Post page**
+![post page](https://raw.githubusercontent.com/jekyller/jasper/master/assets/images/jasper_screen2.png)
+
+**Author page**
+![author page](https://raw.githubusercontent.com/jekyller/jasper/master/assets/images/jasper_screen3.png)
+
+**Related posts page**
+![tag page](https://raw.githubusercontent.com/jekyller/jasper/master/assets/images/jasper_screen4.png)
+
+**Tags page with opened sidebar**
+![sidebar page](https://raw.githubusercontent.com/jekyller/jasper/master/assets/images/jasper_screen5.png)
+
+**404 page**
+![related page](https://raw.githubusercontent.com/jekyller/jasper/master/assets/images/jasper_screen6.png)
+
+## Jasper theme includes
+
+* Pagination
+* Google Analytics tracking
+* Author's profile with picture
+* Disqus comments (not Ghost standard)
+* Author page (New 07.02.2015)
+* Tag page(s) (New 07.02.2015)
+* 404 page (New 07.02.2015)
+* Toggleable sliding sidebar (New 07.02.2015)
+* Related posts view (New 30.10.2015)
+* Tag description(s) (New 30.10.2015)
+* Code Syntax Highlight (New 24.11.2015)
+* Code Syntax Highlight with [highlight.js](https://highlightjs.org/) (New 06.04.2016)
+* Rss updated to Jekyll v3 (New 06.04.2016)
+* Updated to Casper v1.3.7 **(New 17.11.2017)**  
+* 'Out of the box' support for Multiple Authors **(New 17.11.2017)**  
+
+## How to use it
+
+### Deployment
+
+**Important:**  For security reasons, Github does not allow plugins (under _plugins/) when deploying with Github Pages. This means:
+
+**1)** that we need to generate your site locally (more details below) and push the resulting HTML to a Github repository;
+
+**2)** built the site with [travis-ci](https://travis-ci.org/) (with goodies from [jekyll-travis](https://github.com/mfenner/jekyll-travis)) automatically pushing the generated *_site/* files to your *gh-pages* branch.
+ This later approach is the one I am currently using to generate the live demo.
+
+For option **1)** simply clone this repository (*master branch*), and then run `bundle exec jekyll serve` inside the directory. Upload the resulting *_site/* contents to your repository (*master branch* if uploading as your personal page (username.github.io) or *gh-pages branch* if uploading as a project page (as for the [demo](https://github.com/jekyller/jasper/tree/gh-pages)).
+
+For option **2)** you will need to set up travis-ci for your personal fork. Briefly all you need then is to change your details in *[\_config.yml](_config.yml)* so that you can push to your github repo. You will also need to generate a secure key to add to your *[.travis.yml](.travis.yml)* (you can find more info on how to do it in that file). Also make sure you read the documentation from [jekyll-travis](https://github.com/mfenner/jekyll-travis). This approach has clear advantages in that you simply push changes to your files and all the html files are generated for you. Also you get to know if everything is still fine with your site builds. Don't hesitate to contact me if you still have any issues (see below about issue tracking).
+
+### Author pages
+
+In order to properly generate author pages you need to rename the field *categories* in the front matter of every post to match that of your each author *username* as defined in the *[\_config.yml](_config.yml)* file.
+With the latest update, multiple author blogs are now supported out of the box.
+
+## Issues and contributing
+
+This install builds well with Ruby v2.4.2 and Jekyll v3.6.2. If you run into any problems please log them on the [issue tracker](https://github.com/jekyller/jasper/issues).
+
+Feel free pull-request your patches and fixes.
+
+## Thanks
 
 
+Many thanks to the Ghost team for all the design work that allows to make this clone possible. Also many thanks to all contributors, that help keeping the project alive and updated :smile:
 
+
+## Copyright & License
+
+Same licence as the one provided by Ghost's team. See Casper's theme [license](GHOST.txt).
+
+Copyright (C) 2015-2017 - Released under the MIT License.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
