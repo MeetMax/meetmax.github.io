@@ -102,6 +102,79 @@
 	</item>
 
 	<item>
+	  <title>Java学习笔记(三) - 表达式、语句和块</title>
+	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%9D%97</link>
+	  <author></author>
+	  <pubDate>2018-08-27T00:00:00+08:00</pubDate>
+	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%9D%97</guid>
+	  <description><![CDATA[
+	     <h2 id="表达式">表达式</h2>
+<p>表达式是由变量、操作符和方法调用组成的一个就算过程，它一定有单个的返回值，下面是表达式的例子：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">code</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">value1</span> <span class="o">==</span> <span class="n">value2</span><span class="o">)</span> 
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"value1 == value2"</span><span class="o">);</span>
+
+</code></pre></div></div>
+
+<p>在上面的示例中，<code class="highlighter-rouge">code = 1</code>是一个表达式，它返回一个<code class="highlighter-rouge">int</code>类型的值，表达式的返回值也可以是其它类型，<code class="highlighter-rouge">value1 == value2</code>是一个返回布尔值的表达式。Java语言也可以通过各种较小的表达式构成符合表达式，如下所示：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>
+</code></pre></div></div>
+
+<h2 id="语句">语句</h2>
+<p>通俗的讲语句就是自然语言中的句子。一条一句是一个完整的执行单元，表达是是语句的一部分，下面这些类型的表达式，在其后面加上分号就变成语句了。</p>
+
+<ul>
+  <li>赋值表达式</li>
+  <li>使用了<code class="highlighter-rouge">++</code>或者<code class="highlighter-rouge">--</code>的表达式</li>
+  <li>方法调用</li>
+  <li>对象的创建</li>
+</ul>
+
+<p>这些语句被称为表达式语句，下面是一些表达式语句的例子。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// assignment statement</span>
+<span class="n">aValue</span> <span class="o">=</span> <span class="mf">8933.234</span><span class="o">;</span>
+<span class="c1">// increment statement</span>
+<span class="n">aValue</span><span class="o">++;</span>
+<span class="c1">// method invocation statement</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World!"</span><span class="o">);</span>
+<span class="c1">// object creation statement</span>
+<span class="n">Bicycle</span> <span class="n">myBike</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bicycle</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>另外，语句可以分为<code class="highlighter-rouge">声明语句</code>和<code class="highlighter-rouge">控制流语句</code>，上面的例子是<code class="highlighter-rouge">声明语句</code>，下面的示例是<code class="highlighter-rouge">控制流语句</code>。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">===</span> <span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+<span class="c1">// do something</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="块">块</h2>
+<p><strong>块</strong> 是语句的组合，在“块”的范围内可以有0或n个语句，<code class="highlighter-rouge">{}</code>花括号边上开始和结束，下面是块的示例。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BlockDemo</span> <span class="o">{</span>
+     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+          <span class="kt">boolean</span> <span class="n">condition</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+          <span class="k">if</span> <span class="o">(</span><span class="n">condition</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 开始 块 1</span>
+               <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Condition is true."</span><span class="o">);</span>
+          <span class="o">}</span> <span class="c1">// 结束 块 one</span>
+          <span class="k">else</span> <span class="o">{</span> <span class="c1">// 开始 块 2</span>
+               <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Condition is false."</span><span class="o">);</span>
+          <span class="o">}</span> <span class="c1">// 结束 块 2</span>
+     <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="参考">参考</h2>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html">The Java™ Tutorials</a></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Java学习笔记(一) - 变量</title>
 	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</link>
 	  <author></author>

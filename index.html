@@ -118,7 +118,7 @@
         
             <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 2 </span>
+    <span class="page-number"> Page 1 of 3 </span>
      
         <a class="older-posts" href="/page2/" title="Next Page">Older Posts &raquo;</a>
      
@@ -134,6 +134,47 @@
         </header>
         <section class="post-excerpt">
             <p>原始数据类型 Java是静态类型语言，所以变量必须先声明才能使用，并且每个变量都有自己的类型和名称。原始值不与其他原始数据值共享状态，Java语言定义了8种原始数据类型。 byte 字节类型，在内存中占8位，它的值的范围是-128 ~ 127(包含)，在需要节省内存的情况下，字节类型可用来保存大型数组。 short 类型在内存中占16位，它的值的范围是-32,768 ~ 32,767 ，和byte类型一样，同样适用于需要节省内存的情况。 int 类型在内存中占32位，它的值的范围是-231 ~ 231 -1。Java8之后可以使用无符号的整数，它的范围是**0 ~ 232 **，Integer中增加了静态方法compareUnsigned,divideUnsigned等方法可支持无符号整数运算。 long类型在内存中占64位，它的取值范围是-263 ~ 263 -1，Java8之后也可以使用无符号整数，通过Long类提供的compareUnsigned、divideUnsigned方法支持无符号整数运算。 float为32位单精度浮点类型。 dobule类型为64位双精度浮点类型。 boolean布尔类型，有true/false两种类型，通常用于条件判断true表是,false表否。... <a class="read-more" href="/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+
+                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
+                <!-- author -->
+                <a href='/author/meetmax'>MeetMax</a>
+
+                
+            
+
+            <!-- [[tags prefix=" on "]] -->
+            
+                on
+                
+                    
+                       <a href='/tag/java'>Java</a>
+                    
+                
+            
+            <time class="post-date" datetime="2018-08-27">27 Aug 2018</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%9D%97">Java学习笔记(三) - 表达式、语句和块</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>表达式 表达式是由变量、操作符和方法调用组成的一个就算过程，它一定有单个的返回值，下面是表达式的例子： int code = 1; if (value1 == value2) System.out.println("value1 == value2"); 在上面的示例中，code = 1是一个表达式，它返回一个int类型的值，表达式的返回值也可以是其它类型，value1 == value2是一个返回布尔值的表达式。Java语言也可以通过各种较小的表达式构成符合表达式，如下所示： 1 * 2 * 3 语句 通俗的讲语句就是自然语言中的句子。一条一句是一个完整的执行单元，表达是是语句的一部分，下面这些类型的表达式，在其后面加上分号就变成语句了。 赋值表达式... <a class="read-more" href="/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%9D%97">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
@@ -314,53 +355,12 @@ IO多路复用
         </footer>
     </article>
     
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95">Git原理和用法</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>git是一个分布式版本管理工具，所谓分布式，也就是指每台电脑都是一个版本仓库，虽然git是分布式的，但在实际工作中，一般git还是会有一个集中的服务中心，目前比较主流的GITHUB和码云就是这样一个角色，当然你也可以搭建git服务器，然后全世界的开发者就可以通过互联网一起协同工作啦。很多小伙伴在工作上都会用到版本管理工具，我相信现在大部分互联网公司都会使用git来做版本管理工具，写这篇文章的目的是因为虽然自己每天都在用，但是仔细想想，对它的原理和执行过程没有一个深入的理解，往往只是停留在会用的阶段，不光是这个，其实很多时候，我们平时在用的一些开源框架或者库的时候，大多数人可能仅仅会用，不会去理解本质和原理是什么？然后那些原理和基础才是最重要的，正所谓要知其然，也要知其所以然，可能这就是高手和普通人的差距吧。Linus有句话叫Read The Fucking Source Code，这个话虽然简单粗暴，仔细想想却很有道理。 工作原理 Git整体可以分为三部分：工作区、暂存区和分支，在我们的git工作目录下，有一个.git文件，这个文件就是我们常说的版本库，要注意的是Git是通过快照的方式保存版本的，和传统版本管理工具不同，git不保存不同版本之间的差异，只以快照的方式保存修改后的文件，如果文件没有被修改，git就不会保存，这也是git比传统工具更高效的原因，但也有一个缺点，由于每次保存的都是快照，相当于把修改后的文件复制一份保存起来，这难免会造成空间浪费，因此版本提交多了之后，.git文件会变得很大。 工作区 工作区就是我们工作的文件夹目录 暂存区 Git和其它版本管理工具一个不同之处就在于，git有一个暂存区，当我们执行git add命令的时候，我们实际上就是把修改后的文件放入到这个暂存区，而不是直接发布版本 分支 分支区域存放的是我们发布的各个版本，每次执行git commit操作时，git会生成一个hash值作为版本号，然后把暂存区的文件放入分支区域，也就是发布了一个版本，因为一个代码仓库一般会有好几个分支，所以这个提交的分支仅仅指向你当前正在使用的那个。换句话说，暂存区就是为版本发布做准备的，提交之后暂存区的就被清空了。 $ git add // 添加修改后的文件到暂存区 $ git commit // 提交文件到分支 $... <a class="read-more" href="/Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-
-                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/author/meetmax'>MeetMax</a>
-
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/tag/Git'>Git</a>
-                    
-                
-            
-            <time class="post-date" datetime="2018-03-23">23 Mar 2018</time>
-        </footer>
-    </article>
-    
 
     <!-- Previous/next page links - displayed on every page -->
     
         <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 2 </span>
+    <span class="page-number"> Page 1 of 3 </span>
      
         <a class="older-posts" href="/page2/" title="Next Page">Older Posts &raquo;</a>
      
