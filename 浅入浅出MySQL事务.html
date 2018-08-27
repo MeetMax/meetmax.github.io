@@ -26,7 +26,7 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="//meetmax/2018/03/27/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1.html" />
+        <link rel="canonical" href="//%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
@@ -34,13 +34,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="浅入浅出MySQL事务" />
     <meta property="og:description" content="A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
-    <meta property="og:url" content="//meetmax/2018/03/27/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1.html" />
+    <meta property="og:url" content="//%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1" />
     <meta property="og:image" content="/assets/images/cover1.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="浅入浅出MySQL事务" />
     <meta name="twitter:description" content="A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
-    <meta name="twitter:url" content="//meetmax/2018/03/27/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1.html" />
+    <meta name="twitter:url" content="//%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1" />
     <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
 
     <script type="application/ld+json">
@@ -49,7 +49,7 @@
     "@type": "Website",
     "publisher": "Finding The Way Home",
     "name": "浅入浅出MySQL事务",
-    "url": "//meetmax/2018/03/27/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1.html",
+    "url": "//%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1",
     "image": "/assets/images/cover1.jpg",
     "description": "A beautiful narrative written with the world's most elegant publishing platform. The story begins here."
 }
@@ -385,15 +385,15 @@
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=浅入浅出MySQL事务&amp;url=meetmax20180327%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1.html"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=浅入浅出MySQL事务&amp;url=%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=meetmax20180327%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1.html"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=meetmax20180327%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1.html"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -414,7 +414,7 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story no-cover" href="/meetmax20180727IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90.html">
+        <a class="read-next-story no-cover" href="/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90">
             <section class="post">
                 <h2>IO模型浅析</h2>
                 <p>## 同步阻塞IO 系统的输入分为两个步骤： 1. 等待数据报的到来 2. 将数据报从内核缓冲区复制到用户应用程序缓冲区 同步阻塞IO在以上两个步骤上都是阻塞状态，这时候CPU处于空闲状态，不会分配时间片给用户线程。在实际场景下，同一时刻往往会有多个IO操作，同步阻塞IO不能同时处理多个IO，只能一个一个来，导致CPU资源被浪费。 ## 同步非阻塞IO 同步非阻塞IO比同步阻塞稍微好点，两者的区别是，在第一步调用`recvfrom`系统调用的时候，如果数据报还没有准备好会立即返回错误码`EAGAIN`或`EWOULDBLOCK`，并且一直轮询调用，直到数据报准备好时，执行第2步，第2步仍然是阻塞执行的，它的问题是会产生大量的系统调用，是很大的开销。 ## IO多路复用 多路复用和同步阻塞区别也是在第1步，当用户进程调用了`select`,`poll`或者`epoll`函数时，进程会监听文件描述符，当有数据报到来时，就执行第2步。多路复用在服务端编程中很常用，nginx、redis和nodeJs底层都使用了基于`epoll`的IO模型。它的优势是。**1.** 相对多线程而言，多个线程修改数据会产生静态条件，需要加锁处理。**2.**单线程模型避免了线程间切换的开销，可同时接受多个客户端的IO操作。**3.**事件驱动，当数据报准备好时才拷贝数据到用户控件，高效利用CPU资源。...</p>
@@ -424,7 +424,7 @@
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev no-cover" href="/meetmax20180323Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95.html">
+        <a class="read-next-story prev no-cover" href="/Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95">
             <section class="post">
                 <h2>Git原理和用法</h2>
                 <p>git是一个分布式版本管理工具，所谓分布式，也就是指每台电脑都是一个版本仓库，虽然git是分布式的，但在实际工作中，一般git还是会有一个集中的服务中心，目前比较主流的GITHUB和码云就是这样一个角色，当然你也可以搭建git服务器，然后全世界的开发者就可以通过互联网一起协同工作啦。很多小伙伴在工作上都会用到版本管理工具，我相信现在大部分互联网公司都会使用git来做版本管理工具，写这篇文章的目的是因为虽然自己每天都在用，但是仔细想想，对它的原理和执行过程没有一个深入的理解，往往只是停留在会用的阶段，不光是这个，其实很多时候，我们平时在用的一些开源框架或者库的时候，大多数人可能仅仅会用，不会去理解本质和原理是什么？然后那些原理和基础才是最重要的，正所谓要知其然，也要知其所以然，可能这就是高手和普通人的差距吧。Linus有句话叫Read The Fucking Source Code，这个话虽然简单粗暴，仔细想想却很有道理。 工作原理 Git整体可以分为三部分：工作区、暂存区和分支，在我们的git工作目录下，有一个.git文件，这个文件就是我们常说的版本库，要注意的是Git是通过快照的方式保存版本的，和传统版本管理工具不同，git不保存不同版本之间的差异，只以快照的方式保存修改后的文件，如果文件没有被修改，git就不会保存，这也是git比传统工具更高效的原因，但也有一个缺点，由于每次保存的都是快照，相当于把修改后的文件复制一份保存起来，这难免会造成空间浪费，因此版本提交多了之后，.git文件会变得很大。 工作区 工作区就是我们工作的文件夹目录 暂存区 Git和其它版本管理工具一个不同之处就在于，git有一个暂存区，当我们执行git add命令的时候，我们实际上就是把修改后的文件放入到这个暂存区，而不是直接发布版本 分支 分支区域存放的是我们发布的各个版本，每次执行git commit操作时，git会生成一个hash值作为版本号，然后把暂存区的文件放入分支区域，也就是发布了一个版本，因为一个代码仓库一般会有好几个分支，所以这个提交的分支仅仅指向你当前正在使用的那个。换句话说，暂存区就是为版本发布做准备的，提交之后暂存区的就被清空了。...</p>

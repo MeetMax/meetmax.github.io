@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Hexo + Github Pages 搭建个人博客</title>
-	  <link>//meetmax/2018/03/18/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html</link>
+	  <link>//Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</link>
 	  <author></author>
 	  <pubDate>2018-03-18T00:00:00+08:00</pubDate>
-	  <guid>//meetmax/2018/03/18/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html</guid>
+	  <guid>//Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</guid>
 	  <description><![CDATA[
 	     <h2 id="一什么是hexo">一、什么是Hexo?</h2>
 <p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="https://zh.wikipedia.org/wiki/Markdown">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>

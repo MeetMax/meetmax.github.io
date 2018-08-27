@@ -133,10 +133,10 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/meetmax20180316Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90.html">Redis应用场景浅析</a></h2>
+            <h2 class="post-title"><a href="/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90">Redis应用场景浅析</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>String–字符串 redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。 Hash–哈希 哈希表是redis中很有用的数据结构，有时候我们需要存储结构话的数据，例如用户的登录信息 uid:1 // 用户uid username:xxx // 用户名 age:18 // 年龄 head:xxx //头像 String模式 按照普通缓存的模式，存储这个结构需要先将其序列化，转换成json字符串，以user-uid为键名，这样做有个问题，假如说现在需要修改head字段，我需要经历如下步骤： 根据键名user-1获取到json字符串 解析json 修改结构体中的head字段 再次序列化成json set key 存储 Hash模式 接下来使用Hash来存储，使用HMSET命令存储所有字段... <a class="read-more" href="/meetmax20180316Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90.html">&raquo;</a></p>
+            <p>String–字符串 redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。 Hash–哈希 哈希表是redis中很有用的数据结构，有时候我们需要存储结构话的数据，例如用户的登录信息 uid:1 // 用户uid username:xxx // 用户名 age:18 // 年龄 head:xxx //头像 String模式 按照普通缓存的模式，存储这个结构需要先将其序列化，转换成json字符串，以user-uid为键名，这样做有个问题，假如说现在需要修改head字段，我需要经历如下步骤： 根据键名user-1获取到json字符串 解析json 修改结构体中的head字段 再次序列化成json set key 存储 Hash模式 接下来使用Hash来存储，使用HMSET命令存储所有字段... <a class="read-more" href="/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             

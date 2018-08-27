@@ -27,8 +27,8 @@
         
         <pubDate>Mon, 27 Aug 2018 00:00:00 +0800</pubDate>
         <link>
-        /meetmax/2018/08/27/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html</link>
-        <guid isPermaLink="true">/meetmax/2018/08/27/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html</guid>
+        /Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</link>
+        <guid isPermaLink="true">/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</guid>
       </item>
       
     
@@ -51,8 +51,8 @@ class Box {
         
         <pubDate>Sun, 26 Aug 2018 00:00:00 +0800</pubDate>
         <link>
-        /meetmax/2018/08/26/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F.html</link>
-        <guid isPermaLink="true">/meetmax/2018/08/26/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F.html</guid>
+        /Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</link>
+        <guid isPermaLink="true">/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</guid>
       </item>
       
     
@@ -71,8 +71,8 @@ class Box {
         
         <pubDate>Fri, 27 Jul 2018 01:00:00 +0800</pubDate>
         <link>
-        /meetmax/2018/07/27/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90.html</link>
-        <guid isPermaLink="true">/meetmax/2018/07/27/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90.html</guid>
+        /IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90</link>
+        <guid isPermaLink="true">/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90</guid>
       </item>
       
     
@@ -86,8 +86,8 @@ class Box {
         
         <pubDate>Tue, 27 Mar 2018 00:00:00 +0800</pubDate>
         <link>
-        /meetmax/2018/03/27/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1.html</link>
-        <guid isPermaLink="true">/meetmax/2018/03/27/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1.html</guid>
+        /%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1</link>
+        <guid isPermaLink="true">/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1</guid>
       </item>
       
     
@@ -101,8 +101,8 @@ class Box {
         
         <pubDate>Fri, 23 Mar 2018 00:00:00 +0800</pubDate>
         <link>
-        /meetmax/2018/03/23/Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95.html</link>
-        <guid isPermaLink="true">/meetmax/2018/03/23/Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95.html</guid>
+        /Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</link>
+        <guid isPermaLink="true">/Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</guid>
       </item>
       
     
@@ -117,8 +117,8 @@ class Box {
         
         <pubDate>Sun, 18 Mar 2018 00:00:00 +0800</pubDate>
         <link>
-        /meetmax/2018/03/18/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html</link>
-        <guid isPermaLink="true">/meetmax/2018/03/18/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html</guid>
+        /Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</link>
+        <guid isPermaLink="true">/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</guid>
       </item>
       
     
@@ -133,8 +133,8 @@ class Box {
         
         <pubDate>Fri, 16 Mar 2018 00:00:00 +0800</pubDate>
         <link>
-        /meetmax/2018/03/16/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90.html</link>
-        <guid isPermaLink="true">/meetmax/2018/03/16/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90.html</guid>
+        /Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</link>
+        <guid isPermaLink="true">/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</guid>
       </item>
       
     
@@ -169,8 +169,8 @@ class Box {
         
         <pubDate>Tue, 20 Feb 2018 18:18:00 +0800</pubDate>
         <link>
-        /meetmax/2018/02/20/UNIX-IPC.html</link>
-        <guid isPermaLink="true">/meetmax/2018/02/20/UNIX-IPC.html</guid>
+        /UNIX-IPC</link>
+        <guid isPermaLink="true">/UNIX-IPC</guid>
       </item>
       
     
@@ -186,8 +186,8 @@ class Box {
         
         <pubDate>Sat, 20 Jan 2018 18:00:00 +0800</pubDate>
         <link>
-        /meetmax/2018/01/20/MySQL-Explain.html</link>
-        <guid isPermaLink="true">/meetmax/2018/01/20/MySQL-Explain.html</guid>
+        /MySQL-Explain</link>
+        <guid isPermaLink="true">/MySQL-Explain</guid>
       </item>
       
     
@@ -201,8 +201,8 @@ class Box {
         
         <pubDate>Tue, 12 Aug 2014 18:18:00 +0800</pubDate>
         <link>
-        /casper/2014/08/12/the-businessman-and-fisherman.html</link>
-        <guid isPermaLink="true">/casper/2014/08/12/the-businessman-and-fisherman.html</guid>
+        /the-businessman-and-fisherman</link>
+        <guid isPermaLink="true">/the-businessman-and-fisherman</guid>
       </item>
       
     
