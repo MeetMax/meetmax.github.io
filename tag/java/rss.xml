@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Java学习笔记(二) - 原始数据类型</title>
-	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</link>
+	  <link>//meetmax/2018/08/27/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html</link>
 	  <author></author>
 	  <pubDate>2018-08-27T00:00:00+08:00</pubDate>
-	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</guid>
+	  <guid>//meetmax/2018/08/27/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html</guid>
 	  <description><![CDATA[
 	     <h2 id="原始数据类型">原始数据类型</h2>
 <p>Java是静态类型语言，所以变量必须先声明才能使用，并且每个变量都有自己的类型和名称。原始值不与其他原始数据值共享状态，Java语言定义了8种原始数据类型。</p>
@@ -103,10 +103,10 @@
 
 	<item>
 	  <title>Java学习笔记(一) - 变量</title>
-	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</link>
+	  <link>//meetmax/2018/08/26/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F.html</link>
 	  <author></author>
 	  <pubDate>2018-08-26T00:00:00+08:00</pubDate>
-	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</guid>
+	  <guid>//meetmax/2018/08/26/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F.html</guid>
 	  <description><![CDATA[
 	     <h2 id="变量">变量</h2>
 <p>Java语言定义了4中类型的变量</p>

@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>浅入浅出MySQL事务</title>
-	  <link>//%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1</link>
+	  <link>//meetmax/2018/03/27/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1.html</link>
 	  <author></author>
 	  <pubDate>2018-03-27T00:00:00+08:00</pubDate>
-	  <guid>//%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1</guid>
+	  <guid>//meetmax/2018/03/27/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1.html</guid>
 	  <description><![CDATA[
 	     <p>在开发Web应用时，经常会用到InnoDB事务的特性，在一些涉及到金钱的业务上，事务可以保证资金流水不出错，事务可以分为很多种，有扁平事务、链事务、分布式事务等，这里只讨论最简单，也最常用的扁平事务，我们经常会提到事务的<code class="highlighter-rouge">ACID</code>特性，以下是我对<code class="highlighter-rouge">ACID</code>的理解和总结。</p>
 
@@ -221,10 +221,10 @@
 
 	<item>
 	  <title>Mysql之Explain详解</title>
-	  <link>//MySQL-Explain</link>
+	  <link>//meetmax/2018/01/20/MySQL-Explain.html</link>
 	  <author></author>
 	  <pubDate>2018-01-20T18:00:00+08:00</pubDate>
-	  <guid>//MySQL-Explain</guid>
+	  <guid>//meetmax/2018/01/20/MySQL-Explain.html</guid>
 	  <description><![CDATA[
 	     <p>​	
 ​	

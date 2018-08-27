@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Redis应用场景浅析</title>
-	  <link>//Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</link>
+	  <link>//meetmax/2018/03/16/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90.html</link>
 	  <author></author>
 	  <pubDate>2018-03-16T00:00:00+08:00</pubDate>
-	  <guid>//Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</guid>
+	  <guid>//meetmax/2018/03/16/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90.html</guid>
 	  <description><![CDATA[
 	     <h3 id="string字符串">String–字符串</h3>
 <p>redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。</p>

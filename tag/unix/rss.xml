@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>IO模型浅析</title>
-	  <link>//IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90</link>
+	  <link>//meetmax/2018/07/27/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90.html</link>
 	  <author></author>
 	  <pubDate>2018-07-27T01:00:00+08:00</pubDate>
-	  <guid>//IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90</guid>
+	  <guid>//meetmax/2018/07/27/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90.html</guid>
 	  <description><![CDATA[
 	     <h2 id="同步阻塞io">同步阻塞IO</h2>
 <p>系统的输入分为两个步骤：</p>
@@ -42,10 +42,10 @@
 
 	<item>
 	  <title>Unix进程间通信(IPC)</title>
-	  <link>//UNIX-IPC</link>
+	  <link>//meetmax/2018/02/20/UNIX-IPC.html</link>
 	  <author></author>
 	  <pubDate>2018-02-20T18:18:00+08:00</pubDate>
-	  <guid>//UNIX-IPC</guid>
+	  <guid>//meetmax/2018/02/20/UNIX-IPC.html</guid>
 	  <description><![CDATA[
 	     <h3 id="ipc概念">IPC概念:</h3>
 <blockquote>
