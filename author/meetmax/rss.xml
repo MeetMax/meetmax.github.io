@@ -6,7 +6,7 @@
       <title>meetmax.cn</title>
    
    <link></link>
-   <description>A beautiful narrative written with the world's most elegant publishing platform. The story begins here.</description>
+   <description>Stay Hungry,Stay Folish</description>
    <language>en-uk</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
@@ -110,62 +110,71 @@
 	  <description><![CDATA[
 	     <h2 id="变量">变量</h2>
 <p>Java语言定义了4中类型的变量</p>
+
 <ul>
-  <li><strong>实例变量</strong>
-实例变量本质上是 <strong>一个类的非晶态的全局变量</strong>，注意关键词，<strong>非晶态</strong>和<strong>全局</strong>。为什么叫实例变量呢？因为它的值在类的每个实例都是唯一的，实例就是指对象。下面的例子中，有一个<code class="highlighter-rouge">Box</code>类，定义了一个全局变量<code class="highlighter-rouge">numbers=1</code>，在这里<code class="highlighter-rouge">box1</code>是类<code class="highlighter-rouge">Box</code>的第1个实例，<code class="highlighter-rouge">box2</code>是第2个实例，<code class="highlighter-rouge">numbers</code>变量在这2个实例中是独立的，修改了实例<code class="highlighter-rouge">box1</code>中的变量<code class="highlighter-rouge">numbers</code>不会对<code class="highlighter-rouge">box2</code>实例中的<code class="highlighter-rouge">numbers</code>造成影响。
-```java
-class Box {
-  public int numbers = 1;
-}</li>
+  <li><strong>实例变量</strong></li>
 </ul>
 
-<p>Box box1 = new Box();
-box1.numbers = 2;
-Box box2 = new Box(); // box2的numbers属性依然是1</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-- **类变量**
-类变量指的是**一个类的静态全局变量**，关键词是，**静态**和**全局**。为什么叫类变量呢？因为它是和实例(对象)无关的，不管一个类被实例化多少次，类变量都只有一份。静态变量通过`static`关键词来声明，对第1个例子稍作修改，`numbers`变成了类变量，`box1`调用`getNumbers`方法得到的值为1，然后我们把`numbers`的值改为了2，`box2`调用`getNumbers`的值变成了2，结果说明了`类变量`只和类有关 。
-```java
-class Box {
-	public static int numbers = 1;
-	
-	public int getNumbers() {
-		return Box.numbers;
-	}
-}
+<p>实例变量本质上是 <strong>一个类的非晶态的全局变量</strong>，注意关键词，<strong>非晶态</strong>和<strong>全局</strong>。为什么叫实例变量呢？因为它的值在类的每个实例都是唯一的，实例就是指对象。下面的例子中，有一个<code class="highlighter-rouge">Box</code>类，定义了一个全局变量<code class="highlighter-rouge">numbers=1</code>，在这里<code class="highlighter-rouge">box1</code>是类<code class="highlighter-rouge">Box</code>的第1个实例，<code class="highlighter-rouge">box2</code>是第2个实例，<code class="highlighter-rouge">numbers</code>变量在这2个实例中是独立的，修改了实例<code class="highlighter-rouge">box1</code>中的变量<code class="highlighter-rouge">numbers</code>不会对<code class="highlighter-rouge">box2</code>实例中的<code class="highlighter-rouge">numbers</code>造成影响。</p>
 
-Box box1 = new Box();
-box1.getNumbers();// 得到的值为1
-Box.numbers = 2; // 修改全局变量
-Box box2 = new Box(); 
-box2.getNumbers(); // 得到的值为2
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">int</span> <span class="n">numbers</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="n">Box</span> <span class="n">box1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Box</span><span class="o">();</span>
+<span class="n">box1</span><span class="o">.</span><span class="na">numbers</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+<span class="n">Box</span> <span class="n">box2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Box</span><span class="o">();</span> <span class="c1">// box2的numbers属性依然是1</span>
 </code></pre></div></div>
 
 <ul>
-  <li>
-    <p><strong>局部变量</strong>
-Java中的局部变量是指<strong>类的方法内部的变量</strong>，局部变量仅在方法内部可见，在类的外部无法被访问到，通常用于存储一个方法的临时状态，在方法执行完成后，会自动释放掉。如下所示<code class="highlighter-rouge">getNumbers</code>方法中的<code class="highlighter-rouge">numbers</code>就是局部变量。
-```java
-class Box {</p>
-
-    <p>public int getNumbers() {
-      int numbers = 1
-      return numbers;
-  }
-}</p>
-  </li>
+  <li><strong>类变量</strong></li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-- **参数**
-参数变量是指方法中的参数，它的作用域和局部变量一样，仅在方法内有效，可以接受来自外部的数据。如下所示，`numbers`作为`getNumbers`方法的参数。
-```java
-class Box {
+<p>类变量指的是<strong>一个类的静态全局变量</strong>，关键词是，<strong>静态</strong>和<strong>全局</strong>。为什么叫类变量呢？因为它是和实例(对象)无关的，不管一个类被实例化多少次，类变量都只有一份。静态变量通过<code class="highlighter-rouge">static</code>关键词来声明，对第1个例子稍作修改，<code class="highlighter-rouge">numbers</code>变成了类变量，<code class="highlighter-rouge">box1</code>调用<code class="highlighter-rouge">getNumbers</code>方法得到的值为1，然后我们把<code class="highlighter-rouge">numbers</code>的值改为了2，<code class="highlighter-rouge">box2</code>调用<code class="highlighter-rouge">getNumbers</code>的值变成了2，结果说明了<code class="highlighter-rouge">类变量</code>只和类有关 。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">numbers</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
 	
-	public void getNumbers(int numbers) {
-		System.out.println(numbers);
-	}
-}
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNumbers</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">Box</span><span class="o">.</span><span class="na">numbers</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">Box</span> <span class="n">box1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Box</span><span class="o">();</span>
+<span class="n">box1</span><span class="o">.</span><span class="na">getNumbers</span><span class="o">();</span><span class="c1">// 得到的值为1</span>
+<span class="n">Box</span><span class="o">.</span><span class="na">numbers</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="c1">// 修改全局变量</span>
+<span class="n">Box</span> <span class="n">box2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Box</span><span class="o">();</span> 
+<span class="n">box2</span><span class="o">.</span><span class="na">getNumbers</span><span class="o">();</span> <span class="c1">// 得到的值为2</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>局部变量</strong></li>
+</ul>
+
+<p>Java中的局部变量是指<strong>类的方法内部的变量</strong>，局部变量仅在方法内部可见，在类的外部无法被访问到，通常用于存储一个方法的临时状态，在方法执行完成后，会自动释放掉。如下所示<code class="highlighter-rouge">getNumbers</code>方法中的<code class="highlighter-rouge">numbers</code>就是局部变量。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span> <span class="o">{</span>
+	
+	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNumbers</span><span class="o">()</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">numbers</span> <span class="o">=</span> <span class="mi">1</span>
+		<span class="k">return</span> <span class="n">numbers</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li><strong>参数</strong></li>
+</ul>
+
+<p>参数变量是指方法中的参数，它的作用域和局部变量一样，仅在方法内有效，可以接受来自外部的数据。如下所示，<code class="highlighter-rouge">numbers</code>作为<code class="highlighter-rouge">getNumbers</code>方法的参数。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span> <span class="o">{</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getNumbers</span><span class="o">(</span><span class="kt">int</span> <span class="n">numbers</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
 
 </code></pre></div></div>
 

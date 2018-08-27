@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Finding The Way Home - Articles</title>
-    <description>A beautiful narrative written with the world's most elegant publishing platform. The story begins here.</description>
+    <title>Think Different - Articles</title>
+    <description>Stay Hungry,Stay Folish</description>
     <link>
     </link>
     
@@ -38,14 +38,6 @@
         
           <description>&lt;h2 id=&quot;变量&quot;&gt;变量&lt;/h2&gt;
 &lt;p&gt;Java语言定义了4中类型的变量&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;实例变量&lt;/strong&gt;
-实例变量本质上是 &lt;strong&gt;一个类的非晶态的全局变量&lt;/strong&gt;，注意关键词，&lt;strong&gt;非晶态&lt;/strong&gt;和&lt;strong&gt;全局&lt;/strong&gt;。为什么叫实例变量呢？因为它的值在类的每个实例都是唯一的，实例就是指对象。下面的例子中，有一个&lt;code class=&quot;highlighter-rouge&quot;&gt;Box&lt;/code&gt;类，定义了一个全局变量&lt;code class=&quot;highlighter-rouge&quot;&gt;numbers=1&lt;/code&gt;，在这里&lt;code class=&quot;highlighter-rouge&quot;&gt;box1&lt;/code&gt;是类&lt;code class=&quot;highlighter-rouge&quot;&gt;Box&lt;/code&gt;的第1个实例，&lt;code class=&quot;highlighter-rouge&quot;&gt;box2&lt;/code&gt;是第2个实例，&lt;code class=&quot;highlighter-rouge&quot;&gt;numbers&lt;/code&gt;变量在这2个实例中是独立的，修改了实例&lt;code class=&quot;highlighter-rouge&quot;&gt;box1&lt;/code&gt;中的变量&lt;code class=&quot;highlighter-rouge&quot;&gt;numbers&lt;/code&gt;不会对&lt;code class=&quot;highlighter-rouge&quot;&gt;box2&lt;/code&gt;实例中的&lt;code class=&quot;highlighter-rouge&quot;&gt;numbers&lt;/code&gt;造成影响。
-```java
-class Box {
-  public int numbers = 1;
-}&lt;/li&gt;
-&lt;/ul&gt;
 
 </description>
         
