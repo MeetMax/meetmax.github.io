@@ -115,13 +115,11 @@
 
 <span class="k">if</span> <span class="o">(</span><span class="n">value1</span> <span class="o">==</span> <span class="n">value2</span><span class="o">)</span> 
     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"value1 == value2"</span><span class="o">);</span>
-
 </code></pre></div></div>
 
 <p>在上面的示例中，<code class="highlighter-rouge">code = 1</code>是一个表达式，它返回一个<code class="highlighter-rouge">int</code>类型的值，表达式的返回值也可以是其它类型，<code class="highlighter-rouge">value1 == value2</code>是一个返回布尔值的表达式。Java语言也可以通过各种较小的表达式构成符合表达式，如下所示：</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>
 </code></pre></div></div>
 
 <h2 id="语句">语句</h2>
@@ -144,8 +142,7 @@
 
 <p>这些语句被称为表达式语句，下面是一些表达式语句的例子。</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="c1">// assignment statement</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// assignment statement</span>
 <span class="n">aValue</span> <span class="o">=</span> <span class="mf">8933.234</span><span class="o">;</span>
 <span class="c1">// increment statement</span>
 <span class="n">aValue</span><span class="o">++;</span>
