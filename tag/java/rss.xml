@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>meetmax.github.io</title>
+   
+   <link></link>
+   <description>A beautiful narrative written with the world's most elegant publishing platform. The story begins here.</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Java学习笔记(二) - 原始数据类型</title>
+	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</link>
+	  <author></author>
+	  <pubDate>2018-08-27T00:00:00+08:00</pubDate>
+	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</guid>
+	  <description><![CDATA[
+	     <h2 id="原始数据类型">原始数据类型</h2>
+<p>Java是静态类型语言，所以变量必须先声明才能使用，并且每个变量都有自己的类型和名称。原始值不与其他原始数据值共享状态，Java语言定义了8种原始数据类型。</p>
+<ul>
+  <li><strong>byte</strong>   字节类型，在内存中占8位，它的值的范围是<code class="highlighter-rouge">-128 ~ 127</code>(包含)，在需要节省内存的情况下，字节类型可用来保存大型数组。</li>
+  <li><strong>short</strong>  类型在内存中占16位，它的值的范围是<code class="highlighter-rouge">-32,768 ~ 32,767 </code>，和<code class="highlighter-rouge">byte</code>类型一样，同样适用于需要节省内存的情况。</li>
+  <li><strong>int</strong> 类型在内存中占32位，它的值的范围是<strong>-2<sup>31</sup> ~ 2<sup>31</sup> -1</strong>。Java8之后可以使用无符号的整数，它的范围是**0 ~ 2<sup>32</sup> **，<code class="highlighter-rouge">Integer</code>中增加了静态方法<code class="highlighter-rouge">compareUnsigned</code>,<code class="highlighter-rouge">divideUnsigned</code>等方法可支持无符号整数运算。</li>
+  <li><strong>long</strong>类型在内存中占64位，它的取值范围是<strong>-2<sup>63</sup> ~ 2<sup>63</sup> -1</strong>，Java8之后也可以使用无符号整数，通过<code class="highlighter-rouge">Long</code>类提供的<code class="highlighter-rouge">compareUnsigned</code>、<code class="highlighter-rouge">divideUnsigned</code>方法支持无符号整数运算。</li>
+  <li><strong>float</strong>为32位单精度浮点类型。</li>
+  <li><strong>dobule</strong>类型为64位双精度浮点类型。</li>
+  <li><strong>boolean</strong>布尔类型，有<code class="highlighter-rouge">true/false</code>两种类型，通常用于条件判断<code class="highlighter-rouge">true</code>表<code class="highlighter-rouge">是</code>,<code class="highlighter-rouge">false</code>表<code class="highlighter-rouge">否</code>。</li>
+  <li><strong>char</strong> 字符类型是单个16位<code class="highlighter-rouge">Unicode</code>字符，它的值范围是<code class="highlighter-rouge">'\u0000'</code>~<code class="highlighter-rouge">'\uffff'</code>。</li>
+</ul>
+
+<h2 id="默认值">默认值</h2>
+<p>类的全局变量声明之后不是必须被分配的。如果全局变量被声明了，但是没有初始化，它会被编译器设置一个默认值，可能是<code class="highlighter-rouge">0</code>或<code class="highlighter-rouge">null</code>，这取决于数据类型，不过，依赖于默认值被认为是一种糟糕的编程风格。下表总结了各种数据类型对应的默认值</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>数据类型</th>
+      <th>默认值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>byte</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>short</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>int</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>long</td>
+      <td>0L</td>
+    </tr>
+    <tr>
+      <td>float</td>
+      <td>0.0f</td>
+    </tr>
+    <tr>
+      <td>double</td>
+      <td>0.0d</td>
+    </tr>
+    <tr>
+      <td>char</td>
+      <td>‘\u0000’</td>
+    </tr>
+    <tr>
+      <td>String(或者 任何对象)</td>
+      <td>null</td>
+    </tr>
+    <tr>
+      <td>boolean</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>对于局部变量则不同，编译器永远不会给局部变量分配默认值，如果你在声明时未对该变量进行初始化，在你使用该变量之前必须对其初始化，否则将导致编译错误。</p>
+
+<h2 id="字面量-literals">字面量-Literals</h2>
+<p>在初始化原始数据类型时不需要<code class="highlighter-rouge">new</code>关键词，因为原始数据类型是语言中内置的数据类型，字面量就是原始数据类型变量的等号右边的，固定的值，可以是字符串或数字。如下所示，<code class="highlighter-rouge">100</code>和<code class="highlighter-rouge">true</code>就是字面量。</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+<span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</code></pre></div></div>
+<p>字面量可以分为：</p>
+<ul>
+  <li><strong>整数字面量</strong></li>
+  <li><strong>浮点数字面量</strong></li>
+  <li><strong>字符串字面量</strong></li>
+</ul>
+
+<h2 id="参考">参考</h2>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html">The Java™ Tutorials</a></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Java学习笔记(一) - 变量</title>
+	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</link>
+	  <author></author>
+	  <pubDate>2018-08-26T00:00:00+08:00</pubDate>
+	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</guid>
+	  <description><![CDATA[
+	     <h2 id="变量">变量</h2>
+<p>Java语言定义了4中类型的变量</p>
+<ul>
+  <li><strong>实例变量</strong>
+实例变量本质上是 <strong>一个类的非晶态的全局变量</strong>，注意关键词，<strong>非晶态</strong>和<strong>全局</strong>。为什么叫实例变量呢？因为它的值在类的每个实例都是唯一的，实例就是指对象。下面的例子中，有一个<code class="highlighter-rouge">Box</code>类，定义了一个全局变量<code class="highlighter-rouge">numbers=1</code>，在这里<code class="highlighter-rouge">box1</code>是类<code class="highlighter-rouge">Box</code>的第1个实例，<code class="highlighter-rouge">box2</code>是第2个实例，<code class="highlighter-rouge">numbers</code>变量在这2个实例中是独立的，修改了实例<code class="highlighter-rouge">box1</code>中的变量<code class="highlighter-rouge">numbers</code>不会对<code class="highlighter-rouge">box2</code>实例中的<code class="highlighter-rouge">numbers</code>造成影响。
+```java
+class Box {
+  public int numbers = 1;
+}</li>
+</ul>
+
+<p>Box box1 = new Box();
+box1.numbers = 2;
+Box box2 = new Box(); // box2的numbers属性依然是1</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+- **类变量**
+类变量指的是**一个类的静态全局变量**，关键词是，**静态**和**全局**。为什么叫类变量呢？因为它是和实例(对象)无关的，不管一个类被实例化多少次，类变量都只有一份。静态变量通过`static`关键词来声明，对第1个例子稍作修改，`numbers`变成了类变量，`box1`调用`getNumbers`方法得到的值为1，然后我们把`numbers`的值改为了2，`box2`调用`getNumbers`的值变成了2，结果说明了`类变量`只和类有关 。
+```java
+class Box {
+	public static int numbers = 1;
+	
+	public int getNumbers() {
+		return Box.numbers;
+	}
+}
+
+Box box1 = new Box();
+box1.getNumbers();// 得到的值为1
+Box.numbers = 2; // 修改全局变量
+Box box2 = new Box(); 
+box2.getNumbers(); // 得到的值为2
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>局部变量</strong>
+Java中的局部变量是指<strong>类的方法内部的变量</strong>，局部变量仅在方法内部可见，在类的外部无法被访问到，通常用于存储一个方法的临时状态，在方法执行完成后，会自动释放掉。如下所示<code class="highlighter-rouge">getNumbers</code>方法中的<code class="highlighter-rouge">numbers</code>就是局部变量。
+```java
+class Box {</p>
+
+    <p>public int getNumbers() {
+      int numbers = 1
+      return numbers;
+  }
+}</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+- **参数**
+参数变量是指方法中的参数，它的作用域和局部变量一样，仅在方法内有效，可以接受来自外部的数据。如下所示，`numbers`作为`getNumbers`方法的参数。
+```java
+class Box {
+	
+	public void getNumbers(int numbers) {
+		System.out.println(numbers);
+	}
+}
+
+</code></pre></div></div>
+
+<h2 id="命名规范">命名规范</h2>
+<ul>
+  <li>变量命名大小写敏感，不限制长度，可以由一系列Unicode的字符和数字组成，用<code class="highlighter-rouge">字母</code>，<code class="highlighter-rouge">$</code>和<code class="highlighter-rouge">_</code>都是被允许的，包括中文，技术上是不限制的，但是Java规范不建议用<code class="highlighter-rouge">$</code>和<code class="highlighter-rouge">_</code>作为开头。</li>
+  <li>命名的尽量只用全称而非简称，写全称的代码可读性和可维护性都更好，好的命名，在很多情况下就是文档本身，另外需要注意，变量的名称不能为Java的关键词和保留字。</li>
+  <li>变量名称涉及多个单词的，第二个单词开始开头字母大写，也就是驼峰命名法，例如<code class="highlighter-rouge">boxNumbers</code>。如果是常量或者不能改变的变量，所有字母都用大写，字母之间用<code class="highlighter-rouge">_</code>隔开，例如<code class="highlighter-rouge">BOX_CONFIG</code>。</li>
+</ul>
+
+<h2 id="参考">参考</h2>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html">The Java™ Tutorials</a></p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

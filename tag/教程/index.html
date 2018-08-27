@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>Author</title>
+    <title>Finding The Way Home</title>
     <meta name="description" content="A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
 
     <!-- Mobile Meta -->
@@ -26,31 +26,31 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="//author/casper/" />
+        <link rel="canonical" href="//tag/%E6%95%99%E7%A8%8B/" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Finding The Way Home" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Author" />
+    <meta property="og:title" content="Finding The Way Home" />
     <meta property="og:description" content="A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
-    <meta property="og:url" content="//author/casper/" />
-    <meta property="og:image" content="/assets/images/cover4.jpg" />
+    <meta property="og:url" content="//tag/%E6%95%99%E7%A8%8B/" />
+    <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Author" />
+    <meta name="twitter:title" content="Finding The Way Home" />
     <meta name="twitter:description" content="A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
-    <meta name="twitter:url" content="//author/casper/" />
-    <meta name="twitter:image:src" content="/assets/images/cover4.jpg" />
+    <meta name="twitter:url" content="//tag/%E6%95%99%E7%A8%8B/" />
+    <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Finding The Way Home",
-    "name": "Author",
-    "url": "//author/casper/",
-    "image": "/assets/images/cover4.jpg",
+    "name": "Finding The Way Home",
+    "url": "//tag/%E6%95%99%E7%A8%8B/",
+    "image": "/assets/images/cover2.jpg",
     "description": "A beautiful narrative written with the world's most elegant publishing platform. The story begins here."
 }
     </script>
@@ -60,7 +60,7 @@
 
 
 </head>
-<body class="author-template nav-closed">
+<body class="tag-template nav-closed">
 
     <!-- The blog navigation links -->
     <div class="nav">
@@ -74,7 +74,7 @@
         <li class="nav-fables " role="presentation"><a href="/tag/fables">Fables</a></li>
         <li class="nav-speeches " role="presentation"><a href="/tag/speeches">Speeches</a></li>
         <li class="nav-fiction " role="presentation"><a href="/tag/fiction">Fiction</a></li>
-        <li class="nav-author  nav-current" role="presentation"><a href="/author/casper">Casper</a></li>
+        <li class="nav-author " role="presentation"><a href="/author/casper">Casper</a></li>
         <li class="nav-author " role="presentation"><a href="/author/edgar">Edgar</a></li>
         <li class="nav-author " role="presentation"><a href="/author/abraham">Abraham</a></li>
         <li class="nav-author " role="presentation"><a href="/author/martin">Martin</a></li>
@@ -88,61 +88,36 @@
     <div class="site-wrapper">
 
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-        <!-- < default}} -->
+        <!-- dynamically overriding backgrounds for tags as well as descriptions -->
+
+
+<!-- default -->
 <!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
 
-<!-- The big featured header -->
-
-<!-- Everything inside the #author tags pulls data from the author -->
-<!-- #author  -->
-    <header class="main-header author-head " style="background-image: url(/assets/images/cover4.jpg) ">
-        <nav class="main-nav overlay clearfix">
-            <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
-            
-                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-            
-        </nav>
-    </header>
-
-    <section class="author-profile inner">
+<!-- If we have a tag cover, display that - else blog cover - else nothing -->
+<header class="main-header tag-head " style="background-image: url(/assets/images/cover2.jpg) ">
+    <nav class="main-nav overlay clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
         
-            
-                
-                <figure class="author-image">
-                    <div class="img" style="background-image: url(/assets/images/casper.png)"><span class="hidden">Casper McFadden's Picture</span></div>
-                </figure>
-                
-                <h1 class="author-title">Casper McFadden</h1>
-                
-                    <div style="display:inline; text-align: justify; text-justify: inter-word;">
-                        <h2 class="author-bio">A paranormal expert and his daughter bunk in an abandoned house populated by 3 mischievous ghosts and a friendly one, Casper.</h2>
-                    </div>
-                
-                <div class="author-meta">
-                    <span class="author-location icon-location">Maine, USA</span>
-                    <span class="author-link icon-link"><a href="http://jekyller.github.io/jasper/">jekyller.github.io/jasper</a></span>
-                    <!-- <span class="author-stats"><i class="icon-stats"></i> [[plural ../pagination.total empty='No posts' singular='% post' plural='% posts']]</span> -->
-                    <span class="author-stats"><i class="icon-stats"></i>1 post</span>
-                </div>
-            
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
         
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">教程</h1>
+            <h2 class="page-description">
             
-        
+			    A 1-post collection
             
-        
-            
-        
-            
-        
-            
-        
-    </section>
-<!-- /author -->
+            </h2>
+        </div>
+    </div>
+</header>
 
 <!-- The main content area on the homepage -->
 <main id="content" class="content" role="main">
 
-    <!-- The tag below includes the post loop - partials/loop.hbs  -->
+    <!-- The tag below includes the post loop - partials/loop.hbs -->
         <!-- Previous/next page links - only displayed on page 2+ -->
     <div class="extra-pagination inner">
         
@@ -158,29 +133,29 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/the-businessman-and-fisherman">The Businessman & the fisherman</a></h2>
+            <h2 class="post-title"><a href="/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2">Hexo + Github Pages 搭建个人博客</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>An American businessman took a vacation to a small coastal Mexican village on doctor’s orders. Unable to sleep after an urgent phone call from the office... <a class="read-more" href="/the-businessman-and-fisherman">&raquo;</a></p>
+            <p>一、什么是Hexo? Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 二、准备工作 你需要： 1、NodeJS环境，请参考 NodeJs官网 2、Git，请参考 廖雪峰的Git教程 3、一个Github账号 三、安装Hexo 检验NodeJs安装： $ node -v 若安装成功会显示NodeJs版本号，例如： $ v9.6.1 接着，在命令行中输入： $ npm install -g hexo-cli... <a class="read-more" href="/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
                 
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
 
-                <img class="author-thumb" src="/assets/images/casper.png" alt="Author image" nopin="nopin" />
+                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
                 <!-- author -->
-                <a href='/author/casper'>Casper McFadden</a>
+                <a href='/author/meetmax'>MeetMax</a>
 
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
                 
             
 
@@ -189,15 +164,15 @@
                 on
                 
                     
-                       <a href='/tag/fables'>Fables</a>,
+                       <a href='/tag/教程'>教程</a>,
                     
                 
                     
-                       <a href='/tag/fiction'>Fiction</a>
+                       <a href='/tag/Hexo'>Hexo</a>
                     
                 
             
-            <time class="post-date" datetime="2014-08-12">12 Aug 2014</time>
+            <time class="post-date" datetime="2018-03-18">18 Mar 2018</time>
         </footer>
     </article>
     

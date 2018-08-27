@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Finding The Way Home - Articles</title>
+    <description>A beautiful narrative written with the world's most elegant publishing platform. The story begins here.</description>
+    <link>
+    </link>
+    
+      
+      <item>
+        <title>Java学习笔记(二) - 原始数据类型</title>
+        
+          <description>&lt;h2 id=&quot;原始数据类型&quot;&gt;原始数据类型&lt;/h2&gt;
+&lt;p&gt;Java是静态类型语言，所以变量必须先声明才能使用，并且每个变量都有自己的类型和名称。原始值不与其他原始数据值共享状态，Java语言定义了8种原始数据类型。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;byte&lt;/strong&gt;   字节类型，在内存中占8位，它的值的范围是&lt;code class=&quot;highlighter-rouge&quot;&gt;-128 ~ 127&lt;/code&gt;(包含)，在需要节省内存的情况下，字节类型可用来保存大型数组。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;short&lt;/strong&gt;  类型在内存中占16位，它的值的范围是&lt;code class=&quot;highlighter-rouge&quot;&gt;-32,768 ~ 32,767 &lt;/code&gt;，和&lt;code class=&quot;highlighter-rouge&quot;&gt;byte&lt;/code&gt;类型一样，同样适用于需要节省内存的情况。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;int&lt;/strong&gt; 类型在内存中占32位，它的值的范围是&lt;strong&gt;-2&lt;sup&gt;31&lt;/sup&gt; ~ 2&lt;sup&gt;31&lt;/sup&gt; -1&lt;/strong&gt;。Java8之后可以使用无符号的整数，它的范围是**0 ~ 2&lt;sup&gt;32&lt;/sup&gt; **，&lt;code class=&quot;highlighter-rouge&quot;&gt;Integer&lt;/code&gt;中增加了静态方法&lt;code class=&quot;highlighter-rouge&quot;&gt;compareUnsigned&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;divideUnsigned&lt;/code&gt;等方法可支持无符号整数运算。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;long&lt;/strong&gt;类型在内存中占64位，它的取值范围是&lt;strong&gt;-2&lt;sup&gt;63&lt;/sup&gt; ~ 2&lt;sup&gt;63&lt;/sup&gt; -1&lt;/strong&gt;，Java8之后也可以使用无符号整数，通过&lt;code class=&quot;highlighter-rouge&quot;&gt;Long&lt;/code&gt;类提供的&lt;code class=&quot;highlighter-rouge&quot;&gt;compareUnsigned&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;divideUnsigned&lt;/code&gt;方法支持无符号整数运算。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;float&lt;/strong&gt;为32位单精度浮点类型。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;dobule&lt;/strong&gt;类型为64位双精度浮点类型。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;boolean&lt;/strong&gt;布尔类型，有&lt;code class=&quot;highlighter-rouge&quot;&gt;true/false&lt;/code&gt;两种类型，通常用于条件判断&lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;表&lt;code class=&quot;highlighter-rouge&quot;&gt;是&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;表&lt;code class=&quot;highlighter-rouge&quot;&gt;否&lt;/code&gt;。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;char&lt;/strong&gt; 字符类型是单个16位&lt;code class=&quot;highlighter-rouge&quot;&gt;Unicode&lt;/code&gt;字符，它的值范围是&lt;code class=&quot;highlighter-rouge&quot;&gt;'\u0000'&lt;/code&gt;~&lt;code class=&quot;highlighter-rouge&quot;&gt;'\uffff'&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Mon, 27 Aug 2018 00:00:00 +0800</pubDate>
+        <link>
+        /Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</link>
+        <guid isPermaLink="true">/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Java学习笔记(一) - 变量</title>
+        
+          <description>&lt;h2 id=&quot;变量&quot;&gt;变量&lt;/h2&gt;
+&lt;p&gt;Java语言定义了4中类型的变量&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;实例变量&lt;/strong&gt;
+实例变量本质上是 &lt;strong&gt;一个类的非晶态的全局变量&lt;/strong&gt;，注意关键词，&lt;strong&gt;非晶态&lt;/strong&gt;和&lt;strong&gt;全局&lt;/strong&gt;。为什么叫实例变量呢？因为它的值在类的每个实例都是唯一的，实例就是指对象。下面的例子中，有一个&lt;code class=&quot;highlighter-rouge&quot;&gt;Box&lt;/code&gt;类，定义了一个全局变量&lt;code class=&quot;highlighter-rouge&quot;&gt;numbers=1&lt;/code&gt;，在这里&lt;code class=&quot;highlighter-rouge&quot;&gt;box1&lt;/code&gt;是类&lt;code class=&quot;highlighter-rouge&quot;&gt;Box&lt;/code&gt;的第1个实例，&lt;code class=&quot;highlighter-rouge&quot;&gt;box2&lt;/code&gt;是第2个实例，&lt;code class=&quot;highlighter-rouge&quot;&gt;numbers&lt;/code&gt;变量在这2个实例中是独立的，修改了实例&lt;code class=&quot;highlighter-rouge&quot;&gt;box1&lt;/code&gt;中的变量&lt;code class=&quot;highlighter-rouge&quot;&gt;numbers&lt;/code&gt;不会对&lt;code class=&quot;highlighter-rouge&quot;&gt;box2&lt;/code&gt;实例中的&lt;code class=&quot;highlighter-rouge&quot;&gt;numbers&lt;/code&gt;造成影响。
+```java
+class Box {
+  public int numbers = 1;
+}&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Sun, 26 Aug 2018 00:00:00 +0800</pubDate>
+        <link>
+        /Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</link>
+        <guid isPermaLink="true">/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>IO模型浅析</title>
+        
+          <description>&lt;h2 id=&quot;同步阻塞io&quot;&gt;同步阻塞IO&lt;/h2&gt;
+&lt;p&gt;系统的输入分为两个步骤：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;等待数据报的到来&lt;/li&gt;
+  &lt;li&gt;将数据报从内核缓冲区复制到用户应用程序缓冲区&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        
+        <pubDate>Fri, 27 Jul 2018 01:00:00 +0800</pubDate>
+        <link>
+        /IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90</link>
+        <guid isPermaLink="true">/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>浅入浅出MySQL事务</title>
+        
+          <description>&lt;p&gt;在开发Web应用时，经常会用到InnoDB事务的特性，在一些涉及到金钱的业务上，事务可以保证资金流水不出错，事务可以分为很多种，有扁平事务、链事务、分布式事务等，这里只讨论最简单，也最常用的扁平事务，我们经常会提到事务的&lt;code class=&quot;highlighter-rouge&quot;&gt;ACID&lt;/code&gt;特性，以下是我对&lt;code class=&quot;highlighter-rouge&quot;&gt;ACID&lt;/code&gt;的理解和总结。&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 27 Mar 2018 00:00:00 +0800</pubDate>
+        <link>
+        /%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1</link>
+        <guid isPermaLink="true">/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Git原理和用法</title>
+        
+          <description>&lt;p&gt;git是一个分布式版本管理工具，所谓分布式，也就是指每台电脑都是一个版本仓库，虽然git是分布式的，但在实际工作中，一般git还是会有一个集中的服务中心，目前比较主流的&lt;code class=&quot;highlighter-rouge&quot;&gt;GITHUB&lt;/code&gt;和码云就是这样一个角色，当然你也可以搭建git服务器，然后全世界的开发者就可以通过互联网一起协同工作啦。很多小伙伴在工作上都会用到版本管理工具，我相信现在大部分互联网公司都会使用git来做版本管理工具，写这篇文章的目的是因为虽然自己每天都在用，但是仔细想想，对它的原理和执行过程没有一个深入的理解，往往只是停留在会用的阶段，不光是这个，其实很多时候，我们平时在用的一些开源框架或者库的时候，大多数人可能仅仅会用，不会去理解本质和原理是什么？然后那些原理和基础才是最重要的，正所谓要知其然，也要知其所以然，可能这就是高手和普通人的差距吧。Linus有句话叫&lt;code class=&quot;highlighter-rouge&quot;&gt;Read The Fucking Source Code&lt;/code&gt;，这个话虽然简单粗暴，仔细想想却很有道理。&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 Mar 2018 00:00:00 +0800</pubDate>
+        <link>
+        /Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</link>
+        <guid isPermaLink="true">/Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Hexo + Github Pages 搭建个人博客</title>
+        
+          <description>&lt;h2 id=&quot;一什么是hexo&quot;&gt;一、什么是Hexo?&lt;/h2&gt;
+&lt;p&gt;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 &lt;a href=&quot;https://zh.wikipedia.org/wiki/Markdown&quot;&gt;Markdown&lt;/a&gt;（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 18 Mar 2018 00:00:00 +0800</pubDate>
+        <link>
+        /Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</link>
+        <guid isPermaLink="true">/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Redis应用场景浅析</title>
+        
+          <description>&lt;h3 id=&quot;string字符串&quot;&gt;String–字符串&lt;/h3&gt;
+&lt;p&gt;redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 16 Mar 2018 00:00:00 +0800</pubDate>
+        <link>
+        /Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</link>
+        <guid isPermaLink="true">/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Unix进程间通信(IPC)</title>
+        
+          <description>&lt;h3 id=&quot;ipc概念&quot;&gt;IPC概念:&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;进程间通信&lt;/strong&gt;（&lt;strong&gt;IPC&lt;/strong&gt;，&lt;em&gt;Inter-Process Communication&lt;/em&gt;），指至少两个&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%BF%9B%E7%A8%8B&quot;&gt;进程&lt;/a&gt;或&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B&quot;&gt;线程&lt;/a&gt;间传送数据或信号的一些技术或方法。进程是&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F&quot;&gt;计算机系统&lt;/a&gt;分配资源的最小单位(严格说来是线程)。每个进程都有自己的一部分独立的系统资源，彼此是隔离的。为了能使不同的进程互相访问资源并进行协调工作，才有了进程间通信。举一个典型的例子，使用进程间通信的两个应用可以被分类为客户端和服务器（见&lt;strong&gt;主从式架构&lt;/strong&gt;），客户端进程请求数据，服务端回复客户端的数据请求。有一些应用本身既是服务器又是客户端，这在&lt;strong&gt;分布式计算&lt;/strong&gt;中，时常可以见到。这些&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%BF%9B%E7%A8%8B&quot;&gt;进程&lt;/a&gt;可以运行在同一计算机上或网络连接的不同计算机上。&lt;/p&gt;
+
+  &lt;p&gt;进程间通信技术包括消息传递、同步、共享内存和&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%BF%9C%E7%A8%8B%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8&quot;&gt;远程过程调用&lt;/a&gt;。IPC是一种标准的&lt;a href=&quot;https://zh.wikipedia.org/wiki/Unix&quot;&gt;Unix&lt;/a&gt;通信机制。&lt;/p&gt;
+
+  &lt;p&gt;使用IPC 的理由：&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;信息共享：&lt;strong&gt;Web服务器&lt;/strong&gt;，通过&lt;strong&gt;网页浏览器&lt;/strong&gt;使用进程间通信来共享web文件（网页等）和多媒体；&lt;/li&gt;
+    &lt;li&gt;加速：维基百科使用通过进程间通信进行交流的多服务器来满足用户的请求；&lt;/li&gt;
+    &lt;li&gt;模块化;&lt;/li&gt;
+    &lt;li&gt;私有权分离.&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;与直接共享内存地址空间的&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%A4%9A%E7%BA%BF%E7%A8%8B&quot;&gt;多线程编程&lt;/a&gt;相比，IPC的缺点：[&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B%E9%96%93%E9%80%9A%E8%A8%8A#cite_note-1&quot;&gt;1]&lt;/a&gt;&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;采用了某种形式的内核开销，降低了性能;&lt;/li&gt;
+    &lt;li&gt;几乎大部分IPC都不是程序设计的自然扩展，往往会大大地增加程序的复杂度。&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+</description>
+        
+        <pubDate>Tue, 20 Feb 2018 18:18:00 +0800</pubDate>
+        <link>
+        /UNIX-IPC</link>
+        <guid isPermaLink="true">/UNIX-IPC</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Mysql之Explain详解</title>
+        
+          <description>&lt;p&gt;​	
+​	
+​	在工作中，经常会碰到一些慢查询，Explain 语句可以帮我们更详细的了解MySQL查询的执行计划，用法也很简单&lt;code class=&quot;highlighter-rouge&quot;&gt;Explain&lt;/code&gt; 后面跟上&lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT&lt;/code&gt;语句即可。执行完之后，会显示一行有多个列的记录，可能很多人和我一样，对&lt;code class=&quot;highlighter-rouge&quot;&gt;EXPLAIN&lt;/code&gt;里面字段的含义，并没有深入的去了解过，处于一知半解的状态，只知道一些最常见的。&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 20 Jan 2018 18:00:00 +0800</pubDate>
+        <link>
+        /MySQL-Explain</link>
+        <guid isPermaLink="true">/MySQL-Explain</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>The Businessman &amp; the fisherman</title>
+        
+          <description>&lt;p&gt;An American businessman took a vacation to a small coastal Mexican village on doctor’s orders. Unable to sleep after an urgent phone call from the office the first morning, he walked out to the pier to clear his head. A small boat with just one fisherman had docked, and inside the boat were several large yellowfin tuna. The American complimented the Mexican on the quality of his fish.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 12 Aug 2014 18:18:00 +0800</pubDate>
+        <link>
+        /the-businessman-and-fisherman</link>
+        <guid isPermaLink="true">/the-businessman-and-fisherman</guid>
+      </item>
+      
+    
+  </channel>
+</rss>

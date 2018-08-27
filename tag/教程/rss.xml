@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>meetmax.github.io</title>
+   
+   <link></link>
+   <description>A beautiful narrative written with the world's most elegant publishing platform. The story begins here.</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Hexo + Github Pages 搭建个人博客</title>
+	  <link>//Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</link>
+	  <author></author>
+	  <pubDate>2018-03-18T00:00:00+08:00</pubDate>
+	  <guid>//Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</guid>
+	  <description><![CDATA[
+	     <h2 id="一什么是hexo">一、什么是Hexo?</h2>
+<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="https://zh.wikipedia.org/wiki/Markdown">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+
+<h2 id="二准备工作">二、准备工作</h2>
+<p>你需要：
+1、<code class="highlighter-rouge">NodeJS</code>环境，请参考 <a href="https://nodejs.org/en/download/">NodeJs官网</a>
+2、<code class="highlighter-rouge">Git</code>，请参考 <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">廖雪峰的Git教程</a>
+3、一个<a href="https://github.com">Github</a>账号</p>
+
+<h2 id="三安装hexo">三、安装Hexo</h2>
+<p>检验NodeJs安装：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>node <span class="nt">-v</span>
+</code></pre></div></div>
+<p>若安装成功会显示<code class="highlighter-rouge">NodeJs</code>版本号，例如：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>v9.6.1
+</code></pre></div></div>
+<p>接着，在命令行中输入：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm install <span class="nt">-g</span> hexo-cli
+</code></pre></div></div>
+<p>由于国外网络延迟的关系，下载速度太慢或者某些依赖安装失败，请安装<code class="highlighter-rouge">淘宝NPM镜像</code>，设置镜像的方法和使用规则详见：<a href="https://npm.taobao.org/">https://npm.taobao.org</a>。
+至此，若无意外情况，Hexo安装完毕，若有疑问请参考 <a href="https://hexo.io/zh-cn/docs/index.html">Hexo官方手册</a></p>
+
+<h2 id="四github-pages使用">四、Github Pages使用</h2>
+<p>1、登录<code class="highlighter-rouge">Github</code>，在右上角选择<code class="highlighter-rouge">New repository</code>，新建一个<code class="highlighter-rouge">repository</code>，并且命名为<code class="highlighter-rouge">username.github.io</code>，注意把<code class="highlighter-rouge">username</code>替换成你申请账号的用户名，其余不要变。
+2、使用 <code class="highlighter-rouge">git clone https://github.com/MeetMax/meetmax.github.io.git</code> 命令将项目克隆到本地，这里以我自己的项目为例。
+3、进入文件夹 <code class="highlighter-rouge">cd meetmax.github.io</code> 
+4、新建 <code class="highlighter-rouge">index.html</code> 文件，在里面输入</p>
+<pre><code class="language-htmlbars">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;hello world&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+hello world
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>5、将文件提交到 <code class="highlighter-rouge">Github</code> 仓库，在<code class="highlighter-rouge">meetmax.github.io</code>文件夹运行命令：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add <span class="nb">.</span>
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"hello"</span>
+<span class="nv">$ </span>git push origin master
+</code></pre></div></div>
+
+<p>6、在浏览器打开 <code class="highlighter-rouge">https://meetmax.github.io/</code>，若显示<code class="highlighter-rouge">hello world</code>则说明配置成功，注意将<code class="highlighter-rouge">meetmax</code>替换成自己的账号。</p>
+
+<h2 id="五搭建hexo博客">五、搭建Hexo博客</h2>
+<h4 id="1-初始化博客目录">1. 初始化博客目录</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo init meetmax.github.io
+<span class="nv">$ </span><span class="nb">cd </span>meetmax.github.io
+<span class="nv">$ </span>npm install
+</code></pre></div></div>
+<h4 id="2-生成静态页面">2. 生成静态页面</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo clean // 清空代码，初始化
+<span class="nv">$ </span>hexo g // g表示generate，生成静态页面
+</code></pre></div></div>
+<h4 id="3--运行项目">3.  运行项目</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo s // s 表示 server
+</code></pre></div></div>
+<p>然后打开浏览器输入：<code class="highlighter-rouge">http://localhost:4000/</code>查看</p>
+<h4 id="4-发布文章">4. 发布文章</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo new <span class="nb">test</span>
+</code></pre></div></div>
+<p>这时候会在<code class="highlighter-rouge">source/_post</code>文件夹生成<code class="highlighter-rouge">test.md</code>文件，或者直接手动在<code class="highlighter-rouge">source/_post</code>文件夹下新建<code class="highlighter-rouge">test.md</code>文件。再次运行命令：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo clean
+<span class="nv">$ </span>hexo g 
+<span class="nv">$ </span>hexo s
+</code></pre></div></div>
+<h4 id="5--配置">5.  配置</h4>
+
+<p>网站的配置大部分都在<code class="highlighter-rouge">_config.yml</code>文件中：</p>
+<ul>
+  <li>title -&gt; 网站标题</li>
+  <li>subtitle -&gt; 网站副标题</li>
+  <li>description -&gt; 网站描述</li>
+  <li>author -&gt; 作者名字</li>
+  <li>language -&gt; 网站使用语言</li>
+</ul>
+
+<h4 id="6-需要注意的坑">6. 需要注意的坑</h4>
+<p><em>配置文件名字冒号后面必须加空格，例如 <code class="highlighter-rouge">title: meetmax</code></em>，否则配置不生效。</p>
+
+<h4 id="7-更换主题">7. 更换主题</h4>
+<p>我用的是<code class="highlighter-rouge">Yilia</code>主题，这里就以该主题为例
+1、克隆主题到 <code class="highlighter-rouge">theme</code> 文件夹</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>themes
+<span class="nv">$ </span>git clone https://github.com/litten/hexo-theme-yilia.git
+</code></pre></div></div>
+<p>2、配置主题
+修改项目文件夹下的<code class="highlighter-rouge">_config.yml</code>文件，配置如下：  <code class="highlighter-rouge">注意加空格，否则无效</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>theme: hexo-theme-yilia
+</code></pre></div></div>
+<h2 id="六部署到github">六、部署到Github</h2>
+<h4 id="1-安装-hexo-deployer-git">1. 安装 hexo-deployer-git</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm install hexo-deployer-git <span class="nt">--save</span>
+</code></pre></div></div>
+<p>若出现下面的错误，请设置<code class="highlighter-rouge">public key</code>，若不懂请使用搜索引擎</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Permission denied <span class="o">(</span>publickey<span class="o">)</span><span class="nb">.</span>
+fatal: Could not <span class="nb">read </span>from remote repository.
+Please make sure you have the correct access rights
+and the repository exists.
+</code></pre></div></div>
+<h4 id="2-在_configyml中配置-git以我自己的为例">2. 在<code class="highlighter-rouge">_config.yml</code>中配置 Git，以我自己的为例：</h4>
+<p>这里要注意 <code class="highlighter-rouge">repo</code>是 <code class="highlighter-rouge">ssh</code>地址，非 <code class="highlighter-rouge">https</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  type: git
+  repo: git@github.com:MeetMax/meetmax.github.io.git
+  branch: master
+</code></pre></div></div>
+<h4 id="3-部署到github">3. 部署到Github</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo d // d表示deloy
+</code></pre></div></div>
+<h4 id="4访问">4.访问</h4>
+<p>打开浏览器访问：https://meetmax.github.io/</p>
+
+<h2 id="参考">参考</h2>
+<p><a href="https://linghucong.js.org/2016/04/15/2016-04-15-hexo-github-pages-blog/">手把手教你使用Hexo + Github Pages搭建个人独立博客</a>
+<a href="https://github.com/limedroid/HexoLearning">Hexo 博客搭建指南</a></p>
+
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

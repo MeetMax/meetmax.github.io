@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>Author</title>
+    <title>About</title>
     <meta name="description" content="A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
 
     <!-- Mobile Meta -->
@@ -26,31 +26,31 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="//author/casper/" />
+        <link rel="canonical" href="//about/" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Finding The Way Home" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Author" />
+    <meta property="og:title" content="About" />
     <meta property="og:description" content="A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
-    <meta property="og:url" content="//author/casper/" />
-    <meta property="og:image" content="/assets/images/cover4.jpg" />
+    <meta property="og:url" content="//about/" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Author" />
+    <meta name="twitter:title" content="About" />
     <meta name="twitter:description" content="A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
-    <meta name="twitter:url" content="//author/casper/" />
-    <meta name="twitter:image:src" content="/assets/images/cover4.jpg" />
+    <meta name="twitter:url" content="//about/" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
 
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Finding The Way Home",
-    "name": "Author",
-    "url": "//author/casper/",
-    "image": "/assets/images/cover4.jpg",
+    "name": "About",
+    "url": "//about/",
+    "image": "/assets/images/cover1.jpg",
     "description": "A beautiful narrative written with the world's most elegant publishing platform. The story begins here."
 }
     </script>
@@ -60,7 +60,7 @@
 
 
 </head>
-<body class="author-template nav-closed">
+<body class="home-template nav-closed">
 
     <!-- The blog navigation links -->
     <div class="nav">
@@ -70,11 +70,11 @@
     </a>
     <ul>
         <li class="nav-home " role="presentation"><a href="/">Home</a></li>
-        <li class="nav-about " role="presentation"><a href="/about">About</a></li>
+        <li class="nav-about  nav-current" role="presentation"><a href="/about">About</a></li>
         <li class="nav-fables " role="presentation"><a href="/tag/fables">Fables</a></li>
         <li class="nav-speeches " role="presentation"><a href="/tag/speeches">Speeches</a></li>
         <li class="nav-fiction " role="presentation"><a href="/tag/fiction">Fiction</a></li>
-        <li class="nav-author  nav-current" role="presentation"><a href="/author/casper">Casper</a></li>
+        <li class="nav-author " role="presentation"><a href="/author/casper">Casper</a></li>
         <li class="nav-author " role="presentation"><a href="/author/edgar">Edgar</a></li>
         <li class="nav-author " role="presentation"><a href="/author/abraham">Abraham</a></li>
         <li class="nav-author " role="presentation"><a href="/author/martin">Martin</a></li>
@@ -88,131 +88,43 @@
     <div class="site-wrapper">
 
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-        <!-- < default}} -->
-<!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
+        <!-- < default -->
 
-<!-- The big featured header -->
+<!-- This is a page template. A page outputs content just like any other post, and has all the same -->
+    <!-- attributes by default, but you can also customise it to behave differently if you prefer.  -->
 
-<!-- Everything inside the #author tags pulls data from the author -->
-<!-- #author  -->
-    <header class="main-header author-head " style="background-image: url(/assets/images/cover4.jpg) ">
-        <nav class="main-nav overlay clearfix">
-            <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
-            
-                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-            
-        </nav>
-    </header>
+<!-- Everything inside the #post tags pulls data from the page -->
+<!-- #post -->
 
-    <section class="author-profile inner">
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
         
-            
-                
-                <figure class="author-image">
-                    <div class="img" style="background-image: url(/assets/images/casper.png)"><span class="hidden">Casper McFadden's Picture</span></div>
-                </figure>
-                
-                <h1 class="author-title">Casper McFadden</h1>
-                
-                    <div style="display:inline; text-align: justify; text-justify: inter-word;">
-                        <h2 class="author-bio">A paranormal expert and his daughter bunk in an abandoned house populated by 3 mischievous ghosts and a friendly one, Casper.</h2>
-                    </div>
-                
-                <div class="author-meta">
-                    <span class="author-location icon-location">Maine, USA</span>
-                    <span class="author-link icon-link"><a href="http://jekyller.github.io/jasper/">jekyller.github.io/jasper</a></span>
-                    <!-- <span class="author-stats"><i class="icon-stats"></i> [[plural ../pagination.total empty='No posts' singular='% post' plural='% posts']]</span> -->
-                    <span class="author-stats"><i class="icon-stats"></i>1 post</span>
-                </div>
-            
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
         
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    </section>
-<!-- /author -->
+    </nav>
+</header>
 
-<!-- The main content area on the homepage -->
-<main id="content" class="content" role="main">
-
-    <!-- The tag below includes the post loop - partials/loop.hbs  -->
-        <!-- Previous/next page links - only displayed on page 2+ -->
-    <div class="extra-pagination inner">
-        
-            <nav class="pagination" role="pagination">
-    
-    <span class="page-number"> Page 1 of 1 </span>
-     
-</nav>
-        
-    </div>
-
-    <!-- This is the post loop - each post will be output using this markup -->
-    
+<main class="content" role="main">
     <article class="post">
+        <!-- Everything inside the #post tags pulls data from the post -->
+
         <header class="post-header">
-            <h2 class="post-title"><a href="/the-businessman-and-fisherman">The Businessman & the fisherman</a></h2>
+            <h1 class="post-title">About</h1>
         </header>
-        <section class="post-excerpt">
-            <p>An American businessman took a vacation to a small coastal Mexican village on doctor’s orders. Unable to sleep after an urgent phone call from the office... <a class="read-more" href="/the-businessman-and-fisherman">&raquo;</a></p>
+
+        <section class="post-content">
+            <p>This is a demo blog for Ghost, it contains dummy content which allows you to click around and see what a Ghost blog running the default theme looks like.</p>
+
+<p>We use this for testing and for reference!</p>
+
+<p>If you’d like to set up your own blog, head on over to <a href="https://ghost.org">https://ghost.org</a> and sign up.</p>
+
         </section>
-        <footer class="post-meta">
-            
-                
 
-                <img class="author-thumb" src="/assets/images/casper.png" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/author/casper'>Casper McFadden</a>
-
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/tag/fables'>Fables</a>,
-                    
-                
-                    
-                       <a href='/tag/fiction'>Fiction</a>
-                    
-                
-            
-            <time class="post-date" datetime="2014-08-12">12 Aug 2014</time>
-        </footer>
     </article>
-    
-
-    <!-- Previous/next page links - displayed on every page -->
-    
-        <nav class="pagination" role="pagination">
-    
-    <span class="page-number"> Page 1 of 1 </span>
-     
-</nav>
-    
-
-
 </main>
+<!-- /post -->
 
 
         <!-- The tiny footer at the very bottom -->

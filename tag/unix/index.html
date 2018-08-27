@@ -26,7 +26,7 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="//tag/fables/" />
+        <link rel="canonical" href="//tag/unix/" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
@@ -34,13 +34,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Finding The Way Home" />
     <meta property="og:description" content="A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
-    <meta property="og:url" content="//tag/fables/" />
+    <meta property="og:url" content="//tag/unix/" />
     <meta property="og:image" content="/assets/images/cover2.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Finding The Way Home" />
     <meta name="twitter:description" content="A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
-    <meta name="twitter:url" content="//tag/fables/" />
+    <meta name="twitter:url" content="//tag/unix/" />
     <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
 
     <script type="application/ld+json">
@@ -49,7 +49,7 @@
     "@type": "Website",
     "publisher": "Finding The Way Home",
     "name": "Finding The Way Home",
-    "url": "//tag/fables/",
+    "url": "//tag/unix/",
     "image": "/assets/images/cover2.jpg",
     "description": "A beautiful narrative written with the world's most elegant publishing platform. The story begins here."
 }
@@ -71,7 +71,7 @@
     <ul>
         <li class="nav-home " role="presentation"><a href="/">Home</a></li>
         <li class="nav-about " role="presentation"><a href="/about">About</a></li>
-        <li class="nav-fables  nav-current" role="presentation"><a href="/tag/fables">Fables</a></li>
+        <li class="nav-fables " role="presentation"><a href="/tag/fables">Fables</a></li>
         <li class="nav-speeches " role="presentation"><a href="/tag/speeches">Speeches</a></li>
         <li class="nav-fiction " role="presentation"><a href="/tag/fiction">Fiction</a></li>
         <li class="nav-author " role="presentation"><a href="/author/casper">Casper</a></li>
@@ -104,10 +104,10 @@
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">Fables</h1>
+            <h1 class="page-title">Unix</h1>
             <h2 class="page-description">
             
-                A series of short stories that make you think.
+			    A 2-post collection
             
             </h2>
         </div>
@@ -133,29 +133,47 @@
     
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="/the-businessman-and-fisherman">The Businessman & the fisherman</a></h2>
+            <h2 class="post-title"><a href="/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90">IO模型浅析</a></h2>
         </header>
         <section class="post-excerpt">
-            <p>An American businessman took a vacation to a small coastal Mexican village on doctor’s orders. Unable to sleep after an urgent phone call from the office... <a class="read-more" href="/the-businessman-and-fisherman">&raquo;</a></p>
+            <p>同步阻塞IO
+系统的输入分为两个步骤：
+
+  等待数据报的到来
+  将数据报从内核缓冲区复制到用户应用程序缓冲区
+
+
+同步阻塞IO在以上两个步骤上都是阻塞状态，这时候CPU处于空闲状态，不会分配时间片给用户线程。在实际场景下，同一时刻往往会有多个IO操作，同步阻塞IO不能同时处理多个IO，只能一个一个来，导致CPU资源被浪费。
+
+同步非阻塞IO
+同步非阻塞IO比同步阻塞稍微好点，两者的区别是，在第一步调用recvfrom系统调用的时候，如果数据报还没有准备好会立即返回错误码EAGAIN或EWOULDBLOCK，并且一直轮询调用，直到数据报准备好时，执行第2步，第2步仍然是阻塞执行的，它的问题是会产生大量的系统调用，是很大的开销。
+
+IO多路复用
+多路复用和同步阻塞区别也是在第1步，当用户进程调用了select,poll或者epoll函数时，进程会监听文件描述符，当有数据报到来时，就执行第2步。多路复用在服务端编程中很常用，nginx、redis和nodeJs底层都使用了基于epoll的IO模型。它的优势是。1. 相对多线程而言，多个线程修改数据会产生静态条件，需要加锁处理。2.单线程模型避免了线程间切换的开销，可同时接受多个客户端的IO操作。3.事件驱动，当数据报准备好时才拷贝数据到用户控件，高效利用CPU资源。
+
+异步IO
+上面三种IO模型本质上都是同步的，因为在第2步的时候，数据报从内核缓冲区拷贝到用户进程的操作是阻塞的。异步IO和同步IO区别在于2步，当用户进程调用aio_read操作时就立刻返回，进程可以去做别的事情，1，2步操作都由内核帮你完成。当整个IO操作完成时，内核通过信号或回调函数的方式通知用户进程，这样1，2步都是非阻塞的。
+
+ <a class="read-more" href="/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90">&raquo;</a></p>
         </section>
         <footer class="post-meta">
             
                 
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
 
-                <img class="author-thumb" src="/assets/images/casper.png" alt="Author image" nopin="nopin" />
+                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
                 <!-- author -->
-                <a href='/author/casper'>Casper McFadden</a>
+                <a href='/author/meetmax'>MeetMax</a>
 
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
                 
             
 
@@ -164,15 +182,52 @@
                 on
                 
                     
-                       <a href='/tag/fables'>Fables</a>,
-                    
-                
-                    
-                       <a href='/tag/fiction'>Fiction</a>
+                       <a href='/tag/unix'>Unix</a>
                     
                 
             
-            <time class="post-date" datetime="2014-08-12">12 Aug 2014</time>
+            <time class="post-date" datetime="2018-07-27">27 Jul 2018</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/UNIX-IPC">Unix进程间通信(IPC)</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>IPC概念: 进程间通信（IPC，Inter-Process Communication），指至少两个进程或线程间传送数据或信号的一些技术或方法。进程是计算机系统分配资源的最小单位(严格说来是线程)。每个进程都有自己的一部分独立的系统资源，彼此是隔离的。为了能使不同的进程互相访问资源并进行协调工作，才有了进程间通信。举一个典型的例子，使用进程间通信的两个应用可以被分类为客户端和服务器（见主从式架构），客户端进程请求数据，服务端回复客户端的数据请求。有一些应用本身既是服务器又是客户端，这在分布式计算中，时常可以见到。这些进程可以运行在同一计算机上或网络连接的不同计算机上。 进程间通信技术包括消息传递、同步、共享内存和远程过程调用。IPC是一种标准的Unix通信机制。 使用IPC 的理由： 信息共享：Web服务器，通过网页浏览器使用进程间通信来共享web文件（网页等）和多媒体； 加速：维基百科使用通过进程间通信进行交流的多服务器来满足用户的请求； 模块化; 私有权分离. 与直接共享内存地址空间的多线程编程相比，IPC的缺点：[1] 采用了某种形式的内核开销，降低了性能; 几乎大部分IPC都不是程序设计的自然扩展，往往会大大地增加程序的复杂度。 一、管道 1、特点： 管道是一种半双工的通信方式(即数据只能单向流动)，也有部分系统上实现了全双工的管道，出于程序可移植性考虑，建议使用半双工管道，全双工的通信可由其它方式实现，例如：消息队列，Unix域套接字。 管道分为两种，无名管道和有名管道。 无名管道： 最早出现的管道是没有名字的，因此只能用于父子进程间通信，父进程通过fork()系统调用创建一个子进程，然后通过管道通信。 有名管道(FIFO): 有名管道也叫FIFO，由于磁盘中存在实际的管道文件，前者没有，所以叫有名管道。FIFO的意思是(first in ,first out)，先进先出。FIFO是一个(单向的)半双工数据流，不同于普通管道的是，每个FIFO都有一个对应文件的路径名与之关联，因此它能完成多个无亲缘关系进程之间的通信。 FIFO和无名管道的数据都存在内核的内存缓冲区中，大小一般为一页(4K)。不同的是，FIFO将内核缓冲区的数据映射到了实际的文件节点，可以在磁盘中看到对应的文件，所以叫有名管道，而无名管道在磁盘中没有对应文件，因此称无名管道。 无名管道通过&lt;unistd.h&gt;头文件中的pipe()创建，有名管道(FIFO)通过&lt;sys/stat.h&gt;中的mkfifo()创建。... <a class="read-more" href="/UNIX-IPC">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+
+                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
+                <!-- author -->
+                <a href='/author/meetmax'>MeetMax</a>
+
+                
+            
+
+            <!-- [[tags prefix=" on "]] -->
+            
+                on
+                
+                    
+                       <a href='/tag/unix'>Unix</a>
+                    
+                
+            
+            <time class="post-date" datetime="2018-02-20">20 Feb 2018</time>
         </footer>
     </article>
     

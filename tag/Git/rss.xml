@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>meetmax.github.io</title>
+   
+   <link></link>
+   <description>A beautiful narrative written with the world's most elegant publishing platform. The story begins here.</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Git原理和用法</title>
+	  <link>//Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</link>
+	  <author></author>
+	  <pubDate>2018-03-23T00:00:00+08:00</pubDate>
+	  <guid>//Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</guid>
+	  <description><![CDATA[
+	     <p>git是一个分布式版本管理工具，所谓分布式，也就是指每台电脑都是一个版本仓库，虽然git是分布式的，但在实际工作中，一般git还是会有一个集中的服务中心，目前比较主流的<code class="highlighter-rouge">GITHUB</code>和码云就是这样一个角色，当然你也可以搭建git服务器，然后全世界的开发者就可以通过互联网一起协同工作啦。很多小伙伴在工作上都会用到版本管理工具，我相信现在大部分互联网公司都会使用git来做版本管理工具，写这篇文章的目的是因为虽然自己每天都在用，但是仔细想想，对它的原理和执行过程没有一个深入的理解，往往只是停留在会用的阶段，不光是这个，其实很多时候，我们平时在用的一些开源框架或者库的时候，大多数人可能仅仅会用，不会去理解本质和原理是什么？然后那些原理和基础才是最重要的，正所谓要知其然，也要知其所以然，可能这就是高手和普通人的差距吧。Linus有句话叫<code class="highlighter-rouge">Read The Fucking Source Code</code>，这个话虽然简单粗暴，仔细想想却很有道理。</p>
+
+<h3 id="工作原理">工作原理</h3>
+<p><code class="highlighter-rouge">Git</code>整体可以分为三部分：工作区、暂存区和分支，在我们的git工作目录下，有一个<code class="highlighter-rouge">.git</code>文件，这个文件就是我们常说的版本库，要注意的是<code class="highlighter-rouge">Git</code>是通过快照的方式保存版本的，和传统版本管理工具不同，git不保存不同版本之间的差异，只以快照的方式保存修改后的文件，如果文件没有被修改，git就不会保存，这也是git比传统工具更高效的原因，但也有一个缺点，由于每次保存的都是快照，相当于把修改后的文件复制一份保存起来，这难免会造成空间浪费，因此版本提交多了之后，<code class="highlighter-rouge">.git</code>文件会变得很大。</p>
+
+<p><img src="https://img.ydlcdn.com/file/2018/03/27/a4h7idphq8q4kjhy.jpg" alt="enter image description here" /></p>
+
+<p><strong>工作区</strong>
+工作区就是我们工作的文件夹目录
+<strong>暂存区</strong>
+Git和其它版本管理工具一个不同之处就在于，git有一个暂存区，当我们执行<code class="highlighter-rouge">git add</code>命令的时候，我们实际上就是把修改后的文件放入到这个暂存区，而不是直接发布版本
+<strong>分支</strong>
+分支区域存放的是我们发布的各个版本，每次执行<code class="highlighter-rouge">git commit</code>操作时，git会生成一个hash值作为版本号，然后把暂存区的文件放入分支区域，也就是发布了一个版本，因为一个代码仓库一般会有好几个分支，所以这个提交的分支仅仅指向你当前正在使用的那个。换句话说，暂存区就是为版本发布做准备的，提交之后暂存区的就被清空了。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add // 添加修改后的文件到暂存区
+<span class="nv">$ </span>git commit // 提交文件到分支
+<span class="nv">$ </span>git status // 查看当前文件状态
+</code></pre></div></div>
+
+<p>我们可以通过<code class="highlighter-rouge">git status</code>命令来查看文件修改的状态，这个状态只的是目前工作区的文件以及暂存区的文件，和当前本地的分支库文件之间的差异，如果修改了<code class="highlighter-rouge">readme.md</code>文件，git就会在执行这条命令后展示出所有被修改过但是没有正式提交的文件。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git branch dev // 新建dev分支
+<span class="nv">$ </span>git branch <span class="nt">-d</span> dev // 删除dev分支
+<span class="nv">$ </span>git checkout <span class="nt">-b</span> dev // 切换并新创建一个dev分支
+<span class="nv">$ </span>git merge dev // 合并当前分支到dev分支
+</code></pre></div></div>
+
+<h3 id="版本回退">版本回退</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log // 从近到远查看提交日志
+<span class="nv">$ </span>git reset <span class="nt">--hard</span> HEAD^ // 回退到上一个版本，^^两个箭头就表示上上个版本，依次类推
+<span class="nv">$ </span>git reset <span class="nt">--hard</span> 3628164 // 回退到指定版本号
+<span class="nv">$ </span>git reflog // 查看最近几次提交记录的版本号
+</code></pre></div></div>
+<p>在某些情况下，比如说因为某些原因，我从2.0版本回退到了1.0版本，这个操作可以通过<code class="highlighter-rouge">git reset --hard HEAD^</code>命令实现，但是这时我又想回到2.0版本怎么办呢？这时候去查看<code class="highlighter-rouge">git log</code>命令，发现最新的版本是<code class="highlighter-rouge">1.0</code>，<code class="highlighter-rouge">git log</code>查看的是提交历史，似乎是没有什么办法回到2.0版本了。答案是 <code class="highlighter-rouge">git reflog</code>命令，该命令可以查看命令历史，可以通过找到2.0的版本号，再通过<code class="highlighter-rouge">git reset --hard </code>回到2.0版本。</p>
+
+<h3 id="撤销修改">撤销修改</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout <span class="nt">--</span> readme.txt // 把readme.txt在工作区的修改全部撤销
+<span class="nv">$ </span>git reset HEAD readme.txt // 把readme.txt暂存区的修改撤销，重新放回工作区 
+</code></pre></div></div>
+<p>修改文件的时候，突然发现文件修改错了，但是这时候已经修改了很多，无法手动恢复，趁还没有<code class="highlighter-rouge">git add</code>的时候把它恢复，可以执行<code class="highlighter-rouge">git checkout -- filename</code>命令。如果当你发现的时候已经执行了<code class="highlighter-rouge">git add</code>操作，也就是文件的修改已经被提交到了暂存区怎么办呢？这时候就应该先执行<code class="highlighter-rouge">git reset HEAD filename</code>命令，把缓存区的修改放回工作区，再执行<code class="highlighter-rouge">git checkout -- filename</code>撤销工作区修改的文件。当你删除文件时候，也可以通过<code class="highlighter-rouge">git checkout -- filename</code>命令恢复，因为对git来说，删除也是一种修改。</p>
+
+<h3 id="分支管理">分支管理</h3>
+<p>在实际开发中，可能会有很多分支，我们一般会把它们分为固定分支和临时分支，固定分支通常为<code class="highlighter-rouge">master</code>分支，指的是生产环境下的版本，<code class="highlighter-rouge">dev</code>为开发环境分支，用于开发完测试Bug，然后合并上线，这两个一般是固定的。临时分支一般是指，针对某个功能的开发而创建的分支，使用完就删除了。
+<strong>可参考：</strong>http://www.ruanyifeng.com/blog/2012/07/git.html</p>
+
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

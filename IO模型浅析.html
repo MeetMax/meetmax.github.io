@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>The Businessman & the fisherman</title>
+    <title>IO模型浅析</title>
     <meta name="description" content="A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
 
     <!-- Mobile Meta -->
@@ -26,31 +26,31 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="//the-businessman-and-fisherman" />
+        <link rel="canonical" href="//IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Finding The Way Home" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="The Businessman & the fisherman" />
+    <meta property="og:title" content="IO模型浅析" />
     <meta property="og:description" content="A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
-    <meta property="og:url" content="//the-businessman-and-fisherman" />
-    <meta property="og:image" content="/assets/images/cover7.jpg" />
+    <meta property="og:url" content="//IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90" />
+    <meta property="og:image" content="/assets/images/cover1.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="The Businessman & the fisherman" />
+    <meta name="twitter:title" content="IO模型浅析" />
     <meta name="twitter:description" content="A beautiful narrative written with the world's most elegant publishing platform. The story begins here." />
-    <meta name="twitter:url" content="//the-businessman-and-fisherman" />
-    <meta name="twitter:image:src" content="/assets/images/cover7.jpg" />
+    <meta name="twitter:url" content="//IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90" />
+    <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
 
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Finding The Way Home",
-    "name": "The Businessman & the fisherman",
-    "url": "//the-businessman-and-fisherman",
-    "image": "/assets/images/cover7.jpg",
+    "name": "IO模型浅析",
+    "url": "//IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90",
+    "image": "/assets/images/cover1.jpg",
     "description": "A beautiful narrative written with the world's most elegant publishing platform. The story begins here."
 }
     </script>
@@ -96,28 +96,24 @@
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
 
-<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
-    <nav class="main-nav  overlay  clearfix">
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
         <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
-        
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
         
     </nav>
 </header>
 
 <main class="content" role="main">
 
-    <article class="post tag-test tag-content">
+    <article class="post tag-fiction">
 
         <header class="post-header">
-            <h1 class="post-title">The Businessman & the fisherman</h1>
+            <h1 class="post-title">IO模型浅析</h1>
             <section class="post-meta">
             <!-- <a href='/'></a> -->
 
             
                 
-                    <a href='/author/casper'>Casper McFadden</a>
-                
             
                 
             
@@ -128,18 +124,16 @@
                 
             
                 
+                    <a href='/author/meetmax'>MeetMax</a>
+                
             
-            <time class="post-date" datetime="2014-08-12">12 Aug 2014</time>
+            <time class="post-date" datetime="2018-07-27">27 Jul 2018</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
                 
                     
-                       <a href='/tag/fables'>Fables</a>,
-                    
-                
-                    
-                       <a href='/tag/fiction'>Fiction</a>
+                       <a href='/tag/unix'>Unix</a>
                     
                 
                 
@@ -148,39 +142,24 @@
 
         <section class="post-content">
 
-            <p>An American businessman took a vacation to a small coastal Mexican village on doctor’s orders. Unable to sleep after an urgent phone call from the office the first morning, he walked out to the pier to clear his head. A small boat with just one fisherman had docked, and inside the boat were several large yellowfin tuna. The American complimented the Mexican on the quality of his fish.</p>
+            <h2 id="同步阻塞io">同步阻塞IO</h2>
+<p>系统的输入分为两个步骤：</p>
+<ol>
+  <li>等待数据报的到来</li>
+  <li>将数据报从内核缓冲区复制到用户应用程序缓冲区</li>
+</ol>
 
-<p>“How long did it take you to catch them?” the American asked.</p>
+<p>同步阻塞IO在以上两个步骤上都是阻塞状态，这时候CPU处于空闲状态，不会分配时间片给用户线程。在实际场景下，同一时刻往往会有多个IO操作，同步阻塞IO不能同时处理多个IO，只能一个一个来，导致CPU资源被浪费。</p>
 
-<p>“Only a little while,” the Mexican replied in surprisingly good English.</p>
+<h2 id="同步非阻塞io">同步非阻塞IO</h2>
+<p>同步非阻塞IO比同步阻塞稍微好点，两者的区别是，在第一步调用<code class="highlighter-rouge">recvfrom</code>系统调用的时候，如果数据报还没有准备好会立即返回错误码<code class="highlighter-rouge">EAGAIN</code>或<code class="highlighter-rouge">EWOULDBLOCK</code>，并且一直轮询调用，直到数据报准备好时，执行第2步，第2步仍然是阻塞执行的，它的问题是会产生大量的系统调用，是很大的开销。</p>
 
-<p>“Why don’t you stay out longer and catch more fish?” the American then asked.</p>
+<h2 id="io多路复用">IO多路复用</h2>
+<p>多路复用和同步阻塞区别也是在第1步，当用户进程调用了<code class="highlighter-rouge">select</code>,<code class="highlighter-rouge">poll</code>或者<code class="highlighter-rouge">epoll</code>函数时，进程会监听文件描述符，当有数据报到来时，就执行第2步。多路复用在服务端编程中很常用，nginx、redis和nodeJs底层都使用了基于<code class="highlighter-rouge">epoll</code>的IO模型。它的优势是。<strong>1.</strong> 相对多线程而言，多个线程修改数据会产生静态条件，需要加锁处理。<strong>2.</strong>单线程模型避免了线程间切换的开销，可同时接受多个客户端的IO操作。<strong>3.</strong>事件驱动，当数据报准备好时才拷贝数据到用户控件，高效利用CPU资源。</p>
 
-<p>“I have enough to support my family and give a few to friends,” the Mexican said as he unloaded them into a basket.</p>
+<h2 id="异步io">异步IO</h2>
+<p>上面三种IO模型本质上都是同步的，因为在第2步的时候，数据报从内核缓冲区拷贝到用户进程的操作是阻塞的。异步IO和同步IO区别在于2步，当用户进程调用<code class="highlighter-rouge">aio_read</code>操作时就立刻返回，进程可以去做别的事情，1，2步操作都由内核帮你完成。当整个IO操作完成时，内核通过信号或回调函数的方式通知用户进程，这样1，2步都是非阻塞的。</p>
 
-<p>“But… What do you do with the rest of your time?”</p>
-
-<p>The Mexican looked up and smiled. “I sleep late, fish a little, play with my children, take a siesta with my wife, Julia, and stroll into the village each evening, where I sip wine and play guitar with my amigos. I have a full and busy life, señor.”</p>
-
-<p>The American laughed and stood tall. “Sir, I’m a Harvard M.B.A. and can help you. You should spend more time fishing, and with the proceeds, buy a bigger boat. In no time, you could buy several boats with the increased haul. Eventually, you would have a fleet of fishing boats.”</p>
-
-<p>He continued, “Instead of selling your catch to a middleman, you would sell directly to the consumers, eventually opening your own cannery. You would control the product, processing, and distribution. You would need to leave this small coastal fishing village, of course, and move to Mexico City, then to Los Angeles, and eventually to New York City, where you could run your expanded enterprise with proper management.</p>
-
-<p>The Mexican fisherman asked, “But, señor, how long will all this take?”</p>
-
-<p>To which the American replied, “15-20 years, 25 tops.”</p>
-
-<p>“But what then, señor?”</p>
-
-<p>The American laughed and said, “That’s the best part. When the time is right, you would announce an IPO and sell your company stock to the public and become very rich. You would make millions.”</p>
-
-<p>“Millions señor? Then what?”</p>
-
-<p>“Then you would retire and move to a small coastal fishing village, where you would sleep late, fish a little, play with your kids, take a siesta with your wife, and stroll in to the village in the evenings where you could sip wine and play your guitar with your amigos.”</p>
-
-<p>Adapted from the “Anekdote zur Senkung der Arbeitsmoral” by <strong>Heinrich Böll</strong></p>
-
-<p>An influential German write and Nobel Prize for Literature in 1972.</p>
 
 
         </section>
@@ -191,20 +170,30 @@
             <!-- #author-->
             
                 
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
                     
                         <figure class="author-image">
-                            <a class="img" href="/author/casper" style="background-image: url(/assets/images/casper.png)"><span class="hidden">casper's Picture</span></a>
+                            <a class="img" href="/author/meetmax" style="background-image: url(/assets/images/martin.jpg)"><span class="hidden">meetmax's Picture</span></a>
                         </figure>
                     
 
                     <section class="author">
-                        <h4><a href="/author/casper">Casper McFadden</a></h4>
+                        <h4><a href="/author/meetmax">MeetMax</a></h4>
 
                         
-                            <p> A paranormal expert and his daughter bunk in an abandoned house populated by 3 mischievous ghosts and a friendly one, Casper.</p>
+                            <p> An American pastor, activist, humanitarian. People know me for leading the African-American Civil Rights movement using nonviolent civil disobedience.</p>
                         
                         <div class="author-meta">
-                            <span class="author-location icon-location"> Maine, USA</span>
+                            <span class="author-location icon-location"> Memphis, Tennessee</span>
                             <span class="author-link icon-link"><a href="http://jekyller.github.io/jasper/"> jekyller.github.io/jasper</a></span>
                         </div>
                     </section>
@@ -213,29 +202,19 @@
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=The Businessman & the fisherman&amp;url=the-businessman-and-fisherman"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=IO模型浅析&amp;url=IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=the-businessman-and-fisherman"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=the-businessman-and-fisherman"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
                     </section>
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
                 
             
 
@@ -252,15 +231,22 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story no-cover" href="/MySQL-Explain">
+        <a class="read-next-story no-cover" href="/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F">
             <section class="post">
-                <h2>Mysql之Explain详解</h2>
-                <p>​ ​ ​ 在工作中，经常会碰到一些慢查询，Explain 语句可以帮我们更详细的了解MySQL查询的执行计划，用法也很简单`Explain` 后面跟上`SELECT`语句即可。执行完之后，会显示一行有多个列的记录，可能很多人和我一样，对`EXPLAIN`里面字段的含义，并没有深入的去了解过，处于一知半解的状态，只知道一些最常见的。 ​ 下面我根据[MySQL官方文档](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/)，查阅了很多资料，再结合我自己的理解，对`EXPLAIN`的字段和值做了详细的描述，在总结过程中，也发现了自己的很多知识漏洞，很多时候，我总是会想当然的认为，这个就是对的，并没有严密逻辑验证，主要是懒的思考，正所谓好记性不如烂笔头，写的过程也是对自己知识点掌握程度的批判和考验。 ## 关于EXPLAIN ​ EXPLAIN返回一行记录，通过Explain可以获取到很多信息，如：不同表的查询顺序，查询用了哪些表，能使用哪些索引以及真正用到了哪些索引，用了哪种连接类型，是否有临时表和文件排序等。这些因素对查询的效率有直接的相关，想要使查询更高效，需要对这些条件做一个好的优化。 ​ EXPLAIN有12个字段，每个字段对查询优化的权重比不一样，也就是说并不是所有字段都很重要。`type`,`key`,`Extra`字段相对其它字段来说，对查询效率的影响更大，优化查询的时候，先把注意力放到这些字段会比其它字段来得更加直接有效，下面开始具体内容。 ​...</p>
+                <h2>Java学习笔记(一) - 变量</h2>
+                <p>## 变量 Java语言定义了4中类型的变量 - **实例变量** 实例变量本质上是 **一个类的非晶态的全局变量**，注意关键词，**非晶态**和**全局**。为什么叫实例变量呢？因为它的值在类的每个实例都是唯一的，实例就是指对象。下面的例子中，有一个`Box`类，定义了一个全局变量`numbers=1`，在这里`box1`是类`Box`的第1个实例，`box2`是第2个实例，`numbers`变量在这2个实例中是独立的，修改了实例`box1`中的变量`numbers`不会对`box2`实例中的`numbers`造成影响。 ```java class Box { public int numbers =...</p>
             </section>
         </a>
     
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev no-cover" href="/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1">
+            <section class="post">
+                <h2>浅入浅出MySQL事务</h2>
+                <p>在开发Web应用时，经常会用到InnoDB事务的特性，在一些涉及到金钱的业务上，事务可以保证资金流水不出错，事务可以分为很多种，有扁平事务、链事务、分布式事务等，这里只讨论最简单，也最常用的扁平事务，我们经常会提到事务的ACID特性，以下是我对ACID的理解和总结。 原子性 一致性 隔离性 持久性 原子性 原子性指的是对于一系列增删改查的操作，要么全部执行，要么全部不执行，事务可通过start transaction或者begin语句显示的开启，commit用于显示的提交，例如： start transaction update `user` set name='haha' where...</p>
+            </section>
+        </a>
     
     <!-- [[! /prev_post ]] -->
 </aside>

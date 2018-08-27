@@ -1,0 +1,1838 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>meetmax.github.io</title>
+   
+   <link></link>
+   <description>A beautiful narrative written with the world's most elegant publishing platform. The story begins here.</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Java学习笔记(二) - 原始数据类型</title>
+	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</link>
+	  <author></author>
+	  <pubDate>2018-08-27T00:00:00+08:00</pubDate>
+	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</guid>
+	  <description><![CDATA[
+	     <h2 id="原始数据类型">原始数据类型</h2>
+<p>Java是静态类型语言，所以变量必须先声明才能使用，并且每个变量都有自己的类型和名称。原始值不与其他原始数据值共享状态，Java语言定义了8种原始数据类型。</p>
+<ul>
+  <li><strong>byte</strong>   字节类型，在内存中占8位，它的值的范围是<code class="highlighter-rouge">-128 ~ 127</code>(包含)，在需要节省内存的情况下，字节类型可用来保存大型数组。</li>
+  <li><strong>short</strong>  类型在内存中占16位，它的值的范围是<code class="highlighter-rouge">-32,768 ~ 32,767 </code>，和<code class="highlighter-rouge">byte</code>类型一样，同样适用于需要节省内存的情况。</li>
+  <li><strong>int</strong> 类型在内存中占32位，它的值的范围是<strong>-2<sup>31</sup> ~ 2<sup>31</sup> -1</strong>。Java8之后可以使用无符号的整数，它的范围是**0 ~ 2<sup>32</sup> **，<code class="highlighter-rouge">Integer</code>中增加了静态方法<code class="highlighter-rouge">compareUnsigned</code>,<code class="highlighter-rouge">divideUnsigned</code>等方法可支持无符号整数运算。</li>
+  <li><strong>long</strong>类型在内存中占64位，它的取值范围是<strong>-2<sup>63</sup> ~ 2<sup>63</sup> -1</strong>，Java8之后也可以使用无符号整数，通过<code class="highlighter-rouge">Long</code>类提供的<code class="highlighter-rouge">compareUnsigned</code>、<code class="highlighter-rouge">divideUnsigned</code>方法支持无符号整数运算。</li>
+  <li><strong>float</strong>为32位单精度浮点类型。</li>
+  <li><strong>dobule</strong>类型为64位双精度浮点类型。</li>
+  <li><strong>boolean</strong>布尔类型，有<code class="highlighter-rouge">true/false</code>两种类型，通常用于条件判断<code class="highlighter-rouge">true</code>表<code class="highlighter-rouge">是</code>,<code class="highlighter-rouge">false</code>表<code class="highlighter-rouge">否</code>。</li>
+  <li><strong>char</strong> 字符类型是单个16位<code class="highlighter-rouge">Unicode</code>字符，它的值范围是<code class="highlighter-rouge">'\u0000'</code>~<code class="highlighter-rouge">'\uffff'</code>。</li>
+</ul>
+
+<h2 id="默认值">默认值</h2>
+<p>类的全局变量声明之后不是必须被分配的。如果全局变量被声明了，但是没有初始化，它会被编译器设置一个默认值，可能是<code class="highlighter-rouge">0</code>或<code class="highlighter-rouge">null</code>，这取决于数据类型，不过，依赖于默认值被认为是一种糟糕的编程风格。下表总结了各种数据类型对应的默认值</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>数据类型</th>
+      <th>默认值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>byte</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>short</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>int</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>long</td>
+      <td>0L</td>
+    </tr>
+    <tr>
+      <td>float</td>
+      <td>0.0f</td>
+    </tr>
+    <tr>
+      <td>double</td>
+      <td>0.0d</td>
+    </tr>
+    <tr>
+      <td>char</td>
+      <td>‘\u0000’</td>
+    </tr>
+    <tr>
+      <td>String(或者 任何对象)</td>
+      <td>null</td>
+    </tr>
+    <tr>
+      <td>boolean</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>对于局部变量则不同，编译器永远不会给局部变量分配默认值，如果你在声明时未对该变量进行初始化，在你使用该变量之前必须对其初始化，否则将导致编译错误。</p>
+
+<h2 id="字面量-literals">字面量-Literals</h2>
+<p>在初始化原始数据类型时不需要<code class="highlighter-rouge">new</code>关键词，因为原始数据类型是语言中内置的数据类型，字面量就是原始数据类型变量的等号右边的，固定的值，可以是字符串或数字。如下所示，<code class="highlighter-rouge">100</code>和<code class="highlighter-rouge">true</code>就是字面量。</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+<span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</code></pre></div></div>
+<p>字面量可以分为：</p>
+<ul>
+  <li><strong>整数字面量</strong></li>
+  <li><strong>浮点数字面量</strong></li>
+  <li><strong>字符串字面量</strong></li>
+</ul>
+
+<h2 id="参考">参考</h2>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html">The Java™ Tutorials</a></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Java学习笔记(一) - 变量</title>
+	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</link>
+	  <author></author>
+	  <pubDate>2018-08-26T00:00:00+08:00</pubDate>
+	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</guid>
+	  <description><![CDATA[
+	     <h2 id="变量">变量</h2>
+<p>Java语言定义了4中类型的变量</p>
+<ul>
+  <li><strong>实例变量</strong>
+实例变量本质上是 <strong>一个类的非晶态的全局变量</strong>，注意关键词，<strong>非晶态</strong>和<strong>全局</strong>。为什么叫实例变量呢？因为它的值在类的每个实例都是唯一的，实例就是指对象。下面的例子中，有一个<code class="highlighter-rouge">Box</code>类，定义了一个全局变量<code class="highlighter-rouge">numbers=1</code>，在这里<code class="highlighter-rouge">box1</code>是类<code class="highlighter-rouge">Box</code>的第1个实例，<code class="highlighter-rouge">box2</code>是第2个实例，<code class="highlighter-rouge">numbers</code>变量在这2个实例中是独立的，修改了实例<code class="highlighter-rouge">box1</code>中的变量<code class="highlighter-rouge">numbers</code>不会对<code class="highlighter-rouge">box2</code>实例中的<code class="highlighter-rouge">numbers</code>造成影响。
+```java
+class Box {
+  public int numbers = 1;
+}</li>
+</ul>
+
+<p>Box box1 = new Box();
+box1.numbers = 2;
+Box box2 = new Box(); // box2的numbers属性依然是1</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+- **类变量**
+类变量指的是**一个类的静态全局变量**，关键词是，**静态**和**全局**。为什么叫类变量呢？因为它是和实例(对象)无关的，不管一个类被实例化多少次，类变量都只有一份。静态变量通过`static`关键词来声明，对第1个例子稍作修改，`numbers`变成了类变量，`box1`调用`getNumbers`方法得到的值为1，然后我们把`numbers`的值改为了2，`box2`调用`getNumbers`的值变成了2，结果说明了`类变量`只和类有关 。
+```java
+class Box {
+	public static int numbers = 1;
+	
+	public int getNumbers() {
+		return Box.numbers;
+	}
+}
+
+Box box1 = new Box();
+box1.getNumbers();// 得到的值为1
+Box.numbers = 2; // 修改全局变量
+Box box2 = new Box(); 
+box2.getNumbers(); // 得到的值为2
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p><strong>局部变量</strong>
+Java中的局部变量是指<strong>类的方法内部的变量</strong>，局部变量仅在方法内部可见，在类的外部无法被访问到，通常用于存储一个方法的临时状态，在方法执行完成后，会自动释放掉。如下所示<code class="highlighter-rouge">getNumbers</code>方法中的<code class="highlighter-rouge">numbers</code>就是局部变量。
+```java
+class Box {</p>
+
+    <p>public int getNumbers() {
+      int numbers = 1
+      return numbers;
+  }
+}</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+- **参数**
+参数变量是指方法中的参数，它的作用域和局部变量一样，仅在方法内有效，可以接受来自外部的数据。如下所示，`numbers`作为`getNumbers`方法的参数。
+```java
+class Box {
+	
+	public void getNumbers(int numbers) {
+		System.out.println(numbers);
+	}
+}
+
+</code></pre></div></div>
+
+<h2 id="命名规范">命名规范</h2>
+<ul>
+  <li>变量命名大小写敏感，不限制长度，可以由一系列Unicode的字符和数字组成，用<code class="highlighter-rouge">字母</code>，<code class="highlighter-rouge">$</code>和<code class="highlighter-rouge">_</code>都是被允许的，包括中文，技术上是不限制的，但是Java规范不建议用<code class="highlighter-rouge">$</code>和<code class="highlighter-rouge">_</code>作为开头。</li>
+  <li>命名的尽量只用全称而非简称，写全称的代码可读性和可维护性都更好，好的命名，在很多情况下就是文档本身，另外需要注意，变量的名称不能为Java的关键词和保留字。</li>
+  <li>变量名称涉及多个单词的，第二个单词开始开头字母大写，也就是驼峰命名法，例如<code class="highlighter-rouge">boxNumbers</code>。如果是常量或者不能改变的变量，所有字母都用大写，字母之间用<code class="highlighter-rouge">_</code>隔开，例如<code class="highlighter-rouge">BOX_CONFIG</code>。</li>
+</ul>
+
+<h2 id="参考">参考</h2>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html">The Java™ Tutorials</a></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>IO模型浅析</title>
+	  <link>//IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90</link>
+	  <author></author>
+	  <pubDate>2018-07-27T01:00:00+08:00</pubDate>
+	  <guid>//IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90</guid>
+	  <description><![CDATA[
+	     <h2 id="同步阻塞io">同步阻塞IO</h2>
+<p>系统的输入分为两个步骤：</p>
+<ol>
+  <li>等待数据报的到来</li>
+  <li>将数据报从内核缓冲区复制到用户应用程序缓冲区</li>
+</ol>
+
+<p>同步阻塞IO在以上两个步骤上都是阻塞状态，这时候CPU处于空闲状态，不会分配时间片给用户线程。在实际场景下，同一时刻往往会有多个IO操作，同步阻塞IO不能同时处理多个IO，只能一个一个来，导致CPU资源被浪费。</p>
+
+<h2 id="同步非阻塞io">同步非阻塞IO</h2>
+<p>同步非阻塞IO比同步阻塞稍微好点，两者的区别是，在第一步调用<code class="highlighter-rouge">recvfrom</code>系统调用的时候，如果数据报还没有准备好会立即返回错误码<code class="highlighter-rouge">EAGAIN</code>或<code class="highlighter-rouge">EWOULDBLOCK</code>，并且一直轮询调用，直到数据报准备好时，执行第2步，第2步仍然是阻塞执行的，它的问题是会产生大量的系统调用，是很大的开销。</p>
+
+<h2 id="io多路复用">IO多路复用</h2>
+<p>多路复用和同步阻塞区别也是在第1步，当用户进程调用了<code class="highlighter-rouge">select</code>,<code class="highlighter-rouge">poll</code>或者<code class="highlighter-rouge">epoll</code>函数时，进程会监听文件描述符，当有数据报到来时，就执行第2步。多路复用在服务端编程中很常用，nginx、redis和nodeJs底层都使用了基于<code class="highlighter-rouge">epoll</code>的IO模型。它的优势是。<strong>1.</strong> 相对多线程而言，多个线程修改数据会产生静态条件，需要加锁处理。<strong>2.</strong>单线程模型避免了线程间切换的开销，可同时接受多个客户端的IO操作。<strong>3.</strong>事件驱动，当数据报准备好时才拷贝数据到用户控件，高效利用CPU资源。</p>
+
+<h2 id="异步io">异步IO</h2>
+<p>上面三种IO模型本质上都是同步的，因为在第2步的时候，数据报从内核缓冲区拷贝到用户进程的操作是阻塞的。异步IO和同步IO区别在于2步，当用户进程调用<code class="highlighter-rouge">aio_read</code>操作时就立刻返回，进程可以去做别的事情，1，2步操作都由内核帮你完成。当整个IO操作完成时，内核通过信号或回调函数的方式通知用户进程，这样1，2步都是非阻塞的。</p>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>浅入浅出MySQL事务</title>
+	  <link>//%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1</link>
+	  <author></author>
+	  <pubDate>2018-03-27T00:00:00+08:00</pubDate>
+	  <guid>//%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1</guid>
+	  <description><![CDATA[
+	     <p>在开发Web应用时，经常会用到InnoDB事务的特性，在一些涉及到金钱的业务上，事务可以保证资金流水不出错，事务可以分为很多种，有扁平事务、链事务、分布式事务等，这里只讨论最简单，也最常用的扁平事务，我们经常会提到事务的<code class="highlighter-rouge">ACID</code>特性，以下是我对<code class="highlighter-rouge">ACID</code>的理解和总结。</p>
+
+<ul>
+  <li>原子性</li>
+  <li>一致性</li>
+  <li>隔离性</li>
+  <li>持久性</li>
+</ul>
+
+<h4 id="原子性">原子性</h4>
+<p>原子性指的是对于一系列增删改查的操作，要么全部执行，要么全部不执行，事务可通过<code class="highlighter-rouge">start transaction</code>或者<code class="highlighter-rouge">begin</code>语句显示的开启，<code class="highlighter-rouge">commit</code>用于显示的提交，例如：</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">start</span> <span class="n">transaction</span>
+<span class="k">update</span> <span class="nv">`user`</span> <span class="k">set</span> <span class="n">name</span><span class="o">=</span><span class="s1">'haha'</span> <span class="k">where</span> <span class="n">uid</span><span class="o">=</span><span class="mi">1</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="nv">`user`</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">values</span> <span class="p">(</span><span class="s1">'小马'</span><span class="p">)</span>
+<span class="k">commit</span>
+</code></pre></div></div>
+<p>对于以上两部操作，若成功则都成功，若由于某些原因第二条语句执行出错，则可以执行<code class="highlighter-rouge">rollback</code>语句，这些一般是由程序语言来控制。
+<!-- more --></p>
+<h4 id="一致性">一致性</h4>
+<p>一致性和原子性有很多相似的地方，我的理解是，一致性的特点是依赖于原子性实现的，什么意思呢？比如说A给B汇款1000元，这个状态分为两步即：</p>
+
+<ol>
+  <li>从A的账户扣1000元</li>
+  <li>再往B的账户+1000元</li>
+</ol>
+
+<p>这两个步骤，对于事务的原子性来说，指要么都成功，要么都失败，原子性关注的是状态，而一致性关注的是最终的金额是否一致，即1000元不会丢失，可能理解起来会有点歧义，它们之间有相似的地方，一致性依赖于原子性实现。参考 <a href="http://geyifan.cn/2016/07/17/talk-about-transaction/">事务隔离级别浅析</a>。</p>
+
+<h4 id="隔离性">隔离性</h4>
+<p>隔离性指的是事务在提交之前，对其它事务是不可见的，每个事务对对象的操作相对其它事务都是相互分离的，这个特性依靠锁机制来实现。</p>
+
+<h4 id="持久性">持久性</h4>
+<p>持久性指的是事务一旦提交，其结果是永久性的，即使发生宕机等故障，数据库也能将数据恢复。</p>
+
+<h3 id="事务的隔离级别">事务的隔离级别</h3>
+<p>在数据库操作中，为了解决并发数据读写时数据的正确性问题，提出了事务的隔离级别。数据库的锁也是为了构建这些隔离级别而存在的。下面是SQL标准定义的四个隔离级别，以及可能发生脏读、不可重复读、幻读的可能性，隔离级别从上往下一次递增。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>隔离级别</th>
+      <th>脏读</th>
+      <th>不可重复读</th>
+      <th>幻读</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>未提交读（Read uncommitted）</td>
+      <td>可能</td>
+      <td>可能</td>
+      <td>可能</td>
+    </tr>
+    <tr>
+      <td>已提交读（Read committed）</td>
+      <td>不可能</td>
+      <td>可能</td>
+      <td>可能</td>
+    </tr>
+    <tr>
+      <td>可重复读（Repeatable read）</td>
+      <td>不可能</td>
+      <td>不可能</td>
+      <td>可能</td>
+    </tr>
+    <tr>
+      <td>可串行化（Serializable ）</td>
+      <td>不可能</td>
+      <td>不可能</td>
+      <td>不可能</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="脏读不可重复读幻读">脏读、不可重复读、幻读</h4>
+<p>要理解事务的隔离级别，首先要理解脏读、不可重复读和幻读是什么意思，下面通过几个例子来演示一下。</p>
+<ul>
+  <li><strong>脏读</strong></li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>事务A</th>
+      <th>事务B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">START TRANSACTION</code></td>
+      <td><code class="highlighter-rouge">START TRANSACTION</code></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><code class="highlighter-rouge">update user set name='小马' where uid=1</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">select * from user where uid=1</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">commit</code></td>
+      <td><code class="highlighter-rouge">rollback</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>在<code class="highlighter-rouge">Read uncommitted</code>隔离级别下，A事务和B事务同时开启，B事务对uid=1的这行数据做了修改操作，没有提交，但是在事务A里面已经能被读取到，而此时事务B执行了<code class="highlighter-rouge">rollback</code>回滚操作，也就是说A读到的是一行不存在的数据，这种情况被称为<code class="highlighter-rouge">脏读</code>，只有在<code class="highlighter-rouge">未提交读</code>的隔离级别下才会发生这种情况。</p>
+
+<ul>
+  <li><strong>可重复读</strong></li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>事务A</th>
+      <th>事务B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">START TRANSACTION</code></td>
+      <td><code class="highlighter-rouge">START TRANSACTION</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">select * from user where uid = 1</code></td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td><code class="highlighter-rouge">update user set name='小马' where uid=1</code></td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td><code class="highlighter-rouge">commit</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">select * from user where uid = 1</code></td>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>不可重复读指的是在一个事务中，执行两次查询操作，两次结果是不一样的，称为不可重复读，可重复读则相反，同一个事务内，两次读到的数据一致。根据上面的例子，事务A和事务B同时开启，第一次A事务通过<code class="highlighter-rouge">select</code>语句查询uid=1的这行数据，这时候B修改了这行数据并且执行了提交操作，第二次A事务再通过<code class="highlighter-rouge">select</code>语句查询这行数据的时候，读取到的结果就不一样了，所以称为不可重复读，这种情况在<code class="highlighter-rouge">Read committed</code>隔离级别下存在，<code class="highlighter-rouge">Repeatable read</code>级别则实现了可重复读。</p>
+
+<ul>
+  <li><strong>幻读</strong></li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>事务A</th>
+      <th>事务B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">START TRANSACTION</code></td>
+      <td><code class="highlighter-rouge">START TRANSACTION</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">select count(*) from user</code></td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td><code class="highlighter-rouge">insert into user (name) values ('mike')</code></td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td><code class="highlighter-rouge">commit</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">select count(*) from user</code></td>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>幻读和不可重复读有一些相似的地方，不可重复读针对的是修改删除操作，这两种操作可通过对数据行增加一个排它锁来解决，但是<code class="highlighter-rouge">insert</code>操作不一样，你没有办法锁住一条尚未存在的数据，理论上在<code class="highlighter-rouge">Repeatable read</code>隔离级别只解决了不可重复读问题，没有解决幻读问题，RR级别也是innodb默认的隔离级别，值得庆幸的是，innodb的RR级别通过MVCC多版本并发控制，解决了在RR级别下的幻读问题，所以理论上Innodb是完全满足事务的ACID属性的，想详细了解MVCC的同学可自行搜索引擎或者看书，本文由于篇幅的原因，暂不详细展开。</p>
+
+<h3 id="总结">总结</h3>
+<p>理解了上面说的这些概念，就很容易理解事务的隔离级别了，下面是对事务隔离级别的总结：</p>
+<ul>
+  <li><strong>未提交读：</strong>允许脏读，A事务可以读到B事务未提交的数据</li>
+  <li><strong>已提交读：</strong>A事务只能读到B事务已提交的数据</li>
+  <li><strong>可重复读：</strong>A事务对于同一行数据，前后两次读到的数据一定是一样的，即使B事务对它执行了修改，且提交了，结果也不会变。</li>
+  <li><strong>串行化：</strong>完全串行化的读，每次读都需要获得表级共享锁，读写相互都会阻塞</li>
+</ul>
+
+<h3 id="参考">参考</h3>
+<ul>
+  <li><a href="https://book.douban.com/subject/5373022/"><em>《MySQL技术内幕：InnoDB存储引擎》</em></a></li>
+  <li><a href="https://tech.meituan.com/innodb-lock.html"><em>Innodb中的事务隔离级别和锁的关系</em></a></li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Git原理和用法</title>
+	  <link>//Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</link>
+	  <author></author>
+	  <pubDate>2018-03-23T00:00:00+08:00</pubDate>
+	  <guid>//Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</guid>
+	  <description><![CDATA[
+	     <p>git是一个分布式版本管理工具，所谓分布式，也就是指每台电脑都是一个版本仓库，虽然git是分布式的，但在实际工作中，一般git还是会有一个集中的服务中心，目前比较主流的<code class="highlighter-rouge">GITHUB</code>和码云就是这样一个角色，当然你也可以搭建git服务器，然后全世界的开发者就可以通过互联网一起协同工作啦。很多小伙伴在工作上都会用到版本管理工具，我相信现在大部分互联网公司都会使用git来做版本管理工具，写这篇文章的目的是因为虽然自己每天都在用，但是仔细想想，对它的原理和执行过程没有一个深入的理解，往往只是停留在会用的阶段，不光是这个，其实很多时候，我们平时在用的一些开源框架或者库的时候，大多数人可能仅仅会用，不会去理解本质和原理是什么？然后那些原理和基础才是最重要的，正所谓要知其然，也要知其所以然，可能这就是高手和普通人的差距吧。Linus有句话叫<code class="highlighter-rouge">Read The Fucking Source Code</code>，这个话虽然简单粗暴，仔细想想却很有道理。</p>
+
+<h3 id="工作原理">工作原理</h3>
+<p><code class="highlighter-rouge">Git</code>整体可以分为三部分：工作区、暂存区和分支，在我们的git工作目录下，有一个<code class="highlighter-rouge">.git</code>文件，这个文件就是我们常说的版本库，要注意的是<code class="highlighter-rouge">Git</code>是通过快照的方式保存版本的，和传统版本管理工具不同，git不保存不同版本之间的差异，只以快照的方式保存修改后的文件，如果文件没有被修改，git就不会保存，这也是git比传统工具更高效的原因，但也有一个缺点，由于每次保存的都是快照，相当于把修改后的文件复制一份保存起来，这难免会造成空间浪费，因此版本提交多了之后，<code class="highlighter-rouge">.git</code>文件会变得很大。</p>
+
+<p><img src="https://img.ydlcdn.com/file/2018/03/27/a4h7idphq8q4kjhy.jpg" alt="enter image description here" /></p>
+
+<p><strong>工作区</strong>
+工作区就是我们工作的文件夹目录
+<strong>暂存区</strong>
+Git和其它版本管理工具一个不同之处就在于，git有一个暂存区，当我们执行<code class="highlighter-rouge">git add</code>命令的时候，我们实际上就是把修改后的文件放入到这个暂存区，而不是直接发布版本
+<strong>分支</strong>
+分支区域存放的是我们发布的各个版本，每次执行<code class="highlighter-rouge">git commit</code>操作时，git会生成一个hash值作为版本号，然后把暂存区的文件放入分支区域，也就是发布了一个版本，因为一个代码仓库一般会有好几个分支，所以这个提交的分支仅仅指向你当前正在使用的那个。换句话说，暂存区就是为版本发布做准备的，提交之后暂存区的就被清空了。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add // 添加修改后的文件到暂存区
+<span class="nv">$ </span>git commit // 提交文件到分支
+<span class="nv">$ </span>git status // 查看当前文件状态
+</code></pre></div></div>
+
+<p>我们可以通过<code class="highlighter-rouge">git status</code>命令来查看文件修改的状态，这个状态只的是目前工作区的文件以及暂存区的文件，和当前本地的分支库文件之间的差异，如果修改了<code class="highlighter-rouge">readme.md</code>文件，git就会在执行这条命令后展示出所有被修改过但是没有正式提交的文件。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git branch dev // 新建dev分支
+<span class="nv">$ </span>git branch <span class="nt">-d</span> dev // 删除dev分支
+<span class="nv">$ </span>git checkout <span class="nt">-b</span> dev // 切换并新创建一个dev分支
+<span class="nv">$ </span>git merge dev // 合并当前分支到dev分支
+</code></pre></div></div>
+
+<h3 id="版本回退">版本回退</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log // 从近到远查看提交日志
+<span class="nv">$ </span>git reset <span class="nt">--hard</span> HEAD^ // 回退到上一个版本，^^两个箭头就表示上上个版本，依次类推
+<span class="nv">$ </span>git reset <span class="nt">--hard</span> 3628164 // 回退到指定版本号
+<span class="nv">$ </span>git reflog // 查看最近几次提交记录的版本号
+</code></pre></div></div>
+<p>在某些情况下，比如说因为某些原因，我从2.0版本回退到了1.0版本，这个操作可以通过<code class="highlighter-rouge">git reset --hard HEAD^</code>命令实现，但是这时我又想回到2.0版本怎么办呢？这时候去查看<code class="highlighter-rouge">git log</code>命令，发现最新的版本是<code class="highlighter-rouge">1.0</code>，<code class="highlighter-rouge">git log</code>查看的是提交历史，似乎是没有什么办法回到2.0版本了。答案是 <code class="highlighter-rouge">git reflog</code>命令，该命令可以查看命令历史，可以通过找到2.0的版本号，再通过<code class="highlighter-rouge">git reset --hard </code>回到2.0版本。</p>
+
+<h3 id="撤销修改">撤销修改</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout <span class="nt">--</span> readme.txt // 把readme.txt在工作区的修改全部撤销
+<span class="nv">$ </span>git reset HEAD readme.txt // 把readme.txt暂存区的修改撤销，重新放回工作区 
+</code></pre></div></div>
+<p>修改文件的时候，突然发现文件修改错了，但是这时候已经修改了很多，无法手动恢复，趁还没有<code class="highlighter-rouge">git add</code>的时候把它恢复，可以执行<code class="highlighter-rouge">git checkout -- filename</code>命令。如果当你发现的时候已经执行了<code class="highlighter-rouge">git add</code>操作，也就是文件的修改已经被提交到了暂存区怎么办呢？这时候就应该先执行<code class="highlighter-rouge">git reset HEAD filename</code>命令，把缓存区的修改放回工作区，再执行<code class="highlighter-rouge">git checkout -- filename</code>撤销工作区修改的文件。当你删除文件时候，也可以通过<code class="highlighter-rouge">git checkout -- filename</code>命令恢复，因为对git来说，删除也是一种修改。</p>
+
+<h3 id="分支管理">分支管理</h3>
+<p>在实际开发中，可能会有很多分支，我们一般会把它们分为固定分支和临时分支，固定分支通常为<code class="highlighter-rouge">master</code>分支，指的是生产环境下的版本，<code class="highlighter-rouge">dev</code>为开发环境分支，用于开发完测试Bug，然后合并上线，这两个一般是固定的。临时分支一般是指，针对某个功能的开发而创建的分支，使用完就删除了。
+<strong>可参考：</strong>http://www.ruanyifeng.com/blog/2012/07/git.html</p>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Hexo + Github Pages 搭建个人博客</title>
+	  <link>//Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</link>
+	  <author></author>
+	  <pubDate>2018-03-18T00:00:00+08:00</pubDate>
+	  <guid>//Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</guid>
+	  <description><![CDATA[
+	     <h2 id="一什么是hexo">一、什么是Hexo?</h2>
+<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="https://zh.wikipedia.org/wiki/Markdown">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+
+<h2 id="二准备工作">二、准备工作</h2>
+<p>你需要：
+1、<code class="highlighter-rouge">NodeJS</code>环境，请参考 <a href="https://nodejs.org/en/download/">NodeJs官网</a>
+2、<code class="highlighter-rouge">Git</code>，请参考 <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">廖雪峰的Git教程</a>
+3、一个<a href="https://github.com">Github</a>账号</p>
+
+<h2 id="三安装hexo">三、安装Hexo</h2>
+<p>检验NodeJs安装：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>node <span class="nt">-v</span>
+</code></pre></div></div>
+<p>若安装成功会显示<code class="highlighter-rouge">NodeJs</code>版本号，例如：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>v9.6.1
+</code></pre></div></div>
+<p>接着，在命令行中输入：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm install <span class="nt">-g</span> hexo-cli
+</code></pre></div></div>
+<p>由于国外网络延迟的关系，下载速度太慢或者某些依赖安装失败，请安装<code class="highlighter-rouge">淘宝NPM镜像</code>，设置镜像的方法和使用规则详见：<a href="https://npm.taobao.org/">https://npm.taobao.org</a>。
+至此，若无意外情况，Hexo安装完毕，若有疑问请参考 <a href="https://hexo.io/zh-cn/docs/index.html">Hexo官方手册</a></p>
+
+<h2 id="四github-pages使用">四、Github Pages使用</h2>
+<p>1、登录<code class="highlighter-rouge">Github</code>，在右上角选择<code class="highlighter-rouge">New repository</code>，新建一个<code class="highlighter-rouge">repository</code>，并且命名为<code class="highlighter-rouge">username.github.io</code>，注意把<code class="highlighter-rouge">username</code>替换成你申请账号的用户名，其余不要变。
+2、使用 <code class="highlighter-rouge">git clone https://github.com/MeetMax/meetmax.github.io.git</code> 命令将项目克隆到本地，这里以我自己的项目为例。
+3、进入文件夹 <code class="highlighter-rouge">cd meetmax.github.io</code> 
+4、新建 <code class="highlighter-rouge">index.html</code> 文件，在里面输入</p>
+<pre><code class="language-htmlbars">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;hello world&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+hello world
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>5、将文件提交到 <code class="highlighter-rouge">Github</code> 仓库，在<code class="highlighter-rouge">meetmax.github.io</code>文件夹运行命令：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add <span class="nb">.</span>
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"hello"</span>
+<span class="nv">$ </span>git push origin master
+</code></pre></div></div>
+
+<p>6、在浏览器打开 <code class="highlighter-rouge">https://meetmax.github.io/</code>，若显示<code class="highlighter-rouge">hello world</code>则说明配置成功，注意将<code class="highlighter-rouge">meetmax</code>替换成自己的账号。</p>
+
+<h2 id="五搭建hexo博客">五、搭建Hexo博客</h2>
+<h4 id="1-初始化博客目录">1. 初始化博客目录</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo init meetmax.github.io
+<span class="nv">$ </span><span class="nb">cd </span>meetmax.github.io
+<span class="nv">$ </span>npm install
+</code></pre></div></div>
+<h4 id="2-生成静态页面">2. 生成静态页面</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo clean // 清空代码，初始化
+<span class="nv">$ </span>hexo g // g表示generate，生成静态页面
+</code></pre></div></div>
+<h4 id="3--运行项目">3.  运行项目</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo s // s 表示 server
+</code></pre></div></div>
+<p>然后打开浏览器输入：<code class="highlighter-rouge">http://localhost:4000/</code>查看</p>
+<h4 id="4-发布文章">4. 发布文章</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo new <span class="nb">test</span>
+</code></pre></div></div>
+<p>这时候会在<code class="highlighter-rouge">source/_post</code>文件夹生成<code class="highlighter-rouge">test.md</code>文件，或者直接手动在<code class="highlighter-rouge">source/_post</code>文件夹下新建<code class="highlighter-rouge">test.md</code>文件。再次运行命令：</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo clean
+<span class="nv">$ </span>hexo g 
+<span class="nv">$ </span>hexo s
+</code></pre></div></div>
+<h4 id="5--配置">5.  配置</h4>
+
+<p>网站的配置大部分都在<code class="highlighter-rouge">_config.yml</code>文件中：</p>
+<ul>
+  <li>title -&gt; 网站标题</li>
+  <li>subtitle -&gt; 网站副标题</li>
+  <li>description -&gt; 网站描述</li>
+  <li>author -&gt; 作者名字</li>
+  <li>language -&gt; 网站使用语言</li>
+</ul>
+
+<h4 id="6-需要注意的坑">6. 需要注意的坑</h4>
+<p><em>配置文件名字冒号后面必须加空格，例如 <code class="highlighter-rouge">title: meetmax</code></em>，否则配置不生效。</p>
+
+<h4 id="7-更换主题">7. 更换主题</h4>
+<p>我用的是<code class="highlighter-rouge">Yilia</code>主题，这里就以该主题为例
+1、克隆主题到 <code class="highlighter-rouge">theme</code> 文件夹</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>themes
+<span class="nv">$ </span>git clone https://github.com/litten/hexo-theme-yilia.git
+</code></pre></div></div>
+<p>2、配置主题
+修改项目文件夹下的<code class="highlighter-rouge">_config.yml</code>文件，配置如下：  <code class="highlighter-rouge">注意加空格，否则无效</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>theme: hexo-theme-yilia
+</code></pre></div></div>
+<h2 id="六部署到github">六、部署到Github</h2>
+<h4 id="1-安装-hexo-deployer-git">1. 安装 hexo-deployer-git</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm install hexo-deployer-git <span class="nt">--save</span>
+</code></pre></div></div>
+<p>若出现下面的错误，请设置<code class="highlighter-rouge">public key</code>，若不懂请使用搜索引擎</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Permission denied <span class="o">(</span>publickey<span class="o">)</span><span class="nb">.</span>
+fatal: Could not <span class="nb">read </span>from remote repository.
+Please make sure you have the correct access rights
+and the repository exists.
+</code></pre></div></div>
+<h4 id="2-在_configyml中配置-git以我自己的为例">2. 在<code class="highlighter-rouge">_config.yml</code>中配置 Git，以我自己的为例：</h4>
+<p>这里要注意 <code class="highlighter-rouge">repo</code>是 <code class="highlighter-rouge">ssh</code>地址，非 <code class="highlighter-rouge">https</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy:
+  type: git
+  repo: git@github.com:MeetMax/meetmax.github.io.git
+  branch: master
+</code></pre></div></div>
+<h4 id="3-部署到github">3. 部署到Github</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo d // d表示deloy
+</code></pre></div></div>
+<h4 id="4访问">4.访问</h4>
+<p>打开浏览器访问：https://meetmax.github.io/</p>
+
+<h2 id="参考">参考</h2>
+<p><a href="https://linghucong.js.org/2016/04/15/2016-04-15-hexo-github-pages-blog/">手把手教你使用Hexo + Github Pages搭建个人独立博客</a>
+<a href="https://github.com/limedroid/HexoLearning">Hexo 博客搭建指南</a></p>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Redis应用场景浅析</title>
+	  <link>//Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</link>
+	  <author></author>
+	  <pubDate>2018-03-16T00:00:00+08:00</pubDate>
+	  <guid>//Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</guid>
+	  <description><![CDATA[
+	     <h3 id="string字符串">String–字符串</h3>
+<p>redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。</p>
+
+<h3 id="hash哈希">Hash–哈希</h3>
+<p>哈希表是redis中很有用的数据结构，有时候我们需要存储结构话的数据，例如用户的登录信息</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">uid</span><span class="p">:</span><span class="mi">1</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">用户uid</span><span class="w">
+</span><span class="err">username</span><span class="p">:</span><span class="err">xxx</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">用户名</span><span class="w">
+</span><span class="err">age</span><span class="p">:</span><span class="mi">18</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">年龄</span><span class="w">
+</span><span class="err">head</span><span class="p">:</span><span class="err">xxx</span><span class="w"> </span><span class="err">//头像</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="string模式">String模式</h4>
+<p>按照普通缓存的模式，存储这个结构需要先将其序列化，转换成json字符串，以<code class="highlighter-rouge">user-uid</code>为键名，这样做有个问题，假如说现在需要修改<code class="highlighter-rouge">head</code>字段，我需要经历如下步骤：</p>
+<ol>
+  <li>根据键名<code class="highlighter-rouge">user-1</code>获取到<code class="highlighter-rouge">json</code>字符串</li>
+  <li>解析<code class="highlighter-rouge">json</code></li>
+  <li>修改结构体中的<code class="highlighter-rouge">head</code>字段</li>
+  <li>再次序列化成<code class="highlighter-rouge">json</code></li>
+  <li><code class="highlighter-rouge">set key</code> 存储</li>
+</ol>
+
+<h4 id="hash模式">Hash模式</h4>
+<p>接下来使用<code class="highlighter-rouge">Hash</code>来存储，使用<code class="highlighter-rouge">HMSET</code>命令存储所有字段</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HMSET user-1 uid 1 username xxx age 18 head:xxx
+</code></pre></div></div>
+<p>这时候需要修改字段<code class="highlighter-rouge">head</code>仅需一条命令即可：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HSET user-1 head zzz
+</code></pre></div></div>
+<p>相比之下是不是简单了很多，<code class="highlighter-rouge">Hash模式</code>不仅操作大大简化，而且节省了<code class="highlighter-rouge">String模式</code>中大量的序列化和反序列化的性能消耗。</p>
+
+<h3 id="list--列表">List – 列表</h3>
+<p><code class="highlighter-rouge">List</code>在<code class="highlighter-rouge">redis</code>中的应用也比较广泛，最典型的就是消息队列，在某些高并发场景下，由于<code class="highlighter-rouge">mysql</code>存储介质为磁盘，在写入性能上由于磁盘的读写速度限制，它的写入速度可能达不到要求。但是<code class="highlighter-rouge">redis</code>不一样，redis是完全基于内存数据库<code class="highlighter-rouge">nosql</code>，没有<code class="highlighter-rouge">I/O</code>瓶颈，写入和读取速度都非常快，这也是<code class="highlighter-rouge">redis</code>流行的原因。假设现在要做一个商城的秒杀活动，在同一时刻必然会有大量的订单提交操作，mysql可能来不及写入，会导致其它用户阻塞，糟糕的情况下甚至系统奔溃，影响用户体验。在这种场景下就可以通过消息队列来处理，即：</p>
+<ol>
+  <li>先把提交的订单信息写入消息队列，可通过<code class="highlighter-rouge">LPUSH</code>和<code class="highlighter-rouge">RPOP</code>命令实现<code class="highlighter-rouge">入队</code>和<code class="highlighter-rouge">出队</code>的操作。</li>
+  <li>通过异步程序将订单存储到<code class="highlighter-rouge">mysql</code></li>
+</ol>
+
+<p>另一种场景是可作为<code class="highlighter-rouge">IM</code>聊天系统的<code class="highlighter-rouge">timeline</code>模型，即每个用户对应一个<code class="highlighter-rouge">timeline</code>模型，根据时间顺序排列，每个用户通过<code class="highlighter-rouge">timeline</code>获取消息</p>
+
+<h3 id="set--集合">Set – 集合</h3>
+<p>集合和<code class="highlighter-rouge">List</code>的类似，区别是集合是可以自动排重的，且集合是无序的。例如：存储某个用户的所有粉丝和所有的好友等。</p>
+
+<h3 id="sorted-set-有序集合">Sorted Set 有序集合</h3>
+<p>有序集合根据<code class="highlighter-rouge">score</code>字段来排序，通过<code class="highlighter-rouge">ZADD</code>可添加一个有序集合，例如：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ZADD page_rank 10 google.com
+</code></pre></div></div>
+<p>上面命令的意思是在<code class="highlighter-rouge">page_rank</code>集合中添加字符串<code class="highlighter-rouge">google.com</code>，<code class="highlighter-rouge">score</code>为<code class="highlighter-rouge">10</code>。
+有序集合可用来数据分页，例如我们查询用户积分前100名的用户，每页20条展示，通过
+<code class="highlighter-rouge">ZRANGE key start stop [WITHSCORES]</code>命令可实现分页，时间复杂度为<code class="highlighter-rouge">O(log(N)+M)</code>，
+在数据量大，查询比较耗时，可大大提高web的性能。</p>
+
+<h3 id="pubsub--发布--订阅">Pub/Sub – 发布 / 订阅</h3>
+<p>发布订阅模式通过发布和订阅发送和接收消息，例如A和B订阅(<code class="highlighter-rouge">subscribe</code>)了频道<code class="highlighter-rouge">news.it</code>，这时候C向改频道发送(<code class="highlighter-rouge">publish</code>)一条信息<code class="highlighter-rouge">hello</code>，这时候A和B会收到这条消息，这就是最简单的发布订阅模式，A和B也可以订阅别的频道，可以接受来自不同频道的信息，注意这里的A和B是长连接，<code class="highlighter-rouge">PUBSUB CHANNELS</code>命令可查看当前活跃的频道。这个功能最典型应用就是<code class="highlighter-rouge">IM</code>系统，广播等场景，但是<code class="highlighter-rouge">redis</code>发布和订阅没有确认的过程，消息发出就没了，不管有没有收到，在实际场景中可能会选择别的方案。</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Unix进程间通信(IPC)</title>
+	  <link>//UNIX-IPC</link>
+	  <author></author>
+	  <pubDate>2018-02-20T18:18:00+08:00</pubDate>
+	  <guid>//UNIX-IPC</guid>
+	  <description><![CDATA[
+	     <h3 id="ipc概念">IPC概念:</h3>
+<blockquote>
+  <p><strong>进程间通信</strong>（<strong>IPC</strong>，<em>Inter-Process Communication</em>），指至少两个<a href="https://zh.wikipedia.org/wiki/%E8%BF%9B%E7%A8%8B">进程</a>或<a href="https://zh.wikipedia.org/wiki/%E7%BA%BF%E7%A8%8B">线程</a>间传送数据或信号的一些技术或方法。进程是<a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F">计算机系统</a>分配资源的最小单位(严格说来是线程)。每个进程都有自己的一部分独立的系统资源，彼此是隔离的。为了能使不同的进程互相访问资源并进行协调工作，才有了进程间通信。举一个典型的例子，使用进程间通信的两个应用可以被分类为客户端和服务器（见<strong>主从式架构</strong>），客户端进程请求数据，服务端回复客户端的数据请求。有一些应用本身既是服务器又是客户端，这在<strong>分布式计算</strong>中，时常可以见到。这些<a href="https://zh.wikipedia.org/wiki/%E8%BF%9B%E7%A8%8B">进程</a>可以运行在同一计算机上或网络连接的不同计算机上。</p>
+
+  <p>进程间通信技术包括消息传递、同步、共享内存和<a href="https://zh.wikipedia.org/wiki/%E8%BF%9C%E7%A8%8B%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8">远程过程调用</a>。IPC是一种标准的<a href="https://zh.wikipedia.org/wiki/Unix">Unix</a>通信机制。</p>
+
+  <p>使用IPC 的理由：</p>
+
+  <ul>
+    <li>信息共享：<strong>Web服务器</strong>，通过<strong>网页浏览器</strong>使用进程间通信来共享web文件（网页等）和多媒体；</li>
+    <li>加速：维基百科使用通过进程间通信进行交流的多服务器来满足用户的请求；</li>
+    <li>模块化;</li>
+    <li>私有权分离.</li>
+  </ul>
+
+  <p>与直接共享内存地址空间的<a href="https://zh.wikipedia.org/wiki/%E5%A4%9A%E7%BA%BF%E7%A8%8B">多线程编程</a>相比，IPC的缺点：[<a href="https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B%E9%96%93%E9%80%9A%E8%A8%8A#cite_note-1">1]</a></p>
+
+  <ul>
+    <li>采用了某种形式的内核开销，降低了性能;</li>
+    <li>几乎大部分IPC都不是程序设计的自然扩展，往往会大大地增加程序的复杂度。</li>
+  </ul>
+</blockquote>
+
+<h2 id="一管道">一、管道</h2>
+
+<h4 id="1特点">1、特点：</h4>
+
+<ol>
+  <li>
+    <p>管道是一种半双工的通信方式(即数据只能单向流动)，也有部分系统上实现了全双工的管道，出于程序可移植性考虑，建议使用半双工管道，全双工的通信可由其它方式实现，例如：消息队列，Unix域套接字。</p>
+  </li>
+  <li>
+    <p>管道分为两种，无名管道和有名管道。</p>
+
+    <ul>
+      <li><strong>无名管道：</strong></li>
+    </ul>
+
+    <p>最早出现的管道是没有名字的，因此只能用于父子进程间通信，父进程通过<code class="highlighter-rouge">fork()</code>系统调用创建一个子进程，然后通过管道通信。</p>
+
+    <ul>
+      <li><strong>有名管道(FIFO):</strong></li>
+    </ul>
+
+    <p>有名管道也叫<strong>FIFO</strong>，由于磁盘中存在实际的管道文件，前者没有，所以叫有名管道。<code class="highlighter-rouge">FIFO</code>的意思是(first in ,first out)，先进先出。FIFO是一个(单向的)半双工数据流，不同于普通管道的是，每个FIFO都有一个对应文件的路径名与之关联，因此它能完成多个无亲缘关系进程之间的通信。</p>
+  </li>
+  <li>
+    <p>FIFO和无名管道的数据都存在内核的内存缓冲区中，大小一般为一页(4K)。不同的是，FIFO将内核缓冲区的数据映射到了实际的文件节点，可以在磁盘中看到对应的文件，所以叫<strong>有名管道</strong>，而无名管道在磁盘中没有对应文件，因此称<strong>无名管道</strong>。</p>
+  </li>
+  <li>
+    <p>无名管道通过<code class="highlighter-rouge">&lt;unistd.h&gt;</code>头文件中的<code class="highlighter-rouge">pipe()</code>创建，有名管道(FIFO)通过<code class="highlighter-rouge">&lt;sys/stat.h&gt;</code>中的<code class="highlighter-rouge">mkfifo()</code>创建。</p>
+  </li>
+  <li>
+    <p>管道通过<code class="highlighter-rouge">read()</code>和<code class="highlighter-rouge">write()</code>进行读写操作，管道内核缓冲区中的数据一旦被取走，管道中将不存在。当内核缓冲区满的时候，<code class="highlighter-rouge">write()</code>写操作将被阻塞，直到缓冲区有空闲再继续。同理，当缓冲区数据为空时，<code class="highlighter-rouge">read()</code>操作将阻塞，直到有新数据时再返回。</p>
+  </li>
+  <li>
+    <p>当进程终止时，管道就完全被删除了。</p>
+  </li>
+</ol>
+
+<ul>
+  <li>###无名管道</li>
+</ul>
+
+<h4 id="1过程">1、过程</h4>
+
+<ol>
+  <li>
+    <p>创建管道</p>
+
+    <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
+</span><span class="n">pipe</span><span class="p">(</span><span class="kt">int</span> <span class="n">fd</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> 
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>通过<code class="highlighter-rouge">fork()</code>创建子进程</p>
+
+    <pre><code class="language-C">// 返回值 &gt;=0:成功 &lt;0:错误
+// 如果是父进程则返回子进程 id,子进程则返回 0
+fork()
+</code></pre>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">read()</code>和<code class="highlighter-rouge">write()</code>读写缓冲区的数据</p>
+  </li>
+</ol>
+
+<h4 id="2例子">2、例子</h4>
+
+<ul>
+  <li><em>pipe.c</em></li>
+</ul>
+
+<pre><code class="language-C">#include &lt;unistd.h&gt;
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int fd[2];	// 管道描述符
+    pid_t pid;	// 进程id
+    char buff[20];	// 缓冲区长度
+    if(pipe(fd) &lt; 0){
+        printf("创建管道失败\n");
+    }
+    pid = fork();	// 创建子进程
+    if(pid &lt; 0){
+        printf("fork()失败\n");
+    }else if (pid &gt; 0){	// 大于0为主进程
+        close(fd[0]);	// 关闭主进程读端
+        write(fd[1],"hello world\n",12);
+    }else{ 	// 小于0为子进程
+        close(fd[1]); 	// 关闭子进程写端
+        sleep(2);
+		read(fd[0], buff, 20);
+		printf("读到的数据：%s\n", buff);
+    }
+    return 0;
+}
+</code></pre>
+
+<ul>
+  <li>
+    <h3 id="有名管道fifo">有名管道FIFO</h3>
+  </li>
+</ul>
+
+<h4 id="1过程-1">1、过程</h4>
+
+<ol>
+  <li>按以下示例，先运行<code class="highlighter-rouge">read_fifo.c</code>，创建管道文件(<strong>注意:</strong> 此时管道文件必须不存在，否则会出错)。</li>
+  <li>因为此时管道中还没有数据，<code class="highlighter-rouge">read()</code>处于阻塞状态，等待数据。</li>
+  <li>再运行<code class="highlighter-rouge">write_fifo.c</code>，向管道中写入数据，此时<code class="highlighter-rouge">read()</code>打印<code class="highlighter-rouge">write_fifo.c</code>写入的数据。</li>
+</ol>
+
+<h4 id="2例子-1">2、例子</h4>
+
+<ul>
+  <li><em>read_fifo.c</em></li>
+</ul>
+
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;time.h&gt;
+#include &lt;sys/stat.h&gt;
+
+int main()
+{
+    int fd,len;
+    char buff[1024];	//管道缓冲区大小
+  if(mkfifo("/Users/meetmax/CWork/fifo1", 0666) &lt; 0)
+  {		// 创建FIFO管道,此时`fif01`文件必须不存在，否则报错
+    	perror("Create FIFO Failed");
+    	exit(1);
+  } 
+  
+	if((fd = open("/Users/meetmax/CWork/fifo1", O_RDONLY)) &lt; 0) 
+	{ 	// 以只读模式打开FIFO，和打开普通文件一样
+		perror("Open FIFO Failed");
+		exit(1);
+	}
+	 // 如果管道中有数据，读取FIFO管道
+	while((len = read(fd, buff, 1024)) &gt; 0)
+		printf("Read message: %s", buff);
+
+	close(fd);  // 关闭FIFO文件
+	return 0;
+}
+</code></pre>
+
+<ul>
+  <li><em>write_fifo.c</em></li>
+</ul>
+
+<pre><code class="language-C">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;   // exit
+#include&lt;fcntl.h&gt;    // O_WRONLY
+#include&lt;sys/stat.h&gt;
+#include&lt;time.h&gt;     // time
+#include &lt;time.h&gt;
+
+int main()
+{
+	int fd;
+	int n, i;
+	char buf[1024];
+	time_t tp;
+
+	printf("I am %d process.\n", getpid()); // 说明进程ID
+	
+	if((fd = open("/Users/meetmax/CWork/fifo1", O_WRONLY)) &lt; 0) 
+      // 以写打开一个FIFO 
+	{
+		perror("Open FIFO Failed");
+		exit(1);
+	}
+
+	for(i=0; i&lt;10; ++i)
+	{
+		time(&amp;tp);  // 取系统当前时间
+		n=sprintf(buf,"Process %d's time is %s",getpid(),ctime(&amp;tp));
+		printf("Send message: %s", buf); //	打印
+		if(write(fd, buf, n+1) &lt; 0)  // 写入到FIFO中
+		{
+			perror("Write FIFO Failed");
+			close(fd);
+			exit(1);
+		}
+		sleep(1);  // 休眠1秒
+	}
+
+	close(fd);  // 关闭FIFO文件
+	return 0;
+}
+</code></pre>
+
+<h2 id="xis-ipc基于system-v-的ipc函数">XIS IPC(基于System V 的IPC函数)</h2>
+
+<p>除管道外，还有3种IPC的进程间的通信，分别为：消息队列、信号量和共享内存。这3个IPC有两种实现方式，分别为基于<strong>System V</strong>和<strong>POSIX</strong>的进程间通信。</p>
+
+<ul>
+  <li><em>维基百科</em></li>
+</ul>
+
+<p><strong>System V</strong></p>
+
+<blockquote>
+  <p><strong>UNIX系统五</strong>[<a href="https://zh.wikipedia.org/wiki/Wikipedia:%E5%88%97%E6%98%8E%E6%9D%A5%E6%BA%90">来源请求]</a>（英语：UNIX System V），是<a href="https://zh.wikipedia.org/wiki/Unix">Unix</a><a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>众多版本中的一支。它最初由<a href="https://zh.wikipedia.org/wiki/AT%26T">AT&amp;T</a>开发，在1983年第一次发布，因此也被称为<strong>AT&amp;T System V</strong>。</p>
+</blockquote>
+
+<p><strong>POSIX</strong></p>
+
+<blockquote>
+  <p><strong>可移植操作系统接口</strong>（英语：Portable Operating System Interface，缩写为<strong>POSIX</strong>），是<a href="https://zh.wikipedia.org/wiki/IEEE">IEEE</a>为要在各种<a href="https://zh.wikipedia.org/wiki/UNIX">UNIX</a><a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>上运行软件，而定义<a href="https://zh.wikipedia.org/wiki/API">API</a>的一系列互相关联的标准的总称，其正式称呼为IEEE Std 1003，而国际标准名称为<a href="https://zh.wikipedia.org/wiki/ISO">ISO</a>/<a href="https://zh.wikipedia.org/wiki/IEC">IEC</a> 9945。</p>
+</blockquote>
+
+<p>System V 出现比 POSIX 要早，可以说POSIX是对System V的改进，POSIX API使用比前者更加简单高效，但是为什么两者仍然同时存在呢？还是一个移植性的问题，虽然现在新的程序都基于POSIX标准，但是仍然有很多旧的程序使用了基于System V的IPC，因此两者都保留了。本文的IPC基于System V的IPC函数。</p>
+
+<h2 id="二消息队列">二、消息队列</h2>
+
+<h3 id="1特点-1">1、特点</h3>
+
+<ol>
+  <li>消息队列是消息的链表，存储在内核中，由消息队列标识符标识。</li>
+  <li>消息队列是随内核持续的，进程终止时，消息队列及其内容不会被删除，除非内核重启或者调用<code class="highlighter-rouge">msgctl()</code>显式的删除消息队列。</li>
+  <li>消息队列没有维护引用计数器(打开文件有这种计数器)，所以队列被删除后，仍在使用该队列的进程会出错返回。</li>
+</ol>
+
+<h3 id="2过程">2、过程</h3>
+
+<ol>
+  <li>先定义消息队列结构<code class="highlighter-rouge">struct msg_form</code>，每条消息都包含：
+    <ul>
+      <li>消息队列类型：<code class="highlighter-rouge">long</code>类型的<code class="highlighter-rouge">mtype</code></li>
+      <li>消息数据：<code class="highlighter-rouge">char *</code>类型的字符串</li>
+    </ul>
+  </li>
+  <li>通过文件的路径名和项目ID(0~255之间)，调用<code class="highlighter-rouge">ftok()</code>获取IPC，获取key值。创建<code class="highlighter-rouge">XSI IPC</code>结构都应指定一个键，这个键的数据类型是系统数据类型key_t，通常在头文件<code class="highlighter-rouge">&lt;sys/types.h&gt;</code>中定义。</li>
+  <li>接着调用<code class="highlighter-rouge">msgget()</code>函数，使用key作为其中一个参数，由内核将<code class="highlighter-rouge">key</code>变成IPC的标识符，在这里就是消息队列ID。</li>
+  <li>拿到IPC标识符后，通过<code class="highlighter-rouge">msgsnd()</code>和<code class="highlighter-rouge">msgrcv()</code>分别发送和接收消息。</li>
+</ol>
+
+<h3 id="3示例">3、示例</h3>
+
+<ul>
+  <li><em>msg_client.c</em></li>
+</ul>
+
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/msg.h&gt;
+#include &lt;unistd.h&gt;
+
+
+#define MSG_FILE "/Users/meetmax/CWork/msg_file"
+
+// 消息结构
+struct msg_form {
+    long mtype;    
+	char mtext[256];
+};
+
+int main(){
+    int msqid;	// 消息队列id
+    key_t key;	// 键值
+    struct msg_form msg;
+
+    //获取key值
+    if((key = ftok(MSG_FILE,100)) &lt; 0){
+        perror("获取key值失败\n");
+        exit(0);
+    }
+
+    printf("key 值为： %d",key);
+
+    if((msqid = msgget(key,IPC_CREAT|0777)) &lt; 0){
+        perror("获取消息队列失败");
+        exit(0);
+    }
+    printf("消息队列id: %d \n",msqid);
+    printf("进程id: %d \n",getpid());
+
+    msg.mtype = 888;	// 设置消息类型
+    sprintf(msg.mtext,"hello,I'm client %d\n",getpid());
+    msgsnd(msqid,&amp;msg,sizeof(msg.mtext),0);
+
+    // 获取777类型的消息
+	msgrcv(msqid, &amp;msg, 256, 999, 0);
+	printf("Client: receive msg.mtext is: %s.\n", msg.mtext);
+	printf("Client: receive msg.mtype is: %ld.\n", msg.mtype);
+	return 0;
+}
+</code></pre>
+
+<ul>
+  <li><em>msg_server.c</em></li>
+</ul>
+
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/msg.h&gt;
+#include &lt;unistd.h&gt;
+
+#define MSG_FILE "/Users/meetmax/CWork/msg_file"
+struct msg_form{
+    long mtype;
+    char mtext[256];
+};
+int main()
+{
+    int msqid;
+    key_t key;
+    struct msg_form msg;
+    //获取key值
+    if((key = ftok(MSG_FILE,100)) &lt; 0){
+        perror("获取key失败");
+        exit(1);
+    }
+    //打印key值
+    printf("key的值为 %d \n",key);
+    //根据key值创建消息队列
+    if((msqid = msgget(key,IPC_CREAT|0777)) &lt; 0){
+        perror("创建消息队列失败");
+        exit(1);
+    }
+    printf("消息队列id为 : %d \n",msqid);
+    printf("进程id为 : %d \n",getpid());
+    while(1)
+    {
+        //接受888类型的消息        
+        msgrcv(msqid,&amp;msg,256,888,0);
+        printf("Server:receive msg.mtext: %s \n",msg.mtext);
+        printf("Server:receive msg.xxx: %ld \n",msg.mtype);
+        msg.mtype = 999;
+        sprintf(msg.mtext,"hello I'm server: %d \n",getpid());
+        //发送消息
+        msgsnd(msqid,&amp;msg,sizeof(msg.mtext),0);
+    }
+    return 0;
+}
+</code></pre>
+
+<h2 id="三信号量">三、信号量</h2>
+
+<h3 id="1特点-2">1、特点</h3>
+
+<ol>
+  <li>
+    <p>信号量类似锁机制，能够使临界区内的资源在某一时刻只能被一个进程访问。临界区是指多个进程或线程共享的内存空间，在访问临界区的时候，多个进程操作同一个资源，此时就存在竞态条件，通常在两个进程对同一个资源写操作时，会产生结果不一致的问题，因为我们不知道系统进程何时切换，这种情况也很难复现和调试。必须有一种机制来保证在同一时刻只能有一个进程访问临界区，信号量就提供了这种机制。</p>
+  </li>
+  <li>
+    <p>信号量是一种特殊的变量，程序对它的访问都是<strong>原子操作</strong>，所谓原子操作，即是指不可被中断的操作，要实现原子操作单纯软件是不够的。虽然也能实现，但是效率很低，信号量是一种和硬件紧密结合的机制，它不会被系统进程切换和中断操作打断。本文以<strong>二值信号量</strong>为例子，二值信号量能实现互斥锁的功能，保证同一时间只能一个进程访问资源。</p>
+  </li>
+  <li>
+    <p>信号量的P,V操作</p>
+
+    <p><em>来自维基百科</em></p>
+  </li>
+</ol>
+
+<blockquote>
+  <p>计数信号量具备两种操作动作，之前称为 V（又称signal()）与 P（wait()）。 V操作会增加信号量 S的数值，P操作会减少它。</p>
+
+  <p>运作方式：</p>
+
+  <ol>
+    <li>初始化，给与它一个非负数的整数值。</li>
+    <li>运行 P（wait()），信号量S的值将被减少。企图进入<a href="https://zh.wikipedia.org/wiki/%E8%87%A8%E7%95%8C%E5%8D%80%E6%AE%B5">临界区块</a>的进程，需要先运行 P（wait()）。当信号量S减为负值时，进程会被挡住，不能继续；当信号量S不为负值时，进程可以获准进入临界区块。</li>
+    <li>运行 V（又称signal()），信号量S的值会被增加。结束离开<a href="https://zh.wikipedia.org/wiki/%E8%87%A8%E7%95%8C%E5%8D%80%E6%AE%B5">临界区块</a>的进程，将会运行 V（又称signal()）。当信号量S不为负值时，先前被挡住的其他进程，将可获准进入<a href="https://zh.wikipedia.org/wiki/%E8%87%A8%E7%95%8C%E5%8D%80%E6%AE%B5">临界区块</a>。</li>
+  </ol>
+</blockquote>
+
+<h3 id="2过程-1">2、过程</h3>
+
+<ol>
+  <li>获取<code class="highlighter-rouge">key</code>值(同消息队列)</li>
+  <li>获取信号量ID(同消息队列)</li>
+  <li><code class="highlighter-rouge">semctl()</code>函数初始化信号量</li>
+  <li><code class="highlighter-rouge">fork()</code>子进程</li>
+  <li>执行P,V操作</li>
+</ol>
+
+<h3 id="3例子">3、例子</h3>
+
+<p><em>sem.c 二值信号量</em></p>
+
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/sem.h&gt; // 信号量函数库
+#include &lt;unistd.h&gt;
+
+#define SEM_FILE "/Users/meetmax/CWork/sem_file" // 信号量文件
+
+union sem_union //信号量联合
+{
+    int val;
+    struct semid_ds *buf;
+    unsigned short *array;
+};
+
+//初始化信号量
+int init_sem(int sem_id,int val)
+{
+    union sem_union tmp;
+    tmp.val = val;
+    if((semctl(sem_id,0,SETVAL,tmp)) == -1)
+    {
+        perror("初始化信号量失败");
+        return -1;
+    }
+    return 0;
+}
+
+/**
+ * P操作
+ * 信号量大于0时执行 -1 操作，获取资源
+ * 若信号量 &lt;= 0 则挂起等待
+*/
+int sem_p(int sem_id)
+{
+    struct sembuf sbuf;
+    sbuf.sem_num = 0;
+    sbuf.sem_op = -1;
+    sbuf.sem_flg = SEM_UNDO;
+    if(semop(sem_id,&amp;sbuf,1) == -1)
+    {
+        perror("p操作失败");
+        return -1;
+    }
+    return 0;
+}
+
+/**
+ * V操作
+ * 信号量 &lt;= 0时执行，+1操作，释放资源
+ * 若信号量 &gt; 0 时挂起等待
+ */
+int sem_v(int sem_id)
+{
+    struct sembuf sbuf;
+    sbuf.sem_num = 0;
+    sbuf.sem_op = 1;
+    sbuf.sem_flg = SEM_UNDO;
+    if(semop(sem_id,&amp;sbuf,1) == -1)
+    {
+        perror("V操作失败");
+        return -1;
+    }
+    return 0;
+}
+
+//删除信号量
+int sem_del(int sem_id)
+{
+    union sem_union tmp;
+    if(semctl(sem_id,0,IPC_RMID,tmp) == -1)
+    {
+        perror("删除信号量失败");
+        return -1;
+    }
+    return 0;
+}
+
+int main()
+{
+    int sem_id;
+    key_t key;
+    pid_t pid;
+
+    //获取key值
+    if((key = ftok(SEM_FILE,100)) == -1)
+    {
+        perror("获取key值失败");
+        exit(1);
+    }
+    //获取信号量id
+    if((sem_id = semget(key,1,IPC_CREAT|0666)) == -1)
+    {
+        perror("信号量id获取失败");
+        exit(1);
+    }
+
+    //初始化信号量
+    init_sem(sem_id,0);
+
+    //fork进程
+    if((pid = fork()) == -1)
+    {
+        perror("进程fork失败");
+        exit(1);
+    }else if(pid == 0){ //子进程
+        printf("我是子进程：%d \n",getpid());
+        sleep(2);
+        sem_v(sem_id);
+    }else if(pid &gt; 0){ //父进程
+        sem_p(sem_id);
+        printf("我是父进程：%d \n",getpid());
+        sem_v(sem_id);
+        sem_del(sem_id);
+    }
+    return 0;
+}
+</code></pre>
+
+<h2 id="四共享内存">四、共享内存</h2>
+
+<h3 id="1特点-3">1、特点</h3>
+
+<p><em>概念</em></p>
+
+<blockquote>
+  <p>顾名思义，共享内存就是允许两个不相关的进程访问同一个逻辑内存。共享内存是在两个正在运行的进程之间共享和传递数据的一种非常有效的方式。不同进程之间共享的内存通常安排为同一段物理内存。进程可以将同一段共享内存连接到它们自己的地址空间中，所有进程都可以访问共享内存中的地址，就好像它们是由用C语言函数malloc分配的内存一样。而如果某个进程向共享内存写入数据，所做的改动将立即影响到可以访问同一段共享内存的任何其他进程。</p>
+</blockquote>
+
+<h3 id="2过程-2">2、过程</h3>
+
+<ol>
+  <li><code class="highlighter-rouge">ftko()</code>获取key值(同消息队列)</li>
+  <li>用<code class="highlighter-rouge">shmget()</code>函数获取共享内存ID</li>
+  <li>进程通过<code class="highlighter-rouge">shmat()</code>函数连接共享内存</li>
+  <li>访问共享内存</li>
+</ol>
+
+<h3 id="3示例-1">3、示例</h3>
+
+<p><em>shm_server.c 读数据</em></p>
+
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/shm.h&gt;
+#include &lt;string.h&gt;
+
+#define SHM_FILE "/Users/meetmax/CWork/shm_file"
+
+int main()
+{
+    int shm_id;
+    key_t key;
+    char * shm;
+    struct shmid_ds buf;
+	// 获取key
+    if((key = ftok(SHM_FILE,100)) == -1)
+    {
+        perror("获取key失败");
+        exit(0);
+    }
+	// 获取共享内存描述符ID
+    if((shm_id = shmget(key,512,IPC_CREAT|0666)) == -1)
+    {
+        perror("获取共享内存id失败");
+        exit(0);
+    }
+	// 连接共享内存
+    if((int)(shm = (char *)shmat(shm_id,0,0)) == -1)
+    {
+        perror("连接共享内存失败");
+        exit(1);
+    }
+    printf("开始接收数据\n");
+  
+    // 开始忙等，接收数据
+    while(1)
+    {
+        if(strlen(shm) &gt; 0){
+            printf("收到数据：%s \n",shm);
+            sprintf(shm,"");
+        }
+        if(strcmp(shm,"r") == 0){
+            printf("已退出\n");
+            break;
+        }
+    }
+    // 删除共享内存
+    shmctl(shm_id,IPC_RMID,&amp;buf);
+    return 0;
+
+}
+</code></pre>
+
+<p><em>sem_client.c 写入数据</em></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/shm.h&gt;
+</span>
+<span class="cp">#define SHM_FILE "/Users/meetmax/CWork/shm_file"
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">shm_id</span><span class="p">;</span>
+    <span class="n">key_t</span> <span class="n">key</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span> <span class="n">shm</span><span class="p">;</span>
+   
+	<span class="c1">// 获取key
+</span>    <span class="k">if</span><span class="p">((</span><span class="n">key</span> <span class="o">=</span> <span class="n">ftok</span><span class="p">(</span><span class="n">SHM_FILE</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"获取key失败"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+	<span class="c1">// 获取共享内存id
+</span>    <span class="k">if</span><span class="p">((</span><span class="n">shm_id</span> <span class="o">=</span> <span class="n">shmget</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="mi">512</span><span class="p">,</span><span class="n">IPC_CREAT</span><span class="o">|</span><span class="mo">0666</span><span class="p">))</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"获取共享内存id失败"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
+	<span class="c1">// 连接共享内存，若不存在则创建
+</span>    <span class="k">if</span><span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">shm</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">shmat</span><span class="p">(</span><span class="n">shm_id</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>   
+    <span class="p">{</span>
+        <span class="n">perror</span><span class="p">(</span><span class="s">"连接共享内存失败"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"请输入："</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="n">shm</span><span class="p">);</span> <span class="c1">// 写入数据到共享内存
+</span>    <span class="n">shmdt</span><span class="p">(</span><span class="n">shm</span><span class="p">);</span> <span class="c1">// 断开连接
+</span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+  <li><em>《UNIX环境高级编程》</em></li>
+  <li><em>《UNIX网络编程：卷2》</em></li>
+  <li>部分来自互联网</li>
+</ul>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Mysql之Explain详解</title>
+	  <link>//MySQL-Explain</link>
+	  <author></author>
+	  <pubDate>2018-01-20T18:00:00+08:00</pubDate>
+	  <guid>//MySQL-Explain</guid>
+	  <description><![CDATA[
+	     <p>​	
+​	
+​	在工作中，经常会碰到一些慢查询，Explain 语句可以帮我们更详细的了解MySQL查询的执行计划，用法也很简单<code class="highlighter-rouge">Explain</code> 后面跟上<code class="highlighter-rouge">SELECT</code>语句即可。执行完之后，会显示一行有多个列的记录，可能很多人和我一样，对<code class="highlighter-rouge">EXPLAIN</code>里面字段的含义，并没有深入的去了解过，处于一知半解的状态，只知道一些最常见的。</p>
+
+<p>​	下面我根据<a href="https://dev.mysql.com/doc/relnotes/mysql/5.7/en/">MySQL官方文档</a>，查阅了很多资料，再结合我自己的理解，对<code class="highlighter-rouge">EXPLAIN</code>的字段和值做了详细的描述，在总结过程中，也发现了自己的很多知识漏洞，很多时候，我总是会想当然的认为，这个就是对的，并没有严密逻辑验证，主要是懒的思考，正所谓好记性不如烂笔头，写的过程也是对自己知识点掌握程度的批判和考验。</p>
+
+<h2 id="关于explain">关于EXPLAIN</h2>
+
+<p>​	EXPLAIN返回一行记录，通过Explain可以获取到很多信息，如：不同表的查询顺序，查询用了哪些表，能使用哪些索引以及真正用到了哪些索引，用了哪种连接类型，是否有临时表和文件排序等。这些因素对查询的效率有直接的相关，想要使查询更高效，需要对这些条件做一个好的优化。</p>
+
+<p>​	EXPLAIN有12个字段，每个字段对查询优化的权重比不一样，也就是说并不是所有字段都很重要。<code class="highlighter-rouge">type</code>,<code class="highlighter-rouge">key</code>,<code class="highlighter-rouge">Extra</code>字段相对其它字段来说，对查询效率的影响更大，优化查询的时候，先把注意力放到这些字段会比其它字段来得更加直接有效，下面开始具体内容。
+​</p>
+
+<h2 id="explain语法">EXPLAIN语法</h2>
+
+<p>以<code class="highlighter-rouge">user_info</code>表为例：</p>
+
+<pre><code class="language-mysql">explain select * from `user_info` where uid = 5
+</code></pre>
+
+<p>结果：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>select_type</th>
+      <th>table</th>
+      <th>partitions</th>
+      <th>type</th>
+      <th>possible_keys</th>
+      <th>key</th>
+      <th>key_len</th>
+      <th>ref</th>
+      <th>rows</th>
+      <th>filtered</th>
+      <th>Extra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>SIMPLE</td>
+      <td>user_info</td>
+      <td>NULL</td>
+      <td>const</td>
+      <td>PRIMARY</td>
+      <td>PRIMARY</td>
+      <td>8</td>
+      <td>const</td>
+      <td>1</td>
+      <td>100.00</td>
+      <td>NULL</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="explain字段说明">EXPLAIN字段说明</h2>
+
+<p><strong>注</strong>： <em>标注星号的字段为重点</em></p>
+
+<h4 id="id">id：</h4>
+
+<p><code class="highlighter-rouge">SELECT</code>语句的标识符，代表<code class="highlighter-rouge">SELECT</code>查询在整个查询中的序号。这个值也可能为<code class="highlighter-rouge">NULL</code>，如果这一行是<code class="highlighter-rouge">UNION</code>的结果。</p>
+
+<h4 id="select_type">select_type:</h4>
+
+<p><code class="highlighter-rouge">SELECT</code>查询的类型，该类型的值有11种类型。例如，示例中的值为<code class="highlighter-rouge">SIMPLE</code>，表示该查询是一个简单的查询（即：没有子查询和<code class="highlighter-rouge">UNION</code>）。</p>
+
+<p>####table:</p>
+
+<p>大多数情况下表示输出行所引用的表名，它也可能是下列值之一：</p>
+
+<h4 id="partitions">partitions:</h4>
+
+<p>只对分区表有意义。意思是查询所匹配到的分区，如果该表为非分区表，则它的值为<code class="highlighter-rouge">NULL</code>。</p>
+
+<h4 id="type">*type:</h4>
+
+<p>查询的<code class="highlighter-rouge">join</code>类型，<strong>注意</strong>单表查询也被当做<code class="highlighter-rouge">join</code>的特例，并不一定要两张表。连接类型详情下面会详细介绍。</p>
+
+<h4 id="possible_key">possible_key:</h4>
+
+<p><code class="highlighter-rouge">possible_key</code>列是指，在查询中能够被MySQL用到的索引，但在实际情况中，不一定会被全部用到，这取决于MySQL优化器的选择，假设<code class="highlighter-rouge">possible_key</code>有<code class="highlighter-rouge">A,B,C</code>,3个索引，优化器经过分析认为<code class="highlighter-rouge">A</code>索引不需要用，那么实际执行的时候只会用到<code class="highlighter-rouge">B,C</code>索引。实际应用中，该列经常帮我们对<code class="highlighter-rouge">SQL</code>查询进行优化，如果它的值为<code class="highlighter-rouge">NULL</code>，说明没有能被用到的索引，这种情况下，需要调整<code class="highlighter-rouge">SQL</code>语句和优化表的索引。</p>
+
+<h4 id="key">*key:</h4>
+
+<p>查询中实际用到的索引，要注意，该列的值可能包含<code class="highlighter-rouge">possible_key</code>列中没有出现的索引，当查询满足<code class="highlighter-rouge">覆盖索引</code>的条件时，<code class="highlighter-rouge">possible_keys</code>列为<code class="highlighter-rouge">NULL</code>，索引仅在<code class="highlighter-rouge">key</code>列显示，MySQL只需要扫描索引树，不用到实际的数据行检索即可得到结果，查询会更高效，<code class="highlighter-rouge">Extra</code>列显示<code class="highlighter-rouge">USING INDEX</code>，则证明使用了覆盖索引。	也可以通过<code class="highlighter-rouge">FORCE INDEX</code>,<code class="highlighter-rouge">USE INDEX</code>或<code class="highlighter-rouge">IGNORE INDEX</code>来强制使用或忽略<code class="highlighter-rouge">possible_key</code>列中的索引。</p>
+
+<p><strong>覆盖索引概念</strong>：</p>
+
+<p>如果索引包含所有满足查询需要的数据的索引成为覆盖索引(Covering Index)。</p>
+
+<p>假设有一个<code class="highlighter-rouge">user</code>表，假设索引<code class="highlighter-rouge">A</code>包含了<code class="highlighter-rouge">col1</code>,<code class="highlighter-rouge">col2</code>,<code class="highlighter-rouge">col3</code>三个字段，<code class="highlighter-rouge">criteria</code>为标准条件。</p>
+
+<pre><code class="language-mysql">Query 1:
+select * from user where criteria
+</code></pre>
+
+<p><code class="highlighter-rouge">Query 1</code>使用了索引查询，获取到数据行的主键，但是仍然需要根据主键值扫描实际的数据行。</p>
+
+<pre><code class="language-mysql">Query 2:
+select `col1`,`col2` where criteria
+</code></pre>
+
+<p><code class="highlighter-rouge">Query 2</code>中，索引<code class="highlighter-rouge">A</code>已经包含了它需的字段，也就是说<code class="highlighter-rouge">Query 2</code>不用再去实际的数据行获取数据了，只要扫描完索引树就行了，这样就省了一个步骤，索引树往往比实际的数据表小，所以效率很高，这就是<strong>覆盖索引</strong>。</p>
+
+<h4 id="key_len">key_len:</h4>
+
+<p>实际用到的索引字段长度，越短越好。</p>
+
+<h4 id="ref">ref:</h4>
+
+<p><code class="highlighter-rouge">ref</code>列显示哪个列或者常数和索引比较筛选出结果。</p>
+
+<h4 id="rows">rows:</h4>
+
+<p><code class="highlighter-rouge">rows</code>列表示MySQL认为执行查询必须检查的行数，对<code class="highlighter-rouge">Innodb</code>表来说，这是一个预估值，可能并不是确切的值。</p>
+
+<h4 id="filtered">filtered:</h4>
+
+<p>​	<code class="highlighter-rouge">filtered</code>的意思是，首先MySQL利用索引，例如，用<code class="highlighter-rouge">range</code>范围扫描出符合的行，如果扫描符合条件的估计值是100行，<code class="highlighter-rouge">rows</code>显示估计的值就是100，这一步是存储引擎根据索引筛选后的值，然后在Server层根据其余的<code class="highlighter-rouge">WHERE</code>条件过滤。</p>
+
+<p>​	被过滤器过之后，符合条件的还剩下20行，也就是剩下20%，20%就是<code class="highlighter-rouge">filtered</code>中的值。很显然，直接在存储引擎层筛选出20行比先筛选出100行再过滤要更好，通常情况下，<code class="highlighter-rouge">filtered</code>的值越大可能意味着索引越好。</p>
+
+<p>​	另一方面看，你也可以完全忽略<code class="highlighter-rouge">filtered</code>，因为这个值在大多数情况下只是一个不准确的估计，应该把注意力放到优化其它更有用的字段上，尤其是<code class="highlighter-rouge">type</code>,<code class="highlighter-rouge">key</code>,<code class="highlighter-rouge">Extra</code>。例如：尽量避免<code class="highlighter-rouge">filesort</code>排序，使用索引排序。或者有一个更好的<code class="highlighter-rouge">type</code>值，对性能的提升是非常巨大的，这种情况，即使<code class="highlighter-rouge">filtered</code>的值低也没关系。假设一个查询<code class="highlighter-rouge">A</code>， <code class="highlighter-rouge">type=all</code>,<code class="highlighter-rouge">filtered=0.1%</code>。那么首要先关注<code class="highlighter-rouge">type</code>字段，可通过添加索引来优化，可以先不管<code class="highlighter-rouge">filtered</code>。</p>
+
+<p>​	所以对这个值不需要太认真，即使100%也不意味着索引一定好，反过来也不一定说明索引差，<code class="highlighter-rouge">type</code>比它更能说明索引的好坏。</p>
+
+<h4 id="extra">*Extra:</h4>
+
+<p>这个列包含Mysql解决查询的详细信息，详情见下方。</p>
+
+<h2 id="explain字段值说明">EXPLAIN字段值说明：</h2>
+
+<h4 id="select_type-1">select_type:</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>select_type 值</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SIMPLE</td>
+      <td>简单的<code class="highlighter-rouge">SELECT</code>查询（没有<code class="highlighter-rouge">UNION</code>和子查询）</td>
+    </tr>
+    <tr>
+      <td>PRIMARY</td>
+      <td>一个需要union操作或者含有子查询的select，位于最外层的单位查询的select_type即为primary。且只有一个</td>
+    </tr>
+    <tr>
+      <td>UNION</td>
+      <td><code class="highlighter-rouge">UNION</code>连接的<code class="highlighter-rouge">select</code>查询，除了第一个表外，第二个及以后的表select_type都是<code class="highlighter-rouge">union</code></td>
+    </tr>
+    <tr>
+      <td>DEPENDENT UNION</td>
+      <td>与<code class="highlighter-rouge">union</code>一样，出现在<code class="highlighter-rouge">union</code> 或<code class="highlighter-rouge">union all</code>语句中，但是这个查询要受到外部查询的影响</td>
+    </tr>
+    <tr>
+      <td>UNION RESULT</td>
+      <td><code class="highlighter-rouge">UNION</code>之后的结果集</td>
+    </tr>
+    <tr>
+      <td>SUBQUERY</td>
+      <td>除了from字句中包含的子查询外，其他地方出现的子查询都可能是subquery</td>
+    </tr>
+    <tr>
+      <td>DEPENDENT SUBQUERY</td>
+      <td>与dependent union类似，表示这个subquery的查询要受到外部表查询的影响</td>
+    </tr>
+    <tr>
+      <td>DERIVED</td>
+      <td><code class="highlighter-rouge">FROM</code>字句中出现的子查询。语法：<code class="highlighter-rouge"> SELECT ... FROM (subquery) [AS] tbl_name ...</code></td>
+    </tr>
+    <tr>
+      <td>MATERIALIZED</td>
+      <td>被物化的子查询</td>
+    </tr>
+    <tr>
+      <td>UNCACHEABLE SUBQUERY</td>
+      <td>对于外层的主表，子查询不可被物化，每次都需要计算（耗时操作）</td>
+    </tr>
+    <tr>
+      <td>UNCACHEABLE UNION</td>
+      <td>UNION操作中，内层的不可被物化的子查询（类似于UNCACHEABLE SUBQUERY）</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>通过 **物化 ** 优化子查询的原理：</p>
+
+<p>​	优化器使用物化的方式能让子查询更高效的执行，类似缓存技术，把第一次查询的结果存起来，避免多次的耗时操作，同时也有它自身的限制，不是所有子查询都能被物化的。物化技术把子查询产生的结果放在一个临时表中，如果数据量小的话，通常是在内存中完成，数据大的时候就降级到磁盘进行，速度也会慢很多。首先，MySQL得到子查询的结果，然后把结果放到临时表中，在随后的任何时间，当需要这个结果时，MySQ就再次引用这个临时表，不需要再执行计算了。优化器可能会使用哈希索引（<strong>复杂度为O(1)，很快</strong>）来快速且低成本的查找表，这个索引是唯一的，避免了重复，能使表更小。</p>
+
+<pre><code class="language-mysql">SELECT * FROM t1
+WHERE t1.a IN (SELECT t2.b FROM t2 WHERE where_condition);
+</code></pre>
+
+<h4 id="type连接类型">type（连接类型）：</h4>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">system</code></p>
+
+    <p>当表只有一行数据的时候，这是<code class="highlighter-rouge">const</code>连接类型的特例。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">const</code></p>
+
+    <p>表中最多只有一行匹配，在查询开始时被读取。因为只有一行，该行中列的值可以被优化器的其余部分视为常量。<code class="highlighter-rouge">const</code>表非常快，因为他们仅被读取一次。将<code class="highlighter-rouge">PRIMARY KEY</code> 或 <code class="highlighter-rouge">UNIQUE INDEX</code>索引和常量值比较时,会使用<code class="highlighter-rouge">const</code>。例如：</p>
+
+    <pre><code class="language-mysql">SELECT * FROM tbl_name WHERE primary_key=1;
+
+SELECT * FROM tbl_name
+WHERE primary_key_part1=1 AND primary_key_part2=2;
+</code></pre>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">eq_ref</code></p>
+
+    <p>假设<code class="highlighter-rouge">A JOIN B</code>，<code class="highlighter-rouge">B</code>表读取<code class="highlighter-rouge">A</code>表的各个行组合的一行时，通过<code class="highlighter-rouge">B</code>表的<code class="highlighter-rouge">PRIMARY KEY</code>或<code class="highlighter-rouge">UNIQUE NOT NULL</code>索引列连接时，优化器会使用<code class="highlighter-rouge">eq_ref</code>类型，这是除了<code class="highlighter-rouge">system</code>和<code class="highlighter-rouge">const</code>之外最快的<code class="highlighter-rouge">JOIN</code>类型。</p>
+
+    <p>举例说明：</p>
+
+    <p>表<code class="highlighter-rouge">tableA</code>,有（id,text）字段，id为<code class="highlighter-rouge">PRIMARY KEY</code>,A表数据为：</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>text</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>HELLO</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>THANK</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>表<code class="highlighter-rouge">tableB</code>有（id,text）字段，id为<code class="highlighter-rouge">PRIMARY KEY</code>,B表数据为：</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>text</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>WORLD</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>YOU</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>现在通过<code class="highlighter-rouge">JOIN</code>将两个表关联起来</p>
+
+    <pre><code class="language-mysql">SELECT A.text,B.text 
+FROM tableA AS A,tableB as B 
+WHERE A.id=B.id
+</code></pre>
+
+    <p>这个连表查询是非常快的，因为在<strong>A表中扫描的每一行，在B表中也仅一行满足条件</strong>。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">ref</code></p>
+
+    <p>​	<code class="highlighter-rouge">A JOIN C</code>时，A表中的每一行不是唯一的，对单表查询也一样，有多个满足条件的行，查询的<code class="highlighter-rouge">KEY</code>是单个索引或复合索引的最左前缀(<strong>不是唯一索引和主键</strong>)，也就是说C表的<code class="highlighter-rouge">id</code>是一个非唯一索引。这种情况下，优化器会使用<code class="highlighter-rouge">ref</code>优化，如果只有少部分行(<strong>rows</strong>)满足条件，这个连接类型(<code class="highlighter-rouge">join type</code>)是很好的。<code class="highlighter-rouge">ref</code>用于索引的比较操作，<strong>注意</strong>：仅对于<code class="highlighter-rouge">=</code>,<code class="highlighter-rouge">&lt;=&gt;</code> 操作有效，对于<code class="highlighter-rouge">&gt;</code>,<code class="highlighter-rouge">&lt;</code>,<code class="highlighter-rouge">BETWEEN</code>,<code class="highlighter-rouge">IN</code>的范围操作优化器可能会使用<code class="highlighter-rouge">range</code>类型(<strong>见下方</strong>),也可能是<code class="highlighter-rouge">ALL</code>全表扫描。</p>
+
+    <p>举例说明：</p>
+
+    <p>现在有<code class="highlighter-rouge">tableC</code>，<code class="highlighter-rouge">id</code>为索引，不唯一。数据为：</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>id (非唯一索引)</th>
+          <th>text</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>HANGZHOU</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>SHANGHAI</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>现在通过<code class="highlighter-rouge">LEFT JOIN</code>将<code class="highlighter-rouge">A</code>和<code class="highlighter-rouge">C</code>关联起来:</p>
+
+    <pre><code class="language-mysql">SELECT A.text,C.text 
+FROM `tableA` AS A 
+LEFT JOIN `tableC` AS C ON A.id=C.id
+</code></pre>
+
+    <p>这个<code class="highlighter-rouge">JOIN</code>不像之前的那么快，因为在表A中扫描的每一行，在表C中可能有很多行满足条件，C的id不是唯一索引。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">fulltext</code></p>
+
+    <p>使用了全文索引，<code class="highlighter-rouge">Innodb</code>不支持全文索引。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">ref_or_null</code></p>
+
+    <p>如果一个查询的<code class="highlighter-rouge">WHERE</code>子句中包含<code class="highlighter-rouge">colA IS NULL</code>的条件，但是<code class="highlighter-rouge">colA</code>已经被声明为<code class="highlighter-rouge">NOT NULL</code>，此时优化器会使用<code class="highlighter-rouge">ref_or_null</code>类型。</p>
+
+    <pre><code class="language-mysql">SELECT * FROM ref_table
+WHERE key_column=expr OR key_column IS NULL;
+</code></pre>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">index_merge</code></p>
+
+    <p>​	在MYSQL5.0之前是没有索引合并功能的，假设<code class="highlighter-rouge">A</code>表有3个单独的索引<code class="highlighter-rouge">col1</code> ,<code class="highlighter-rouge">col2</code>,<code class="highlighter-rouge">col3</code>，然后执行如下<code class="highlighter-rouge">SQL</code>:</p>
+
+    <pre><code class="language-Mysql">SELECT * FROM A WHERE col1=1 AND col2=2 AND col3=3
+</code></pre>
+
+    <p>实际查询中只有一个索引能被用到，这种情况，只能通过建立复合索引<code class="highlighter-rouge">(col1,col2,col3)</code>才能在索引中用到所有字段。</p>
+
+    <p>​	5.0之后有了索引合并，当检索数据行时出现多个范围扫描条件时，在满足索引合并前提条件时(单个索引覆盖<code class="highlighter-rouge">WHERE</code>条件的字段)，MySQL优化器可能会使用索引合并(不一定)，首先分别对多个索引进行扫描，然后合并来自单个表的扫描结果，它不能合并多个表的扫描结果，合并的方式有3种：</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">unions</code>：索引取并集</li>
+      <li><code class="highlighter-rouge">intersections</code>：索引取交集</li>
+      <li><code class="highlighter-rouge">Sort-Union</code>:先对取出的数据按主键排序，再取并集</li>
+    </ul>
+
+    <p><strong>索引合并条件</strong>：</p>
+
+    <ol>
+      <li>
+        <p><code class="highlighter-rouge">WHERE</code>子句中的范围条件，<code class="highlighter-rouge">WHERE</code>中出现字段必须被索引覆盖，如果<code class="highlighter-rouge">colA</code>没添加索引，则只会对<code class="highlighter-rouge">colB</code>和<code class="highlighter-rouge">colC</code>进行索引合并，<code class="highlighter-rouge">Extra</code>字段显示<code class="highlighter-rouge">Using intersect(colB,colC);</code>，<code class="highlighter-rouge">type</code>为<code class="highlighter-rouge">index_merge</code>，则说明用到了索引合并。</p>
+
+        <pre><code class="language-mysql">WHERE colA = const1 AND colB = const2 AND colC = const3
+</code></pre>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">Innodb</code>表中的主键的任何范围条件，<code class="highlighter-rouge">&gt;</code>,<code class="highlighter-rouge">&lt;</code>,<code class="highlighter-rouge">&lt;&gt;</code>等。</p>
+
+        <pre><code class="language-mysql">SELECT * FROM innodb_table
+  WHERE primary_key &lt; 10 AND key_col1 = 20;
+</code></pre>
+      </li>
+    </ol>
+
+    <p>​        满足了条件，MYSQL会选择索引行数最少的字段对索引结果进行合并，最终使用哪个索引字段来合并也不一定，也可能不使用合并，这取决于优化器，如果优化器认为没必要使用索引合并优化，就会使用其它优化，也许会选择<code class="highlighter-rouge">type</code> 为<code class="highlighter-rouge">range</code>或更高效的<code class="highlighter-rouge">ref</code>的优化。</p>
+
+    <p>​	当优化器决定使用索引合并优化，如果<code class="highlighter-rouge">WHERE</code>条件用<code class="highlighter-rouge">AND</code>连接，优化器会使用<code class="highlighter-rouge">INTERSECTIONS</code>合并算法，对多个索引扫描的结果取交集。如果用<code class="highlighter-rouge">OR</code>连接，优化器会选择<code class="highlighter-rouge">UNIONS</code>或<code class="highlighter-rouge">SORT-UNIONS</code>合并算法，对多个索引扫描的结果取合集，<code class="highlighter-rouge">SORT-UNIONS</code>和<code class="highlighter-rouge">UNIONS</code>的主要区别是，前者在扫描完数据时，需要先对数据按主键排序，再取它们的合集。</p>
+
+    <p>​	 在<code class="highlighter-rouge">WHERE</code>子句中使用<code class="highlighter-rouge">AND</code>时，使用复合索引比索引合并更高效，因为复合索引只用一个索引筛选，没有匹配合并的过程，这个过程节省了很多时间。</p>
+
+    <p>​	在使用<code class="highlighter-rouge">OR</code>时，复合索引是不起作用的，这种情况下，使用<code class="highlighter-rouge">UNIONS</code>索引合并效果更好。如果不想使用某种索引合并，也可以选择关闭。可通过<code class="highlighter-rouge">optimzer_switch</code>系统变量查看各个索引合并的开启状况。如下：</p>
+
+    <pre><code class="language-mysql">SELECT @@optimizer_switch
+</code></pre>
+
+    <p>索引合并算法的默认都是开启的，可以通过关闭某个合并算法。例如：</p>
+
+    <pre><code class="language-mysql">SET optimizer_switch = 'index_merge_intersection=off'
+</code></pre>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">unique_subquery</code></p>
+
+    <p>这种类型是<code class="highlighter-rouge">eq_ref</code>类型在子查询中的替代类型。例如</p>
+
+    <pre><code class="language-mysql">SELECT * FROM A WHERE
+value IN (SELECT id FROM B WHERE some_expr)
+</code></pre>
+
+    <p><code class="highlighter-rouge">B</code>表中的<code class="highlighter-rouge">id</code>在A表中有唯一对应的记录。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">range</code></p>
+
+    <p>​	在<code class="highlighter-rouge">WHERE</code>子句中，执行<code class="highlighter-rouge">&gt;</code>,<code class="highlighter-rouge">&lt;</code>,<code class="highlighter-rouge">&lt;&gt;</code>,<code class="highlighter-rouge">=</code>,<code class="highlighter-rouge">BETWEEN</code>,<code class="highlighter-rouge">IN()</code> 等操作时，MySQL可能会(<strong>不一定</strong>)使用<code class="highlighter-rouge">range</code>类型，<code class="highlighter-rouge">Explain</code>中<code class="highlighter-rouge">key</code>列的值就是实际用到的索引，<code class="highlighter-rouge">key_len</code>是它们中最长的索引的长度。如果优化器认为使用索引筛选没有全表扫描来得及，例如：条件筛选后的行占全表的50%以上，即使有索引可用，优化器也会选择全表扫描，即<code class="highlighter-rouge">type=ALL</code>。</p>
+
+    <p>​	为什么呢？解释这个问题之前，需要先了解几个概念。对<code class="highlighter-rouge">Innodb</code>表来说，每个表都有一个<strong>聚簇索引</strong>，InnoDB的<strong>聚簇索引</strong>实际上在同一个结构中保存了B-Tree索引和数据行信息。因为无法把数据行存放在两个不同的地方，所以一个表只能有一个<strong>聚簇索引</strong>。<strong>二级索引</strong>存储的是记录的主键，而不是数据存储的地址，索引数据和存储数据是分离的，唯一索引、普通索引、前缀索引等都是二级索引。实际上，InnoDB在查询任何数据时，最后都是通过主键来查询的。首先我们根据索引条件在索引树上扫描出对应的主键值。然后根据这个值去聚簇索引总超找到对应的行(<strong>如果是覆盖索引则省略这一步</strong>)。</p>
+
+    <p>​	在某些情况下，索引条件扫描出的数据行非常大，可能占了全表的50%，此时再根据主键找到对应的数据块是不划算。主键的BTree查找属于文件的随机搜索，但是如果随机搜索文件数据的目的是为了查找一半的数据，这并不是最优化的，只要对数据文件进行大量的顺序读写要更快，这种情况下，索引会被忽略。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">index</code></p>
+
+    <p>​	<code class="highlighter-rouge">index</code>类型和<code class="highlighter-rouge">ALL</code>类型几乎相同。有两种情况：</p>
+
+    <ol>
+      <li>若<code class="highlighter-rouge">SELECT</code>中列全部被索引覆盖，所需要的数据可以直接在索引中读取，MySQL只需对索引树进行扫描，这通常比扫描实际数据行要快，因为索引树通常比数据表更小，这种情况下，<code class="highlighter-rouge">Extran</code>的值会显示<code class="highlighter-rouge">USING INDEX</code>。</li>
+      <li>使用索引中读取的主键值，按索引顺序对全表进行扫描，此时<code class="highlighter-rouge">Extra</code>中没有<code class="highlighter-rouge">USING INDEX</code>。</li>
+    </ol>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">ALL</code></p>
+
+    <p>对表的每一行进行扫描，这是最糟糕的情况。一般，你可以通过添加索引来避免这种情况发生。</p>
+  </li>
+</ul>
+
+<h4 id="extra列值的含义">Extra列值的含义:</h4>
+
+<p>​	<code class="highlighter-rouge">Extra</code>列包含了MySQL处理查询的一些额外信息，下面的列出了Extra中可能出现的值，如果你想让查询尽可能的快，应该注意下<code class="highlighter-rouge">Extra</code>字段中是否出现了<code class="highlighter-rouge">using filesort</code> 和<code class="highlighter-rouge">using temporary</code>。下面只列除了在实际应用中经常会出现，相对比较重要的一部分，若描述的不够详细，可查看MySQL官方文档。</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">const row not found</code></p>
+
+    <pre><code class="language-mysql">SELECT * FROM A
+</code></pre>
+
+    <p>如果A表为空，则会出现改值。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">DISTINCT</code></p>
+
+    <p>mysql在寻找不同的值，当它找到第一个匹配的行之后，就停止搜索更多的行了。例子：</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">no matching row in const table</code></p>
+
+    <p>用唯一索引或者主键查询时，没有匹配到的数据。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">Not exists</code></p>
+
+    <p>MySQL优化了<code class="highlighter-rouge">LEFT JOIN</code>，一旦它找到了匹配<code class="highlighter-rouge">LEFT JOIN</code>标准的行，就不再搜索了，。例如：</p>
+
+    <pre><code class="language-mysql">SELECT * FROM t1 LEFT JOIN t2 ON t1.id=t2.id
+ WHERE t2.id IS NULL;
+</code></pre>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">Using filesort</code></p>
+
+    <p>​	这个值表示，MySQL必须对检索到的结果进行额外的排序。排序是按照连接类型遍历所有行并存储排序键和指向行的指针，以匹配满足where子句条件的所有行，然后对键进行排序，并按排序顺序检索行。根据不同情况，MySQL会选择不同的排序算法，在数据比较小的时候，MySQL会利用排序缓冲区作为优先级队列将结果在内存中排序，否则只能通过合并文件的方式合并，那会慢很多，排序缓冲区的大小取决于<code class="highlighter-rouge">sort_buffer_size</code>变量的大小。</p>
+
+    <p>​	总之，当看到<code class="highlighter-rouge">filesort</code>的时候就应该引起重视，通过优化索引来避免额外的文件排序，这对性能影响是很大的。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">Using index</code></p>
+
+    <p>单个索引覆盖了<code class="highlighter-rouge">SELECT</code>的所有列（即：覆盖索引），不需要对实际的数据行进行扫描。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">Using index condition</code></p>
+
+    <p>​	Index Condition Pushdown (ICP)是MySQL 5.6 版本中的新特性,是一种在存储引擎层使用索引过滤数据的一种优化方式。当关闭ICP时,index 仅仅是data access 的一种访问方式，存储引擎通过索引回表获取的数据会传递到MySQL Server 层进行where条件过滤。</p>
+
+    <p>​	当打开ICP时,如果部分where条件能使用索引中的字段,MySQL Server 会把这部分下推到引擎层,可以利用index过滤的where条件在存储引擎层进行数据过滤,而非将所有通过index access的结果传递到MySQL server层进行where过滤.
+优化效果:ICP能减少引擎层访问基表的次数和MySQL Server 访问存储引擎的次数,减少io次数，提高查询语句性能。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">Using index for group-by</code></p>
+
+    <p>和<code class="highlighter-rouge">USING INDEX</code>很相似，区别是，当查询语句中含有<code class="highlighter-rouge">DISTINCT</code>和<code class="highlighter-rouge">GROUP BY</code>操作时，仅需访问索引树，不需要访问实际的表时，使用该优化。</p>
+  </li>
+  <li>
+    <p>``Using sort_union(…)<code class="highlighter-rouge">, </code>Using union(…)<code class="highlighter-rouge">, </code>Using intersect(…)`</p>
+
+    <p>当查询产生索引合并时会显示该值，<code class="highlighter-rouge">type</code>为<code class="highlighter-rouge">index_merge</code>。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">Using temporary</code></p>
+
+    <p>为了处理查询，MySQL必须建立一个临时表才能产生结果。典型的情况是，在使用<code class="highlighter-rouge">GROUP BY</code>和<code class="highlighter-rouge">ORDER BY</code>子句时，两者使用了不同的列会导致产生临时表。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">Using where</code></p>
+
+    <p><code class="highlighter-rouge">using where</code> 是指使用<code class="highlighter-rouge">WHERE</code>或<code class="highlighter-rouge">ON</code>子句，MySQL <code class="highlighter-rouge">Server</code>层收到存储引擎返回的结果时，需要对结果再次过滤，不需要返回所有结果，注意<code class="highlighter-rouge">LIMIT</code>不算限制条款。如果没有用到索引<code class="highlighter-rouge">using where</code>只是说明，使用了顾虑条件过滤。</p>
+  </li>
+</ul>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="https://dev.mysql.com/doc/refman/5.7/en">MySQL官方文档</a></p>
+
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

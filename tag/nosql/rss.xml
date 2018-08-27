@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>meetmax.github.io</title>
+   
+   <link></link>
+   <description>A beautiful narrative written with the world's most elegant publishing platform. The story begins here.</description>
+   <language>en-uk</language>
+   <managingEditor> </managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Redis应用场景浅析</title>
+	  <link>//Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</link>
+	  <author></author>
+	  <pubDate>2018-03-16T00:00:00+08:00</pubDate>
+	  <guid>//Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</guid>
+	  <description><![CDATA[
+	     <h3 id="string字符串">String–字符串</h3>
+<p>redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。</p>
+
+<h3 id="hash哈希">Hash–哈希</h3>
+<p>哈希表是redis中很有用的数据结构，有时候我们需要存储结构话的数据，例如用户的登录信息</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">uid</span><span class="p">:</span><span class="mi">1</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">用户uid</span><span class="w">
+</span><span class="err">username</span><span class="p">:</span><span class="err">xxx</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">用户名</span><span class="w">
+</span><span class="err">age</span><span class="p">:</span><span class="mi">18</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">年龄</span><span class="w">
+</span><span class="err">head</span><span class="p">:</span><span class="err">xxx</span><span class="w"> </span><span class="err">//头像</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="string模式">String模式</h4>
+<p>按照普通缓存的模式，存储这个结构需要先将其序列化，转换成json字符串，以<code class="highlighter-rouge">user-uid</code>为键名，这样做有个问题，假如说现在需要修改<code class="highlighter-rouge">head</code>字段，我需要经历如下步骤：</p>
+<ol>
+  <li>根据键名<code class="highlighter-rouge">user-1</code>获取到<code class="highlighter-rouge">json</code>字符串</li>
+  <li>解析<code class="highlighter-rouge">json</code></li>
+  <li>修改结构体中的<code class="highlighter-rouge">head</code>字段</li>
+  <li>再次序列化成<code class="highlighter-rouge">json</code></li>
+  <li><code class="highlighter-rouge">set key</code> 存储</li>
+</ol>
+
+<h4 id="hash模式">Hash模式</h4>
+<p>接下来使用<code class="highlighter-rouge">Hash</code>来存储，使用<code class="highlighter-rouge">HMSET</code>命令存储所有字段</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HMSET user-1 uid 1 username xxx age 18 head:xxx
+</code></pre></div></div>
+<p>这时候需要修改字段<code class="highlighter-rouge">head</code>仅需一条命令即可：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HSET user-1 head zzz
+</code></pre></div></div>
+<p>相比之下是不是简单了很多，<code class="highlighter-rouge">Hash模式</code>不仅操作大大简化，而且节省了<code class="highlighter-rouge">String模式</code>中大量的序列化和反序列化的性能消耗。</p>
+
+<h3 id="list--列表">List – 列表</h3>
+<p><code class="highlighter-rouge">List</code>在<code class="highlighter-rouge">redis</code>中的应用也比较广泛，最典型的就是消息队列，在某些高并发场景下，由于<code class="highlighter-rouge">mysql</code>存储介质为磁盘，在写入性能上由于磁盘的读写速度限制，它的写入速度可能达不到要求。但是<code class="highlighter-rouge">redis</code>不一样，redis是完全基于内存数据库<code class="highlighter-rouge">nosql</code>，没有<code class="highlighter-rouge">I/O</code>瓶颈，写入和读取速度都非常快，这也是<code class="highlighter-rouge">redis</code>流行的原因。假设现在要做一个商城的秒杀活动，在同一时刻必然会有大量的订单提交操作，mysql可能来不及写入，会导致其它用户阻塞，糟糕的情况下甚至系统奔溃，影响用户体验。在这种场景下就可以通过消息队列来处理，即：</p>
+<ol>
+  <li>先把提交的订单信息写入消息队列，可通过<code class="highlighter-rouge">LPUSH</code>和<code class="highlighter-rouge">RPOP</code>命令实现<code class="highlighter-rouge">入队</code>和<code class="highlighter-rouge">出队</code>的操作。</li>
+  <li>通过异步程序将订单存储到<code class="highlighter-rouge">mysql</code></li>
+</ol>
+
+<p>另一种场景是可作为<code class="highlighter-rouge">IM</code>聊天系统的<code class="highlighter-rouge">timeline</code>模型，即每个用户对应一个<code class="highlighter-rouge">timeline</code>模型，根据时间顺序排列，每个用户通过<code class="highlighter-rouge">timeline</code>获取消息</p>
+
+<h3 id="set--集合">Set – 集合</h3>
+<p>集合和<code class="highlighter-rouge">List</code>的类似，区别是集合是可以自动排重的，且集合是无序的。例如：存储某个用户的所有粉丝和所有的好友等。</p>
+
+<h3 id="sorted-set-有序集合">Sorted Set 有序集合</h3>
+<p>有序集合根据<code class="highlighter-rouge">score</code>字段来排序，通过<code class="highlighter-rouge">ZADD</code>可添加一个有序集合，例如：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ZADD page_rank 10 google.com
+</code></pre></div></div>
+<p>上面命令的意思是在<code class="highlighter-rouge">page_rank</code>集合中添加字符串<code class="highlighter-rouge">google.com</code>，<code class="highlighter-rouge">score</code>为<code class="highlighter-rouge">10</code>。
+有序集合可用来数据分页，例如我们查询用户积分前100名的用户，每页20条展示，通过
+<code class="highlighter-rouge">ZRANGE key start stop [WITHSCORES]</code>命令可实现分页，时间复杂度为<code class="highlighter-rouge">O(log(N)+M)</code>，
+在数据量大，查询比较耗时，可大大提高web的性能。</p>
+
+<h3 id="pubsub--发布--订阅">Pub/Sub – 发布 / 订阅</h3>
+<p>发布订阅模式通过发布和订阅发送和接收消息，例如A和B订阅(<code class="highlighter-rouge">subscribe</code>)了频道<code class="highlighter-rouge">news.it</code>，这时候C向改频道发送(<code class="highlighter-rouge">publish</code>)一条信息<code class="highlighter-rouge">hello</code>，这时候A和B会收到这条消息，这就是最简单的发布订阅模式，A和B也可以订阅别的频道，可以接受来自不同频道的信息，注意这里的A和B是长连接，<code class="highlighter-rouge">PUBSUB CHANNELS</code>命令可查看当前活跃的频道。这个功能最典型应用就是<code class="highlighter-rouge">IM</code>系统，广播等场景，但是<code class="highlighter-rouge">redis</code>发布和订阅没有确认的过程，消息发出就没了，不管有没有收到，在实际场景中可能会选择别的方案。</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
