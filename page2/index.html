@@ -26,7 +26,7 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="//page2/" />
+        <link rel="canonical" href="http://localhost:4000//page2/" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
@@ -34,13 +34,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Finding The Way Home" />
     <meta property="og:description" content="Stay Hungry , Stay Foolish" />
-    <meta property="og:url" content="//page2/" />
+    <meta property="og:url" content="http://localhost:4000//page2/" />
     <meta property="og:image" content="/assets/images/cover1.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Finding The Way Home" />
     <meta name="twitter:description" content="Stay Hungry , Stay Foolish" />
-    <meta name="twitter:url" content="//page2/" />
+    <meta name="twitter:url" content="http://localhost:4000//page2/" />
     <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
 
     <script type="application/ld+json">
@@ -49,7 +49,7 @@
     "@type": "Website",
     "publisher": "Think Different",
     "name": "Finding The Way Home",
-    "url": "//page2/",
+    "url": "http://localhost:4000//page2/",
     "image": "/assets/images/cover1.jpg",
     "description": "Stay Hungry , Stay Foolish"
 }
@@ -131,6 +131,51 @@
     </div>
 
     <!-- This is the post loop - each post will be output using this markup -->
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1">浅入浅出MySQL事务</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>在开发Web应用时，经常会用到InnoDB事务的特性，在一些涉及到金钱的业务上，事务可以保证资金流水不出错，事务可以分为很多种，有扁平事务、链事务、分布式事务等，这里只讨论最简单，也最常用的扁平事务，我们经常会提到事务的ACID特性，以下是我对ACID的理解和总结。 原子性 一致性 隔离性 持久性 原子性 原子性指的是对于一系列增删改查的操作，要么全部执行，要么全部不执行，事务可通过start transaction或者begin语句显示的开启，commit用于显示的提交，例如： start transaction update `user` set name='haha' where uid=1 insert into `user` (name) values ('小马') commit 对于以上两部操作，若成功则都成功，若由于某些原因第二条语句执行出错，则可以执行rollback语句，这些一般是由程序语言来控制。 一致性 一致性和原子性有很多相似的地方，我的理解是，一致性的特点是依赖于原子性实现的，什么意思呢？比如说A给B汇款1000元，这个状态分为两步即：... <a class="read-more" href="/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+
+                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
+                <!-- author -->
+                <a href='/author/meetmax'>MeetMax</a>
+
+                
+            
+
+            <!-- [[tags prefix=" on "]] -->
+            
+                on
+                
+                    
+                       <a href='/tag/mysql'>Mysql</a>,
+                    
+                
+                    
+                       <a href='/tag/数据库'>数据库</a>
+                    
+                
+            
+            <time class="post-date" datetime="2018-03-27">27 Mar 2018</time>
+        </footer>
+    </article>
     
     <article class="post">
         <header class="post-header">
@@ -297,51 +342,6 @@
                 
             
             <time class="post-date" datetime="2018-02-20">20 Feb 2018</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/MySQL-Explain">Mysql之Explain详解</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>​ ​ ​ 在工作中，经常会碰到一些慢查询，Explain 语句可以帮我们更详细的了解MySQL查询的执行计划，用法也很简单Explain 后面跟上SELECT语句即可。执行完之后，会显示一行有多个列的记录，可能很多人和我一样，对EXPLAIN里面字段的含义，并没有深入的去了解过，处于一知半解的状态，只知道一些最常见的。 ​ 下面我根据MySQL官方文档，查阅了很多资料，再结合我自己的理解，对EXPLAIN的字段和值做了详细的描述，在总结过程中，也发现了自己的很多知识漏洞，很多时候，我总是会想当然的认为，这个就是对的，并没有严密逻辑验证，主要是懒的思考，正所谓好记性不如烂笔头，写的过程也是对自己知识点掌握程度的批判和考验。 关于EXPLAIN ​ EXPLAIN返回一行记录，通过Explain可以获取到很多信息，如：不同表的查询顺序，查询用了哪些表，能使用哪些索引以及真正用到了哪些索引，用了哪种连接类型，是否有临时表和文件排序等。这些因素对查询的效率有直接的相关，想要使查询更高效，需要对这些条件做一个好的优化。 ​ EXPLAIN有12个字段，每个字段对查询优化的权重比不一样，也就是说并不是所有字段都很重要。type,key,Extra字段相对其它字段来说，对查询效率的影响更大，优化查询的时候，先把注意力放到这些字段会比其它字段来得更加直接有效，下面开始具体内容。 ​ EXPLAIN语法 以user_info表为例： explain select * from `user_info` where uid = 5 结果：... <a class="read-more" href="/MySQL-Explain">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-
-                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/author/meetmax'>MeetMax</a>
-
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/tag/mysql'>Mysql</a>,
-                    
-                
-                    
-                       <a href='/tag/数据库'>数据库</a>
-                    
-                
-            
-            <time class="post-date" datetime="2018-01-20">20 Jan 2018</time>
         </footer>
     </article>
     

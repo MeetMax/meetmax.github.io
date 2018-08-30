@@ -5,98 +5,161 @@
    
       <title>meetmax.cn</title>
    
-   <link></link>
+   <link>http://localhost:4000</link>
    <description>Stay Hungry , Stay Foolish</description>
    <language>en-uk</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
-	  <title>Java学习笔记(二) - 原始数据类型</title>
-	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</link>
+	  <title>Java学习笔记(四) - 类</title>
+	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9B%9B)-%E7%B1%BB</link>
 	  <author></author>
-	  <pubDate>2018-08-27T00:00:00+08:00</pubDate>
-	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</guid>
+	  <pubDate>2018-08-28T00:00:00+08:00</pubDate>
+	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9B%9B)-%E7%B1%BB</guid>
 	  <description><![CDATA[
-	     <h2 id="原始数据类型">原始数据类型</h2>
-<p>Java是静态类型语言，所以变量必须先声明才能使用，并且每个变量都有自己的类型和名称。原始值不与其他原始数据值共享状态，Java语言定义了8种原始数据类型。</p>
-<ul>
-  <li><strong>byte</strong>   字节类型，在内存中占8位，它的值的范围是<code class="highlighter-rouge">-128 ~ 127</code>(包含)，在需要节省内存的情况下，字节类型可用来保存大型数组。</li>
-  <li><strong>short</strong>  类型在内存中占16位，它的值的范围是<code class="highlighter-rouge">-32,768 ~ 32,767 </code>，和<code class="highlighter-rouge">byte</code>类型一样，同样适用于需要节省内存的情况。</li>
-  <li><strong>int</strong> 类型在内存中占32位，它的值的范围是<strong>-2<sup>31</sup> ~ 2<sup>31</sup> -1</strong>。Java8之后可以使用无符号的整数，它的范围是**0 ~ 2<sup>32</sup> **，<code class="highlighter-rouge">Integer</code>中增加了静态方法<code class="highlighter-rouge">compareUnsigned</code>,<code class="highlighter-rouge">divideUnsigned</code>等方法可支持无符号整数运算。</li>
-  <li><strong>long</strong>类型在内存中占64位，它的取值范围是<strong>-2<sup>63</sup> ~ 2<sup>63</sup> -1</strong>，Java8之后也可以使用无符号整数，通过<code class="highlighter-rouge">Long</code>类提供的<code class="highlighter-rouge">compareUnsigned</code>、<code class="highlighter-rouge">divideUnsigned</code>方法支持无符号整数运算。</li>
-  <li><strong>float</strong>为32位单精度浮点类型。</li>
-  <li><strong>dobule</strong>类型为64位双精度浮点类型。</li>
-  <li><strong>boolean</strong>布尔类型，有<code class="highlighter-rouge">true/false</code>两种类型，通常用于条件判断<code class="highlighter-rouge">true</code>表<code class="highlighter-rouge">是</code>,<code class="highlighter-rouge">false</code>表<code class="highlighter-rouge">否</code>。</li>
-  <li><strong>char</strong> 字符类型是单个16位<code class="highlighter-rouge">Unicode</code>字符，它的值范围是<code class="highlighter-rouge">'\u0000'</code>~<code class="highlighter-rouge">'\uffff'</code>。</li>
-</ul>
+	     <h2 id="声明类">声明类</h2>
+<p>Java的类可以通过<code class="highlighter-rouge">class</code>关键词，<code class="highlighter-rouge">{}</code>大括号来声明，在<code class="highlighter-rouge">{}</code>大括号中间是类的<code class="highlighter-rouge">body</code>体，在<code class="highlighter-rouge">body</code>体内可声明成员变量、方法和构造函数等等。另外，也可以在<code class="highlighter-rouge">class</code>前面加上修饰符<code class="highlighter-rouge">private</code>或<code class="highlighter-rouge">public</code>，修饰符的作用是访问控制，前者说明该类是私有类，其它类不能访问它，后者是公开的，任何类都可以访问它，下面是公开类的声明示例。</p>
 
-<h2 id="默认值">默认值</h2>
-<p>类的全局变量声明之后不是必须被分配的。如果全局变量被声明了，但是没有初始化，它会被编译器设置一个默认值，可能是<code class="highlighter-rouge">0</code>或<code class="highlighter-rouge">null</code>，这取决于数据类型，不过，依赖于默认值被认为是一种糟糕的编程风格。下表总结了各种数据类型对应的默认值</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>数据类型</th>
-      <th>默认值</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>byte</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>short</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>int</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>long</td>
-      <td>0L</td>
-    </tr>
-    <tr>
-      <td>float</td>
-      <td>0.0f</td>
-    </tr>
-    <tr>
-      <td>double</td>
-      <td>0.0d</td>
-    </tr>
-    <tr>
-      <td>char</td>
-      <td>‘\u0000’</td>
-    </tr>
-    <tr>
-      <td>String(或者 任何对象)</td>
-      <td>null</td>
-    </tr>
-    <tr>
-      <td>boolean</td>
-      <td>false</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>对于局部变量则不同，编译器永远不会给局部变量分配默认值，如果你在声明时未对该变量进行初始化，在你使用该变量之前必须对其初始化，否则将导致编译错误。</p>
-
-<h2 id="字面量-literals">字面量-Literals</h2>
-<p>在初始化原始数据类型时不需要<code class="highlighter-rouge">new</code>关键词，因为原始数据类型是语言中内置的数据类型，字面量就是原始数据类型变量的等号右边的，固定的值，可以是字符串或数字。如下所示，<code class="highlighter-rouge">100</code>和<code class="highlighter-rouge">true</code>就是字面量。</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
-<span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Myclass</span> <span class="o">{</span>
+	<span class="c1">// 这里可以声明成员变量</span>
+	<span class="c1">// 方法、构造函数等</span>
+<span class="o">}</span>
 </code></pre></div></div>
-<p>字面量可以分为：</p>
-<ul>
-  <li><strong>整数字面量</strong></li>
-  <li><strong>浮点数字面量</strong></li>
-  <li><strong>字符串字面量</strong></li>
-</ul>
+
+<p>上面是一个简单类的声明，类还可通过关键词<code class="highlighter-rouge">extends</code>继承其它类，通过关键词<code class="highlighter-rouge">implements</code>继承多个接口，例如：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyClass</span> <span class="kd">extends</span> <span class="n">MySuperClass</span> <span class="kd">implements</span> <span class="n">YourInterface</span><span class="o">,</span><span class="n">YourInterface2</span> <span class="o">{</span>
+    <span class="c1">// field, constructor, and</span>
+    <span class="c1">// method declarations</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>通常，类的声明包含以下几个部分：</p>
+
+<ol>
+  <li>修饰符，例如<code class="highlighter-rouge">public</code>，<code class="highlighter-rouge">private</code>，<code class="highlighter-rouge">protected</code>等。</li>
+  <li>类的名称，按照规范，类名首字母大写(非必须)，增加可读性</li>
+  <li>可通过关键词<code class="highlighter-rouge">extends</code>继承<code class="highlighter-rouge">超类</code>，且只能继承一个<code class="highlighter-rouge">超类</code>，Java不支持多继承</li>
+  <li>可通过关键词<code class="highlighter-rouge">implements</code>继承接口，Java接口支持多继承，接口之间用<code class="highlighter-rouge">,</code>逗号分隔。</li>
+  <li>类的<code class="highlighter-rouge">body</code>体，在<code class="highlighter-rouge">{}</code>大括号之间。</li>
+</ol>
+
+<h2 id="声明成员变量">声明成员变量</h2>
+<p>成员变量是指在类的内部，且不在<code class="highlighter-rouge">方法</code><code class="highlighter-rouge">块</code>内，且不是方法的参数，下面是声明成员变量的示例：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Myclass</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="n">hello</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>上面的代码中，<code class="highlighter-rouge">hello</code>就是一个公开的，<code class="highlighter-rouge">String</code>类型的成员变量，成员变量一般由以下3部分组成：</p>
+
+<ol>
+  <li>0或多个修饰符，例如<code class="highlighter-rouge">private</code>或<code class="highlighter-rouge">public</code></li>
+  <li>字段类型</li>
+  <li>字段名称</li>
+</ol>
+
+<h2 id="方法声明">方法声明</h2>
+
+<p>下面是一个方法声明的例子：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Myclass</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">double</span> <span class="nf">calculateAnswer</span><span class="o">(</span><span class="kt">double</span> <span class="n">wingSpan</span><span class="o">,</span> <span class="kt">int</span> <span class="n">numberOfEngines</span><span class="o">,</span><span class="kt">double</span> <span class="n">length</span><span class="o">,</span> <span class="kt">double</span> <span class="n">grossTons</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">//do the calculation here</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>方法声明由以下6部分组成:</p>
+<ol>
+  <li>修饰符-例如<code class="highlighter-rouge">public</code>,<code class="highlighter-rouge">private</code></li>
+  <li>返回值的类型，如果没有返回值则声明为<code class="highlighter-rouge">void</code></li>
+  <li>方法名</li>
+  <li>方法的参数，在<code class="highlighter-rouge">()</code>内声明，多个参数之间用<code class="highlighter-rouge">,</code>逗号隔开，如果没有参数，就是用空的<code class="highlighter-rouge">()</code></li>
+  <li>一个异常列表</li>
+  <li>方法的<code class="highlighter-rouge">body</code>，在<code class="highlighter-rouge">{}</code>之间包含了方法代码和局部变量等。</li>
+</ol>
+
+<h3 id="方法签名">方法签名</h3>
+<p><strong>方法签名</strong> 包括方法名称和参数类型，在上面代码中，它的方法签名是</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">calculateAnswer</span><span class="o">(</span><span class="kt">double</span><span class="o">,</span> <span class="kt">int</span><span class="o">,</span> <span class="kt">double</span><span class="o">,</span> <span class="kt">double</span><span class="o">)</span>
+</code></pre></div></div>
+
+<h3 id="方法重载">方法重载</h3>
+<p>在同一个类里可以有相同名称的方法，只要它们的方法签名不同，Java编译器可以根据方法签名判断出你要调用的具体方法，例如：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DataArtist</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">(</span><span class="kt">double</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">double</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>上面代码中有4个名为<code class="highlighter-rouge">draw</code>的方法，在调用的时候，Java编译器可根据参数类型区分出调用的是哪个方法，在同一个类中不能声明具有相同名称、相同的参数数量和相同参数类型的方法，即使他们返回类型不一样，因为Java编译器无法识别出调用的是哪个方法。</p>
+
+<h2 id="类的构造函数">类的构造函数</h2>
+<p>每个类都包含构造函数，构造函数在创建对象时被调用，构造函数的声明和方法的声明很像，除了构造函数没有返回值，且函数名必须和类名一样。例如<code class="highlighter-rouge">Bicycle</code>类有一个构造函数</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nf">Bicycle</span><span class="o">(</span><span class="kt">int</span> <span class="n">startCadence</span><span class="o">,</span> <span class="kt">int</span> <span class="n">startSpeed</span><span class="o">,</span> <span class="kt">int</span> <span class="n">startGear</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">gear</span> <span class="o">=</span> <span class="n">startGear</span><span class="o">;</span>
+    <span class="n">cadence</span> <span class="o">=</span> <span class="n">startCadence</span><span class="o">;</span>
+    <span class="n">speed</span> <span class="o">=</span> <span class="n">startSpeed</span><span class="o">;</span>
+<span class="o">}</span><span class="kd">public</span> <span class="nf">Bicycle</span><span class="o">(</span><span class="kt">int</span> <span class="n">st</span>
+</code></pre></div></div>
+
+<p>可以通过<code class="highlighter-rouge">new</code>操作符创建<code class="highlighter-rouge">Bicycle</code>的对象，并初始化相关的字段。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Bicycle</span> <span class="n">myBike</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bicycle</span><span class="o">(</span><span class="mi">30</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">8</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>和方法重载一样，一个类可以有多个构造函数，只要它们的方法签名不一样。例如，下面是一个无参数的构造函数</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nf">Bicycle</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">gear</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="n">cadence</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+    <span class="n">speed</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="方法中的参数传递">方法中的参数传递</h2>
+<p>在Java中数据分为2种类型即，原始数据类型和引用数据类型，数据在传递给方法时，2种数据类型的传递方式是不同的。</p>
+
+<h3 id="原始数据类型的传递">原始数据类型的传递</h3>
+<p>原始数据类型是按值传递的，它传递的是该数据的值的拷贝，什么意思呢？请看下面的代码，假设我把值<code class="highlighter-rouge">99.00</code>传给<code class="highlighter-rouge">computePayment</code>方法，方法在内部把我传入的值修改变成了100，但是这个修改仅仅在方法内部有效，方法到<code class="highlighter-rouge">return</code>就结束了，在方法外部，我的值还是<code class="highlighter-rouge">99.00</code>。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">double</span> <span class="nf">computePayment</span><span class="o">(</span><span class="kt">double</span> <span class="n">loanAmt</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">double</span> <span class="n">loanAmt</span> <span class="o">=</span> <span class="mf">100.0</span><span class="o">;</span>
+    <span class="k">return</span> <span class="n">loanAmt</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h3 id="引用类型的传递">引用类型的传递</h3>
+<p>引用类型的数据是按引用传递的，它传递的是该数据的内存地址的引用。什么意思呢？下面的代码中，我通过调用<code class="highlighter-rouge">circle</code>对象的<code class="highlighter-rouge">setX</code>和<code class="highlighter-rouge">setY</code>方法，对它的成员变量<code class="highlighter-rouge">x</code>和<code class="highlighter-rouge">y</code>进行了修改，和值传递不同的是，它的修改是永久的，当方法运行结束，该修改仍然有效。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">moveCircle</span><span class="o">(</span><span class="n">Circle</span> <span class="n">circle</span><span class="o">,</span> <span class="kt">int</span> <span class="n">deltaX</span><span class="o">,</span> <span class="kt">int</span> <span class="n">deltaY</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// code to move origin of circle to x+deltaX, y+deltaY</span>
+    <span class="n">circle</span><span class="o">.</span><span class="na">setX</span><span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">+</span> <span class="n">deltaX</span><span class="o">);</span>
+    <span class="n">circle</span><span class="o">.</span><span class="na">setY</span><span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">getY</span><span class="o">()</span> <span class="o">+</span> <span class="n">deltaY</span><span class="o">);</span>
+        
+    <span class="c1">// code to assign a new reference to circle</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
 <h2 id="参考">参考</h2>
-<p><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html">The Java™ Tutorials</a></p>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/arguments.html">The Java™ Tutorials</a></p>
 
 	  ]]></description>
 	</item>
@@ -105,7 +168,7 @@
 	  <title>Java学习笔记(三) - 表达式、语句和块</title>
 	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%9D%97</link>
 	  <author></author>
-	  <pubDate>2018-08-27T00:00:00+08:00</pubDate>
+	  <pubDate>2018-08-28T00:00:00+08:00</pubDate>
 	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%9D%97</guid>
 	  <description><![CDATA[
 	     <h2 id="表达式">表达式</h2>
@@ -258,6 +321,96 @@
 
 <h2 id="参考">参考</h2>
 <p><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html">The Java™ Tutorials</a></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Java学习笔记(二) - 原始数据类型</title>
+	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</link>
+	  <author></author>
+	  <pubDate>2018-08-27T00:00:00+08:00</pubDate>
+	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</guid>
+	  <description><![CDATA[
+	     <h2 id="原始数据类型">原始数据类型</h2>
+<p>Java是静态类型语言，所以变量必须先声明才能使用，并且每个变量都有自己的类型和名称。原始值不与其他原始数据值共享状态，Java语言定义了8种原始数据类型。</p>
+<ul>
+  <li><strong>byte</strong>   字节类型，在内存中占8位，它的值的范围是<code class="highlighter-rouge">-128 ~ 127</code>(包含)，在需要节省内存的情况下，字节类型可用来保存大型数组。</li>
+  <li><strong>short</strong>  类型在内存中占16位，它的值的范围是<code class="highlighter-rouge">-32,768 ~ 32,767 </code>，和<code class="highlighter-rouge">byte</code>类型一样，同样适用于需要节省内存的情况。</li>
+  <li><strong>int</strong> 类型在内存中占32位，它的值的范围是<strong>-2<sup>31</sup> ~ 2<sup>31</sup> -1</strong>。Java8之后可以使用无符号的整数，它的范围是**0 ~ 2<sup>32</sup> **，<code class="highlighter-rouge">Integer</code>中增加了静态方法<code class="highlighter-rouge">compareUnsigned</code>,<code class="highlighter-rouge">divideUnsigned</code>等方法可支持无符号整数运算。</li>
+  <li><strong>long</strong>类型在内存中占64位，它的取值范围是<strong>-2<sup>63</sup> ~ 2<sup>63</sup> -1</strong>，Java8之后也可以使用无符号整数，通过<code class="highlighter-rouge">Long</code>类提供的<code class="highlighter-rouge">compareUnsigned</code>、<code class="highlighter-rouge">divideUnsigned</code>方法支持无符号整数运算。</li>
+  <li><strong>float</strong>为32位单精度浮点类型。</li>
+  <li><strong>dobule</strong>类型为64位双精度浮点类型。</li>
+  <li><strong>boolean</strong>布尔类型，有<code class="highlighter-rouge">true/false</code>两种类型，通常用于条件判断<code class="highlighter-rouge">true</code>表<code class="highlighter-rouge">是</code>,<code class="highlighter-rouge">false</code>表<code class="highlighter-rouge">否</code>。</li>
+  <li><strong>char</strong> 字符类型是单个16位<code class="highlighter-rouge">Unicode</code>字符，它的值范围是<code class="highlighter-rouge">'\u0000'</code>~<code class="highlighter-rouge">'\uffff'</code>。</li>
+</ul>
+
+<h2 id="默认值">默认值</h2>
+<p>类的全局变量声明之后不是必须被分配的。如果全局变量被声明了，但是没有初始化，它会被编译器设置一个默认值，可能是<code class="highlighter-rouge">0</code>或<code class="highlighter-rouge">null</code>，这取决于数据类型，不过，依赖于默认值被认为是一种糟糕的编程风格。下表总结了各种数据类型对应的默认值</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>数据类型</th>
+      <th>默认值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>byte</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>short</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>int</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>long</td>
+      <td>0L</td>
+    </tr>
+    <tr>
+      <td>float</td>
+      <td>0.0f</td>
+    </tr>
+    <tr>
+      <td>double</td>
+      <td>0.0d</td>
+    </tr>
+    <tr>
+      <td>char</td>
+      <td>‘\u0000’</td>
+    </tr>
+    <tr>
+      <td>String(或者 任何对象)</td>
+      <td>null</td>
+    </tr>
+    <tr>
+      <td>boolean</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>对于局部变量则不同，编译器永远不会给局部变量分配默认值，如果你在声明时未对该变量进行初始化，在你使用该变量之前必须对其初始化，否则将导致编译错误。</p>
+
+<h2 id="字面量-literals">字面量-Literals</h2>
+<p>在初始化原始数据类型时不需要<code class="highlighter-rouge">new</code>关键词，因为原始数据类型是语言中内置的数据类型，字面量就是原始数据类型变量的等号右边的，固定的值，可以是字符串或数字。如下所示，<code class="highlighter-rouge">100</code>和<code class="highlighter-rouge">true</code>就是字面量。</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+<span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</code></pre></div></div>
+<p>字面量可以分为：</p>
+<ul>
+  <li><strong>整数字面量</strong></li>
+  <li><strong>浮点数字面量</strong></li>
+  <li><strong>字符串字面量</strong></li>
+</ul>
+
+<h2 id="参考">参考</h2>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html">The Java™ Tutorials</a></p>
 
 	  ]]></description>
 	</item>
@@ -1493,512 +1646,6 @@ int main()
   <li><em>《UNIX网络编程：卷2》</em></li>
   <li>部分来自互联网</li>
 </ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Mysql之Explain详解</title>
-	  <link>//MySQL-Explain</link>
-	  <author></author>
-	  <pubDate>2018-01-20T18:00:00+08:00</pubDate>
-	  <guid>//MySQL-Explain</guid>
-	  <description><![CDATA[
-	     <p>​	
-​	
-​	在工作中，经常会碰到一些慢查询，Explain 语句可以帮我们更详细的了解MySQL查询的执行计划，用法也很简单<code class="highlighter-rouge">Explain</code> 后面跟上<code class="highlighter-rouge">SELECT</code>语句即可。执行完之后，会显示一行有多个列的记录，可能很多人和我一样，对<code class="highlighter-rouge">EXPLAIN</code>里面字段的含义，并没有深入的去了解过，处于一知半解的状态，只知道一些最常见的。</p>
-
-<p>​	下面我根据<a href="https://dev.mysql.com/doc/relnotes/mysql/5.7/en/">MySQL官方文档</a>，查阅了很多资料，再结合我自己的理解，对<code class="highlighter-rouge">EXPLAIN</code>的字段和值做了详细的描述，在总结过程中，也发现了自己的很多知识漏洞，很多时候，我总是会想当然的认为，这个就是对的，并没有严密逻辑验证，主要是懒的思考，正所谓好记性不如烂笔头，写的过程也是对自己知识点掌握程度的批判和考验。</p>
-
-<h2 id="关于explain">关于EXPLAIN</h2>
-
-<p>​	EXPLAIN返回一行记录，通过Explain可以获取到很多信息，如：不同表的查询顺序，查询用了哪些表，能使用哪些索引以及真正用到了哪些索引，用了哪种连接类型，是否有临时表和文件排序等。这些因素对查询的效率有直接的相关，想要使查询更高效，需要对这些条件做一个好的优化。</p>
-
-<p>​	EXPLAIN有12个字段，每个字段对查询优化的权重比不一样，也就是说并不是所有字段都很重要。<code class="highlighter-rouge">type</code>,<code class="highlighter-rouge">key</code>,<code class="highlighter-rouge">Extra</code>字段相对其它字段来说，对查询效率的影响更大，优化查询的时候，先把注意力放到这些字段会比其它字段来得更加直接有效，下面开始具体内容。
-​</p>
-
-<h2 id="explain语法">EXPLAIN语法</h2>
-
-<p>以<code class="highlighter-rouge">user_info</code>表为例：</p>
-
-<pre><code class="language-mysql">explain select * from `user_info` where uid = 5
-</code></pre>
-
-<p>结果：</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>select_type</th>
-      <th>table</th>
-      <th>partitions</th>
-      <th>type</th>
-      <th>possible_keys</th>
-      <th>key</th>
-      <th>key_len</th>
-      <th>ref</th>
-      <th>rows</th>
-      <th>filtered</th>
-      <th>Extra</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>SIMPLE</td>
-      <td>user_info</td>
-      <td>NULL</td>
-      <td>const</td>
-      <td>PRIMARY</td>
-      <td>PRIMARY</td>
-      <td>8</td>
-      <td>const</td>
-      <td>1</td>
-      <td>100.00</td>
-      <td>NULL</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="explain字段说明">EXPLAIN字段说明</h2>
-
-<p><strong>注</strong>： <em>标注星号的字段为重点</em></p>
-
-<h4 id="id">id：</h4>
-
-<p><code class="highlighter-rouge">SELECT</code>语句的标识符，代表<code class="highlighter-rouge">SELECT</code>查询在整个查询中的序号。这个值也可能为<code class="highlighter-rouge">NULL</code>，如果这一行是<code class="highlighter-rouge">UNION</code>的结果。</p>
-
-<h4 id="select_type">select_type:</h4>
-
-<p><code class="highlighter-rouge">SELECT</code>查询的类型，该类型的值有11种类型。例如，示例中的值为<code class="highlighter-rouge">SIMPLE</code>，表示该查询是一个简单的查询（即：没有子查询和<code class="highlighter-rouge">UNION</code>）。</p>
-
-<p>####table:</p>
-
-<p>大多数情况下表示输出行所引用的表名，它也可能是下列值之一：</p>
-
-<h4 id="partitions">partitions:</h4>
-
-<p>只对分区表有意义。意思是查询所匹配到的分区，如果该表为非分区表，则它的值为<code class="highlighter-rouge">NULL</code>。</p>
-
-<h4 id="type">*type:</h4>
-
-<p>查询的<code class="highlighter-rouge">join</code>类型，<strong>注意</strong>单表查询也被当做<code class="highlighter-rouge">join</code>的特例，并不一定要两张表。连接类型详情下面会详细介绍。</p>
-
-<h4 id="possible_key">possible_key:</h4>
-
-<p><code class="highlighter-rouge">possible_key</code>列是指，在查询中能够被MySQL用到的索引，但在实际情况中，不一定会被全部用到，这取决于MySQL优化器的选择，假设<code class="highlighter-rouge">possible_key</code>有<code class="highlighter-rouge">A,B,C</code>,3个索引，优化器经过分析认为<code class="highlighter-rouge">A</code>索引不需要用，那么实际执行的时候只会用到<code class="highlighter-rouge">B,C</code>索引。实际应用中，该列经常帮我们对<code class="highlighter-rouge">SQL</code>查询进行优化，如果它的值为<code class="highlighter-rouge">NULL</code>，说明没有能被用到的索引，这种情况下，需要调整<code class="highlighter-rouge">SQL</code>语句和优化表的索引。</p>
-
-<h4 id="key">*key:</h4>
-
-<p>查询中实际用到的索引，要注意，该列的值可能包含<code class="highlighter-rouge">possible_key</code>列中没有出现的索引，当查询满足<code class="highlighter-rouge">覆盖索引</code>的条件时，<code class="highlighter-rouge">possible_keys</code>列为<code class="highlighter-rouge">NULL</code>，索引仅在<code class="highlighter-rouge">key</code>列显示，MySQL只需要扫描索引树，不用到实际的数据行检索即可得到结果，查询会更高效，<code class="highlighter-rouge">Extra</code>列显示<code class="highlighter-rouge">USING INDEX</code>，则证明使用了覆盖索引。	也可以通过<code class="highlighter-rouge">FORCE INDEX</code>,<code class="highlighter-rouge">USE INDEX</code>或<code class="highlighter-rouge">IGNORE INDEX</code>来强制使用或忽略<code class="highlighter-rouge">possible_key</code>列中的索引。</p>
-
-<p><strong>覆盖索引概念</strong>：</p>
-
-<p>如果索引包含所有满足查询需要的数据的索引成为覆盖索引(Covering Index)。</p>
-
-<p>假设有一个<code class="highlighter-rouge">user</code>表，假设索引<code class="highlighter-rouge">A</code>包含了<code class="highlighter-rouge">col1</code>,<code class="highlighter-rouge">col2</code>,<code class="highlighter-rouge">col3</code>三个字段，<code class="highlighter-rouge">criteria</code>为标准条件。</p>
-
-<pre><code class="language-mysql">Query 1:
-select * from user where criteria
-</code></pre>
-
-<p><code class="highlighter-rouge">Query 1</code>使用了索引查询，获取到数据行的主键，但是仍然需要根据主键值扫描实际的数据行。</p>
-
-<pre><code class="language-mysql">Query 2:
-select `col1`,`col2` where criteria
-</code></pre>
-
-<p><code class="highlighter-rouge">Query 2</code>中，索引<code class="highlighter-rouge">A</code>已经包含了它需的字段，也就是说<code class="highlighter-rouge">Query 2</code>不用再去实际的数据行获取数据了，只要扫描完索引树就行了，这样就省了一个步骤，索引树往往比实际的数据表小，所以效率很高，这就是<strong>覆盖索引</strong>。</p>
-
-<h4 id="key_len">key_len:</h4>
-
-<p>实际用到的索引字段长度，越短越好。</p>
-
-<h4 id="ref">ref:</h4>
-
-<p><code class="highlighter-rouge">ref</code>列显示哪个列或者常数和索引比较筛选出结果。</p>
-
-<h4 id="rows">rows:</h4>
-
-<p><code class="highlighter-rouge">rows</code>列表示MySQL认为执行查询必须检查的行数，对<code class="highlighter-rouge">Innodb</code>表来说，这是一个预估值，可能并不是确切的值。</p>
-
-<h4 id="filtered">filtered:</h4>
-
-<p>​	<code class="highlighter-rouge">filtered</code>的意思是，首先MySQL利用索引，例如，用<code class="highlighter-rouge">range</code>范围扫描出符合的行，如果扫描符合条件的估计值是100行，<code class="highlighter-rouge">rows</code>显示估计的值就是100，这一步是存储引擎根据索引筛选后的值，然后在Server层根据其余的<code class="highlighter-rouge">WHERE</code>条件过滤。</p>
-
-<p>​	被过滤器过之后，符合条件的还剩下20行，也就是剩下20%，20%就是<code class="highlighter-rouge">filtered</code>中的值。很显然，直接在存储引擎层筛选出20行比先筛选出100行再过滤要更好，通常情况下，<code class="highlighter-rouge">filtered</code>的值越大可能意味着索引越好。</p>
-
-<p>​	另一方面看，你也可以完全忽略<code class="highlighter-rouge">filtered</code>，因为这个值在大多数情况下只是一个不准确的估计，应该把注意力放到优化其它更有用的字段上，尤其是<code class="highlighter-rouge">type</code>,<code class="highlighter-rouge">key</code>,<code class="highlighter-rouge">Extra</code>。例如：尽量避免<code class="highlighter-rouge">filesort</code>排序，使用索引排序。或者有一个更好的<code class="highlighter-rouge">type</code>值，对性能的提升是非常巨大的，这种情况，即使<code class="highlighter-rouge">filtered</code>的值低也没关系。假设一个查询<code class="highlighter-rouge">A</code>， <code class="highlighter-rouge">type=all</code>,<code class="highlighter-rouge">filtered=0.1%</code>。那么首要先关注<code class="highlighter-rouge">type</code>字段，可通过添加索引来优化，可以先不管<code class="highlighter-rouge">filtered</code>。</p>
-
-<p>​	所以对这个值不需要太认真，即使100%也不意味着索引一定好，反过来也不一定说明索引差，<code class="highlighter-rouge">type</code>比它更能说明索引的好坏。</p>
-
-<h4 id="extra">*Extra:</h4>
-
-<p>这个列包含Mysql解决查询的详细信息，详情见下方。</p>
-
-<h2 id="explain字段值说明">EXPLAIN字段值说明：</h2>
-
-<h4 id="select_type-1">select_type:</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>select_type 值</th>
-      <th>描述</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>SIMPLE</td>
-      <td>简单的<code class="highlighter-rouge">SELECT</code>查询（没有<code class="highlighter-rouge">UNION</code>和子查询）</td>
-    </tr>
-    <tr>
-      <td>PRIMARY</td>
-      <td>一个需要union操作或者含有子查询的select，位于最外层的单位查询的select_type即为primary。且只有一个</td>
-    </tr>
-    <tr>
-      <td>UNION</td>
-      <td><code class="highlighter-rouge">UNION</code>连接的<code class="highlighter-rouge">select</code>查询，除了第一个表外，第二个及以后的表select_type都是<code class="highlighter-rouge">union</code></td>
-    </tr>
-    <tr>
-      <td>DEPENDENT UNION</td>
-      <td>与<code class="highlighter-rouge">union</code>一样，出现在<code class="highlighter-rouge">union</code> 或<code class="highlighter-rouge">union all</code>语句中，但是这个查询要受到外部查询的影响</td>
-    </tr>
-    <tr>
-      <td>UNION RESULT</td>
-      <td><code class="highlighter-rouge">UNION</code>之后的结果集</td>
-    </tr>
-    <tr>
-      <td>SUBQUERY</td>
-      <td>除了from字句中包含的子查询外，其他地方出现的子查询都可能是subquery</td>
-    </tr>
-    <tr>
-      <td>DEPENDENT SUBQUERY</td>
-      <td>与dependent union类似，表示这个subquery的查询要受到外部表查询的影响</td>
-    </tr>
-    <tr>
-      <td>DERIVED</td>
-      <td><code class="highlighter-rouge">FROM</code>字句中出现的子查询。语法：<code class="highlighter-rouge"> SELECT ... FROM (subquery) [AS] tbl_name ...</code></td>
-    </tr>
-    <tr>
-      <td>MATERIALIZED</td>
-      <td>被物化的子查询</td>
-    </tr>
-    <tr>
-      <td>UNCACHEABLE SUBQUERY</td>
-      <td>对于外层的主表，子查询不可被物化，每次都需要计算（耗时操作）</td>
-    </tr>
-    <tr>
-      <td>UNCACHEABLE UNION</td>
-      <td>UNION操作中，内层的不可被物化的子查询（类似于UNCACHEABLE SUBQUERY）</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>通过 **物化 ** 优化子查询的原理：</p>
-
-<p>​	优化器使用物化的方式能让子查询更高效的执行，类似缓存技术，把第一次查询的结果存起来，避免多次的耗时操作，同时也有它自身的限制，不是所有子查询都能被物化的。物化技术把子查询产生的结果放在一个临时表中，如果数据量小的话，通常是在内存中完成，数据大的时候就降级到磁盘进行，速度也会慢很多。首先，MySQL得到子查询的结果，然后把结果放到临时表中，在随后的任何时间，当需要这个结果时，MySQ就再次引用这个临时表，不需要再执行计算了。优化器可能会使用哈希索引（<strong>复杂度为O(1)，很快</strong>）来快速且低成本的查找表，这个索引是唯一的，避免了重复，能使表更小。</p>
-
-<pre><code class="language-mysql">SELECT * FROM t1
-WHERE t1.a IN (SELECT t2.b FROM t2 WHERE where_condition);
-</code></pre>
-
-<h4 id="type连接类型">type（连接类型）：</h4>
-
-<ul>
-  <li>
-    <p><code class="highlighter-rouge">system</code></p>
-
-    <p>当表只有一行数据的时候，这是<code class="highlighter-rouge">const</code>连接类型的特例。</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">const</code></p>
-
-    <p>表中最多只有一行匹配，在查询开始时被读取。因为只有一行，该行中列的值可以被优化器的其余部分视为常量。<code class="highlighter-rouge">const</code>表非常快，因为他们仅被读取一次。将<code class="highlighter-rouge">PRIMARY KEY</code> 或 <code class="highlighter-rouge">UNIQUE INDEX</code>索引和常量值比较时,会使用<code class="highlighter-rouge">const</code>。例如：</p>
-
-    <pre><code class="language-mysql">SELECT * FROM tbl_name WHERE primary_key=1;
-
-SELECT * FROM tbl_name
-WHERE primary_key_part1=1 AND primary_key_part2=2;
-</code></pre>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">eq_ref</code></p>
-
-    <p>假设<code class="highlighter-rouge">A JOIN B</code>，<code class="highlighter-rouge">B</code>表读取<code class="highlighter-rouge">A</code>表的各个行组合的一行时，通过<code class="highlighter-rouge">B</code>表的<code class="highlighter-rouge">PRIMARY KEY</code>或<code class="highlighter-rouge">UNIQUE NOT NULL</code>索引列连接时，优化器会使用<code class="highlighter-rouge">eq_ref</code>类型，这是除了<code class="highlighter-rouge">system</code>和<code class="highlighter-rouge">const</code>之外最快的<code class="highlighter-rouge">JOIN</code>类型。</p>
-
-    <p>举例说明：</p>
-
-    <p>表<code class="highlighter-rouge">tableA</code>,有（id,text）字段，id为<code class="highlighter-rouge">PRIMARY KEY</code>,A表数据为：</p>
-
-    <table>
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>text</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>HELLO</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>THANK</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>表<code class="highlighter-rouge">tableB</code>有（id,text）字段，id为<code class="highlighter-rouge">PRIMARY KEY</code>,B表数据为：</p>
-
-    <table>
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>text</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>WORLD</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>YOU</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>现在通过<code class="highlighter-rouge">JOIN</code>将两个表关联起来</p>
-
-    <pre><code class="language-mysql">SELECT A.text,B.text 
-FROM tableA AS A,tableB as B 
-WHERE A.id=B.id
-</code></pre>
-
-    <p>这个连表查询是非常快的，因为在<strong>A表中扫描的每一行，在B表中也仅一行满足条件</strong>。</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">ref</code></p>
-
-    <p>​	<code class="highlighter-rouge">A JOIN C</code>时，A表中的每一行不是唯一的，对单表查询也一样，有多个满足条件的行，查询的<code class="highlighter-rouge">KEY</code>是单个索引或复合索引的最左前缀(<strong>不是唯一索引和主键</strong>)，也就是说C表的<code class="highlighter-rouge">id</code>是一个非唯一索引。这种情况下，优化器会使用<code class="highlighter-rouge">ref</code>优化，如果只有少部分行(<strong>rows</strong>)满足条件，这个连接类型(<code class="highlighter-rouge">join type</code>)是很好的。<code class="highlighter-rouge">ref</code>用于索引的比较操作，<strong>注意</strong>：仅对于<code class="highlighter-rouge">=</code>,<code class="highlighter-rouge">&lt;=&gt;</code> 操作有效，对于<code class="highlighter-rouge">&gt;</code>,<code class="highlighter-rouge">&lt;</code>,<code class="highlighter-rouge">BETWEEN</code>,<code class="highlighter-rouge">IN</code>的范围操作优化器可能会使用<code class="highlighter-rouge">range</code>类型(<strong>见下方</strong>),也可能是<code class="highlighter-rouge">ALL</code>全表扫描。</p>
-
-    <p>举例说明：</p>
-
-    <p>现在有<code class="highlighter-rouge">tableC</code>，<code class="highlighter-rouge">id</code>为索引，不唯一。数据为：</p>
-
-    <table>
-      <thead>
-        <tr>
-          <th>id (非唯一索引)</th>
-          <th>text</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>HANGZHOU</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>SHANGHAI</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>现在通过<code class="highlighter-rouge">LEFT JOIN</code>将<code class="highlighter-rouge">A</code>和<code class="highlighter-rouge">C</code>关联起来:</p>
-
-    <pre><code class="language-mysql">SELECT A.text,C.text 
-FROM `tableA` AS A 
-LEFT JOIN `tableC` AS C ON A.id=C.id
-</code></pre>
-
-    <p>这个<code class="highlighter-rouge">JOIN</code>不像之前的那么快，因为在表A中扫描的每一行，在表C中可能有很多行满足条件，C的id不是唯一索引。</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">fulltext</code></p>
-
-    <p>使用了全文索引，<code class="highlighter-rouge">Innodb</code>不支持全文索引。</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">ref_or_null</code></p>
-
-    <p>如果一个查询的<code class="highlighter-rouge">WHERE</code>子句中包含<code class="highlighter-rouge">colA IS NULL</code>的条件，但是<code class="highlighter-rouge">colA</code>已经被声明为<code class="highlighter-rouge">NOT NULL</code>，此时优化器会使用<code class="highlighter-rouge">ref_or_null</code>类型。</p>
-
-    <pre><code class="language-mysql">SELECT * FROM ref_table
-WHERE key_column=expr OR key_column IS NULL;
-</code></pre>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">index_merge</code></p>
-
-    <p>​	在MYSQL5.0之前是没有索引合并功能的，假设<code class="highlighter-rouge">A</code>表有3个单独的索引<code class="highlighter-rouge">col1</code> ,<code class="highlighter-rouge">col2</code>,<code class="highlighter-rouge">col3</code>，然后执行如下<code class="highlighter-rouge">SQL</code>:</p>
-
-    <pre><code class="language-Mysql">SELECT * FROM A WHERE col1=1 AND col2=2 AND col3=3
-</code></pre>
-
-    <p>实际查询中只有一个索引能被用到，这种情况，只能通过建立复合索引<code class="highlighter-rouge">(col1,col2,col3)</code>才能在索引中用到所有字段。</p>
-
-    <p>​	5.0之后有了索引合并，当检索数据行时出现多个范围扫描条件时，在满足索引合并前提条件时(单个索引覆盖<code class="highlighter-rouge">WHERE</code>条件的字段)，MySQL优化器可能会使用索引合并(不一定)，首先分别对多个索引进行扫描，然后合并来自单个表的扫描结果，它不能合并多个表的扫描结果，合并的方式有3种：</p>
-
-    <ul>
-      <li><code class="highlighter-rouge">unions</code>：索引取并集</li>
-      <li><code class="highlighter-rouge">intersections</code>：索引取交集</li>
-      <li><code class="highlighter-rouge">Sort-Union</code>:先对取出的数据按主键排序，再取并集</li>
-    </ul>
-
-    <p><strong>索引合并条件</strong>：</p>
-
-    <ol>
-      <li>
-        <p><code class="highlighter-rouge">WHERE</code>子句中的范围条件，<code class="highlighter-rouge">WHERE</code>中出现字段必须被索引覆盖，如果<code class="highlighter-rouge">colA</code>没添加索引，则只会对<code class="highlighter-rouge">colB</code>和<code class="highlighter-rouge">colC</code>进行索引合并，<code class="highlighter-rouge">Extra</code>字段显示<code class="highlighter-rouge">Using intersect(colB,colC);</code>，<code class="highlighter-rouge">type</code>为<code class="highlighter-rouge">index_merge</code>，则说明用到了索引合并。</p>
-
-        <pre><code class="language-mysql">WHERE colA = const1 AND colB = const2 AND colC = const3
-</code></pre>
-      </li>
-      <li>
-        <p><code class="highlighter-rouge">Innodb</code>表中的主键的任何范围条件，<code class="highlighter-rouge">&gt;</code>,<code class="highlighter-rouge">&lt;</code>,<code class="highlighter-rouge">&lt;&gt;</code>等。</p>
-
-        <pre><code class="language-mysql">SELECT * FROM innodb_table
-  WHERE primary_key &lt; 10 AND key_col1 = 20;
-</code></pre>
-      </li>
-    </ol>
-
-    <p>​        满足了条件，MYSQL会选择索引行数最少的字段对索引结果进行合并，最终使用哪个索引字段来合并也不一定，也可能不使用合并，这取决于优化器，如果优化器认为没必要使用索引合并优化，就会使用其它优化，也许会选择<code class="highlighter-rouge">type</code> 为<code class="highlighter-rouge">range</code>或更高效的<code class="highlighter-rouge">ref</code>的优化。</p>
-
-    <p>​	当优化器决定使用索引合并优化，如果<code class="highlighter-rouge">WHERE</code>条件用<code class="highlighter-rouge">AND</code>连接，优化器会使用<code class="highlighter-rouge">INTERSECTIONS</code>合并算法，对多个索引扫描的结果取交集。如果用<code class="highlighter-rouge">OR</code>连接，优化器会选择<code class="highlighter-rouge">UNIONS</code>或<code class="highlighter-rouge">SORT-UNIONS</code>合并算法，对多个索引扫描的结果取合集，<code class="highlighter-rouge">SORT-UNIONS</code>和<code class="highlighter-rouge">UNIONS</code>的主要区别是，前者在扫描完数据时，需要先对数据按主键排序，再取它们的合集。</p>
-
-    <p>​	 在<code class="highlighter-rouge">WHERE</code>子句中使用<code class="highlighter-rouge">AND</code>时，使用复合索引比索引合并更高效，因为复合索引只用一个索引筛选，没有匹配合并的过程，这个过程节省了很多时间。</p>
-
-    <p>​	在使用<code class="highlighter-rouge">OR</code>时，复合索引是不起作用的，这种情况下，使用<code class="highlighter-rouge">UNIONS</code>索引合并效果更好。如果不想使用某种索引合并，也可以选择关闭。可通过<code class="highlighter-rouge">optimzer_switch</code>系统变量查看各个索引合并的开启状况。如下：</p>
-
-    <pre><code class="language-mysql">SELECT @@optimizer_switch
-</code></pre>
-
-    <p>索引合并算法的默认都是开启的，可以通过关闭某个合并算法。例如：</p>
-
-    <pre><code class="language-mysql">SET optimizer_switch = 'index_merge_intersection=off'
-</code></pre>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">unique_subquery</code></p>
-
-    <p>这种类型是<code class="highlighter-rouge">eq_ref</code>类型在子查询中的替代类型。例如</p>
-
-    <pre><code class="language-mysql">SELECT * FROM A WHERE
-value IN (SELECT id FROM B WHERE some_expr)
-</code></pre>
-
-    <p><code class="highlighter-rouge">B</code>表中的<code class="highlighter-rouge">id</code>在A表中有唯一对应的记录。</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">range</code></p>
-
-    <p>​	在<code class="highlighter-rouge">WHERE</code>子句中，执行<code class="highlighter-rouge">&gt;</code>,<code class="highlighter-rouge">&lt;</code>,<code class="highlighter-rouge">&lt;&gt;</code>,<code class="highlighter-rouge">=</code>,<code class="highlighter-rouge">BETWEEN</code>,<code class="highlighter-rouge">IN()</code> 等操作时，MySQL可能会(<strong>不一定</strong>)使用<code class="highlighter-rouge">range</code>类型，<code class="highlighter-rouge">Explain</code>中<code class="highlighter-rouge">key</code>列的值就是实际用到的索引，<code class="highlighter-rouge">key_len</code>是它们中最长的索引的长度。如果优化器认为使用索引筛选没有全表扫描来得及，例如：条件筛选后的行占全表的50%以上，即使有索引可用，优化器也会选择全表扫描，即<code class="highlighter-rouge">type=ALL</code>。</p>
-
-    <p>​	为什么呢？解释这个问题之前，需要先了解几个概念。对<code class="highlighter-rouge">Innodb</code>表来说，每个表都有一个<strong>聚簇索引</strong>，InnoDB的<strong>聚簇索引</strong>实际上在同一个结构中保存了B-Tree索引和数据行信息。因为无法把数据行存放在两个不同的地方，所以一个表只能有一个<strong>聚簇索引</strong>。<strong>二级索引</strong>存储的是记录的主键，而不是数据存储的地址，索引数据和存储数据是分离的，唯一索引、普通索引、前缀索引等都是二级索引。实际上，InnoDB在查询任何数据时，最后都是通过主键来查询的。首先我们根据索引条件在索引树上扫描出对应的主键值。然后根据这个值去聚簇索引总超找到对应的行(<strong>如果是覆盖索引则省略这一步</strong>)。</p>
-
-    <p>​	在某些情况下，索引条件扫描出的数据行非常大，可能占了全表的50%，此时再根据主键找到对应的数据块是不划算。主键的BTree查找属于文件的随机搜索，但是如果随机搜索文件数据的目的是为了查找一半的数据，这并不是最优化的，只要对数据文件进行大量的顺序读写要更快，这种情况下，索引会被忽略。</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">index</code></p>
-
-    <p>​	<code class="highlighter-rouge">index</code>类型和<code class="highlighter-rouge">ALL</code>类型几乎相同。有两种情况：</p>
-
-    <ol>
-      <li>若<code class="highlighter-rouge">SELECT</code>中列全部被索引覆盖，所需要的数据可以直接在索引中读取，MySQL只需对索引树进行扫描，这通常比扫描实际数据行要快，因为索引树通常比数据表更小，这种情况下，<code class="highlighter-rouge">Extran</code>的值会显示<code class="highlighter-rouge">USING INDEX</code>。</li>
-      <li>使用索引中读取的主键值，按索引顺序对全表进行扫描，此时<code class="highlighter-rouge">Extra</code>中没有<code class="highlighter-rouge">USING INDEX</code>。</li>
-    </ol>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">ALL</code></p>
-
-    <p>对表的每一行进行扫描，这是最糟糕的情况。一般，你可以通过添加索引来避免这种情况发生。</p>
-  </li>
-</ul>
-
-<h4 id="extra列值的含义">Extra列值的含义:</h4>
-
-<p>​	<code class="highlighter-rouge">Extra</code>列包含了MySQL处理查询的一些额外信息，下面的列出了Extra中可能出现的值，如果你想让查询尽可能的快，应该注意下<code class="highlighter-rouge">Extra</code>字段中是否出现了<code class="highlighter-rouge">using filesort</code> 和<code class="highlighter-rouge">using temporary</code>。下面只列除了在实际应用中经常会出现，相对比较重要的一部分，若描述的不够详细，可查看MySQL官方文档。</p>
-
-<ul>
-  <li>
-    <p><code class="highlighter-rouge">const row not found</code></p>
-
-    <pre><code class="language-mysql">SELECT * FROM A
-</code></pre>
-
-    <p>如果A表为空，则会出现改值。</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">DISTINCT</code></p>
-
-    <p>mysql在寻找不同的值，当它找到第一个匹配的行之后，就停止搜索更多的行了。例子：</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">no matching row in const table</code></p>
-
-    <p>用唯一索引或者主键查询时，没有匹配到的数据。</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">Not exists</code></p>
-
-    <p>MySQL优化了<code class="highlighter-rouge">LEFT JOIN</code>，一旦它找到了匹配<code class="highlighter-rouge">LEFT JOIN</code>标准的行，就不再搜索了，。例如：</p>
-
-    <pre><code class="language-mysql">SELECT * FROM t1 LEFT JOIN t2 ON t1.id=t2.id
- WHERE t2.id IS NULL;
-</code></pre>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">Using filesort</code></p>
-
-    <p>​	这个值表示，MySQL必须对检索到的结果进行额外的排序。排序是按照连接类型遍历所有行并存储排序键和指向行的指针，以匹配满足where子句条件的所有行，然后对键进行排序，并按排序顺序检索行。根据不同情况，MySQL会选择不同的排序算法，在数据比较小的时候，MySQL会利用排序缓冲区作为优先级队列将结果在内存中排序，否则只能通过合并文件的方式合并，那会慢很多，排序缓冲区的大小取决于<code class="highlighter-rouge">sort_buffer_size</code>变量的大小。</p>
-
-    <p>​	总之，当看到<code class="highlighter-rouge">filesort</code>的时候就应该引起重视，通过优化索引来避免额外的文件排序，这对性能影响是很大的。</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">Using index</code></p>
-
-    <p>单个索引覆盖了<code class="highlighter-rouge">SELECT</code>的所有列（即：覆盖索引），不需要对实际的数据行进行扫描。</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">Using index condition</code></p>
-
-    <p>​	Index Condition Pushdown (ICP)是MySQL 5.6 版本中的新特性,是一种在存储引擎层使用索引过滤数据的一种优化方式。当关闭ICP时,index 仅仅是data access 的一种访问方式，存储引擎通过索引回表获取的数据会传递到MySQL Server 层进行where条件过滤。</p>
-
-    <p>​	当打开ICP时,如果部分where条件能使用索引中的字段,MySQL Server 会把这部分下推到引擎层,可以利用index过滤的where条件在存储引擎层进行数据过滤,而非将所有通过index access的结果传递到MySQL server层进行where过滤.
-优化效果:ICP能减少引擎层访问基表的次数和MySQL Server 访问存储引擎的次数,减少io次数，提高查询语句性能。</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">Using index for group-by</code></p>
-
-    <p>和<code class="highlighter-rouge">USING INDEX</code>很相似，区别是，当查询语句中含有<code class="highlighter-rouge">DISTINCT</code>和<code class="highlighter-rouge">GROUP BY</code>操作时，仅需访问索引树，不需要访问实际的表时，使用该优化。</p>
-  </li>
-  <li>
-    <p>``Using sort_union(…)<code class="highlighter-rouge">, </code>Using union(…)<code class="highlighter-rouge">, </code>Using intersect(…)`</p>
-
-    <p>当查询产生索引合并时会显示该值，<code class="highlighter-rouge">type</code>为<code class="highlighter-rouge">index_merge</code>。</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">Using temporary</code></p>
-
-    <p>为了处理查询，MySQL必须建立一个临时表才能产生结果。典型的情况是，在使用<code class="highlighter-rouge">GROUP BY</code>和<code class="highlighter-rouge">ORDER BY</code>子句时，两者使用了不同的列会导致产生临时表。</p>
-  </li>
-  <li>
-    <p><code class="highlighter-rouge">Using where</code></p>
-
-    <p><code class="highlighter-rouge">using where</code> 是指使用<code class="highlighter-rouge">WHERE</code>或<code class="highlighter-rouge">ON</code>子句，MySQL <code class="highlighter-rouge">Server</code>层收到存储引擎返回的结果时，需要对结果再次过滤，不需要返回所有结果，注意<code class="highlighter-rouge">LIMIT</code>不算限制条款。如果没有用到索引<code class="highlighter-rouge">using where</code>只是说明，使用了顾虑条件过滤。</p>
-  </li>
-</ul>
-
-<h2 id="参考">参考</h2>
-
-<p><a href="https://dev.mysql.com/doc/refman/5.7/en">MySQL官方文档</a></p>
-
 
 	  ]]></description>
 	</item>

@@ -4,7 +4,39 @@
     <title>Think Different - Articles</title>
     <description>Stay Hungry , Stay Foolish</description>
     <link>
-    </link>
+    http://localhost:4000</link>
+    
+      
+      <item>
+        <title>Java学习笔记(四) - 类</title>
+        
+          <description>&lt;h2 id=&quot;声明类&quot;&gt;声明类&lt;/h2&gt;
+&lt;p&gt;Java的类可以通过&lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;关键词，&lt;code class=&quot;highlighter-rouge&quot;&gt;{}&lt;/code&gt;大括号来声明，在&lt;code class=&quot;highlighter-rouge&quot;&gt;{}&lt;/code&gt;大括号中间是类的&lt;code class=&quot;highlighter-rouge&quot;&gt;body&lt;/code&gt;体，在&lt;code class=&quot;highlighter-rouge&quot;&gt;body&lt;/code&gt;体内可声明成员变量、方法和构造函数等等。另外，也可以在&lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;前面加上修饰符&lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt;，修饰符的作用是访问控制，前者说明该类是私有类，其它类不能访问它，后者是公开的，任何类都可以访问它，下面是公开类的声明示例。&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 28 Aug 2018 00:00:00 +0800</pubDate>
+        <link>
+        http://localhost:4000/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9B%9B)-%E7%B1%BB</link>
+        <guid isPermaLink="true">http://localhost:4000/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9B%9B)-%E7%B1%BB</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Java学习笔记(三) - 表达式、语句和块</title>
+        
+          <description>&lt;h2 id=&quot;表达式&quot;&gt;表达式&lt;/h2&gt;
+&lt;p&gt;表达式是由变量、操作符和方法调用组成的一个就算过程，它一定有单个的返回值，下面是表达式的例子：&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 28 Aug 2018 00:00:00 +0800</pubDate>
+        <link>
+        http://localhost:4000/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%9D%97</link>
+        <guid isPermaLink="true">http://localhost:4000/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%9D%97</guid>
+      </item>
+      
     
       
       <item>
@@ -27,24 +59,8 @@
         
         <pubDate>Mon, 27 Aug 2018 00:00:00 +0800</pubDate>
         <link>
-        /Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</link>
-        <guid isPermaLink="true">/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>Java学习笔记(三) - 表达式、语句和块</title>
-        
-          <description>&lt;h2 id=&quot;表达式&quot;&gt;表达式&lt;/h2&gt;
-&lt;p&gt;表达式是由变量、操作符和方法调用组成的一个就算过程，它一定有单个的返回值，下面是表达式的例子：&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Mon, 27 Aug 2018 00:00:00 +0800</pubDate>
-        <link>
-        /Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%9D%97</link>
-        <guid isPermaLink="true">/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%9D%97</guid>
+        http://localhost:4000/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</link>
+        <guid isPermaLink="true">http://localhost:4000/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</guid>
       </item>
       
     
@@ -59,8 +75,8 @@
         
         <pubDate>Sun, 26 Aug 2018 00:00:00 +0800</pubDate>
         <link>
-        /Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</link>
-        <guid isPermaLink="true">/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</guid>
+        http://localhost:4000/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</link>
+        <guid isPermaLink="true">http://localhost:4000/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F</guid>
       </item>
       
     
@@ -79,8 +95,8 @@
         
         <pubDate>Fri, 27 Jul 2018 01:00:00 +0800</pubDate>
         <link>
-        /IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90</link>
-        <guid isPermaLink="true">/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90</guid>
+        http://localhost:4000/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90</link>
+        <guid isPermaLink="true">http://localhost:4000/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90</guid>
       </item>
       
     
@@ -94,8 +110,8 @@
         
         <pubDate>Tue, 27 Mar 2018 00:00:00 +0800</pubDate>
         <link>
-        /%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1</link>
-        <guid isPermaLink="true">/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1</guid>
+        http://localhost:4000/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1</link>
+        <guid isPermaLink="true">http://localhost:4000/%E6%B5%85%E5%85%A5%E6%B5%85%E5%87%BAMySQL%E4%BA%8B%E5%8A%A1</guid>
       </item>
       
     
@@ -109,8 +125,8 @@
         
         <pubDate>Fri, 23 Mar 2018 00:00:00 +0800</pubDate>
         <link>
-        /Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</link>
-        <guid isPermaLink="true">/Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</guid>
+        http://localhost:4000/Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</link>
+        <guid isPermaLink="true">http://localhost:4000/Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</guid>
       </item>
       
     
@@ -125,8 +141,8 @@
         
         <pubDate>Sun, 18 Mar 2018 00:00:00 +0800</pubDate>
         <link>
-        /Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</link>
-        <guid isPermaLink="true">/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</guid>
+        http://localhost:4000/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</link>
+        <guid isPermaLink="true">http://localhost:4000/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2</guid>
       </item>
       
     
@@ -141,8 +157,8 @@
         
         <pubDate>Fri, 16 Mar 2018 00:00:00 +0800</pubDate>
         <link>
-        /Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</link>
-        <guid isPermaLink="true">/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</guid>
+        http://localhost:4000/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</link>
+        <guid isPermaLink="true">http://localhost:4000/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90</guid>
       </item>
       
     
@@ -177,8 +193,8 @@
         
         <pubDate>Tue, 20 Feb 2018 18:18:00 +0800</pubDate>
         <link>
-        /UNIX-IPC</link>
-        <guid isPermaLink="true">/UNIX-IPC</guid>
+        http://localhost:4000/UNIX-IPC</link>
+        <guid isPermaLink="true">http://localhost:4000/UNIX-IPC</guid>
       </item>
       
     
@@ -194,8 +210,8 @@
         
         <pubDate>Sat, 20 Jan 2018 18:00:00 +0800</pubDate>
         <link>
-        /MySQL-Explain</link>
-        <guid isPermaLink="true">/MySQL-Explain</guid>
+        http://localhost:4000/MySQL-Explain</link>
+        <guid isPermaLink="true">http://localhost:4000/MySQL-Explain</guid>
       </item>
       
     
@@ -209,8 +225,8 @@
         
         <pubDate>Tue, 12 Aug 2014 18:18:00 +0800</pubDate>
         <link>
-        /the-businessman-and-fisherman</link>
-        <guid isPermaLink="true">/the-businessman-and-fisherman</guid>
+        http://localhost:4000/the-businessman-and-fisherman</link>
+        <guid isPermaLink="true">http://localhost:4000/the-businessman-and-fisherman</guid>
       </item>
       
     

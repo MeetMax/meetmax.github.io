@@ -5,98 +5,161 @@
    
       <title>meetmax.cn</title>
    
-   <link></link>
+   <link>http://localhost:4000</link>
    <description>Stay Hungry , Stay Foolish</description>
    <language>en-uk</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
-	  <title>Java学习笔记(二) - 原始数据类型</title>
-	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</link>
+	  <title>Java学习笔记(四) - 类</title>
+	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9B%9B)-%E7%B1%BB</link>
 	  <author></author>
-	  <pubDate>2018-08-27T00:00:00+08:00</pubDate>
-	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</guid>
+	  <pubDate>2018-08-28T00:00:00+08:00</pubDate>
+	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9B%9B)-%E7%B1%BB</guid>
 	  <description><![CDATA[
-	     <h2 id="原始数据类型">原始数据类型</h2>
-<p>Java是静态类型语言，所以变量必须先声明才能使用，并且每个变量都有自己的类型和名称。原始值不与其他原始数据值共享状态，Java语言定义了8种原始数据类型。</p>
-<ul>
-  <li><strong>byte</strong>   字节类型，在内存中占8位，它的值的范围是<code class="highlighter-rouge">-128 ~ 127</code>(包含)，在需要节省内存的情况下，字节类型可用来保存大型数组。</li>
-  <li><strong>short</strong>  类型在内存中占16位，它的值的范围是<code class="highlighter-rouge">-32,768 ~ 32,767 </code>，和<code class="highlighter-rouge">byte</code>类型一样，同样适用于需要节省内存的情况。</li>
-  <li><strong>int</strong> 类型在内存中占32位，它的值的范围是<strong>-2<sup>31</sup> ~ 2<sup>31</sup> -1</strong>。Java8之后可以使用无符号的整数，它的范围是**0 ~ 2<sup>32</sup> **，<code class="highlighter-rouge">Integer</code>中增加了静态方法<code class="highlighter-rouge">compareUnsigned</code>,<code class="highlighter-rouge">divideUnsigned</code>等方法可支持无符号整数运算。</li>
-  <li><strong>long</strong>类型在内存中占64位，它的取值范围是<strong>-2<sup>63</sup> ~ 2<sup>63</sup> -1</strong>，Java8之后也可以使用无符号整数，通过<code class="highlighter-rouge">Long</code>类提供的<code class="highlighter-rouge">compareUnsigned</code>、<code class="highlighter-rouge">divideUnsigned</code>方法支持无符号整数运算。</li>
-  <li><strong>float</strong>为32位单精度浮点类型。</li>
-  <li><strong>dobule</strong>类型为64位双精度浮点类型。</li>
-  <li><strong>boolean</strong>布尔类型，有<code class="highlighter-rouge">true/false</code>两种类型，通常用于条件判断<code class="highlighter-rouge">true</code>表<code class="highlighter-rouge">是</code>,<code class="highlighter-rouge">false</code>表<code class="highlighter-rouge">否</code>。</li>
-  <li><strong>char</strong> 字符类型是单个16位<code class="highlighter-rouge">Unicode</code>字符，它的值范围是<code class="highlighter-rouge">'\u0000'</code>~<code class="highlighter-rouge">'\uffff'</code>。</li>
-</ul>
+	     <h2 id="声明类">声明类</h2>
+<p>Java的类可以通过<code class="highlighter-rouge">class</code>关键词，<code class="highlighter-rouge">{}</code>大括号来声明，在<code class="highlighter-rouge">{}</code>大括号中间是类的<code class="highlighter-rouge">body</code>体，在<code class="highlighter-rouge">body</code>体内可声明成员变量、方法和构造函数等等。另外，也可以在<code class="highlighter-rouge">class</code>前面加上修饰符<code class="highlighter-rouge">private</code>或<code class="highlighter-rouge">public</code>，修饰符的作用是访问控制，前者说明该类是私有类，其它类不能访问它，后者是公开的，任何类都可以访问它，下面是公开类的声明示例。</p>
 
-<h2 id="默认值">默认值</h2>
-<p>类的全局变量声明之后不是必须被分配的。如果全局变量被声明了，但是没有初始化，它会被编译器设置一个默认值，可能是<code class="highlighter-rouge">0</code>或<code class="highlighter-rouge">null</code>，这取决于数据类型，不过，依赖于默认值被认为是一种糟糕的编程风格。下表总结了各种数据类型对应的默认值</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>数据类型</th>
-      <th>默认值</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>byte</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>short</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>int</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>long</td>
-      <td>0L</td>
-    </tr>
-    <tr>
-      <td>float</td>
-      <td>0.0f</td>
-    </tr>
-    <tr>
-      <td>double</td>
-      <td>0.0d</td>
-    </tr>
-    <tr>
-      <td>char</td>
-      <td>‘\u0000’</td>
-    </tr>
-    <tr>
-      <td>String(或者 任何对象)</td>
-      <td>null</td>
-    </tr>
-    <tr>
-      <td>boolean</td>
-      <td>false</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>对于局部变量则不同，编译器永远不会给局部变量分配默认值，如果你在声明时未对该变量进行初始化，在你使用该变量之前必须对其初始化，否则将导致编译错误。</p>
-
-<h2 id="字面量-literals">字面量-Literals</h2>
-<p>在初始化原始数据类型时不需要<code class="highlighter-rouge">new</code>关键词，因为原始数据类型是语言中内置的数据类型，字面量就是原始数据类型变量的等号右边的，固定的值，可以是字符串或数字。如下所示，<code class="highlighter-rouge">100</code>和<code class="highlighter-rouge">true</code>就是字面量。</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
-<span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Myclass</span> <span class="o">{</span>
+	<span class="c1">// 这里可以声明成员变量</span>
+	<span class="c1">// 方法、构造函数等</span>
+<span class="o">}</span>
 </code></pre></div></div>
-<p>字面量可以分为：</p>
-<ul>
-  <li><strong>整数字面量</strong></li>
-  <li><strong>浮点数字面量</strong></li>
-  <li><strong>字符串字面量</strong></li>
-</ul>
+
+<p>上面是一个简单类的声明，类还可通过关键词<code class="highlighter-rouge">extends</code>继承其它类，通过关键词<code class="highlighter-rouge">implements</code>继承多个接口，例如：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyClass</span> <span class="kd">extends</span> <span class="n">MySuperClass</span> <span class="kd">implements</span> <span class="n">YourInterface</span><span class="o">,</span><span class="n">YourInterface2</span> <span class="o">{</span>
+    <span class="c1">// field, constructor, and</span>
+    <span class="c1">// method declarations</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>通常，类的声明包含以下几个部分：</p>
+
+<ol>
+  <li>修饰符，例如<code class="highlighter-rouge">public</code>，<code class="highlighter-rouge">private</code>，<code class="highlighter-rouge">protected</code>等。</li>
+  <li>类的名称，按照规范，类名首字母大写(非必须)，增加可读性</li>
+  <li>可通过关键词<code class="highlighter-rouge">extends</code>继承<code class="highlighter-rouge">超类</code>，且只能继承一个<code class="highlighter-rouge">超类</code>，Java不支持多继承</li>
+  <li>可通过关键词<code class="highlighter-rouge">implements</code>继承接口，Java接口支持多继承，接口之间用<code class="highlighter-rouge">,</code>逗号分隔。</li>
+  <li>类的<code class="highlighter-rouge">body</code>体，在<code class="highlighter-rouge">{}</code>大括号之间。</li>
+</ol>
+
+<h2 id="声明成员变量">声明成员变量</h2>
+<p>成员变量是指在类的内部，且不在<code class="highlighter-rouge">方法</code><code class="highlighter-rouge">块</code>内，且不是方法的参数，下面是声明成员变量的示例：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Myclass</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="n">hello</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>上面的代码中，<code class="highlighter-rouge">hello</code>就是一个公开的，<code class="highlighter-rouge">String</code>类型的成员变量，成员变量一般由以下3部分组成：</p>
+
+<ol>
+  <li>0或多个修饰符，例如<code class="highlighter-rouge">private</code>或<code class="highlighter-rouge">public</code></li>
+  <li>字段类型</li>
+  <li>字段名称</li>
+</ol>
+
+<h2 id="方法声明">方法声明</h2>
+
+<p>下面是一个方法声明的例子：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Myclass</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">double</span> <span class="nf">calculateAnswer</span><span class="o">(</span><span class="kt">double</span> <span class="n">wingSpan</span><span class="o">,</span> <span class="kt">int</span> <span class="n">numberOfEngines</span><span class="o">,</span><span class="kt">double</span> <span class="n">length</span><span class="o">,</span> <span class="kt">double</span> <span class="n">grossTons</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">//do the calculation here</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>方法声明由以下6部分组成:</p>
+<ol>
+  <li>修饰符-例如<code class="highlighter-rouge">public</code>,<code class="highlighter-rouge">private</code></li>
+  <li>返回值的类型，如果没有返回值则声明为<code class="highlighter-rouge">void</code></li>
+  <li>方法名</li>
+  <li>方法的参数，在<code class="highlighter-rouge">()</code>内声明，多个参数之间用<code class="highlighter-rouge">,</code>逗号隔开，如果没有参数，就是用空的<code class="highlighter-rouge">()</code></li>
+  <li>一个异常列表</li>
+  <li>方法的<code class="highlighter-rouge">body</code>，在<code class="highlighter-rouge">{}</code>之间包含了方法代码和局部变量等。</li>
+</ol>
+
+<h3 id="方法签名">方法签名</h3>
+<p><strong>方法签名</strong> 包括方法名称和参数类型，在上面代码中，它的方法签名是</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">calculateAnswer</span><span class="o">(</span><span class="kt">double</span><span class="o">,</span> <span class="kt">int</span><span class="o">,</span> <span class="kt">double</span><span class="o">,</span> <span class="kt">double</span><span class="o">)</span>
+</code></pre></div></div>
+
+<h3 id="方法重载">方法重载</h3>
+<p>在同一个类里可以有相同名称的方法，只要它们的方法签名不同，Java编译器可以根据方法签名判断出你要调用的具体方法，例如：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DataArtist</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">(</span><span class="kt">double</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">double</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>上面代码中有4个名为<code class="highlighter-rouge">draw</code>的方法，在调用的时候，Java编译器可根据参数类型区分出调用的是哪个方法，在同一个类中不能声明具有相同名称、相同的参数数量和相同参数类型的方法，即使他们返回类型不一样，因为Java编译器无法识别出调用的是哪个方法。</p>
+
+<h2 id="类的构造函数">类的构造函数</h2>
+<p>每个类都包含构造函数，构造函数在创建对象时被调用，构造函数的声明和方法的声明很像，除了构造函数没有返回值，且函数名必须和类名一样。例如<code class="highlighter-rouge">Bicycle</code>类有一个构造函数</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nf">Bicycle</span><span class="o">(</span><span class="kt">int</span> <span class="n">startCadence</span><span class="o">,</span> <span class="kt">int</span> <span class="n">startSpeed</span><span class="o">,</span> <span class="kt">int</span> <span class="n">startGear</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">gear</span> <span class="o">=</span> <span class="n">startGear</span><span class="o">;</span>
+    <span class="n">cadence</span> <span class="o">=</span> <span class="n">startCadence</span><span class="o">;</span>
+    <span class="n">speed</span> <span class="o">=</span> <span class="n">startSpeed</span><span class="o">;</span>
+<span class="o">}</span><span class="kd">public</span> <span class="nf">Bicycle</span><span class="o">(</span><span class="kt">int</span> <span class="n">st</span>
+</code></pre></div></div>
+
+<p>可以通过<code class="highlighter-rouge">new</code>操作符创建<code class="highlighter-rouge">Bicycle</code>的对象，并初始化相关的字段。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Bicycle</span> <span class="n">myBike</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bicycle</span><span class="o">(</span><span class="mi">30</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">8</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>和方法重载一样，一个类可以有多个构造函数，只要它们的方法签名不一样。例如，下面是一个无参数的构造函数</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nf">Bicycle</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">gear</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="n">cadence</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+    <span class="n">speed</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="方法中的参数传递">方法中的参数传递</h2>
+<p>在Java中数据分为2种类型即，原始数据类型和引用数据类型，数据在传递给方法时，2种数据类型的传递方式是不同的。</p>
+
+<h3 id="原始数据类型的传递">原始数据类型的传递</h3>
+<p>原始数据类型是按值传递的，它传递的是该数据的值的拷贝，什么意思呢？请看下面的代码，假设我把值<code class="highlighter-rouge">99.00</code>传给<code class="highlighter-rouge">computePayment</code>方法，方法在内部把我传入的值修改变成了100，但是这个修改仅仅在方法内部有效，方法到<code class="highlighter-rouge">return</code>就结束了，在方法外部，我的值还是<code class="highlighter-rouge">99.00</code>。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">double</span> <span class="nf">computePayment</span><span class="o">(</span><span class="kt">double</span> <span class="n">loanAmt</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">double</span> <span class="n">loanAmt</span> <span class="o">=</span> <span class="mf">100.0</span><span class="o">;</span>
+    <span class="k">return</span> <span class="n">loanAmt</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h3 id="引用类型的传递">引用类型的传递</h3>
+<p>引用类型的数据是按引用传递的，它传递的是该数据的内存地址的引用。什么意思呢？下面的代码中，我通过调用<code class="highlighter-rouge">circle</code>对象的<code class="highlighter-rouge">setX</code>和<code class="highlighter-rouge">setY</code>方法，对它的成员变量<code class="highlighter-rouge">x</code>和<code class="highlighter-rouge">y</code>进行了修改，和值传递不同的是，它的修改是永久的，当方法运行结束，该修改仍然有效。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">moveCircle</span><span class="o">(</span><span class="n">Circle</span> <span class="n">circle</span><span class="o">,</span> <span class="kt">int</span> <span class="n">deltaX</span><span class="o">,</span> <span class="kt">int</span> <span class="n">deltaY</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// code to move origin of circle to x+deltaX, y+deltaY</span>
+    <span class="n">circle</span><span class="o">.</span><span class="na">setX</span><span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">+</span> <span class="n">deltaX</span><span class="o">);</span>
+    <span class="n">circle</span><span class="o">.</span><span class="na">setY</span><span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">getY</span><span class="o">()</span> <span class="o">+</span> <span class="n">deltaY</span><span class="o">);</span>
+        
+    <span class="c1">// code to assign a new reference to circle</span>
+    <span class="n">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
 <h2 id="参考">参考</h2>
-<p><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html">The Java™ Tutorials</a></p>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/arguments.html">The Java™ Tutorials</a></p>
 
 	  ]]></description>
 	</item>
@@ -105,7 +168,7 @@
 	  <title>Java学习笔记(三) - 表达式、语句和块</title>
 	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%9D%97</link>
 	  <author></author>
-	  <pubDate>2018-08-27T00:00:00+08:00</pubDate>
+	  <pubDate>2018-08-28T00:00:00+08:00</pubDate>
 	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%AF%AD%E5%8F%A5%E5%92%8C%E5%9D%97</guid>
 	  <description><![CDATA[
 	     <h2 id="表达式">表达式</h2>
@@ -258,6 +321,96 @@
 
 <h2 id="参考">参考</h2>
 <p><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html">The Java™ Tutorials</a></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Java学习笔记(二) - 原始数据类型</title>
+	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</link>
+	  <author></author>
+	  <pubDate>2018-08-27T00:00:00+08:00</pubDate>
+	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B</guid>
+	  <description><![CDATA[
+	     <h2 id="原始数据类型">原始数据类型</h2>
+<p>Java是静态类型语言，所以变量必须先声明才能使用，并且每个变量都有自己的类型和名称。原始值不与其他原始数据值共享状态，Java语言定义了8种原始数据类型。</p>
+<ul>
+  <li><strong>byte</strong>   字节类型，在内存中占8位，它的值的范围是<code class="highlighter-rouge">-128 ~ 127</code>(包含)，在需要节省内存的情况下，字节类型可用来保存大型数组。</li>
+  <li><strong>short</strong>  类型在内存中占16位，它的值的范围是<code class="highlighter-rouge">-32,768 ~ 32,767 </code>，和<code class="highlighter-rouge">byte</code>类型一样，同样适用于需要节省内存的情况。</li>
+  <li><strong>int</strong> 类型在内存中占32位，它的值的范围是<strong>-2<sup>31</sup> ~ 2<sup>31</sup> -1</strong>。Java8之后可以使用无符号的整数，它的范围是**0 ~ 2<sup>32</sup> **，<code class="highlighter-rouge">Integer</code>中增加了静态方法<code class="highlighter-rouge">compareUnsigned</code>,<code class="highlighter-rouge">divideUnsigned</code>等方法可支持无符号整数运算。</li>
+  <li><strong>long</strong>类型在内存中占64位，它的取值范围是<strong>-2<sup>63</sup> ~ 2<sup>63</sup> -1</strong>，Java8之后也可以使用无符号整数，通过<code class="highlighter-rouge">Long</code>类提供的<code class="highlighter-rouge">compareUnsigned</code>、<code class="highlighter-rouge">divideUnsigned</code>方法支持无符号整数运算。</li>
+  <li><strong>float</strong>为32位单精度浮点类型。</li>
+  <li><strong>dobule</strong>类型为64位双精度浮点类型。</li>
+  <li><strong>boolean</strong>布尔类型，有<code class="highlighter-rouge">true/false</code>两种类型，通常用于条件判断<code class="highlighter-rouge">true</code>表<code class="highlighter-rouge">是</code>,<code class="highlighter-rouge">false</code>表<code class="highlighter-rouge">否</code>。</li>
+  <li><strong>char</strong> 字符类型是单个16位<code class="highlighter-rouge">Unicode</code>字符，它的值范围是<code class="highlighter-rouge">'\u0000'</code>~<code class="highlighter-rouge">'\uffff'</code>。</li>
+</ul>
+
+<h2 id="默认值">默认值</h2>
+<p>类的全局变量声明之后不是必须被分配的。如果全局变量被声明了，但是没有初始化，它会被编译器设置一个默认值，可能是<code class="highlighter-rouge">0</code>或<code class="highlighter-rouge">null</code>，这取决于数据类型，不过，依赖于默认值被认为是一种糟糕的编程风格。下表总结了各种数据类型对应的默认值</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>数据类型</th>
+      <th>默认值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>byte</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>short</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>int</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>long</td>
+      <td>0L</td>
+    </tr>
+    <tr>
+      <td>float</td>
+      <td>0.0f</td>
+    </tr>
+    <tr>
+      <td>double</td>
+      <td>0.0d</td>
+    </tr>
+    <tr>
+      <td>char</td>
+      <td>‘\u0000’</td>
+    </tr>
+    <tr>
+      <td>String(或者 任何对象)</td>
+      <td>null</td>
+    </tr>
+    <tr>
+      <td>boolean</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>对于局部变量则不同，编译器永远不会给局部变量分配默认值，如果你在声明时未对该变量进行初始化，在你使用该变量之前必须对其初始化，否则将导致编译错误。</p>
+
+<h2 id="字面量-literals">字面量-Literals</h2>
+<p>在初始化原始数据类型时不需要<code class="highlighter-rouge">new</code>关键词，因为原始数据类型是语言中内置的数据类型，字面量就是原始数据类型变量的等号右边的，固定的值，可以是字符串或数字。如下所示，<code class="highlighter-rouge">100</code>和<code class="highlighter-rouge">true</code>就是字面量。</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+<span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</code></pre></div></div>
+<p>字面量可以分为：</p>
+<ul>
+  <li><strong>整数字面量</strong></li>
+  <li><strong>浮点数字面量</strong></li>
+  <li><strong>字符串字面量</strong></li>
+</ul>
+
+<h2 id="参考">参考</h2>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html">The Java™ Tutorials</a></p>
 
 	  ]]></description>
 	</item>
