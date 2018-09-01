@@ -5,12 +5,81 @@
    
       <title>meetmax.cn</title>
    
-   <link>http://localhost:4000</link>
+   <link></link>
    <description>Stay Hungry , Stay Foolish</description>
    <language>en-uk</language>
    <managingEditor> </managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
+	<item>
+	  <title>Java学习笔记(五) - 访问控制</title>
+	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%94)-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6</link>
+	  <author></author>
+	  <pubDate>2018-09-01T00:00:00+08:00</pubDate>
+	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%94)-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6</guid>
+	  <description><![CDATA[
+	     <h2 id="访问级别修饰符">访问级别修饰符</h2>
+<p>一个类的成员变量或方法是否能被其它类访问到取决于访问级别的修饰符，Java有四种级别的访问修饰符，分别是<code class="highlighter-rouge">public</code>,<code class="highlighter-rouge">protected</code>,<code class="highlighter-rouge">package-private</code>(没有修饰符)，<code class="highlighter-rouge">private</code>，访问级别逐级降低。</p>
+
+<p>下表表示每个修饰符的访问权限。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modifier</th>
+      <th>Class</th>
+      <th>Package</th>
+      <th>Subclass</th>
+      <th>World</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>public</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>protected</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>no modifier</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>protected</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>N</td>
+      <td>N</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>第一列表示类成员在类的内部是否能被访问，第二列表示类成员在同一个包内的不同类的是否能把访问到，第三列表上类成员在包外部的子类是否能访问到，第四列表示类成员是否能被任意包的任意类访问到，是最高的访问权限。
+在成员不加访问修饰符的情况下，该成员的访问级别是<code class="highlighter-rouge">package-private</code>。</p>
+
+<h2 id="访问级别的选择">访问级别的选择</h2>
+<ul>
+  <li>我们应该尽量选择最严格的访问权限控制符，在能用<code class="highlighter-rouge">private</code>的时候就不要用<code class="highlighter-rouge">public</code>，除非真的有特别的需要，这样可以避免一些滥用成员的错误。</li>
+  <li>尽量避免使用<code class="highlighter-rouge">public</code>修饰符，除非该成员是常量，即使用了<code class="highlighter-rouge">final</code>修饰符。</li>
+</ul>
+
+<h2 id="参考">参考</h2>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html">The Java™ Tutorials</a></p>
+
+	  ]]></description>
+	</item>
+
 	<item>
 	  <title>Java学习笔记(四) - 类</title>
 	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9B%9B)-%E7%B1%BB</link>

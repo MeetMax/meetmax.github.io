@@ -26,7 +26,7 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//page3/" />
+        <link rel="canonical" href="//page3/" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
@@ -34,13 +34,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Finding The Way Home" />
     <meta property="og:description" content="Stay Hungry , Stay Foolish" />
-    <meta property="og:url" content="http://localhost:4000//page3/" />
+    <meta property="og:url" content="//page3/" />
     <meta property="og:image" content="/assets/images/cover1.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Finding The Way Home" />
     <meta name="twitter:description" content="Stay Hungry , Stay Foolish" />
-    <meta name="twitter:url" content="http://localhost:4000//page3/" />
+    <meta name="twitter:url" content="//page3/" />
     <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
 
     <script type="application/ld+json">
@@ -49,7 +49,7 @@
     "@type": "Website",
     "publisher": "Think Different",
     "name": "Finding The Way Home",
-    "url": "http://localhost:4000//page3/",
+    "url": "//page3/",
     "image": "/assets/images/cover1.jpg",
     "description": "Stay Hungry , Stay Foolish"
 }
@@ -129,6 +129,47 @@
     </div>
 
     <!-- This is the post loop - each post will be output using this markup -->
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/UNIX-IPC">Unix进程间通信(IPC)</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>IPC概念: 进程间通信（IPC，Inter-Process Communication），指至少两个进程或线程间传送数据或信号的一些技术或方法。进程是计算机系统分配资源的最小单位(严格说来是线程)。每个进程都有自己的一部分独立的系统资源，彼此是隔离的。为了能使不同的进程互相访问资源并进行协调工作，才有了进程间通信。举一个典型的例子，使用进程间通信的两个应用可以被分类为客户端和服务器（见主从式架构），客户端进程请求数据，服务端回复客户端的数据请求。有一些应用本身既是服务器又是客户端，这在分布式计算中，时常可以见到。这些进程可以运行在同一计算机上或网络连接的不同计算机上。 进程间通信技术包括消息传递、同步、共享内存和远程过程调用。IPC是一种标准的Unix通信机制。 使用IPC 的理由： 信息共享：Web服务器，通过网页浏览器使用进程间通信来共享web文件（网页等）和多媒体； 加速：维基百科使用通过进程间通信进行交流的多服务器来满足用户的请求； 模块化; 私有权分离. 与直接共享内存地址空间的多线程编程相比，IPC的缺点：[1] 采用了某种形式的内核开销，降低了性能; 几乎大部分IPC都不是程序设计的自然扩展，往往会大大地增加程序的复杂度。 一、管道 1、特点： 管道是一种半双工的通信方式(即数据只能单向流动)，也有部分系统上实现了全双工的管道，出于程序可移植性考虑，建议使用半双工管道，全双工的通信可由其它方式实现，例如：消息队列，Unix域套接字。 管道分为两种，无名管道和有名管道。 无名管道： 最早出现的管道是没有名字的，因此只能用于父子进程间通信，父进程通过fork()系统调用创建一个子进程，然后通过管道通信。 有名管道(FIFO): 有名管道也叫FIFO，由于磁盘中存在实际的管道文件，前者没有，所以叫有名管道。FIFO的意思是(first in ,first out)，先进先出。FIFO是一个(单向的)半双工数据流，不同于普通管道的是，每个FIFO都有一个对应文件的路径名与之关联，因此它能完成多个无亲缘关系进程之间的通信。 FIFO和无名管道的数据都存在内核的内存缓冲区中，大小一般为一页(4K)。不同的是，FIFO将内核缓冲区的数据映射到了实际的文件节点，可以在磁盘中看到对应的文件，所以叫有名管道，而无名管道在磁盘中没有对应文件，因此称无名管道。 无名管道通过&lt;unistd.h&gt;头文件中的pipe()创建，有名管道(FIFO)通过&lt;sys/stat.h&gt;中的mkfifo()创建。... <a class="read-more" href="/UNIX-IPC">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+
+                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
+                <!-- author -->
+                <a href='/author/meetmax'>MeetMax</a>
+
+                
+            
+
+            <!-- [[tags prefix=" on "]] -->
+            
+                on
+                
+                    
+                       <a href='/tag/unix'>Unix</a>
+                    
+                
+            
+            <time class="post-date" datetime="2018-02-20">20 Feb 2018</time>
+        </footer>
+    </article>
     
     <article class="post">
         <header class="post-header">

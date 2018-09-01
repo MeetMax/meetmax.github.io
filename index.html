@@ -26,7 +26,7 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//" />
+        <link rel="canonical" href="//" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
@@ -34,13 +34,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Finding The Way Home" />
     <meta property="og:description" content="Stay Hungry , Stay Foolish" />
-    <meta property="og:url" content="http://localhost:4000//" />
+    <meta property="og:url" content="//" />
     <meta property="og:image" content="/assets/images/cover1.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Finding The Way Home" />
     <meta name="twitter:description" content="Stay Hungry , Stay Foolish" />
-    <meta name="twitter:url" content="http://localhost:4000//" />
+    <meta name="twitter:url" content="//" />
     <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
 
     <script type="application/ld+json">
@@ -49,7 +49,7 @@
     "@type": "Website",
     "publisher": "Think Different",
     "name": "Finding The Way Home",
-    "url": "http://localhost:4000//",
+    "url": "//",
     "image": "/assets/images/cover1.jpg",
     "description": "Stay Hungry , Stay Foolish"
 }
@@ -127,6 +127,47 @@
     </div>
 
     <!-- This is the post loop - each post will be output using this markup -->
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%94)-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6">Java学习笔记(五) - 访问控制</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>访问级别修饰符 一个类的成员变量或方法是否能被其它类访问到取决于访问级别的修饰符，Java有四种级别的访问修饰符，分别是public,protected,package-private(没有修饰符)，private，访问级别逐级降低。 下表表示每个修饰符的访问权限。 Modifier Class Package Subclass World public Y Y Y Y protected Y Y Y N no modifier Y Y N N protected Y... <a class="read-more" href="/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%94)-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+
+                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
+                <!-- author -->
+                <a href='/author/meetmax'>MeetMax</a>
+
+                
+            
+
+            <!-- [[tags prefix=" on "]] -->
+            
+                on
+                
+                    
+                       <a href='/tag/java'>Java</a>
+                    
+                
+            
+            <time class="post-date" datetime="2018-09-01">01 Sep 2018</time>
+        </footer>
+    </article>
     
     <article class="post">
         <header class="post-header">
@@ -289,65 +330,6 @@
                 
             
             <time class="post-date" datetime="2018-08-26">26 Aug 2018</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90">IO模型浅析</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>同步阻塞IO
-系统的输入分为两个步骤：
-
-  等待数据报的到来
-  将数据报从内核缓冲区复制到用户应用程序缓冲区
-
-
-同步阻塞IO在以上两个步骤上都是阻塞状态，这时候CPU处于空闲状态，不会分配时间片给用户线程。在实际场景下，同一时刻往往会有多个IO操作，同步阻塞IO不能同时处理多个IO，只能一个一个来，导致CPU资源被浪费。
-
-同步非阻塞IO
-同步非阻塞IO比同步阻塞稍微好点，两者的区别是，在第一步调用recvfrom系统调用的时候，如果数据报还没有准备好会立即返回错误码EAGAIN或EWOULDBLOCK，并且一直轮询调用，直到数据报准备好时，执行第2步，第2步仍然是阻塞执行的，它的问题是会产生大量的系统调用，是很大的开销。
-
-IO多路复用
-多路复用和同步阻塞区别也是在第1步，当用户进程调用了select,poll或者epoll函数时，进程会监听文件描述符，当有数据报到来时，就执行第2步。多路复用在服务端编程中很常用，nginx、redis和nodeJs底层都使用了基于epoll的IO模型。它的优势是。1. 相对多线程而言，多个线程修改数据会产生静态条件，需要加锁处理。2.单线程模型避免了线程间切换的开销，可同时接受多个客户端的IO操作。3.事件驱动，当数据报准备好时才拷贝数据到用户控件，高效利用CPU资源。
-
-异步IO
-上面三种IO模型本质上都是同步的，因为在第2步的时候，数据报从内核缓冲区拷贝到用户进程的操作是阻塞的。异步IO和同步IO区别在于2步，当用户进程调用aio_read操作时就立刻返回，进程可以去做别的事情，1，2步操作都由内核帮你完成。当整个IO操作完成时，内核通过信号或回调函数的方式通知用户进程，这样1，2步都是非阻塞的。
-
- <a class="read-more" href="/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-
-                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/author/meetmax'>MeetMax</a>
-
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/tag/unix'>Unix</a>
-                    
-                
-            
-            <time class="post-date" datetime="2018-07-27">27 Jul 2018</time>
         </footer>
     </article>
     
