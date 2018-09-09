@@ -149,74 +149,74 @@
   <li><strong>实例变量</strong></li>
 </ul>
 
-<p>实例变量本质上是 <strong>一个类的非晶态的全局变量</strong>，注意关键词，<strong>非晶态</strong>和<strong>全局</strong>。为什么叫实例变量呢？因为它的值在类的每个实例都是唯一的，实例就是指对象。下面的例子中，有一个<code class="highlighter-rouge">Box</code>类，定义了一个全局变量<code class="highlighter-rouge">numbers=1</code>，在这里<code class="highlighter-rouge">box1</code>是类<code class="highlighter-rouge">Box</code>的第1个实例，<code class="highlighter-rouge">box2</code>是第2个实例，<code class="highlighter-rouge">numbers</code>变量在这2个实例中是独立的，修改了实例<code class="highlighter-rouge">box1</code>中的变量<code class="highlighter-rouge">numbers</code>不会对<code class="highlighter-rouge">box2</code>实例中的<code class="highlighter-rouge">numbers</code>造成影响。</p>
+<p>实例变量本质上是 <strong>一个类的非晶态的全局变量</strong>，注意关键词，<strong>非晶态</strong>和<strong>全局</strong>。为什么叫实例变量呢？因为它的值在类的每个实例都是唯一的，实例就是指对象。下面的例子中，有一个<code>Box</code>类，定义了一个全局变量<code>numbers=1</code>，在这里<code>box1</code>是类<code>Box</code>的第1个实例，<code>box2</code>是第2个实例，<code>numbers</code>变量在这2个实例中是独立的，修改了实例<code>box1</code>中的变量<code>numbers</code>不会对<code>box2</code>实例中的<code>numbers</code>造成影响。</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span> <span class="o">{</span>
-	<span class="kd">public</span> <span class="kt">int</span> <span class="n">numbers</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-<span class="o">}</span>
+<pre><code class="language-java">class Box {
+	public int numbers = 1;
+}
 
-<span class="n">Box</span> <span class="n">box1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Box</span><span class="o">();</span>
-<span class="n">box1</span><span class="o">.</span><span class="na">numbers</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-<span class="n">Box</span> <span class="n">box2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Box</span><span class="o">();</span> <span class="c1">// box2的numbers属性依然是1</span>
-</code></pre></div></div>
+Box box1 = new Box();
+box1.numbers = 2;
+Box box2 = new Box(); // box2的numbers属性依然是1
+</code></pre>
 
 <ul>
   <li><strong>类变量</strong></li>
 </ul>
 
-<p>类变量指的是<strong>一个类的静态全局变量</strong>，关键词是，<strong>静态</strong>和<strong>全局</strong>。为什么叫类变量呢？因为它是和实例(对象)无关的，不管一个类被实例化多少次，类变量都只有一份。静态变量通过<code class="highlighter-rouge">static</code>关键词来声明，对第1个例子稍作修改，<code class="highlighter-rouge">numbers</code>变成了类变量，<code class="highlighter-rouge">box1</code>调用<code class="highlighter-rouge">getNumbers</code>方法得到的值为1，然后我们把<code class="highlighter-rouge">numbers</code>的值改为了2，<code class="highlighter-rouge">box2</code>调用<code class="highlighter-rouge">getNumbers</code>的值变成了2，结果说明了<code class="highlighter-rouge">类变量</code>只和类有关 。</p>
+<p>类变量指的是<strong>一个类的静态全局变量</strong>，关键词是，<strong>静态</strong>和<strong>全局</strong>。为什么叫类变量呢？因为它是和实例(对象)无关的，不管一个类被实例化多少次，类变量都只有一份。静态变量通过<code>static</code>关键词来声明，对第1个例子稍作修改，<code>numbers</code>变成了类变量，<code>box1</code>调用<code>getNumbers</code>方法得到的值为1，然后我们把<code>numbers</code>的值改为了2，<code>box2</code>调用<code>getNumbers</code>的值变成了2，结果说明了<code>类变量</code>只和类有关 。</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span> <span class="o">{</span>
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">numbers</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<pre><code class="language-java">class Box {
+	public static int numbers = 1;
 	
-	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNumbers</span><span class="o">()</span> <span class="o">{</span>
-		<span class="k">return</span> <span class="n">Box</span><span class="o">.</span><span class="na">numbers</span><span class="o">;</span>
-	<span class="o">}</span>
-<span class="o">}</span>
+	public int getNumbers() {
+		return Box.numbers;
+	}
+}
 
-<span class="n">Box</span> <span class="n">box1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Box</span><span class="o">();</span>
-<span class="n">box1</span><span class="o">.</span><span class="na">getNumbers</span><span class="o">();</span><span class="c1">// 得到的值为1</span>
-<span class="n">Box</span><span class="o">.</span><span class="na">numbers</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="c1">// 修改全局变量</span>
-<span class="n">Box</span> <span class="n">box2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Box</span><span class="o">();</span> 
-<span class="n">box2</span><span class="o">.</span><span class="na">getNumbers</span><span class="o">();</span> <span class="c1">// 得到的值为2</span>
-</code></pre></div></div>
+Box box1 = new Box();
+box1.getNumbers();// 得到的值为1
+Box.numbers = 2; // 修改全局变量
+Box box2 = new Box(); 
+box2.getNumbers(); // 得到的值为2
+</code></pre>
 
 <ul>
   <li><strong>局部变量</strong></li>
 </ul>
 
-<p>Java中的局部变量是指<strong>类的方法内部的变量</strong>，局部变量仅在方法内部可见，在类的外部无法被访问到，通常用于存储一个方法的临时状态，在方法执行完成后，会自动释放掉。如下所示<code class="highlighter-rouge">getNumbers</code>方法中的<code class="highlighter-rouge">numbers</code>就是局部变量。</p>
+<p>Java中的局部变量是指<strong>类的方法内部的变量</strong>，局部变量仅在方法内部可见，在类的外部无法被访问到，通常用于存储一个方法的临时状态，在方法执行完成后，会自动释放掉。如下所示<code>getNumbers</code>方法中的<code>numbers</code>就是局部变量。</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span> <span class="o">{</span>
+<pre><code class="language-java">class Box {
 	
-	<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNumbers</span><span class="o">()</span> <span class="o">{</span>
-		<span class="kt">int</span> <span class="n">numbers</span> <span class="o">=</span> <span class="mi">1</span>
-		<span class="k">return</span> <span class="n">numbers</span><span class="o">;</span>
-	<span class="o">}</span>
-<span class="o">}</span>
+	public int getNumbers() {
+		int numbers = 1
+		return numbers;
+	}
+}
 
-</code></pre></div></div>
+</code></pre>
 
 <ul>
   <li><strong>参数</strong></li>
 </ul>
 
-<p>参数变量是指方法中的参数，它的作用域和局部变量一样，仅在方法内有效，可以接受来自外部的数据。如下所示，<code class="highlighter-rouge">numbers</code>作为<code class="highlighter-rouge">getNumbers</code>方法的参数。</p>
+<p>参数变量是指方法中的参数，它的作用域和局部变量一样，仅在方法内有效，可以接受来自外部的数据。如下所示，<code>numbers</code>作为<code>getNumbers</code>方法的参数。</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Box</span> <span class="o">{</span>
+<pre><code class="language-java">class Box {
 	
-	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getNumbers</span><span class="o">(</span><span class="kt">int</span> <span class="n">numbers</span><span class="o">)</span> <span class="o">{</span>
-		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">);</span>
-	<span class="o">}</span>
-<span class="o">}</span>
+	public void getNumbers(int numbers) {
+		System.out.println(numbers);
+	}
+}
 
-</code></pre></div></div>
+</code></pre>
 
 <h2 id="命名规范">命名规范</h2>
 <ul>
-  <li>变量命名大小写敏感，不限制长度，可以由一系列Unicode的字符和数字组成，用<code class="highlighter-rouge">字母</code>，<code class="highlighter-rouge">$</code>和<code class="highlighter-rouge">_</code>都是被允许的，包括中文，技术上是不限制的，但是Java规范不建议用<code class="highlighter-rouge">$</code>和<code class="highlighter-rouge">_</code>作为开头。</li>
+  <li>变量命名大小写敏感，不限制长度，可以由一系列Unicode的字符和数字组成，用<code>字母</code>，<code>$</code>和<code>_</code>都是被允许的，包括中文，技术上是不限制的，但是Java规范不建议用<code>$</code>和<code>_</code>作为开头。</li>
   <li>命名的尽量只用全称而非简称，写全称的代码可读性和可维护性都更好，好的命名，在很多情况下就是文档本身，另外需要注意，变量的名称不能为Java的关键词和保留字。</li>
-  <li>变量名称涉及多个单词的，第二个单词开始开头字母大写，也就是驼峰命名法，例如<code class="highlighter-rouge">boxNumbers</code>。如果是常量或者不能改变的变量，所有字母都用大写，字母之间用<code class="highlighter-rouge">_</code>隔开，例如<code class="highlighter-rouge">BOX_CONFIG</code>。</li>
+  <li>变量名称涉及多个单词的，第二个单词开始开头字母大写，也就是驼峰命名法，例如<code>boxNumbers</code>。如果是常量或者不能改变的变量，所有字母都用大写，字母之间用<code>_</code>隔开，例如<code>BOX_CONFIG</code>。</li>
 </ul>
 
 <h2 id="参考">参考</h2>

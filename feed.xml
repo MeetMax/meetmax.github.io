@@ -11,7 +11,7 @@
         <title>Java学习笔记(六) - 注解</title>
         
           <description>&lt;h2 id=&quot;一概念&quot;&gt;一、概念&lt;/h2&gt;
-&lt;p&gt;注解是一种形式的元数据，为程序本身提供额外的数据，注解本身对程序没有直接影响，越来越多的框架使用了&lt;strong&gt;注解&lt;/strong&gt;，如&lt;code class=&quot;highlighter-rouge&quot;&gt;Spring Boot&lt;/code&gt;，使用&lt;code class=&quot;highlighter-rouge&quot;&gt;@Autowired&lt;/code&gt;注解，结合反射机制实现依赖注入，还有基于注解自动载入&lt;code class=&quot;highlighter-rouge&quot;&gt;XML&lt;/code&gt;配置。注解有很多用途，包括以下：&lt;/p&gt;
+&lt;p&gt;注解是一种形式的元数据，为程序本身提供额外的数据，注解本身对程序没有直接影响，越来越多的框架使用了&lt;strong&gt;注解&lt;/strong&gt;，如&lt;code&gt;Spring Boot&lt;/code&gt;，使用&lt;code&gt;@Autowired&lt;/code&gt;注解，结合反射机制实现依赖注入，还有基于注解自动载入&lt;code&gt;XML&lt;/code&gt;配置。注解有很多用途，包括以下：&lt;/p&gt;
 
 </description>
         
@@ -27,7 +27,7 @@
         <title>Java学习笔记(五) - 访问控制</title>
         
           <description>&lt;h2 id=&quot;访问级别修饰符&quot;&gt;访问级别修饰符&lt;/h2&gt;
-&lt;p&gt;一个类的成员变量或方法是否能被其它类访问到取决于访问级别的修饰符，Java有四种级别的访问修饰符，分别是&lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;protected&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;package-private&lt;/code&gt;(没有修饰符)，&lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;，访问级别逐级降低。&lt;/p&gt;
+&lt;p&gt;一个类的成员变量或方法是否能被其它类访问到取决于访问级别的修饰符，Java有四种级别的访问修饰符，分别是&lt;code&gt;public&lt;/code&gt;,&lt;code&gt;protected&lt;/code&gt;,&lt;code&gt;package-private&lt;/code&gt;(没有修饰符)，&lt;code&gt;private&lt;/code&gt;，访问级别逐级降低。&lt;/p&gt;
 
 </description>
         
@@ -43,7 +43,7 @@
         <title>Java学习笔记(四) - 类</title>
         
           <description>&lt;h2 id=&quot;声明类&quot;&gt;声明类&lt;/h2&gt;
-&lt;p&gt;Java的类可以通过&lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;关键词，&lt;code class=&quot;highlighter-rouge&quot;&gt;{}&lt;/code&gt;大括号来声明，在&lt;code class=&quot;highlighter-rouge&quot;&gt;{}&lt;/code&gt;大括号中间是类的&lt;code class=&quot;highlighter-rouge&quot;&gt;body&lt;/code&gt;体，在&lt;code class=&quot;highlighter-rouge&quot;&gt;body&lt;/code&gt;体内可声明成员变量、方法和构造函数等等。另外，也可以在&lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;前面加上修饰符&lt;code class=&quot;highlighter-rouge&quot;&gt;private&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt;，修饰符的作用是访问控制，前者说明该类是私有类，其它类不能访问它，后者是公开的，任何类都可以访问它，下面是公开类的声明示例。&lt;/p&gt;
+&lt;p&gt;Java的类可以通过&lt;code&gt;class&lt;/code&gt;关键词，&lt;code&gt;{}&lt;/code&gt;大括号来声明，在&lt;code&gt;{}&lt;/code&gt;大括号中间是类的&lt;code&gt;body&lt;/code&gt;体，在&lt;code&gt;body&lt;/code&gt;体内可声明成员变量、方法和构造函数等等。另外，也可以在&lt;code&gt;class&lt;/code&gt;前面加上修饰符&lt;code&gt;private&lt;/code&gt;或&lt;code&gt;public&lt;/code&gt;，修饰符的作用是访问控制，前者说明该类是私有类，其它类不能访问它，后者是公开的，任何类都可以访问它，下面是公开类的声明示例。&lt;/p&gt;
 
 </description>
         
@@ -77,14 +77,14 @@
           <description>&lt;h2 id=&quot;原始数据类型&quot;&gt;原始数据类型&lt;/h2&gt;
 &lt;p&gt;Java是静态类型语言，所以变量必须先声明才能使用，并且每个变量都有自己的类型和名称。原始值不与其他原始数据值共享状态，Java语言定义了8种原始数据类型。&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;byte&lt;/strong&gt;   字节类型，在内存中占8位，它的值的范围是&lt;code class=&quot;highlighter-rouge&quot;&gt;-128 ~ 127&lt;/code&gt;(包含)，在需要节省内存的情况下，字节类型可用来保存大型数组。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;short&lt;/strong&gt;  类型在内存中占16位，它的值的范围是&lt;code class=&quot;highlighter-rouge&quot;&gt;-32,768 ~ 32,767 &lt;/code&gt;，和&lt;code class=&quot;highlighter-rouge&quot;&gt;byte&lt;/code&gt;类型一样，同样适用于需要节省内存的情况。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;int&lt;/strong&gt; 类型在内存中占32位，它的值的范围是&lt;strong&gt;-2&lt;sup&gt;31&lt;/sup&gt; ~ 2&lt;sup&gt;31&lt;/sup&gt; -1&lt;/strong&gt;。Java8之后可以使用无符号的整数，它的范围是**0 ~ 2&lt;sup&gt;32&lt;/sup&gt; **，&lt;code class=&quot;highlighter-rouge&quot;&gt;Integer&lt;/code&gt;中增加了静态方法&lt;code class=&quot;highlighter-rouge&quot;&gt;compareUnsigned&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;divideUnsigned&lt;/code&gt;等方法可支持无符号整数运算。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;long&lt;/strong&gt;类型在内存中占64位，它的取值范围是&lt;strong&gt;-2&lt;sup&gt;63&lt;/sup&gt; ~ 2&lt;sup&gt;63&lt;/sup&gt; -1&lt;/strong&gt;，Java8之后也可以使用无符号整数，通过&lt;code class=&quot;highlighter-rouge&quot;&gt;Long&lt;/code&gt;类提供的&lt;code class=&quot;highlighter-rouge&quot;&gt;compareUnsigned&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;divideUnsigned&lt;/code&gt;方法支持无符号整数运算。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;byte&lt;/strong&gt;   字节类型，在内存中占8位，它的值的范围是&lt;code&gt;-128 ~ 127&lt;/code&gt;(包含)，在需要节省内存的情况下，字节类型可用来保存大型数组。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;short&lt;/strong&gt;  类型在内存中占16位，它的值的范围是&lt;code&gt;-32,768 ~ 32,767 &lt;/code&gt;，和&lt;code&gt;byte&lt;/code&gt;类型一样，同样适用于需要节省内存的情况。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;int&lt;/strong&gt; 类型在内存中占32位，它的值的范围是&lt;strong&gt;-2&lt;sup&gt;31&lt;/sup&gt; ~ 2&lt;sup&gt;31&lt;/sup&gt; -1&lt;/strong&gt;。Java8之后可以使用无符号的整数，它的范围是**0 ~ 2&lt;sup&gt;32&lt;/sup&gt; **，&lt;code&gt;Integer&lt;/code&gt;中增加了静态方法&lt;code&gt;compareUnsigned&lt;/code&gt;,&lt;code&gt;divideUnsigned&lt;/code&gt;等方法可支持无符号整数运算。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;long&lt;/strong&gt;类型在内存中占64位，它的取值范围是&lt;strong&gt;-2&lt;sup&gt;63&lt;/sup&gt; ~ 2&lt;sup&gt;63&lt;/sup&gt; -1&lt;/strong&gt;，Java8之后也可以使用无符号整数，通过&lt;code&gt;Long&lt;/code&gt;类提供的&lt;code&gt;compareUnsigned&lt;/code&gt;、&lt;code&gt;divideUnsigned&lt;/code&gt;方法支持无符号整数运算。&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;float&lt;/strong&gt;为32位单精度浮点类型。&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;dobule&lt;/strong&gt;类型为64位双精度浮点类型。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;boolean&lt;/strong&gt;布尔类型，有&lt;code class=&quot;highlighter-rouge&quot;&gt;true/false&lt;/code&gt;两种类型，通常用于条件判断&lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;表&lt;code class=&quot;highlighter-rouge&quot;&gt;是&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;表&lt;code class=&quot;highlighter-rouge&quot;&gt;否&lt;/code&gt;。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;char&lt;/strong&gt; 字符类型是单个16位&lt;code class=&quot;highlighter-rouge&quot;&gt;Unicode&lt;/code&gt;字符，它的值范围是&lt;code class=&quot;highlighter-rouge&quot;&gt;'\u0000'&lt;/code&gt;~&lt;code class=&quot;highlighter-rouge&quot;&gt;'\uffff'&lt;/code&gt;。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;boolean&lt;/strong&gt;布尔类型，有&lt;code&gt;true/false&lt;/code&gt;两种类型，通常用于条件判断&lt;code&gt;true&lt;/code&gt;表&lt;code&gt;是&lt;/code&gt;,&lt;code&gt;false&lt;/code&gt;表&lt;code&gt;否&lt;/code&gt;。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;char&lt;/strong&gt; 字符类型是单个16位&lt;code&gt;Unicode&lt;/code&gt;字符，它的值范围是&lt;code&gt;'\u0000'&lt;/code&gt;~&lt;code&gt;'\uffff'&lt;/code&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -136,7 +136,7 @@
       <item>
         <title>浅入浅出MySQL事务</title>
         
-          <description>&lt;p&gt;在开发Web应用时，经常会用到InnoDB事务的特性，在一些涉及到金钱的业务上，事务可以保证资金流水不出错，事务可以分为很多种，有扁平事务、链事务、分布式事务等，这里只讨论最简单，也最常用的扁平事务，我们经常会提到事务的&lt;code class=&quot;highlighter-rouge&quot;&gt;ACID&lt;/code&gt;特性，以下是我对&lt;code class=&quot;highlighter-rouge&quot;&gt;ACID&lt;/code&gt;的理解和总结。&lt;/p&gt;
+          <description>&lt;p&gt;在开发Web应用时，经常会用到InnoDB事务的特性，在一些涉及到金钱的业务上，事务可以保证资金流水不出错，事务可以分为很多种，有扁平事务、链事务、分布式事务等，这里只讨论最简单，也最常用的扁平事务，我们经常会提到事务的&lt;code&gt;ACID&lt;/code&gt;特性，以下是我对&lt;code&gt;ACID&lt;/code&gt;的理解和总结。&lt;/p&gt;
 
 </description>
         
@@ -151,7 +151,7 @@
       <item>
         <title>Git原理和用法</title>
         
-          <description>&lt;p&gt;git是一个分布式版本管理工具，所谓分布式，也就是指每台电脑都是一个版本仓库，虽然git是分布式的，但在实际工作中，一般git还是会有一个集中的服务中心，目前比较主流的&lt;code class=&quot;highlighter-rouge&quot;&gt;GITHUB&lt;/code&gt;和码云就是这样一个角色，当然你也可以搭建git服务器，然后全世界的开发者就可以通过互联网一起协同工作啦。很多小伙伴在工作上都会用到版本管理工具，我相信现在大部分互联网公司都会使用git来做版本管理工具，写这篇文章的目的是因为虽然自己每天都在用，但是仔细想想，对它的原理和执行过程没有一个深入的理解，往往只是停留在会用的阶段，不光是这个，其实很多时候，我们平时在用的一些开源框架或者库的时候，大多数人可能仅仅会用，不会去理解本质和原理是什么？然后那些原理和基础才是最重要的，正所谓要知其然，也要知其所以然，可能这就是高手和普通人的差距吧。Linus有句话叫&lt;code class=&quot;highlighter-rouge&quot;&gt;Read The Fucking Source Code&lt;/code&gt;，这个话虽然简单粗暴，仔细想想却很有道理。&lt;/p&gt;
+          <description>&lt;p&gt;git是一个分布式版本管理工具，所谓分布式，也就是指每台电脑都是一个版本仓库，虽然git是分布式的，但在实际工作中，一般git还是会有一个集中的服务中心，目前比较主流的&lt;code&gt;GITHUB&lt;/code&gt;和码云就是这样一个角色，当然你也可以搭建git服务器，然后全世界的开发者就可以通过互联网一起协同工作啦。很多小伙伴在工作上都会用到版本管理工具，我相信现在大部分互联网公司都会使用git来做版本管理工具，写这篇文章的目的是因为虽然自己每天都在用，但是仔细想想，对它的原理和执行过程没有一个深入的理解，往往只是停留在会用的阶段，不光是这个，其实很多时候，我们平时在用的一些开源框架或者库的时候，大多数人可能仅仅会用，不会去理解本质和原理是什么？然后那些原理和基础才是最重要的，正所谓要知其然，也要知其所以然，可能这就是高手和普通人的差距吧。Linus有句话叫&lt;code&gt;Read The Fucking Source Code&lt;/code&gt;，这个话虽然简单粗暴，仔细想想却很有道理。&lt;/p&gt;
 
 </description>
         
@@ -236,7 +236,7 @@
         
           <description>&lt;p&gt;​	
 ​	
-​	在工作中，经常会碰到一些慢查询，Explain 语句可以帮我们更详细的了解MySQL查询的执行计划，用法也很简单&lt;code class=&quot;highlighter-rouge&quot;&gt;Explain&lt;/code&gt; 后面跟上&lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT&lt;/code&gt;语句即可。执行完之后，会显示一行有多个列的记录，可能很多人和我一样，对&lt;code class=&quot;highlighter-rouge&quot;&gt;EXPLAIN&lt;/code&gt;里面字段的含义，并没有深入的去了解过，处于一知半解的状态，只知道一些最常见的。&lt;/p&gt;
+​	在工作中，经常会碰到一些慢查询，Explain 语句可以帮我们更详细的了解MySQL查询的执行计划，用法也很简单&lt;code&gt;Explain&lt;/code&gt; 后面跟上&lt;code&gt;SELECT&lt;/code&gt;语句即可。执行完之后，会显示一行有多个列的记录，可能很多人和我一样，对&lt;code&gt;EXPLAIN&lt;/code&gt;里面字段的含义，并没有深入的去了解过，处于一知半解的状态，只知道一些最常见的。&lt;/p&gt;
 
 </description>
         
@@ -244,21 +244,6 @@
         <link>
         /MySQL-Explain</link>
         <guid isPermaLink="true">/MySQL-Explain</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>The Businessman &amp; the fisherman</title>
-        
-          <description>&lt;p&gt;An American businessman took a vacation to a small coastal Mexican village on doctor’s orders. Unable to sleep after an urgent phone call from the office the first morning, he walked out to the pier to clear his head. A small boat with just one fisherman had docked, and inside the boat were several large yellowfin tuna. The American complimented the Mexican on the quality of his fish.&lt;/p&gt;
-
-</description>
-        
-        <pubDate>Tue, 12 Aug 2014 18:18:00 +0800</pubDate>
-        <link>
-        /the-businessman-and-fisherman</link>
-        <guid isPermaLink="true">/the-businessman-and-fisherman</guid>
       </item>
       
     

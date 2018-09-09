@@ -152,13 +152,13 @@
 <p>同步阻塞IO在以上两个步骤上都是阻塞状态，这时候CPU处于空闲状态，不会分配时间片给用户线程。在实际场景下，同一时刻往往会有多个IO操作，同步阻塞IO不能同时处理多个IO，只能一个一个来，导致CPU资源被浪费。</p>
 
 <h2 id="同步非阻塞io">同步非阻塞IO</h2>
-<p>同步非阻塞IO比同步阻塞稍微好点，两者的区别是，在第一步调用<code class="highlighter-rouge">recvfrom</code>系统调用的时候，如果数据报还没有准备好会立即返回错误码<code class="highlighter-rouge">EAGAIN</code>或<code class="highlighter-rouge">EWOULDBLOCK</code>，并且一直轮询调用，直到数据报准备好时，执行第2步，第2步仍然是阻塞执行的，它的问题是会产生大量的系统调用，是很大的开销。</p>
+<p>同步非阻塞IO比同步阻塞稍微好点，两者的区别是，在第一步调用<code>recvfrom</code>系统调用的时候，如果数据报还没有准备好会立即返回错误码<code>EAGAIN</code>或<code>EWOULDBLOCK</code>，并且一直轮询调用，直到数据报准备好时，执行第2步，第2步仍然是阻塞执行的，它的问题是会产生大量的系统调用，是很大的开销。</p>
 
 <h2 id="io多路复用">IO多路复用</h2>
-<p>多路复用和同步阻塞区别也是在第1步，当用户进程调用了<code class="highlighter-rouge">select</code>,<code class="highlighter-rouge">poll</code>或者<code class="highlighter-rouge">epoll</code>函数时，进程会监听文件描述符，当有数据报到来时，就执行第2步。多路复用在服务端编程中很常用，nginx、redis和nodeJs底层都使用了基于<code class="highlighter-rouge">epoll</code>的IO模型。它的优势是。<strong>1.</strong> 相对多线程而言，多个线程修改数据会产生静态条件，需要加锁处理。<strong>2.</strong>单线程模型避免了线程间切换的开销，可同时接受多个客户端的IO操作。<strong>3.</strong>事件驱动，当数据报准备好时才拷贝数据到用户控件，高效利用CPU资源。</p>
+<p>多路复用和同步阻塞区别也是在第1步，当用户进程调用了<code>select</code>,<code>poll</code>或者<code>epoll</code>函数时，进程会监听文件描述符，当有数据报到来时，就执行第2步。多路复用在服务端编程中很常用，nginx、redis和nodeJs底层都使用了基于<code>epoll</code>的IO模型。它的优势是。<strong>1.</strong> 相对多线程而言，多个线程修改数据会产生静态条件，需要加锁处理。<strong>2.</strong>单线程模型避免了线程间切换的开销，可同时接受多个客户端的IO操作。<strong>3.</strong>事件驱动，当数据报准备好时才拷贝数据到用户控件，高效利用CPU资源。</p>
 
 <h2 id="异步io">异步IO</h2>
-<p>上面三种IO模型本质上都是同步的，因为在第2步的时候，数据报从内核缓冲区拷贝到用户进程的操作是阻塞的。异步IO和同步IO区别在于2步，当用户进程调用<code class="highlighter-rouge">aio_read</code>操作时就立刻返回，进程可以去做别的事情，1，2步操作都由内核帮你完成。当整个IO操作完成时，内核通过信号或回调函数的方式通知用户进程，这样1，2步都是非阻塞的。</p>
+<p>上面三种IO模型本质上都是同步的，因为在第2步的时候，数据报从内核缓冲区拷贝到用户进程的操作是阻塞的。异步IO和同步IO区别在于2步，当用户进程调用<code>aio_read</code>操作时就立刻返回，进程可以去做别的事情，1，2步操作都由内核帮你完成。当整个IO操作完成时，内核通过信号或回调函数的方式通知用户进程，这样1，2步都是非阻塞的。</p>
 
 
 

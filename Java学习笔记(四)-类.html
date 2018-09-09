@@ -143,44 +143,44 @@
         <section class="post-content">
 
             <h2 id="声明类">声明类</h2>
-<p>Java的类可以通过<code class="highlighter-rouge">class</code>关键词，<code class="highlighter-rouge">{}</code>大括号来声明，在<code class="highlighter-rouge">{}</code>大括号中间是类的<code class="highlighter-rouge">body</code>体，在<code class="highlighter-rouge">body</code>体内可声明成员变量、方法和构造函数等等。另外，也可以在<code class="highlighter-rouge">class</code>前面加上修饰符<code class="highlighter-rouge">private</code>或<code class="highlighter-rouge">public</code>，修饰符的作用是访问控制，前者说明该类是私有类，其它类不能访问它，后者是公开的，任何类都可以访问它，下面是公开类的声明示例。</p>
+<p>Java的类可以通过<code>class</code>关键词，<code>{}</code>大括号来声明，在<code>{}</code>大括号中间是类的<code>body</code>体，在<code>body</code>体内可声明成员变量、方法和构造函数等等。另外，也可以在<code>class</code>前面加上修饰符<code>private</code>或<code>public</code>，修饰符的作用是访问控制，前者说明该类是私有类，其它类不能访问它，后者是公开的，任何类都可以访问它，下面是公开类的声明示例。</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Myclass</span> <span class="o">{</span>
-	<span class="c1">// 这里可以声明成员变量</span>
-	<span class="c1">// 方法、构造函数等</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<pre><code class="language-java">public class Myclass {
+	// 这里可以声明成员变量
+	// 方法、构造函数等
+}
+</code></pre>
 
-<p>上面是一个简单类的声明，类还可通过关键词<code class="highlighter-rouge">extends</code>继承其它类，通过关键词<code class="highlighter-rouge">implements</code>继承多个接口，例如：</p>
+<p>上面是一个简单类的声明，类还可通过关键词<code>extends</code>继承其它类，通过关键词<code>implements</code>继承多个接口，例如：</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MyClass</span> <span class="kd">extends</span> <span class="n">MySuperClass</span> <span class="kd">implements</span> <span class="n">YourInterface</span><span class="o">,</span><span class="n">YourInterface2</span> <span class="o">{</span>
-    <span class="c1">// field, constructor, and</span>
-    <span class="c1">// method declarations</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<pre><code class="language-java">class MyClass extends MySuperClass implements YourInterface,YourInterface2 {
+    // field, constructor, and
+    // method declarations
+}
+</code></pre>
 
 <p>通常，类的声明包含以下几个部分：</p>
 
 <ol>
-  <li>修饰符，例如<code class="highlighter-rouge">public</code>，<code class="highlighter-rouge">private</code>，<code class="highlighter-rouge">protected</code>等。</li>
+  <li>修饰符，例如<code>public</code>，<code>private</code>，<code>protected</code>等。</li>
   <li>类的名称，按照规范，类名首字母大写(非必须)，增加可读性</li>
-  <li>可通过关键词<code class="highlighter-rouge">extends</code>继承<code class="highlighter-rouge">超类</code>，且只能继承一个<code class="highlighter-rouge">超类</code>，Java不支持多继承</li>
-  <li>可通过关键词<code class="highlighter-rouge">implements</code>继承接口，Java接口支持多继承，接口之间用<code class="highlighter-rouge">,</code>逗号分隔。</li>
-  <li>类的<code class="highlighter-rouge">body</code>体，在<code class="highlighter-rouge">{}</code>大括号之间。</li>
+  <li>可通过关键词<code>extends</code>继承<code>超类</code>，且只能继承一个<code>超类</code>，Java不支持多继承</li>
+  <li>可通过关键词<code>implements</code>继承接口，Java接口支持多继承，接口之间用<code>,</code>逗号分隔。</li>
+  <li>类的<code>body</code>体，在<code>{}</code>大括号之间。</li>
 </ol>
 
 <h2 id="声明成员变量">声明成员变量</h2>
-<p>成员变量是指在类的内部，且不在<code class="highlighter-rouge">方法</code><code class="highlighter-rouge">块</code>内，且不是方法的参数，下面是声明成员变量的示例：</p>
+<p>成员变量是指在类的内部，且不在<code>方法</code><code>块</code>内，且不是方法的参数，下面是声明成员变量的示例：</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Myclass</span> <span class="o">{</span>
-	<span class="kd">public</span> <span class="n">String</span> <span class="n">hello</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<pre><code class="language-java">public class Myclass {
+	public String hello;
+}
+</code></pre>
 
-<p>上面的代码中，<code class="highlighter-rouge">hello</code>就是一个公开的，<code class="highlighter-rouge">String</code>类型的成员变量，成员变量一般由以下3部分组成：</p>
+<p>上面的代码中，<code>hello</code>就是一个公开的，<code>String</code>类型的成员变量，成员变量一般由以下3部分组成：</p>
 
 <ol>
-  <li>0或多个修饰符，例如<code class="highlighter-rouge">private</code>或<code class="highlighter-rouge">public</code></li>
+  <li>0或多个修饰符，例如<code>private</code>或<code>public</code></li>
   <li>字段类型</li>
   <li>字段名称</li>
 </ol>
@@ -189,98 +189,98 @@
 
 <p>下面是一个方法声明的例子：</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Myclass</span> <span class="o">{</span>
-	<span class="kd">public</span> <span class="kt">double</span> <span class="nf">calculateAnswer</span><span class="o">(</span><span class="kt">double</span> <span class="n">wingSpan</span><span class="o">,</span> <span class="kt">int</span> <span class="n">numberOfEngines</span><span class="o">,</span><span class="kt">double</span> <span class="n">length</span><span class="o">,</span> <span class="kt">double</span> <span class="n">grossTons</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">//do the calculation here</span>
-	<span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<pre><code class="language-java">
+public class Myclass {
+	public double calculateAnswer(double wingSpan, int numberOfEngines,double length, double grossTons) {
+    //do the calculation here
+	}
+}
+</code></pre>
 <p>方法声明由以下6部分组成:</p>
 <ol>
-  <li>修饰符-例如<code class="highlighter-rouge">public</code>,<code class="highlighter-rouge">private</code></li>
-  <li>返回值的类型，如果没有返回值则声明为<code class="highlighter-rouge">void</code></li>
+  <li>修饰符-例如<code>public</code>,<code>private</code></li>
+  <li>返回值的类型，如果没有返回值则声明为<code>void</code></li>
   <li>方法名</li>
-  <li>方法的参数，在<code class="highlighter-rouge">()</code>内声明，多个参数之间用<code class="highlighter-rouge">,</code>逗号隔开，如果没有参数，就是用空的<code class="highlighter-rouge">()</code></li>
+  <li>方法的参数，在<code>()</code>内声明，多个参数之间用<code>,</code>逗号隔开，如果没有参数，就是用空的<code>()</code></li>
   <li>一个异常列表</li>
-  <li>方法的<code class="highlighter-rouge">body</code>，在<code class="highlighter-rouge">{}</code>之间包含了方法代码和局部变量等。</li>
+  <li>方法的<code>body</code>，在<code>{}</code>之间包含了方法代码和局部变量等。</li>
 </ol>
 
 <h3 id="方法签名">方法签名</h3>
 <p><strong>方法签名</strong> 包括方法名称和参数类型，在上面代码中，它的方法签名是</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">calculateAnswer</span><span class="o">(</span><span class="kt">double</span><span class="o">,</span> <span class="kt">int</span><span class="o">,</span> <span class="kt">double</span><span class="o">,</span> <span class="kt">double</span><span class="o">)</span>
-</code></pre></div></div>
+<pre><code class="language-java">calculateAnswer(double, int, double, double)
+</code></pre>
 
 <h3 id="方法重载">方法重载</h3>
 <p>在同一个类里可以有相同名称的方法，只要它们的方法签名不同，Java编译器可以根据方法签名判断出你要调用的具体方法，例如：</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DataArtist</span> <span class="o">{</span>
-    <span class="o">...</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
-        <span class="o">...</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-        <span class="o">...</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">(</span><span class="kt">double</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span>
-        <span class="o">...</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">draw</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">double</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span>
-        <span class="o">...</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<pre><code class="language-java">public class DataArtist {
+    ...
+    public void draw(String s) {
+        ...
+    }
+    public void draw(int i) {
+        ...
+    }
+    public void draw(double f) {
+        ...
+    }
+    public void draw(int i, double f) {
+        ...
+    }
+}
+</code></pre>
 
-<p>上面代码中有4个名为<code class="highlighter-rouge">draw</code>的方法，在调用的时候，Java编译器可根据参数类型区分出调用的是哪个方法，在同一个类中不能声明具有相同名称、相同的参数数量和相同参数类型的方法，即使他们返回类型不一样，因为Java编译器无法识别出调用的是哪个方法。</p>
+<p>上面代码中有4个名为<code>draw</code>的方法，在调用的时候，Java编译器可根据参数类型区分出调用的是哪个方法，在同一个类中不能声明具有相同名称、相同的参数数量和相同参数类型的方法，即使他们返回类型不一样，因为Java编译器无法识别出调用的是哪个方法。</p>
 
 <h2 id="类的构造函数">类的构造函数</h2>
-<p>每个类都包含构造函数，构造函数在创建对象时被调用，构造函数的声明和方法的声明很像，除了构造函数没有返回值，且函数名必须和类名一样。例如<code class="highlighter-rouge">Bicycle</code>类有一个构造函数</p>
+<p>每个类都包含构造函数，构造函数在创建对象时被调用，构造函数的声明和方法的声明很像，除了构造函数没有返回值，且函数名必须和类名一样。例如<code>Bicycle</code>类有一个构造函数</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nf">Bicycle</span><span class="o">(</span><span class="kt">int</span> <span class="n">startCadence</span><span class="o">,</span> <span class="kt">int</span> <span class="n">startSpeed</span><span class="o">,</span> <span class="kt">int</span> <span class="n">startGear</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">gear</span> <span class="o">=</span> <span class="n">startGear</span><span class="o">;</span>
-    <span class="n">cadence</span> <span class="o">=</span> <span class="n">startCadence</span><span class="o">;</span>
-    <span class="n">speed</span> <span class="o">=</span> <span class="n">startSpeed</span><span class="o">;</span>
-<span class="o">}</span><span class="kd">public</span> <span class="nf">Bicycle</span><span class="o">(</span><span class="kt">int</span> <span class="n">st</span>
-</code></pre></div></div>
+<pre><code class="language-java">public Bicycle(int startCadence, int startSpeed, int startGear) {
+    gear = startGear;
+    cadence = startCadence;
+    speed = startSpeed;
+}public Bicycle(int st
+</code></pre>
 
-<p>可以通过<code class="highlighter-rouge">new</code>操作符创建<code class="highlighter-rouge">Bicycle</code>的对象，并初始化相关的字段。</p>
+<p>可以通过<code>new</code>操作符创建<code>Bicycle</code>的对象，并初始化相关的字段。</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Bicycle</span> <span class="n">myBike</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bicycle</span><span class="o">(</span><span class="mi">30</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">8</span><span class="o">);</span>
-</code></pre></div></div>
+<pre><code class="language-java">Bicycle myBike = new Bicycle(30, 0, 8);
+</code></pre>
 
 <p>和方法重载一样，一个类可以有多个构造函数，只要它们的方法签名不一样。例如，下面是一个无参数的构造函数</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nf">Bicycle</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">gear</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-    <span class="n">cadence</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-    <span class="n">speed</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<pre><code class="language-java">public Bicycle() {
+    gear = 1;
+    cadence = 10;
+    speed = 0;
+}
+</code></pre>
 
 <h2 id="方法中的参数传递">方法中的参数传递</h2>
 <p>在Java中数据分为2种类型即，原始数据类型和引用数据类型，数据在传递给方法时，2种数据类型的传递方式是不同的。</p>
 
 <h3 id="原始数据类型的传递">原始数据类型的传递</h3>
-<p>原始数据类型是按值传递的，它传递的是该数据的值的拷贝，什么意思呢？请看下面的代码，假设我把值<code class="highlighter-rouge">99.00</code>传给<code class="highlighter-rouge">computePayment</code>方法，方法在内部把我传入的值修改变成了100，但是这个修改仅仅在方法内部有效，方法到<code class="highlighter-rouge">return</code>就结束了，在方法外部，我的值还是<code class="highlighter-rouge">99.00</code>。</p>
+<p>原始数据类型是按值传递的，它传递的是该数据的值的拷贝，什么意思呢？请看下面的代码，假设我把值<code>99.00</code>传给<code>computePayment</code>方法，方法在内部把我传入的值修改变成了100，但是这个修改仅仅在方法内部有效，方法到<code>return</code>就结束了，在方法外部，我的值还是<code>99.00</code>。</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">double</span> <span class="nf">computePayment</span><span class="o">(</span><span class="kt">double</span> <span class="n">loanAmt</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kt">double</span> <span class="n">loanAmt</span> <span class="o">=</span> <span class="mf">100.0</span><span class="o">;</span>
-    <span class="k">return</span> <span class="n">loanAmt</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<pre><code class="language-java">public double computePayment(double loanAmt) {
+    double loanAmt = 100.0;
+    return loanAmt;
+}
+</code></pre>
 <h3 id="引用类型的传递">引用类型的传递</h3>
-<p>引用类型的数据是按引用传递的，它传递的是该数据的内存地址的引用。什么意思呢？下面的代码中，我通过调用<code class="highlighter-rouge">circle</code>对象的<code class="highlighter-rouge">setX</code>和<code class="highlighter-rouge">setY</code>方法，对它的成员变量<code class="highlighter-rouge">x</code>和<code class="highlighter-rouge">y</code>进行了修改，和值传递不同的是，它的修改是永久的，当方法运行结束，该修改仍然有效。</p>
+<p>引用类型的数据是按引用传递的，它传递的是该数据的内存地址的引用。什么意思呢？下面的代码中，我通过调用<code>circle</code>对象的<code>setX</code>和<code>setY</code>方法，对它的成员变量<code>x</code>和<code>y</code>进行了修改，和值传递不同的是，它的修改是永久的，当方法运行结束，该修改仍然有效。</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">moveCircle</span><span class="o">(</span><span class="n">Circle</span> <span class="n">circle</span><span class="o">,</span> <span class="kt">int</span> <span class="n">deltaX</span><span class="o">,</span> <span class="kt">int</span> <span class="n">deltaY</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// code to move origin of circle to x+deltaX, y+deltaY</span>
-    <span class="n">circle</span><span class="o">.</span><span class="na">setX</span><span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">getX</span><span class="o">()</span> <span class="o">+</span> <span class="n">deltaX</span><span class="o">);</span>
-    <span class="n">circle</span><span class="o">.</span><span class="na">setY</span><span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">getY</span><span class="o">()</span> <span class="o">+</span> <span class="n">deltaY</span><span class="o">);</span>
+<pre><code class="language-java">public void moveCircle(Circle circle, int deltaX, int deltaY) {
+    // code to move origin of circle to x+deltaX, y+deltaY
+    circle.setX(circle.getX() + deltaX);
+    circle.setY(circle.getY() + deltaY);
         
-    <span class="c1">// code to assign a new reference to circle</span>
-    <span class="n">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div></div>
+    // code to assign a new reference to circle
+    circle = new Circle(0, 0);
+}
+</code></pre>
 
 <h2 id="参考">参考</h2>
 <p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/arguments.html">The Java™ Tutorials</a></p>

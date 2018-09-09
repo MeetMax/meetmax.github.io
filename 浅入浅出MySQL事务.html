@@ -146,7 +146,7 @@
 
         <section class="post-content">
 
-            <p>在开发Web应用时，经常会用到InnoDB事务的特性，在一些涉及到金钱的业务上，事务可以保证资金流水不出错，事务可以分为很多种，有扁平事务、链事务、分布式事务等，这里只讨论最简单，也最常用的扁平事务，我们经常会提到事务的<code class="highlighter-rouge">ACID</code>特性，以下是我对<code class="highlighter-rouge">ACID</code>的理解和总结。</p>
+            <p>在开发Web应用时，经常会用到InnoDB事务的特性，在一些涉及到金钱的业务上，事务可以保证资金流水不出错，事务可以分为很多种，有扁平事务、链事务、分布式事务等，这里只讨论最简单，也最常用的扁平事务，我们经常会提到事务的<code>ACID</code>特性，以下是我对<code>ACID</code>的理解和总结。</p>
 
 <ul>
   <li>原子性</li>
@@ -156,13 +156,13 @@
 </ul>
 
 <h4 id="原子性">原子性</h4>
-<p>原子性指的是对于一系列增删改查的操作，要么全部执行，要么全部不执行，事务可通过<code class="highlighter-rouge">start transaction</code>或者<code class="highlighter-rouge">begin</code>语句显示的开启，<code class="highlighter-rouge">commit</code>用于显示的提交，例如：</p>
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">start</span> <span class="n">transaction</span>
-<span class="k">update</span> <span class="nv">`user`</span> <span class="k">set</span> <span class="n">name</span><span class="o">=</span><span class="s1">'haha'</span> <span class="k">where</span> <span class="n">uid</span><span class="o">=</span><span class="mi">1</span>
-<span class="k">insert</span> <span class="k">into</span> <span class="nv">`user`</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">values</span> <span class="p">(</span><span class="s1">'小马'</span><span class="p">)</span>
-<span class="k">commit</span>
-</code></pre></div></div>
-<p>对于以上两部操作，若成功则都成功，若由于某些原因第二条语句执行出错，则可以执行<code class="highlighter-rouge">rollback</code>语句，这些一般是由程序语言来控制。
+<p>原子性指的是对于一系列增删改查的操作，要么全部执行，要么全部不执行，事务可通过<code>start transaction</code>或者<code>begin</code>语句显示的开启，<code>commit</code>用于显示的提交，例如：</p>
+<pre><code class="language-sql">start transaction
+update `user` set name='haha' where uid=1
+insert into `user` (name) values ('小马')
+commit
+</code></pre>
+<p>对于以上两部操作，若成功则都成功，若由于某些原因第二条语句执行出错，则可以执行<code>rollback</code>语句，这些一般是由程序语言来控制。
 <!-- more --></p>
 <h4 id="一致性">一致性</h4>
 <p>一致性和原子性有很多相似的地方，我的理解是，一致性的特点是依赖于原子性实现的，什么意思呢？比如说A给B汇款1000元，这个状态分为两步即：</p>
@@ -235,25 +235,25 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">START TRANSACTION</code></td>
-      <td><code class="highlighter-rouge">START TRANSACTION</code></td>
+      <td><code>START TRANSACTION</code></td>
+      <td><code>START TRANSACTION</code></td>
     </tr>
     <tr>
       <td> </td>
-      <td><code class="highlighter-rouge">update user set name='小马' where uid=1</code></td>
+      <td><code>update user set name='小马' where uid=1</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">select * from user where uid=1</code></td>
+      <td><code>select * from user where uid=1</code></td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">commit</code></td>
-      <td><code class="highlighter-rouge">rollback</code></td>
+      <td><code>commit</code></td>
+      <td><code>rollback</code></td>
     </tr>
   </tbody>
 </table>
 
-<p>在<code class="highlighter-rouge">Read uncommitted</code>隔离级别下，A事务和B事务同时开启，B事务对uid=1的这行数据做了修改操作，没有提交，但是在事务A里面已经能被读取到，而此时事务B执行了<code class="highlighter-rouge">rollback</code>回滚操作，也就是说A读到的是一行不存在的数据，这种情况被称为<code class="highlighter-rouge">脏读</code>，只有在<code class="highlighter-rouge">未提交读</code>的隔离级别下才会发生这种情况。</p>
+<p>在<code>Read uncommitted</code>隔离级别下，A事务和B事务同时开启，B事务对uid=1的这行数据做了修改操作，没有提交，但是在事务A里面已经能被读取到，而此时事务B执行了<code>rollback</code>回滚操作，也就是说A读到的是一行不存在的数据，这种情况被称为<code>脏读</code>，只有在<code>未提交读</code>的隔离级别下才会发生这种情况。</p>
 
 <ul>
   <li><strong>可重复读</strong></li>
@@ -268,29 +268,29 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">START TRANSACTION</code></td>
-      <td><code class="highlighter-rouge">START TRANSACTION</code></td>
+      <td><code>START TRANSACTION</code></td>
+      <td><code>START TRANSACTION</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">select * from user where uid = 1</code></td>
+      <td><code>select * from user where uid = 1</code></td>
       <td>…</td>
     </tr>
     <tr>
       <td>…</td>
-      <td><code class="highlighter-rouge">update user set name='小马' where uid=1</code></td>
+      <td><code>update user set name='小马' where uid=1</code></td>
     </tr>
     <tr>
       <td>…</td>
-      <td><code class="highlighter-rouge">commit</code></td>
+      <td><code>commit</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">select * from user where uid = 1</code></td>
+      <td><code>select * from user where uid = 1</code></td>
       <td>…</td>
     </tr>
   </tbody>
 </table>
 
-<p>不可重复读指的是在一个事务中，执行两次查询操作，两次结果是不一样的，称为不可重复读，可重复读则相反，同一个事务内，两次读到的数据一致。根据上面的例子，事务A和事务B同时开启，第一次A事务通过<code class="highlighter-rouge">select</code>语句查询uid=1的这行数据，这时候B修改了这行数据并且执行了提交操作，第二次A事务再通过<code class="highlighter-rouge">select</code>语句查询这行数据的时候，读取到的结果就不一样了，所以称为不可重复读，这种情况在<code class="highlighter-rouge">Read committed</code>隔离级别下存在，<code class="highlighter-rouge">Repeatable read</code>级别则实现了可重复读。</p>
+<p>不可重复读指的是在一个事务中，执行两次查询操作，两次结果是不一样的，称为不可重复读，可重复读则相反，同一个事务内，两次读到的数据一致。根据上面的例子，事务A和事务B同时开启，第一次A事务通过<code>select</code>语句查询uid=1的这行数据，这时候B修改了这行数据并且执行了提交操作，第二次A事务再通过<code>select</code>语句查询这行数据的时候，读取到的结果就不一样了，所以称为不可重复读，这种情况在<code>Read committed</code>隔离级别下存在，<code>Repeatable read</code>级别则实现了可重复读。</p>
 
 <ul>
   <li><strong>幻读</strong></li>
@@ -305,29 +305,29 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">START TRANSACTION</code></td>
-      <td><code class="highlighter-rouge">START TRANSACTION</code></td>
+      <td><code>START TRANSACTION</code></td>
+      <td><code>START TRANSACTION</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">select count(*) from user</code></td>
+      <td><code>select count(*) from user</code></td>
       <td>…</td>
     </tr>
     <tr>
       <td>…</td>
-      <td><code class="highlighter-rouge">insert into user (name) values ('mike')</code></td>
+      <td><code>insert into user (name) values ('mike')</code></td>
     </tr>
     <tr>
       <td>…</td>
-      <td><code class="highlighter-rouge">commit</code></td>
+      <td><code>commit</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">select count(*) from user</code></td>
+      <td><code>select count(*) from user</code></td>
       <td>…</td>
     </tr>
   </tbody>
 </table>
 
-<p>幻读和不可重复读有一些相似的地方，不可重复读针对的是修改删除操作，这两种操作可通过对数据行增加一个排它锁来解决，但是<code class="highlighter-rouge">insert</code>操作不一样，你没有办法锁住一条尚未存在的数据，理论上在<code class="highlighter-rouge">Repeatable read</code>隔离级别只解决了不可重复读问题，没有解决幻读问题，RR级别也是innodb默认的隔离级别，值得庆幸的是，innodb的RR级别通过MVCC多版本并发控制，解决了在RR级别下的幻读问题，所以理论上Innodb是完全满足事务的ACID属性的，想详细了解MVCC的同学可自行搜索引擎或者看书，本文由于篇幅的原因，暂不详细展开。</p>
+<p>幻读和不可重复读有一些相似的地方，不可重复读针对的是修改删除操作，这两种操作可通过对数据行增加一个排它锁来解决，但是<code>insert</code>操作不一样，你没有办法锁住一条尚未存在的数据，理论上在<code>Repeatable read</code>隔离级别只解决了不可重复读问题，没有解决幻读问题，RR级别也是innodb默认的隔离级别，值得庆幸的是，innodb的RR级别通过MVCC多版本并发控制，解决了在RR级别下的幻读问题，所以理论上Innodb是完全满足事务的ACID属性的，想详细了解MVCC的同学可自行搜索引擎或者看书，本文由于篇幅的原因，暂不详细展开。</p>
 
 <h3 id="总结">总结</h3>
 <p>理解了上面说的这些概念，就很容易理解事务的隔离级别了，下面是对事务隔离级别的总结：</p>

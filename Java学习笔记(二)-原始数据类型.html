@@ -145,18 +145,18 @@
             <h2 id="原始数据类型">原始数据类型</h2>
 <p>Java是静态类型语言，所以变量必须先声明才能使用，并且每个变量都有自己的类型和名称。原始值不与其他原始数据值共享状态，Java语言定义了8种原始数据类型。</p>
 <ul>
-  <li><strong>byte</strong>   字节类型，在内存中占8位，它的值的范围是<code class="highlighter-rouge">-128 ~ 127</code>(包含)，在需要节省内存的情况下，字节类型可用来保存大型数组。</li>
-  <li><strong>short</strong>  类型在内存中占16位，它的值的范围是<code class="highlighter-rouge">-32,768 ~ 32,767 </code>，和<code class="highlighter-rouge">byte</code>类型一样，同样适用于需要节省内存的情况。</li>
-  <li><strong>int</strong> 类型在内存中占32位，它的值的范围是<strong>-2<sup>31</sup> ~ 2<sup>31</sup> -1</strong>。Java8之后可以使用无符号的整数，它的范围是**0 ~ 2<sup>32</sup> **，<code class="highlighter-rouge">Integer</code>中增加了静态方法<code class="highlighter-rouge">compareUnsigned</code>,<code class="highlighter-rouge">divideUnsigned</code>等方法可支持无符号整数运算。</li>
-  <li><strong>long</strong>类型在内存中占64位，它的取值范围是<strong>-2<sup>63</sup> ~ 2<sup>63</sup> -1</strong>，Java8之后也可以使用无符号整数，通过<code class="highlighter-rouge">Long</code>类提供的<code class="highlighter-rouge">compareUnsigned</code>、<code class="highlighter-rouge">divideUnsigned</code>方法支持无符号整数运算。</li>
+  <li><strong>byte</strong>   字节类型，在内存中占8位，它的值的范围是<code>-128 ~ 127</code>(包含)，在需要节省内存的情况下，字节类型可用来保存大型数组。</li>
+  <li><strong>short</strong>  类型在内存中占16位，它的值的范围是<code>-32,768 ~ 32,767 </code>，和<code>byte</code>类型一样，同样适用于需要节省内存的情况。</li>
+  <li><strong>int</strong> 类型在内存中占32位，它的值的范围是<strong>-2<sup>31</sup> ~ 2<sup>31</sup> -1</strong>。Java8之后可以使用无符号的整数，它的范围是**0 ~ 2<sup>32</sup> **，<code>Integer</code>中增加了静态方法<code>compareUnsigned</code>,<code>divideUnsigned</code>等方法可支持无符号整数运算。</li>
+  <li><strong>long</strong>类型在内存中占64位，它的取值范围是<strong>-2<sup>63</sup> ~ 2<sup>63</sup> -1</strong>，Java8之后也可以使用无符号整数，通过<code>Long</code>类提供的<code>compareUnsigned</code>、<code>divideUnsigned</code>方法支持无符号整数运算。</li>
   <li><strong>float</strong>为32位单精度浮点类型。</li>
   <li><strong>dobule</strong>类型为64位双精度浮点类型。</li>
-  <li><strong>boolean</strong>布尔类型，有<code class="highlighter-rouge">true/false</code>两种类型，通常用于条件判断<code class="highlighter-rouge">true</code>表<code class="highlighter-rouge">是</code>,<code class="highlighter-rouge">false</code>表<code class="highlighter-rouge">否</code>。</li>
-  <li><strong>char</strong> 字符类型是单个16位<code class="highlighter-rouge">Unicode</code>字符，它的值范围是<code class="highlighter-rouge">'\u0000'</code>~<code class="highlighter-rouge">'\uffff'</code>。</li>
+  <li><strong>boolean</strong>布尔类型，有<code>true/false</code>两种类型，通常用于条件判断<code>true</code>表<code>是</code>,<code>false</code>表<code>否</code>。</li>
+  <li><strong>char</strong> 字符类型是单个16位<code>Unicode</code>字符，它的值范围是<code>'\u0000'</code>~<code>'\uffff'</code>。</li>
 </ul>
 
 <h2 id="默认值">默认值</h2>
-<p>类的全局变量声明之后不是必须被分配的。如果全局变量被声明了，但是没有初始化，它会被编译器设置一个默认值，可能是<code class="highlighter-rouge">0</code>或<code class="highlighter-rouge">null</code>，这取决于数据类型，不过，依赖于默认值被认为是一种糟糕的编程风格。下表总结了各种数据类型对应的默认值</p>
+<p>类的全局变量声明之后不是必须被分配的。如果全局变量被声明了，但是没有初始化，它会被编译器设置一个默认值，可能是<code>0</code>或<code>null</code>，这取决于数据类型，不过，依赖于默认值被认为是一种糟糕的编程风格。下表总结了各种数据类型对应的默认值</p>
 
 <table>
   <thead>
@@ -208,10 +208,10 @@
 <p>对于局部变量则不同，编译器永远不会给局部变量分配默认值，如果你在声明时未对该变量进行初始化，在你使用该变量之前必须对其初始化，否则将导致编译错误。</p>
 
 <h2 id="字面量-literals">字面量-Literals</h2>
-<p>在初始化原始数据类型时不需要<code class="highlighter-rouge">new</code>关键词，因为原始数据类型是语言中内置的数据类型，字面量就是原始数据类型变量的等号右边的，固定的值，可以是字符串或数字。如下所示，<code class="highlighter-rouge">100</code>和<code class="highlighter-rouge">true</code>就是字面量。</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
-<span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-</code></pre></div></div>
+<p>在初始化原始数据类型时不需要<code>new</code>关键词，因为原始数据类型是语言中内置的数据类型，字面量就是原始数据类型变量的等号右边的，固定的值，可以是字符串或数字。如下所示，<code>100</code>和<code>true</code>就是字面量。</p>
+<pre><code class="language-java">int a = 100;
+boolean result = true;
+</code></pre>
 <p>字面量可以分为：</p>
 <ul>
   <li><strong>整数字面量</strong></li>
