@@ -1187,6 +1187,10 @@ body.page-template .post-title {
     transform: translateX(-50%);
 }
 
+.post-content{
+    margin-top: 2.2rem
+}
+
 .footnotes {
     font-style: italic;
     font-size: 1.3rem;
