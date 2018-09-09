@@ -134,6 +134,47 @@
     
     <article class="post">
         <header class="post-header">
+            <h2 class="post-title"><a href="/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F">Java学习笔记(一) - 变量</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>变量 Java语言定义了4中类型的变量 实例变量 实例变量本质上是 一个类的非晶态的全局变量，注意关键词，非晶态和全局。为什么叫实例变量呢？因为它的值在类的每个实例都是唯一的，实例就是指对象。下面的例子中，有一个Box类，定义了一个全局变量numbers=1，在这里box1是类Box的第1个实例，box2是第2个实例，numbers变量在这2个实例中是独立的，修改了实例box1中的变量numbers不会对box2实例中的numbers造成影响。 class Box { public int numbers = 1; } Box box1 = new Box(); box1.numbers = 2; Box box2 = new... <a class="read-more" href="/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+
+                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
+                <!-- author -->
+                <a href='/author/meetmax'>MeetMax</a>
+
+                
+            
+
+            <!-- [[tags prefix=" on "]] -->
+            
+                on
+                
+                    
+                       <a href='/tag/java'>Java</a>
+                    
+                
+            
+            <time class="post-date" datetime="2018-08-26">26 Aug 2018</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
             <h2 class="post-title"><a href="/IO%E6%A8%A1%E5%9E%8B%E6%B5%85%E6%9E%90">IO模型浅析</a></h2>
         </header>
         <section class="post-excerpt">
@@ -319,47 +360,6 @@ IO多路复用
                 
             
             <time class="post-date" datetime="2018-03-18">18 Mar 2018</time>
-        </footer>
-    </article>
-    
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90">Redis应用场景浅析</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>String–字符串 redis最能想到的就是使用序列化的字符串缓存，通常为json格式，把一些在mysql中需要大量sql查询操作和计算得到的数据缓存起来，再次访问的时候就可以直接读取数据，可有效降低数据库的压力，例如网站首页的某些排名信息，查询比较复杂，但是对实时性要求没那么高的，可以设置一个定时过期的缓存，这是最简单的缓存应用场景，redis提供了丰富的数据结构，可以用在很多web应用的场景。 Hash–哈希 哈希表是redis中很有用的数据结构，有时候我们需要存储结构话的数据，例如用户的登录信息 uid:1 // 用户uid username:xxx // 用户名 age:18 // 年龄 head:xxx //头像 String模式 按照普通缓存的模式，存储这个结构需要先将其序列化，转换成json字符串，以user-uid为键名，这样做有个问题，假如说现在需要修改head字段，我需要经历如下步骤： 根据键名user-1获取到json字符串 解析json 修改结构体中的head字段 再次序列化成json set key 存储 Hash模式 接下来使用Hash来存储，使用HMSET命令存储所有字段... <a class="read-more" href="/Redis%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%B5%85%E6%9E%90">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-
-                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/author/meetmax'>MeetMax</a>
-
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/tag/nosql'>Nosql</a>
-                    
-                
-            
-            <time class="post-date" datetime="2018-03-16">16 Mar 2018</time>
         </footer>
     </article>
     

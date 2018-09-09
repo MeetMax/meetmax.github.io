@@ -107,7 +107,7 @@
             <h1 class="page-title">Java</h1>
             <h2 class="page-description">
             
-			    A 5-post collection
+			    A 6-post collection
             
             </h2>
         </div>
@@ -123,13 +123,56 @@
         
             <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 1 </span>
+    <span class="page-number"> Page 1 of 2 </span>
+     
+        <a class="older-posts" href="/tag/java/page2/" title="Next Page">Older Posts &raquo;</a>
      
 </nav>
         
     </div>
 
     <!-- This is the post loop - each post will be output using this markup -->
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%85%AD)-%E6%B3%A8%E8%A7%A3">Java学习笔记(六) - 注解</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>一、概念 注解是一种形式的元数据，为程序本身提供额外的数据，注解本身对程序没有直接影响，越来越多的框架使用了注解，如Spring Boot，使用@Autowired注解，结合反射机制实现依赖注入，还有基于注解自动载入XML配置。注解有很多用途，包括以下： 为编译器提供信息 —— 编译器可以根据注解检测出错误或抑制某些警告。 编译时和部署时处理 —— 一些软件工具可根据注解提供的信息生成相关代码，XML文件等等。 运行时处理 —— Spring Boot框架通过@Autowired注解提供的信息，再通过反射实现依赖注入 。 二、注解基础 注解通过@符号告诉编译器这是一个注解，最常见的注解是@Override(重写注解)，它一般应用在子类的方法声明上，用来告诉编译器这是一个重写方法，如果在父类中没有声明与之相同的方法，则无法通过编译。虽然在重写方法时不使用@Override注解仍然可以达到重写的效果，但是使用了该注解可以避免一些不必要的错误，且在编译时就可以检测出来。 @Override void mySuperMethod() { ... } 注解可以包含一些参数，如下的@Author注解，可自定义name和date参数，当注解中只有一个参数时，可以省略参数名称。 @Author( name =... <a class="read-more" href="/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%85%AD)-%E6%B3%A8%E8%A7%A3">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+
+                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
+                <!-- author -->
+                <a href='/author/meetmax'>MeetMax</a>
+
+                
+            
+
+            <!-- [[tags prefix=" on "]] -->
+            
+                on
+                
+                    
+                       <a href='/tag/java'>Java</a>
+                    
+                
+            
+            <time class="post-date" datetime="2018-09-09">09 Sep 2018</time>
+        </footer>
+    </article>
     
     <article class="post">
         <header class="post-header">
@@ -295,53 +338,14 @@
         </footer>
     </article>
     
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F">Java学习笔记(一) - 变量</a></h2>
-        </header>
-        <section class="post-excerpt">
-            <p>变量 Java语言定义了4中类型的变量 实例变量 实例变量本质上是 一个类的非晶态的全局变量，注意关键词，非晶态和全局。为什么叫实例变量呢？因为它的值在类的每个实例都是唯一的，实例就是指对象。下面的例子中，有一个Box类，定义了一个全局变量numbers=1，在这里box1是类Box的第1个实例，box2是第2个实例，numbers变量在这2个实例中是独立的，修改了实例box1中的变量numbers不会对box2实例中的numbers造成影响。 class Box { public int numbers = 1; } Box box1 = new Box(); box1.numbers = 2; Box box2 = new... <a class="read-more" href="/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)-%E5%8F%98%E9%87%8F">&raquo;</a></p>
-        </section>
-        <footer class="post-meta">
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-            
-                
-
-                <img class="author-thumb" src="/assets/images/martin.jpg" alt="Author image" nopin="nopin" />
-                <!-- author -->
-                <a href='/author/meetmax'>MeetMax</a>
-
-                
-            
-
-            <!-- [[tags prefix=" on "]] -->
-            
-                on
-                
-                    
-                       <a href='/tag/java'>Java</a>
-                    
-                
-            
-            <time class="post-date" datetime="2018-08-26">26 Aug 2018</time>
-        </footer>
-    </article>
-    
 
     <!-- Previous/next page links - displayed on every page -->
     
         <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 1 </span>
+    <span class="page-number"> Page 1 of 2 </span>
+     
+        <a class="older-posts" href="/tag/java/page2/" title="Next Page">Older Posts &raquo;</a>
      
 </nav>
     

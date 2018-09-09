@@ -8,6 +8,22 @@
     
       
       <item>
+        <title>Java学习笔记(六) - 注解</title>
+        
+          <description>&lt;h2 id=&quot;一概念&quot;&gt;一、概念&lt;/h2&gt;
+&lt;p&gt;注解是一种形式的元数据，为程序本身提供额外的数据，注解本身对程序没有直接影响，越来越多的框架使用了&lt;strong&gt;注解&lt;/strong&gt;，如&lt;code class=&quot;highlighter-rouge&quot;&gt;Spring Boot&lt;/code&gt;，使用&lt;code class=&quot;highlighter-rouge&quot;&gt;@Autowired&lt;/code&gt;注解，结合反射机制实现依赖注入，还有基于注解自动载入&lt;code class=&quot;highlighter-rouge&quot;&gt;XML&lt;/code&gt;配置。注解有很多用途，包括以下：&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sun, 09 Sep 2018 00:00:00 +0800</pubDate>
+        <link>
+        /Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%85%AD)-%E6%B3%A8%E8%A7%A3</link>
+        <guid isPermaLink="true">/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%85%AD)-%E6%B3%A8%E8%A7%A3</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Java学习笔记(五) - 访问控制</title>
         
           <description>&lt;h2 id=&quot;访问级别修饰符&quot;&gt;访问级别修饰符&lt;/h2&gt;
