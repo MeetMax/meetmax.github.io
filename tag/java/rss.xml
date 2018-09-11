@@ -12,6 +12,174 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Java学习笔记(七) - 接口</title>
+	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%83)-%E6%8E%A5%E5%8F%A3</link>
+	  <author></author>
+	  <pubDate>2018-09-11T00:00:00+08:00</pubDate>
+	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%83)-%E6%8E%A5%E5%8F%A3</guid>
+	  <description><![CDATA[
+	     <h2 id="一-接口">一. 接口</h2>
+<h3 id="1-概念">1. 概念</h3>
+<p>广义上的接口指的是一种标准，一种约定，只要遵守这个约定，大家就可以协作实现特定的功能。比如非常流行的<code>USB接口</code>，几乎所有电脑厂商都使用了这个标准，U盘厂商只要按着这个标准做，就可以和电脑实现数据传输，同理，鼠标厂商只要实现了<code>USB接口</code>，鼠标就可以连接到电脑。<br />
+  Java的接口的概念也类似，首先声明一个接口，使用<code>Interface</code>关键词，在接口<code>{}</code>体内可以声明抽象的方法，接着任何类都可以通过<code>implements</code>实现它，前提是这个类必须实现接口内定义的方法。</p>
+
+<h3 id="2-定义接口">2. 定义接口</h3>
+<p>一个接口的声明由<strong>修饰符</strong>，<strong>interface关键词</strong>，<strong>接口名称</strong>，<strong>父级接口(用逗号分隔)</strong>，<strong>大括号{}</strong>。例如：</p>
+
+<pre><code class="language-java">public interface GroupedInterface extends Interface1, Interface2, Interface3 {
+    // constant declarations
+    // base of natural logarithms
+    double E = 2.718282;
+ 
+    // method signatures
+    void doSomething (int i, double x);
+    int doSomethingElse(String s);
+}// constant declarations    
+</code></pre>
+
+<p>需要注意的是接口声明不能使用<code>private</code>和<code>protected</code>关键词，这点和类的声明不同，<code>public</code>关键词可以在任何<em>包</em>内使用，也可以使用默认的，即不使用修饰符，它的使用范围是在同一个包内，即<em>包私有</em>。<br />
+  接口体中可以包含<em>抽象方法</em>，<em>默认方法</em>和<em>静态方法</em>。接口中声明的所有方法包括(抽象方法，默认方法和静态方法)都是隐式的<code>public</code>关键词，而且只能是<code>public</code>类型，所以声明方法的时候可以省略<code>public</code>修饰符。<br />
+  另外，接口中可以声明常量，在接口中声明常量，默认都是<code>public</code>,<code>static</code>和<code>final</code>，同样的，可以省略这些关键词。</p>
+
+<h3 id="3-实现接口">3. 实现接口</h3>
+<p>声明一个实现接口的类，需要在类声明中包含一个<code>implements</code>关键词，一个类可以实现多个接口，接口之间通过<code>,</code>逗号隔开，<code>implements</code>关键词跟在<code>extends</code>子句之后。下面是<code>Relatable</code>接口的声明：</p>
+
+<pre><code class="language-java">public interface Relatable {   
+   // this (object calling isLargerThan)
+   // and other must be instances of 
+   // the same class returns 1, 0, -1 
+   // if this is greater than, 
+   // equal to, or less than other
+   public int isLargerThan(Relatable other);
+}
+</code></pre>
+
+<p>如果一个类要实现<code>Relatable</code>接口，必须实现<code>isLargerThan</code>方法，在例子中省略了方法具体的过程，如下：</p>
+
+<pre><code class="language-java">public class RectanglePlus implements Relatable {
+    // a method required to implement
+    // the Relatable interface
+    public int isLargerThan() {
+		return 0;
+    }
+}
+</code></pre>
+
+<p>另外，也可以把接口作为类型使用，只要实现了<code>Relatable</code>接口的类的实例都是<code>Relatable</code>类型，且可以调用接口方法<code>isLargerThan</code></p>
+
+<pre><code class="language-java">Relatable rectanglePlus = new RectanglePlus();
+int number = rectanglePlus.isLargerThan();
+</code></pre>
+
+<h3 id="4-接口使用技巧">4. 接口使用技巧</h3>
+<p>现在有一个定义好的接口，其中有两个抽象方法，如下：</p>
+
+<pre><code class="language-java">public interface DoIt {
+   void doSomething(int i, double x);
+   int doSomethingElse(String s);
+}
+</code></pre>
+
+<p>假设再过了一段时间，我们又想加一个方法<code>didItWork</code>,那么接口可以改成如下：</p>
+
+<pre><code class="language-java">public interface DoIt {
+
+   void doSomething(int i, double x);
+   int doSomethingElse(String s);
+   boolean didItWork(int i, double x, String s);
+   
+}
+</code></pre>
+
+<p>如果这样改变，那么实现了这个接口所有类都必须同时实现<code>didItWork</code>，需要对所有实现了<code>DoIt</code>接口的类进行修改，这样会带来很多不必要的错误。<br />
+  在定义接口时尽量想的周全一些，保证在未来很长一段时间内不需要修改接口。如果遇到一些意料之外的情况，比如需求变更，必须要在原有接口上增加方法，你可以选择扩展<code>DoIt</code>接口，重新定义一个接口<code>DoItPlus</code>，把需要添加的方法加到<code>DoItPlus</code>接口内，且<code>DoItPlus</code>继承<code>DoIt</code>，如下：</p>
+
+<pre><code class="language-java">public interface DoItPlus extends DoIt {
+
+   boolean didItWork(int i, double x, String s);
+   
+}
+</code></pre>
+
+<p>这样做有个很明显的好处，老接口仍然可以照常使用，不需要修改实现了<code>DoIt</code>的类，想使用新接口的类可以升级到<code>DoItPlus</code>接口，只需要修改部分类即可。
+  另外，接口中也可以使用<em>默认方法</em>和<em>静态方法</em>，它们的特点是不需要在实现类中重新实现他们，要注意的是<em>默认方法</em>和<em>静态方法</em>都不能是抽象方法，必须是具体实现的方法，<em>默认方法</em>可以在子类中直接使用，下面定义了<code>didItWork</code>的默认方法。</p>
+
+<pre><code class="language-java">public interface DoIt {
+   void doSomething(int i, double x);
+   int doSomethingElse(String s);
+   default boolean didItWork(int i, double x, String s) {
+       // Method body 
+   }
+   
+}
+</code></pre>
+
+<h3 id="5-默认方法和静态方法">5. 默认方法和静态方法</h3>
+<h4 id="默认方法">默认方法</h4>
+<p>根据上面的例子我们知道，<em>默认方法</em>可以在不修改实现类的情况下，实现对现有接口的扩展，<em>默认方法</em>是以关键词<code>default</code>作为方法前面的开头，<em>默认方法</em>是隐式的<code>public</code>修饰符，所以可以省略<code>public</code>关键词，默认方法可以直接被实现类的实例使用，如下所示声明了<code>TimeClient</code>接口，其中包含默认方法<code>getZonedDateTime</code></p>
+
+<pre><code class="language-java">package defaultmethods;
+ 
+import java.time.*;
+
+public interface TimeClient {
+    void setTime(int hour, int minute, int second);
+    void setDate(int day, int month, int year);
+    void setDateAndTime(int day, int month, int year,
+                               int hour, int minute, int second);
+    LocalDateTime getLocalDateTime();
+    
+    static ZoneId getZoneId (String zoneString) {
+        try {
+            return ZoneId.of(zoneString);
+        } catch (DateTimeException e) {
+            System.err.println("Invalid time zone: " + zoneString +
+                "; using default time zone instead.");
+            return ZoneId.systemDefault();
+        }
+    }
+        
+    default ZonedDateTime getZonedDateTime(String zoneString) {
+        return ZonedDateTime.of(getLocalDateTime(), getZoneId(zoneString));
+    }
+}
+</code></pre>
+
+<p>类<code>SimpleTimeClient</code>实现了<code>TimeClient</code>接口，使用实现类的实例调用默认方法：</p>
+
+<pre><code class="language-java">package defaultmethods;
+ import java.time.*;
+import java.lang.*;
+import java.util.*;
+
+public class TestSimpleTimeClient {
+    public static void main(String... args) {
+        TimeClient myTimeClient = new SimpleTimeClient();
+        System.out.println("Current time: " + myTimeClient.toString());
+        System.out.println("Time in California: " +
+            myTimeClient.getZonedDateTime("Blah blah").toString());
+    }
+}
+</code></pre>
+
+<p>当你在扩展包含<em>默认方法</em>的接口时，你可以做如下选择：</p>
+
+<ul>
+  <li>不涉及默认方法，扩展接口将继承父级接口的默认方法。</li>
+  <li>重新定义默认方法，使它变成抽象方法。</li>
+  <li>重新定义该默认方法，也就是重写它。</li>
+</ul>
+
+<h4 id="静态方法">静态方法</h4>
+<p>除了默认方法，你也可以在接口中定义静态方法。一个静态方法是和类关联的，它不与任何对象关联，该类的每个实例都共享其静态方法，它很适用于在库中作为辅助方法，可以在接口中定义针对接口的静态方法，不需要针对单独的类去定义方法。上面的例子中定义了<code>getZoneId</code>静态方法，以<code>static</code>关键词开头的方法签名，隐式的<code>public</code>修饰符，因此可以省略<code>public</code>关键词。</p>
+
+<h2 id="参考">参考</h2>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html">The Java™ Tutorials</a></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Java学习笔记(六) - 注解</title>
 	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%85%AD)-%E6%B3%A8%E8%A7%A3</link>
 	  <author></author>
