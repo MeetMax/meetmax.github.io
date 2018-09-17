@@ -12,6 +12,173 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Java学习笔记(八) - 继承</title>
+	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%85%AB)-%E7%BB%A7%E6%89%BF</link>
+	  <author></author>
+	  <pubDate>2018-09-11T00:00:00+08:00</pubDate>
+	  <guid>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%85%AB)-%E7%BB%A7%E6%89%BF</guid>
+	  <description><![CDATA[
+	     <h2 id="一概念">一、概念</h2>
+<p>一个类派生字另一个类被称为子类，派生的类称为超类，也称为基础类或父类。在Java中，<code>Object</code>是最高等级的类，所有类都是它的子类，除了<code>Object</code>类没有父类，每个类都有一个且仅有一个直接的父类，Java仅支持单继承，在没有任何显式的超类的情况下，每个类都是<code>Object</code>的隐式的子类。子类继承父类的索引成员(字段，方法和嵌套类等)，构造方法不是成员，因此没有被子类继承，但是父类的构造方法能够在子类中调用，通过<code>super</code>关键词。<br />
+下面声明一个<code>Bicycle</code>的类</p>
+
+<pre><code class="language-java">public class Bicycle {
+        
+    // the Bicycle class has three fields
+    public int cadence;
+    public int gear;
+    public int speed;
+        
+    // the Bicycle class has one constructor
+    public Bicycle(int startCadence, int startSpeed, int startGear) {
+        gear = startGear;
+        cadence = startCadence;
+        speed = startSpeed;
+    }
+        
+    // the Bicycle class has four methods
+    public void setCadence(int newValue) {
+        cadence = newValue;
+    }   
+    public void setGear(int newValue) {
+        gear = newValue;
+    }
+        
+    public void applyBrake(int decrement) {
+        speed -= decrement;
+    }
+        
+    public void speedUp(int increment) {
+        speed += increment;
+    }
+        
+}
+</code></pre>
+<p>声明<code>MountainBike</code>类继承<code>Bicycle</code>类：</p>
+<pre><code class="language-java">public class MountainBike extends Bicycle {
+        
+    // the MountainBike subclass adds one field
+    public int seatHeight;
+
+    // the MountainBike subclass has one constructor
+    public MountainBike(int startHeight,
+                        int startCadence,
+                        int startSpeed,
+                        int startGear) {
+        super(startCadence, startSpeed, startGear);
+        seatHeight = startHeight;
+    }   
+        
+    // the MountainBike subclass adds one method
+    public void setHeight(int newValue) {
+        seatHeight = newValue;
+    }   
+}
+</code></pre>
+
+<p><code>MountainBike</code>类将继承<code>Bicycle</code>的所有字段和方法，构造函数不继承，在子类中可以通过<code>super</code>关键词调用。</p>
+
+<h2 id="二子类可以做什么">二、子类可以做什么？</h2>
+<p>一个子类将继承它的父类的所有<code>public</code>和<code>protected</code>方法，无论这个子类在哪个包，如果子类和父类在同一个包，它也将继承所有<code>package-private</code>的成员，此外，子类还满足以下规则：</p>
+
+<ul>
+  <li>继承的字段可以直接被使用</li>
+  <li>在子类中可以声明一个和父类相同名称的字段，此时父类的字段不会被覆盖，而是被隐藏，如果在子类中要访问父类的同名字段，需要借助<code>super</code>关键词。</li>
+  <li>你可以声明新的字段在子类中，改字段不会存在于父类中。</li>
+  <li>继承的方法能被直接使用</li>
+  <li>你可以在子类中声明一个<code>实例方法</code>，它和父类中的其中一个实例方法具有相同的方法签名，注意是实例方法，不是静态方法，此时，父类的该方法将被重写，且也能通过<code>super</code>关键词被访问到。</li>
+  <li>你可以在子类声明一个静态方法，它和父类中的一个方法具有相同的方法前面，此时，父类的该方法不会被覆盖掉，只是被隐藏了，在子类中想要访问父类的该方法，可通过<code>super</code>关键词调用。</li>
+  <li>你可以在子类中声明新的方法，它不在父类中。</li>
+  <li>你可以再子类中写一个构造函数，它可以隐式的或者显示的调用父类中的构造函数，使用<code>super</code>关键词。</li>
+</ul>
+
+<h2 id="三对象转换">三、对象转换</h2>
+<p>每个对象都有对应的类型，假如声明一个<code>MountainBike</code>的对象<code>mBike</code>，那么该对象就是<code>MountainBike</code>类型，如下：</p>
+
+<pre><code class="language-java">MountainBike mBike = new MountainBike();
+</code></pre>
+
+<p>由于<code>MountainBike</code>继承自<code>Bicycle</code>类，因此它也可以是<code>Bicycle</code>类型，如下：</p>
+
+<pre><code class="language-java">Bicycle mBike = new MountainBike();
+</code></pre>
+
+<p>一个对象可以被转换成它集成的类或者实现的接口类型，例如任何类都可以转换成<code>Object</code>类型，如下：</p>
+
+<pre><code class="language-java">Object obj = new MountainBike();
+</code></pre>
+
+<p>如果我们写成 <code>MountainBike mBike = obj</code>将会编译错误，因为编译器不知道<code>obj</code>是<code>MountainBike</code>类型的，然而，我们可以告诉编译器，将<code>obj</code>显式转换成<code>MountainBike</code>类型，如下：</p>
+
+<pre><code class="language-java">MountainBike myBike = (MountainBike)obj;
+</code></pre>
+
+<p>这时候编译器会做运行时检查，如果编译器确定<code>obj</code>被赋予了<code>MountainBike</code>类型的值，则编译通过。</p>
+
+<h2 id="四重写和隐藏方法">四、重写和隐藏方法</h2>
+<h3 id="1-实例方法">1. 实例方法</h3>
+<p>如果在子类中声明一个在父类中已存在的实例方法，即它们的方法签名相同，此时，子类的方法将重写父类的方法。在重写方法时 ，你可以使用<code>@Overriding</code>注解，它的好处是，如果父类不存在该方法，编译器会报错，可以避免一些人为的错误。</p>
+<h3 id="2静态方法">2.静态方法</h3>
+<p>如果在子类中声明一个父类中已存在的静态方法，那么父类中的方法将被隐藏。在子类中需要通过<code>super</code>关键词访问父类的静态方法。</p>
+<h3 id="3接口方法">3.接口方法</h3>
+<p>在接口中的默认方法和抽象方法和实例方法一样都能被继承，然而，当父类或者接口中有多个拥有相同方法签名的方法时，Java编译器遵循继承规则解决名称冲突，这些规则遵循以下两条原则：</p>
+
+<ul>
+  <li>实例方法的优先级高于接口的默认方法</li>
+  <li>已经被其它候选项重写的方法将被忽略，这种情况通常发生在，子类实现的多个接口拥有共同的父级接口时发生，请看下面的例子：</li>
+</ul>
+
+<pre><code class="language-java">public interface Animal {
+    default public String identifyMyself() {
+        return "I am an animal.";
+    }
+}
+public interface EggLayer extends Animal {
+    default public String identifyMyself() {
+        return "I am able to lay eggs.";
+    }
+}
+public interface FireBreather extends Animal { }
+public class Dragon implements EggLayer, FireBreather {
+    public static void main (String... args) {
+        Dragon myApp = new Dragon();
+        System.out.println(myApp.identifyMyself());
+    }
+}
+
+The method Dragon.identifyMyself returns the string I am able to lay eggs.
+</code></pre>
+<h3 id="4-汇总">4. 汇总</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>父类实例方法</th>
+      <th>父类静态方法</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>子类实例方法</td>
+      <td>重写</td>
+      <td>生成编译器错误</td>
+    </tr>
+    <tr>
+      <td>子类静态方法</td>
+      <td>生成编译器错误</td>
+      <td>隐藏</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="五参考">五、参考</h2>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html">The Java™ Tutorials</a></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Java学习笔记(七) - 接口</title>
 	  <link>//Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%83)-%E6%8E%A5%E5%8F%A3</link>
 	  <author></author>
@@ -1177,62 +1344,6 @@ commit
   <li><a href="https://book.douban.com/subject/5373022/"><em>《MySQL技术内幕：InnoDB存储引擎》</em></a></li>
   <li><a href="https://tech.meituan.com/innodb-lock.html"><em>Innodb中的事务隔离级别和锁的关系</em></a></li>
 </ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Git原理和用法</title>
-	  <link>//Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</link>
-	  <author></author>
-	  <pubDate>2018-03-23T00:00:00+08:00</pubDate>
-	  <guid>//Git%E5%8E%9F%E7%90%86%E5%92%8C%E7%94%A8%E6%B3%95</guid>
-	  <description><![CDATA[
-	     <p>git是一个分布式版本管理工具，所谓分布式，也就是指每台电脑都是一个版本仓库，虽然git是分布式的，但在实际工作中，一般git还是会有一个集中的服务中心，目前比较主流的<code>GITHUB</code>和码云就是这样一个角色，当然你也可以搭建git服务器，然后全世界的开发者就可以通过互联网一起协同工作啦。很多小伙伴在工作上都会用到版本管理工具，我相信现在大部分互联网公司都会使用git来做版本管理工具，写这篇文章的目的是因为虽然自己每天都在用，但是仔细想想，对它的原理和执行过程没有一个深入的理解，往往只是停留在会用的阶段，不光是这个，其实很多时候，我们平时在用的一些开源框架或者库的时候，大多数人可能仅仅会用，不会去理解本质和原理是什么？然后那些原理和基础才是最重要的，正所谓要知其然，也要知其所以然，可能这就是高手和普通人的差距吧。Linus有句话叫<code>Read The Fucking Source Code</code>，这个话虽然简单粗暴，仔细想想却很有道理。</p>
-
-<h3 id="工作原理">工作原理</h3>
-<p><code>Git</code>整体可以分为三部分：工作区、暂存区和分支，在我们的git工作目录下，有一个<code>.git</code>文件，这个文件就是我们常说的版本库，要注意的是<code>Git</code>是通过快照的方式保存版本的，和传统版本管理工具不同，git不保存不同版本之间的差异，只以快照的方式保存修改后的文件，如果文件没有被修改，git就不会保存，这也是git比传统工具更高效的原因，但也有一个缺点，由于每次保存的都是快照，相当于把修改后的文件复制一份保存起来，这难免会造成空间浪费，因此版本提交多了之后，<code>.git</code>文件会变得很大。</p>
-
-<p><img src="https://img.ydlcdn.com/file/2018/03/27/a4h7idphq8q4kjhy.jpg" alt="enter image description here" /></p>
-
-<p><strong>工作区</strong>
-工作区就是我们工作的文件夹目录
-<strong>暂存区</strong>
-Git和其它版本管理工具一个不同之处就在于，git有一个暂存区，当我们执行<code>git add</code>命令的时候，我们实际上就是把修改后的文件放入到这个暂存区，而不是直接发布版本
-<strong>分支</strong>
-分支区域存放的是我们发布的各个版本，每次执行<code>git commit</code>操作时，git会生成一个hash值作为版本号，然后把暂存区的文件放入分支区域，也就是发布了一个版本，因为一个代码仓库一般会有好几个分支，所以这个提交的分支仅仅指向你当前正在使用的那个。换句话说，暂存区就是为版本发布做准备的，提交之后暂存区的就被清空了。</p>
-
-<pre><code class="language-bash">$ git add // 添加修改后的文件到暂存区
-$ git commit // 提交文件到分支
-$ git status // 查看当前文件状态
-</code></pre>
-
-<p>我们可以通过<code>git status</code>命令来查看文件修改的状态，这个状态只的是目前工作区的文件以及暂存区的文件，和当前本地的分支库文件之间的差异，如果修改了<code>readme.md</code>文件，git就会在执行这条命令后展示出所有被修改过但是没有正式提交的文件。</p>
-
-<pre><code class="language-bash">$ git branch dev // 新建dev分支
-$ git branch -d dev // 删除dev分支
-$ git checkout -b dev // 切换并新创建一个dev分支
-$ git merge dev // 合并当前分支到dev分支
-</code></pre>
-
-<h3 id="版本回退">版本回退</h3>
-<pre><code class="language-bash">$ git log // 从近到远查看提交日志
-$ git reset --hard HEAD^ // 回退到上一个版本，^^两个箭头就表示上上个版本，依次类推
-$ git reset --hard 3628164 // 回退到指定版本号
-$ git reflog // 查看最近几次提交记录的版本号
-</code></pre>
-<p>在某些情况下，比如说因为某些原因，我从2.0版本回退到了1.0版本，这个操作可以通过<code>git reset --hard HEAD^</code>命令实现，但是这时我又想回到2.0版本怎么办呢？这时候去查看<code>git log</code>命令，发现最新的版本是<code>1.0</code>，<code>git log</code>查看的是提交历史，似乎是没有什么办法回到2.0版本了。答案是 <code>git reflog</code>命令，该命令可以查看命令历史，可以通过找到2.0的版本号，再通过<code>git reset --hard </code>回到2.0版本。</p>
-
-<h3 id="撤销修改">撤销修改</h3>
-<pre><code class="language-bash">$ git checkout -- readme.txt // 把readme.txt在工作区的修改全部撤销
-$ git reset HEAD readme.txt // 把readme.txt暂存区的修改撤销，重新放回工作区 
-</code></pre>
-<p>修改文件的时候，突然发现文件修改错了，但是这时候已经修改了很多，无法手动恢复，趁还没有<code>git add</code>的时候把它恢复，可以执行<code>git checkout -- filename</code>命令。如果当你发现的时候已经执行了<code>git add</code>操作，也就是文件的修改已经被提交到了暂存区怎么办呢？这时候就应该先执行<code>git reset HEAD filename</code>命令，把缓存区的修改放回工作区，再执行<code>git checkout -- filename</code>撤销工作区修改的文件。当你删除文件时候，也可以通过<code>git checkout -- filename</code>命令恢复，因为对git来说，删除也是一种修改。</p>
-
-<h3 id="分支管理">分支管理</h3>
-<p>在实际开发中，可能会有很多分支，我们一般会把它们分为固定分支和临时分支，固定分支通常为<code>master</code>分支，指的是生产环境下的版本，<code>dev</code>为开发环境分支，用于开发完测试Bug，然后合并上线，这两个一般是固定的。临时分支一般是指，针对某个功能的开发而创建的分支，使用完就删除了。
-<strong>可参考：</strong>http://www.ruanyifeng.com/blog/2012/07/git.html</p>
-
 
 	  ]]></description>
 	</item>
